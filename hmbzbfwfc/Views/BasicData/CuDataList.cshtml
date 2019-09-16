@@ -1,0 +1,310 @@
+﻿@{
+    Layout = null;
+    int i = 0;
+    int b = 0;
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="zh" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="zh" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    @Html.Partial("_Title")
+
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/font-awesome4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/plugins/jbox-v2.3/jBox/Skins/Gray/jbox.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Theme/plugins/Flexigrid/css/flexigrid.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/Content/Theme/selector/css/ion.calendar.css" />
+
+    <style>
+        .addcolor { background-color: #f7f7f7;}
+
+        dl { margin-top: 0;   margin-bottom: 20px;   width: 170px; float: left;   }
+
+            dl dd table { font-family: '微软雅黑', '宋体', '黑体';  }
+
+            dl dd td { background-color: rgb(249,252,255); height: 24px; width: 160px; }
+
+            dl dd td:hover {    background-color: rgb(168,213,252);     cursor: default;     }
+            
+            dl dd td label:hover{cursor:pointer}
+
+            dl dd .main {   width: 400px;       }
+    </style>
+
+</head>
+<body class="fixed-top">
+
+
+    <div class="row">
+        <div class="span12">
+            <div class="widget box light-grey">
+                <div class="widget-title">
+                    <div class="widget-title">
+                        @if (ViewBag.type == "CS")
+                        {
+                            <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>门店出库数据统计</h4>
+                        }
+                        @if (ViewBag.type == "CF")
+                        {
+                            <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>门店入库数据统计</h4>
+                        }
+                        <div class="actions">
+                            <a class="btn btn-info " href="/BasicData/CuDataList?output=T&logincno=@(ViewBag.logincno)&type=@(ViewBag.type)@(ViewBag.parme)"><i class="icon-download"></i>&nbsp;导出</a>
+                        </div>
+                    </div>
+                    <div class="widget-body" style="margin-left:30px;">
+                        <div class="">
+                            <form class="form-horizontal" action="javascript:void(0)">
+                                <div class="form-group">
+                                    <div class="form-inline">
+                                        <select class="form-control" onchange="changetype();"  name="type" id="type" style="float:left;">
+                                            <option value="CS">选择统计类型</option>                                        
+                                            <option @(ViewBag.type=="CS"?"selected":"")       value="CS">出库数据</option>
+                                            <option @(ViewBag.type == "CF" ? "selected" : "") value="CF">入库数据</option>
+                                        </select>
+                                        <input type="text" class="date startdate form-control" placeholder="起始日期" style="width:120px;float:left;margin:0px 10px" /><span style="float:left;">~</span>
+                                        <input type="text" class="date enddate form-control" placeholder="结束日期" style="width:120px;float:left;margin:0px 10px" />
+                                        <dl>
+
+                                            <dd>
+                                                <input type="hidden" id="hpno" />
+                                                <input type="text" id="pname" name="proname" class=" form-control" placeholder="产品名称" style="width:160px" />
+                                                <table style="z-index: 9999999; position: absolute">
+                                                    <tbody id="utby"></tbody>
+                                                </table>
+                                            </dd>
+                                        </dl>
+                                        <dl  class="@(ViewBag.logincno == null ? "" :"hide")">
+
+                                            <dd>
+                                                <input type="hidden" id="hcno" />
+                                                <input type="text" id="cname" name="cusname" class=" form-control" placeholder="门店名称" style="width:160px" />
+                                                <table style="z-index: 9999999; position: absolute">
+                                                    <tbody id="ctb"></tbody>
+                                                </table>
+                                            </dd>
+                                        </dl>
+                                        
+                                        <a id="gritter-remove-all" class="btn btn-info" href="/BasicData/CuDataList?logincno=@ViewBag.logincno"><i class="icon-search"></i>&nbsp;重置</a>
+                                        <a id="gritter-remove-all" class="btn btn-info" href="javascript:void(0)" onclick="selectbylike();"><i class="icon-search"></i>&nbsp;搜索</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <table class="table table-hover table-bordered table-striped" id="tabInfo">
+                           
+                                <thead>
+                                    <tr class="widget-title">
+                                        <th style="width: 8px;" class="hide"><input type="checkbox" class="group-checkable" onclick="PackData.SelectAll(this)" /></th>
+                                        <th class="hidden-480">产品编号</th>
+                                         <th class="hidden-480">产品名称</th>
+                                        <th class="hidden-480">门店编号</th>
+                                        <th class="hidden-480">门店</th>
+                                        
+                                        <th class="hidden-480">箱数</th>
+                                        <th class="hidden-480">总数</th>
+                                        <th class="hidden-480">日期</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var item in ViewBag.list)
+                                    {
+                                        <tr class="@(i % 2 == 0 ? "" : "addcolor")">
+                                            <td>@item.pno</td>
+                                            <td>@item.pname</td>
+                                            <td>@item.xtcno</td>
+                                            <td>@item.xtcname</td>
+                                                                                     
+                                            <td>@item.acount</td>
+                                            <td>@item.pcount</td>
+                                            <td>@(DateTime.Parse(item.date.ToString()).ToString("yyyy-MM-dd"))</td>
+                                        </tr>
+                                        i++;
+                                    }
+                                    <tr><td colspan="9">总计：@ViewBag.sorcount</td></tr>
+                                </tbody>
+                            
+                        </table>
+                        <div class="row" id="mypager">
+                            <div class="pager" id="pager">
+                                @if (ViewBag.count > 10)
+                                {
+                                    <div style="float:right; margin-right:80px">
+                                        <span class="form-inline">
+                                            <select class="form-control" style="width: 120px;" id="pagesize" onchange="changepagesize()" number>
+                                                <option value="10">每页条数</option>
+                                                <option value="10">10</option>
+                                                <option value="20">20</option>
+                                                <option value="30">30</option>
+                                                <option value="40">40</option>
+                                                <option value="50">50</option>
+                                            </select>
+                                        </span>
+
+                                        @if (ViewBag.pageno != 1)
+                                        {
+                                            <a class="btn btn-default" href="/BasicData/CuDataList?logincno=@ViewBag.logincno&type=@ViewBag.type&pageno=1&pagesize=@ViewBag.pagesize&@ViewBag.parme">首页</a>
+                                            <a class="btn btn-default" href="/BasicData/CuDataList?logincno=@ViewBag.logincno&type=@ViewBag.type&pageno=@(ViewBag.pageno-1)&pagesize=@ViewBag.pagesize&@ViewBag.parme">上一页</a>
+                                        }
+                                        @for (int a = ViewBag.pageno; a <= ViewBag.pagecount; a++)
+                                        {
+                                            b++;
+
+                                            <a class="btn btn-default @(ViewBag.pageno==a? "active" : "") " href="/BasicData/CuDataList?logincno=@ViewBag.logincno&type=@ViewBag.type&pageno=@a&pagesize=@ViewBag.pagesize&@ViewBag.parme">@a</a>
+
+                                            if (b > 9)
+                                            {
+                                                break;
+                                            }
+
+                                        }
+
+                                        @if (ViewBag.pageno != ViewBag.pagecount)
+                                        {
+                                            <a class="btn btn-default" href="/BasicData/CuDataList?logincno=@ViewBag.logincno&type=@ViewBag.type&pageno=@(ViewBag.pageno+1)&pagesize=@ViewBag.pagesize&@ViewBag.parme">下一页</a>
+                                            <a class="btn btn-default" href="/BasicData/CuDataList?logincno=@ViewBag.logincno&type=@ViewBag.type&pageno=@ViewBag.pagecount&pagesize=@ViewBag.pagesize&@ViewBag.parme">尾页</a>
+                                        }
+
+                                        <span class="form-inline">
+                                            <input class="pageIndex form-control number" id="pageno" onchange="changepagenum();" value="@ViewBag.pageno" style="width:100px;" type="number" max="@ViewBag.pagecount" min="1" />
+                                        </span>
+                                    </div>
+                                }
+                                <div style="float:left;">
+                                    <span>
+                                        当前第<span style="font-size:16px; margin:10px;">@ViewBag.pageno</span>页
+                                        <span style="font-size:22px;margin:10px;">/</span>共
+                                        <span style="font-size:16px;margin:10px;">@ViewBag.pagecount</span>页
+                                        <span style="font-size:16px;margin:10px;">@ViewBag.count</span>条数据
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_Foot")
+    <script src="~/Content/Theme/selector/js/moment.min.js"></script>         <!--日期-->
+    <script src="~/Content/Theme/selector/js/moment.zh-cn.js"></script>       <!--日期-->
+    <script src="~/Content/Theme/selector/js/ion.calendar.min.js"></script>   <!--日期-->
+
+    <script>
+    function Setname(lt, pno) {
+        var data = $(lt);
+        $("#utby").hide();
+        $("#pname").val(data.text());
+        $("#hpno").val(pno);
+    }
+
+    $(function () {
+        $("#pname").keyup(function () {
+
+            $("#utby").hide();
+            $("#utby").show();
+            $("#utby").empty();
+            $.post("/BasicData/SelProd", { pname: $("#pname").val() }, function (e) {
+                var str = "";
+                console.log(e);
+                //e = JSON.parse(e);
+                if (e != "") {
+                    $.each(e, function (index, lt) {
+                        str += "<tr><td><label onclick='Setname(this,\"" + lt.pno + "\")'><input name='uid' type='radio' id='uid' value='" + lt.pno + "'>" + lt.pname + "</label>|" + lt.pno + "</td></tr>";
+                    })
+                } else {
+                    str += "<tr><td>未查询到产品</td></tr>";
+                }
+                $("#utby").append(str);
+            })
+        })
+    })
+
+    function Setcname(lt, cno) {
+        var data = $(lt);
+        $("#ctb").hide();
+        $("#cname").val(data.text());
+        $("#hcno").val(cno);
+    }
+
+    $(function () {
+        $("#cname").keyup(function () {
+
+            $("#ctb").hide();
+            $("#ctb").show();
+            $("#ctb").empty();
+            $.post("/BasicData/SelCus", { cname: $("#cname").val() }, function (e) {
+                var str = "";
+                console.log(e);
+                //e = JSON.parse(e);
+                if (e != "") {
+                    $.each(e, function (index, lt) {
+                        str += "<tr><td><label  onclick='Setcname(this,\"" + lt.pno + "\")'><input name='uid' type='radio' id='uid' value='" + lt.pno + "'>" + lt.pname + "</label>|" + lt.pno + "</td></tr>";
+                    })
+                } else {
+                    str += "<tr><td>未查询到客户</td></tr>";
+                }
+                $("#ctb").append(str);
+            })
+        })
+    })
+
+    
+    //日期
+    $(function () {
+        $('.date').each(function () {
+            $(this).ionDatePicker({
+                lang: 'zh-cn',
+                format: 'YYYY-MM-DD'
+            });
+        });
+    });
+
+    function changetype() {
+        var type = $("#type option:selected").val();
+        location.href = "/BasicData/CuDataList?logincno=@ViewBag.logincno&type=" + type;
+    }
+
+    function changepagesize() {
+        var pagesize = $("#pagesize").val();
+        location.href = "/BasicData/CuDataList?logincno=@ViewBag.logincno&pageno=@ViewBag.pageno&@Html.Raw(ViewBag.parme)&pagesize=" + pagesize + "&type=@ViewBag.type";
+    }
+
+    function changepagenum() {
+        var pageno = $("#pageno").val();
+        location.href = "/BasicData/CuDataList?logincno=@ViewBag.logincno&pageno=" + pageno + "&@Html.Raw(ViewBag.parme)&pagesize=@ViewBag.pagesize&type=@ViewBag.type";
+    }
+    function selectbylike() {
+        //var Detailname = $("#txtSearch").val();
+        var startdate = $(".startdate").val();
+        var enddate = $(".enddate").val();
+        var cno = $("#hcno").val();
+        var pno = $("#hpno").val();
+        var xtcno = $("#hxtcno").val();
+        if (enddate < startdate) {
+            alert("结束日期不能小于起始日期");
+        } else {
+            location.href = "CuDataList?logincno=@ViewBag.logincno&cno=" + cno + "&xtcno="+xtcno+"&pno=" + pno + "&startdate=" + startdate + "&enddate=" + enddate + "&type=@ViewBag.type";
+        }
+
+    }
+
+
+</script>
+
+</body>
+</html>

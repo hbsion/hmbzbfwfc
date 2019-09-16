@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="15eb3d2aa0354baf902244800c59ca41" Name="Diagram1" ZoomLevel="84">
+        <EntityTypeShape EntityType="yMfwfcjfModel.customer" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.Inv_Store" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.Inv_Custqty" Width="1.5" PointX="0.5" PointY="5" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.Inv_Stqty" Width="1.5" PointX="2.875" PointY="3.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.sal_cufgi" Width="1.5" PointX="2.875" PointY="2.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.InStore" Width="1.5" PointX="0.625" PointY="4.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.InStoreDetail" Width="1.5" PointX="0.625" PointY="4" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.sal_cuship" Width="1.5" PointX="3" PointY="1.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.sal_cure" Width="1.5" PointX="2.875" PointY="3" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.fw_code" Width="1.5" PointX="9" PointY="0.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.fw_cust" Width="1.5" PointX="9" PointY="1" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.fw_snmm" Width="1.5" PointX="10.875" PointY="0.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.xt_xtmenu" Width="1.5" PointX="9.25" PointY="4.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.bas_dict" Width="1.5" PointX="9.25" PointY="5.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.xt_uplist" Width="1.5" PointX="0.875" PointY="5.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.Gy_Czygl" Width="1.5" PointX="9.25" PointY="6.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.dhm_code" Width="1.5" PointX="4" PointY="0.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.dhm_cust" Width="1.5" PointX="5.5" PointY="0.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.dhm_fwout" Width="1.5" PointX="5.5" PointY="0.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.dhm_snmm" Width="1.5" PointX="4" PointY="0.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.xt_user_menu" Width="1.5" PointX="9.375" PointY="9.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.sal_re" Width="1.5" PointX="0.625" PointY="3.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.sal_ship" Width="1.5" PointX="2.875" PointY="4.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.sal_packa" Width="1.5" PointX="6" PointY="8.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.pdauser" Width="1.5" PointX="9.25" PointY="3.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.xt_unit" Width="1.5" PointX="9.25" PointY="7.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.xt_user_rms" Width="1.5" PointX="9.375" PointY="8.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.Inv_Lot" Width="1.5" PointX="0.625" PointY="6.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.hob_code" Width="1.5" PointX="11.625" PointY="5.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.hob_jianpin" Width="1.5" PointX="13.875" PointY="7.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.hob_juan" Width="1.5" PointX="13.625" PointY="8.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.hob_listdjjl" Width="1.5" PointX="11.75" PointY="8" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.hob_listjuan" Width="1.5" PointX="11.75" PointY="5.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.hob_share" Width="1.5" PointX="11.75" PointY="8.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.hob_ship" Width="1.5" PointX="11.5" PointY="4.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.hob_yuerin" Width="1.5" PointX="13.75" PointY="5.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.hob_yuerintemp" Width="1.5" PointX="13.875" PointY="6.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.hob_yuerout" Width="1.5" PointX="11.75" PointY="9.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.wx_accessToken" Width="1.5" PointX="2.875" PointY="6.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.wx_gid" Width="1.5" PointX="0.5" PointY="8.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.wx_mnu" Width="1.5" PointX="0.625" PointY="8" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.hob_listdzp" Width="1.5" PointX="13.625" PointY="5" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.hob_dzp" Width="1.5" PointX="13.25" PointY="4" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.hob_dzpsetup" Width="1.5" PointX="13.625" PointY="9.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.hob_bfwjf" Width="1.5" PointX="11.75" PointY="6.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.Inv_Mpart" Width="1.5" PointX="5.875" PointY="2.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.xt_process" Width="1.5" PointX="5.75" PointY="3.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.fw_more" Width="1.5" PointX="5.625" PointY="4.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.infoupdate" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.xt_images" Width="1.5" PointX="5.75" PointY="6" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.xt_webnote" Width="1.5" PointX="5.625" PointY="5.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.xt_oper" Width="1.5" PointX="7.5" PointY="2.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.xt_loca" Width="1.5" PointX="7.5" PointY="4.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.xt_shebei" Width="1.5" PointX="7.5" PointY="3.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.QueryLog" Width="1.5" PointX="6" PointY="9" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.hob_setup" Width="1.5" PointX="11.625" PointY="3.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.hob_pbyship" Width="1.5" PointX="9.5" PointY="9.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.inv_mlot" Width="1.5" PointX="0.5" PointY="9.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.hob_item" Width="1.5" PointX="11.5" PointY="7.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.sal_fgi" Width="1.5" PointX="3" PointY="8.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.sal_tst" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.hy_dian" Width="1.5" PointX="6.125" PointY="9.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.Inv_Part" Width="1.5" PointX="16.25" PointY="4.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.sal_packb" Width="1.5" PointX="3" PointY="7.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.vender" Width="1.5" PointX="2.75" PointY="10.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="yMfwfcjfModel.sal_tiaoji" Width="1.5" PointX="4.75" PointY="10.375" IsExpanded="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

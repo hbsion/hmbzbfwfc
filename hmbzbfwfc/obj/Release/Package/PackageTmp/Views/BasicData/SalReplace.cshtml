@@ -1,0 +1,115 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="zh" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="zh" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/font-awesome4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/plugins/jbox-v2.3/jBox/Skins/Gray/jbox.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Theme/plugins/Flexigrid/css/flexigrid.css" rel="stylesheet" />
+
+    <link href="/Content/Theme/selector/css/cityLayout.css" type="text/css" rel="stylesheet" />
+
+</head>
+<body class="fixed-top">
+
+    <div id="body">
+
+        <div class="row">
+            <div class="span12">
+                <div class="widget box light-grey">
+                    <div class="widget-title">
+                        <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>标签替换</h4>
+
+                    </div>
+
+                    <div class="tab-pane active" id="widget_tab1">
+                        <form action="SalReplaceAdd" method="post" backurl="SalReplaceList" id="commentForm">
+                            <table class="formtab_user table table-bordered table-hover mytable">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:50%;text-align:right">
+                                            原标签
+                                        </td>
+                                        <td style="width:50%">
+                                            <input id="oclass" style="width:182px;float:left" name="oclass" placeholder="原标签" class="form-control" type="text">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:right">
+                                            新标签
+                                        </td>
+                                        <td>
+                                            <input id="nclass" style="width:182px;float:left" name="nclass" placeholder="新标签" class="form-control" type="text">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td style=" color:red;" id="error"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="padding-left:42%;padding-bottom:10px;">
+                                            <button type="button" class="btn btn-info" onclick="Add()" style="margin:0px 50px 0px -50px;"> 提交保存</button>
+                                            <a href="SalReplaceList" type="button" class="btn btn-primary" onclick="">返回列表</a>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_Foot")
+
+    
+    <script>
+         function Add() {
+            
+            var targetUrl = $("#commentForm").attr("action");
+            var data = $("#commentForm").serialize();
+        
+            $.ajax({
+                url: targetUrl,
+                data: data,
+                type: 'post',
+                dataType: 'json',
+                success: function (data) {
+                    if (data["status"] == "success") {
+                        $.jBox.tip(data["data"], "success");
+                        $("#oclass").val("");
+                        $("#nclass").val("");
+                        $("#error").empty();
+                        $("#error").append(data["data"]);
+                    } else {
+                        $.jBox.tip(data["data"], "error");
+                        $("#error").empty();
+                        $("#error").append(data["data"]);
+                    }
+                },
+                error: function () {
+                    $.jBox.tip("erroe:操作失败", "error");
+                }
+            })
+        }
+    </script>
+
+
+
+</body>
+</html>

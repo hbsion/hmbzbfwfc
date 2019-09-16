@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+					
+.basecenter{width:100%;height:auto;}
+	.Notice{width:100%;height:auto; position:relative;background:#fff; display:block;}
+		.pass_top{width:auto;height:auto;padding:20px 10px 0 10px;overflow: hidden;}
+			.pass_top ol{width:100%;height:auto;background:#fff;padding-bottom:20px;}
+				.pass_top ol li{width:100%;height:45px;border-bottom:1px dashed #bebebf;line-height:45px;}
+					.pass_top ol li span{width:72%;float:left;height:45px;white-space:nowrap; text-overflow:ellipsis; -o-text-overflow:ellipsis; overflow: hidden; }
+					.pass_top ol li span a{width:100%;height:45px; display:block;color:#666666;}
+					.pass_top ol li time{width:28%;float:right; text-align:right;}
+		.pass_fot{width:100%;height:11px;background:url("../images/index_fot_fot.png")/*tpa=http://yyz.kansws.com.cn/static/css/default/home/images/index_fot_fot.png*/ repeat-x;  background-size:12px auto;position:absolute; z-index:11;left:0;bottom:-9px;}
+	
+		

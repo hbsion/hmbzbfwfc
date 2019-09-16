@@ -1,0 +1,72 @@
+﻿@{
+    Layout = null;
+}
+<div class="modal fade modal_ven" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document" style="background-color:#fff;margin-top: 100px;border-radius: 10px;">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="gridSystemModalLabel">选择供应商</h4>
+        </div>
+        <div class="modal-content" style="min-height:400px; max-height:400px; overflow:auto;">
+            <div class="tab-pane active" id="widget_tab1">
+                <table class="formtab_user table table-bordered table-hover mytable" style="width:95%">
+                    <thead>
+                        <tr>
+                            <td colspan="5">
+                                <input type="text" id="venparme" name="venparme" class="form-control" placeholder="输入名称/编号查询" style="width:180px;float:left;" />
+                                <button type="button" class="btn btn-primary" onclick="getven();" style="float:left;"><i class="fa fa-search"></i>查询</button>
+                            </td>
+                        </tr>
+                        <tr class="widget-title">
+                            <th class="hidden-480">--</th>
+                            <th class="hidden-480">供应商编号</th>
+                            <th class="hidden-480">供应商名称</th>
+                            <th class="hidden-480">省份</th>
+                            <th class="hidden-480">城市</th>
+                        </tr>
+                    </thead>
+                    <tbody id="showven"></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="setven();" data-dismiss="modal">确定</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
+        </div>
+    </div>
+</div> 
+<script>
+    function getven() {
+        var cusparme = $("#venparme").val();
+        $.ajax({
+            type: "post",
+            url: "/Ajax/GetVender",
+            data: { parme: cusparme},
+            dataType: "json",
+            success: function (data) {
+                var prod = ""
+                for (var i in data) {
+                    prod += '<tr><td><label><input type="radio" name="ven" id="ven" value="' + data[i].cu_no + '|' + data[i].cu_name + '" />选择</label></td>';
+                    prod += '<td>' + data[i].cu_no + '</td>';
+                    prod += '<td>' + data[i].cu_name + '</td>';
+                    prod += '<td>' + data[i].province + '</td>';
+                    prod += '<td>' + data[i].city + '</td></tr>';
+                }
+                if (data.length <= 0) {
+                    prod += "<tr><td colspan='5' style='text-align:center'>暂无供应商</td></tr>";
+                }
+                $("#showven").empty();
+                $("#showven").append(prod);
+            }, error: function (data, status, e) {
+
+            },
+        });
+    }
+
+    function setven() {
+        var xtcuno = $("input[name='ven']:checked").val();
+        var a = xtcuno.split('|');
+        $("#cu_no").val(a[0]);
+        $("#cu_name").val(a[1]);
+    }
+</script>

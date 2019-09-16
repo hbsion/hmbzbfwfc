@@ -1,0 +1,221 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="zh" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="zh" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/font-awesome4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/plugins/jbox-v2.3/jBox/Skins/Gray/jbox.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Theme/plugins/Flexigrid/css/flexigrid.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/Content/Theme/selector/css/ion.calendar.css" />
+    <style>
+           dl {margin-top: 0;margin-bottom: 20px;width: 170px;float: left;}
+
+            dl dd table {font-family: '微软雅黑', '宋体', '黑体';}
+
+            dl dd td {background-color: rgb(249,252,255);height: 24px;width: 160px;}
+
+            dl dd td:hover {background-color: rgb(168,213,252);cursor: default;}
+
+            dl dd .main {width: 400px;}
+    </style>
+</head>
+<body class="fixed-top">
+
+    <div id="body">
+
+        <div class="row">
+            <div class="span12">
+                <div class="widget box light-grey">
+                    <div class="widget-title">
+                        <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>产品退货扫描</h4>
+
+                    </div>
+
+                    <div class="tab-pane active" id="widget_tab1">
+                        <form id="ReForm">
+                            <table class="formtab_user table table-bordered table-hover mytable">
+                                <tbody>
+                                    <tr>
+                                        <td colspan="4" style="text-align:center;">
+                                            <a href="SalReScanPage" class="btn btn-info"><i class="fa fa-refresh"></i>重新扫描</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style=" text-align:right; width:20%;">退货日期</td>
+                                        <td style="width:30%;">
+                                            <input type="hidden" name="st_no" id="kbno" />
+                                            <input type="text" id="ckrq" class="form-control adate " value="@DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")" name="ship_date" style="width:182px" />
+                                        </td>
+                                        <td style=" text-align:right; width:20%;">单号</td>
+                                        <td style="width:30%;">
+                                            <input type="text" id="dh" class="form-control " value="@ViewBag.fgino" name="ship_no" style="width:182px" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style=" text-align:right;">退货产品</td>
+                                        <td>
+                                            <input type="text" readonly style="width:182px" id="cp" name="pname" class="form-control" />
+                                            <input type="hidden" id="cpno" name="p_no" />
+                                        </td>
+                                        <td style=" text-align:right;">退货客户</td>
+                                        <td>
+                                            <input type="text" id="cu_name" name="cu_name"  readonly style="width:182px;" class="form-control" />
+                                            <input type="hidden" id="cu_no" name="cu_no"/>
+                                        </td>
+                                    </tr>                                    
+
+
+                                    <tr>
+                                        <td style=" text-align:right;">件数</td>
+                                        <td><input type="text" class="form-control " readonly value="" name="js" id="js" style="width:182px" /></td>
+                                        <td style=" text-align:right;">产品数量</td>
+                                        <td><input type="text" class="form-control " readonly value="" name="cpsl" id="cpsl" style="width:182px" /></td>
+                                    </tr>
+
+                                    <tr style="height: 130px;">
+                                        <td style=" text-align:right;">条码编号</td>
+                                        <td>
+                                            <dl>
+                                                <dd>
+                                                    <input type="text" class="form-control " name="bsnno" value="" autocomplete="off" id="tmbh" style="width:182px"  />
+                                                    <table style="z-index: 9999999; position: absolute">
+                                                        <tbody id="utby"></tbody>
+                                                    </table>
+                                                </dd>
+                                            </dl>
+                                            <button type="submit" class="btn btn-info" style="margin: 10px 50px;"><i class="fa fa-hdd-o" aria-hidden="true"></i>保存</button>
+                                        </td>
+                                        <td colspan="2" id="result" style="height:130px; text-align: center;color: red;overflow: auto;position: absolute;width: 30%;"></td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_Foot")
+    <script src="/Content/Theme/selector/js/moment.min.js"></script>         <!--日期-->
+    <script src="/Content/Theme/selector/js/moment.zh-cn.js"></script>       <!--日期-->
+    <script src="/Content/Theme/selector/js/ion.calendar.min.js"></script>   <!--日期-->
+    <script type="text/javascript" src="/Content/Theme/Validate/jquery.validate.min.js"></script>      <!--验证-->
+    <script type="text/javascript" charset="GBK" src="/Content/Theme/Validate/messages_zh.js"></script><!--验证-->
+    <script>
+
+        function Setname(lt, pno,pname,stno,stname,cuno,cuname) {
+            var data = $(lt);
+            $("#utby").hide();
+            $("#tmbh").val(data.text());
+            $("#cpno").val(pno);
+            $("#cp").val(pname);
+            $("#kbno").val(stno);
+           
+            $("#cu_no").val(cuno);
+            $("#cu_name").val(cuname);
+        }
+
+        $(function () {
+            $("#tmbh").keyup(function () {
+
+                $("#utby").hide();
+                $("#utby").show();
+                $("#utby").empty();
+                $.post("/LogisticsManage/GetReCode", { tmbh: $("#tmbh").val() }, function (e) {
+                    var str = "";
+
+                    if (e != "") {
+                        $.each(e, function (index, lt) {
+                            str += "<tr><td><label><input name='uid' type='radio' id='uid' value='" + lt.p_no + "'><span  onclick='Setname(this,\"" + lt.p_no + "\",\"" + lt.pname + "\",\"" + lt.st_no + "\",\"" + lt.st_name + "\",\"" + lt.cu_no + "\",\"" + lt.cu_name + "\")'>" + lt.bsnno + "</span></label></td></tr>";
+                        })
+                    } else {
+                        str += "<tr><td>未查询到数码</td></tr>";
+                    }
+                    $("#utby").append(str);
+                })
+            })
+        })
+
+
+        //日期
+        $(function () {
+            $('.adate').each(function () {
+                $(this).ionDatePicker({
+                    lang: 'zh-cn',
+                    format: 'YYYY-MM-DD hh:mm:ss'
+                });
+            });
+        });
+
+
+
+
+        function submitshipdata() {
+
+            var data = $("#ReForm").serialize();
+            $.ajax({
+                type: "post",
+                url: "/LogisticsManage/SalReScan",
+                data: data,
+                dataType: "json",
+                success: function (data) {
+                    $("#result").prepend(data["data"]);
+                    if (data["status"] == true) {
+                        $("#js").val(data["js"]);
+                        $("#cpsl").val(data["cpsl"]);
+                        
+                    }
+                    $("#tmbh").val("");
+                }, error: function (data, status, e) {
+
+                },
+            });
+        }
+
+        document.onkeydown = function mykeyDown(e) {
+            e = e || event;
+            if (e.keyCode == 13) {
+                $.validator.setDefaults({
+                    submitHandler: function () {
+                        submitshipdata();
+                    }
+                });
+            }
+        }
+
+        $.validator.setDefaults({
+            submitHandler: function () {
+                submitshipdata();
+            }
+        });
+        $().ready(function () {
+            $("#ReForm").validate();
+        });
+
+
+
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,238 @@
+﻿@{
+    Layout = null;
+    int i = 0;
+    int b = 0;
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="zh" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="zh" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    @Html.Partial("_Title")
+
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/font-awesome4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/plugins/jbox-v2.3/jBox/Skins/Gray/jbox.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Theme/plugins/Flexigrid/css/flexigrid.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/Theme/selector/css/ion.calendar.css" />
+
+    <style>
+        .addcolor {
+            background-color: #f7f7f7;
+        }
+    </style>
+
+</head>
+<body class="fixed-top">
+
+
+    <div id="test">
+
+        <div class="row">
+            <div class="span12">
+                <div class="widget box light-grey">
+                    <div class="widget-title">
+                        <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>入库单列表</h4>
+                        <div class="actions">
+                            <a class="btn btn-primary" href="javascript:void(0)" onclick="location.href='EditInStoreBill'"><i class="icon-pencil"></i>&nbsp;新增</a>
+                            <a class="btn btn-danger" href="javascript:void(0)" onclick="Bill.BatchDel()"><i class="icon-trash"></i>&nbsp;删除</a>                          
+                        </div>
+                    </div>
+                    <div class="widget-body" style="margin-left:30px;">
+                        <div class="">
+                            <form class="form-horizontal" action="javascript:void(0)">
+                                <div class="form-group">
+                                    <div class="form-inline">
+                                        <input id="txtSearch" type="text" class="form-control" placeholder="输入单号查询" />
+                                        <input type="text" class="date startdate form-control" placeholder="起始日期" style="width:120px" />~
+                                        <input type="text" class="date enddate form-control" placeholder="结束日期" style="width:120px" />
+                                        <a id="gritter-remove-all" class="btn btn-info" href="javascript:void(0)" onclick="selectbylike();"><i class="icon-search"></i>&nbsp;搜索</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <table class="table table-hover table-bordered table-striped" id="tabInfo">
+                            <thead>
+                                <tr class="widget-title">
+                                    <th style="width: 8px;"><input type="checkbox" class="group-checkable" name="selall" onclick="Bill.SelectAll(this)" /></th>
+                                    <th class="hidden-480">入库单号</th>
+                                    <th class="hidden-480">入库类型</th>
+                                    <th class="hidden-480">供应商</th>
+                                    <th class="hidden-480">关联单号</th>
+                                    <th class="hidden-480">货品总数</th>
+                                    <th class="hidden-480">总金额</th>
+                                    <th class="hidden-480">状态</th>
+                                    <th class="hidden-480">制单人</th>
+                                    <th class="hidden-480">创建时间</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                @foreach (var item in ViewBag.list)
+                                {
+                                    <tr class="@(i % 2 == 0 ? "" : "addcolor")">
+                                        <td><input name="user_item" class="checkboxes" data="@item.fid" value="@item.fid" type="checkbox"></td>
+                                        <td>@item.OrderNum</td>
+                                        <td>@item.InType</td>
+                                        <td>@item.SupName</td>
+                                        <td>@item.ContractOrder</td>
+                                        <td>@item.Num</td>
+                                        <td>@item.Amount</td>
+                                        <td>@(Enum.GetName(typeof(hmbzbfwfc.Commons.DataEnum.InStoreBillStatus), item.Status))</td>
+                                        <td>@item.CreateUser</td>
+                                        <td>@item.CreateTime</td>
+                                        <td>
+                                            <a class="icon-edit" href="javascript:void(0)" onclick="location.href = 'EditInStoreBill?fid=@item.fid'" title="编辑"><i class="fa fa-pencil" aria-hidden="true"></i> </a>&nbsp;&nbsp;
+                                            <a class="icon-edit" data-toggle="modal" data-target=".model_see" href="ShowInStoreBill?type=ck&fid=@item.fid" title="查看"><i class="fa fa-eye" aria-hidden="true"></i> </a>&nbsp;&nbsp;
+                                            <a class="icon-edit" data-toggle="modal" data-target=".model_sh" href="ShowInStoreBill?type=sh&fid=@item.fid" title="审核"><i class="fa fa-check" aria-hidden="true"></i> </a>&nbsp;&nbsp;
+                                            <a class="icon-remove" href="javascript:void(0)" onclick="Bill.Delete('@item.fid')" title="删除"><i class="fa fa-trash-o" aria-hidden="true"></i></a>                                        
+                                        </td>
+                                    </tr>
+
+                                    i++;
+                                }
+                            </tbody>
+                        </table>
+                        <div class="row" id="mypager">
+                            <div class="pager" id="pager">
+                                @if (ViewBag.count > 10)
+                                {
+                                    <div style="float:right; margin-right:80px">
+                                        <span class="form-inline">
+                                            <select class="form-control" style="width: 120px;" id="pagesize" onchange="changepagesize()" number>
+                                                <option value="10">每页条数</option>
+                                                <option value="10">10</option>
+                                                <option value="20">20</option>
+                                                <option value="30">30</option>
+                                                <option value="40">40</option>
+                                                <option value="50">50</option>
+                                            </select>
+                                        </span>
+
+                                        @if (ViewBag.pageno != 1)
+                                        {
+
+                                            <a class="btn btn-default" href="/ERP/InStoreBillList?pageno=1&pagesize=@ViewBag.pagesize&@ViewBag.parme">首页</a>
+                                            <a class="btn btn-default" href="/ERP/InStoreBillList?pageno=@(ViewBag.pageno-1)&pagesize=@ViewBag.pagesize&@ViewBag.parme">上一页</a>
+                                        }
+                                        @for (int a = ViewBag.pageno; a <= ViewBag.pagecount; a++)
+                                        {
+                                            b++;
+
+                                            <a class="btn btn-default @(ViewBag.pageno==a? "active" : "") " href="/ERP/InStoreBillList?pageno=@a&pagesize=@ViewBag.pagesize&@ViewBag.parme">@a</a>
+                                            if (b > 9)
+                                            {
+                                                break;
+                                            }
+
+                                        }
+
+                                        @if (ViewBag.pageno != ViewBag.pagecount)
+                                        {
+
+                                            <a class="btn btn-default" href="/ERP/InStoreBillList?pageno=@(ViewBag.pageno+1)&pagesize=@ViewBag.pagesize&@ViewBag.parme">下一页</a>
+                                            <a class="btn btn-default" href="/ERP/InStoreBillList?pageno=@ViewBag.pagecount&pagesize=@ViewBag.pagesize&@ViewBag.parme">尾页</a>
+                                        }
+
+                                        <span class="form-inline">
+                                            <input class="pageIndex form-control" value="@ViewBag.pageno" style="width:60px;text-align:center" type="number" />
+                                        </span>
+                                    </div>
+                                }
+                                <div style="float:left;">
+                                    <span>
+                                        当前第<span style="font-size:16px; font-weight:bold;margin:10px;">@ViewBag.pageno</span>页
+                                        <span style="font-size:22px; font-weight:bold;margin:10px;">/</span>共
+                                        <span style="font-size:16px; font-weight:bold;margin:10px;">@ViewBag.pagecount</span>页
+                                        <span style="font-size:16px; font-weight:bold;margin:10px;">@ViewBag.count</span>条数据
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade model_see" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                            <div class="modal-dialog modal-lg" role="document" style="background-color:#fff;margin-top: 100px;border-radius: 10px;">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="gridSystemModalLabel">查看入库单</h4>
+                                </div>
+                                <div class="modal-content" style="min-height:400px; max-height:400px; overflow:auto;">
+                              
+                                </div>                                
+                            </div>
+                        </div> 
+
+                        <div class="modal fade model_sh" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                            <div class="modal-dialog modal-lg" role="document" style="background-color:#fff;margin-top: 100px;border-radius: 10px;">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="gridSystemModalLabel">审核入库单</h4>
+                                </div>
+                                <div class="modal-content" style="min-height:400px; max-height:400px; overflow:auto;">
+
+                                </div>
+                            </div>
+                        </div> 
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_Foot")
+
+    <script src="~/Content/Theme/selector/js/moment.min.js"></script>         <!--日期-->
+    <script src="~/Content/Theme/selector/js/moment.zh-cn.js"></script>       <!--日期-->
+    <script src="~/Content/Theme/selector/js/ion.calendar.min.js"></script>   <!--日期-->   
+
+    <script>
+        //日期
+        $(function () {
+
+            $('body').on('hidden.bs.modal', '.modal', function () {
+                $(this).removeData('bs.modal');
+            });
+
+            $('.date').each(function () {
+                $(this).ionDatePicker({
+                    lang: 'zh-cn',
+                    format: 'YYYY-MM-DD'
+                });
+            });
+        });
+
+        function changepagesize() {
+            var pagesize = $("#pagesize").val();
+            location.href = "/ERP/InStoreBillList?pageno=@ViewBag.pageno&@ViewBag.parme&pagesize=" + pagesize;
+        }
+
+        function selectbylike() {
+            var orderno = $("#txtSearch").val();
+            var startdate = $(".startdate").val();
+            var enddate = $(".enddate").val();
+            if (enddate < startdate) {
+                alert("结束日期不能小于起始日期");
+            } else {
+                location.href = "InStoreBillList?orderno=" + orderno + "&startdate=" + startdate + "&enddate=" + enddate;
+            }
+
+        }
+
+    </script>
+
+
+
+</body>
+</html>

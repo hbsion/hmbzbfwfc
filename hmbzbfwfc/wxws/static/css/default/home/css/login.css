@@ -1,0 +1,27 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+					
+.basecenter{width:100%;height:auto;}
+	.index_nr{width:auto;height:auto;padding:0 10px;}
+		.login{width:100%;height:auto;}
+			.login ol{width:100%;height:auto;padding-top:20px;}
+				.login ol li{width:100%;height:42px;margin-top:14px;}
+				.login ol li .Determine-item{box-sizing:border-box;width:100%;padding:0 10px 0 38px;font-size:14px;height:42px;border-radius:4px;color:#303030;background:#e2e2e2;}
+					.login ol li .login_zh{background:#e2e2e2 url("../images/login_01.png")/*tpa=http://yyz.kansws.com.cn/static/css/default/home/images/login_01.png*/ no-repeat 8px 6px;background-size:28px auto;}
+					.login ol li .login_mm{background:#e2e2e2 url("../images/login_02.png")/*tpa=http://yyz.kansws.com.cn/static/css/default/home/images/login_02.png*/ no-repeat 8px 6px;background-size:28px auto;}
+						.login ol li .yzm_left{width:55%;height:42px;float:left;}
+						.login ol li .yzm_right{width:42%;height:42px;float:right; text-align:center; overflow:hidden;}
+							.login ol li .yzm_right img{width:auto;height:42px;}
+							/*.login ol li .yzm_right a{width:100%;height:42px;background:#a9a9a9;border-radius:6px; display:block;line-height:42px; text-align:center;color:#fff;}*/
+			
+			
+			
+	
+
+
+
+		
+		
+		

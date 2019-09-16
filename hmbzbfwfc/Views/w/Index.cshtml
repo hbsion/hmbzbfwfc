@@ -1,0 +1,222 @@
+﻿@{
+    Layout = null;
+    int y = 1;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>产品溯源查询</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="物流溯源管理系统,二维码物流追踪,二维码防伪,防伪防窜货,防伪标签,二维码防伪" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="renderer" content="webkit" />
+
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="full-screen" content="yes" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="browsermode" content="application" />
+    <meta name="x5-page-mode" content="app" />
+
+    <link href="/w/AmazeUI/css/amazeui.min.css" rel="stylesheet" type="text/css" />
+    <link href="/w/AmazeUI/css/app.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="/w/AmazeUI/js/amazeui.min.js" type="text/javascript"></script>
+    <script src="pdm.js" type="text/javascript"></script>
+    <style>
+        .am-panel-title span {
+            font-weight: normal;
+            font-size: 95%;
+        }
+
+        .am-list-static, .am-comments-list li {
+            font-size: 90%;
+        }
+
+        .am-panel-bd {
+            padding: 0.75rem;
+        }
+
+        .am-comment-avatar {
+            color: #FFFFFF;
+            text-align: center;
+            line-height: 30px;
+            background: #0099CC;
+        }
+    </style>
+</head>
+<body>
+    <header data-am-widget="header" class="am-header am-header-default am-header-fixed">
+        <h1 class="am-header-title" id="fangwei_title" style="  margin: 0;font-size:1.2em;">溯源查询</h1>
+    </header>
+    <div id="pdm_slider_index" class="am-slider  am-slider-a5" data-am-slider='{&quot;directionNav&quot;:false}'>
+        <ul class="am-slides">
+            <li>&nbsp;</li>
+
+        </ul>
+    </div>
+    <article data-am-widget="paragraph" class="am-paragraph am-paragraph-default" data-am-paragraph="{ tableScrollable: true, pureview: true }" id="querynotresult" style="display:none;">
+        <hr data-am-widget="divider" style="" class="am-divider am-divider-dashed" />
+        <span id="span_notresult"></span>
+        <hr data-am-widget="divider" style="" class="am-divider am-divider-dashed" />
+    </article>
+    <div class="am-panel-group" id="queryresult">
+        <div class="am-panel am-panel-default">
+            <div class="am-panel-hd">
+                <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-0'}">
+                    <span>防伪查询</span>
+                </h4>
+            </div>
+            <div id="do-not-say-0" class="am-panel-collapse am-collapse am-in">
+                <div class="am-panel-bd">
+                    <span id="span_fangwei">您所查询的产品是正规产品，请放心使用。防伪码已被多次查询，谨防假冒</span>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="am-panel am-panel-default">
+            <div class="am-panel-hd">
+                <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-1'}">
+                    <span>基本信息</span>
+                </h4>
+            </div>
+            <div id="do-not-say-1" class="am-panel-collapse am-collapse">
+                <div class="am-panel-bd">
+                    <ul class="am-list am-list-static" id="ul_base">
+                        <li>溯源编码：@ViewBag.code </li>
+
+                        <li>产品名称：  @ViewBag.pmodel.pname </li>
+                        <li>香型： @ViewBag.pmodel.parttype </li>
+                        <li>净含量： @ViewBag.pmodel.type</li>
+                        <li>酒精度： @ViewBag.pmodel.loca </li>
+                        <li>单位：   @ViewBag.pmodel.unit </li>
+                        <li>执行标准： @ViewBag.pmodel.usetype  </li>
+                        <li>质量等级： @ViewBag.pmodel.fwcode </li>
+                        <li>主要原辅料： @ViewBag.pmodel.renote </li>
+                        <li>生产工艺：  @ViewBag.pmodel.usefor </li>
+                        <li>生产许可证： @ViewBag.pmodel.fwnote </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="am-panel am-panel-default" id="div_productimg">
+            <div class="am-panel-hd">
+                <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-5'}">
+                    <span>产品图片</span>
+                </h4>
+            </div>
+            <div id="do-not-say-5" class="am-panel-collapse am-collapse">
+                <div class="am-panel-bd" style="padding-top: 0px;">
+                    <img src="@ViewBag.pmodel.imgurl" width="300" height="350" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="am-panel am-panel-default">
+            <div class="am-panel-hd">
+                <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-2'}">
+                    <span>原料信息</span>
+                </h4>
+            </div>
+            <div id="do-not-say-2" class="am-panel-collapse am-collapse">
+                <a href="map">青稞种植地</a>
+                <ul class="am-comments-list am-comments-list-flip" id="ul_source">
+
+                    @foreach (var yl in ViewBag.ymodel)
+                    {
+                        <li class="am-comment"><a href="#"><span class="am-comment-avatar">@y</span></a><div class="am-comment-main"><div class="am-comment-bd"><p>原料名称：<a href="showinfo.html?type=source&amp;id=19">@yl.pname</a><br>规格型号：@yl.type<br>原料单位：@yl.unit<br></p></div></div></li>
+                        y++;
+                    }
+
+                </ul>
+            </div>
+        </div>
+        <div class="am-panel am-panel-default">
+            <div class="am-panel-hd">
+                <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-3'}">
+                    <span>生产流程</span>
+                </h4>
+            </div>
+            <div id="do-not-say-3" class="am-panel-collapse am-collapse">
+                <ul class="am-comments-list am-comments-list-flip" id="ul_process">
+                    <li class="am-comment"><a href="#"><span class="am-comment-avatar">1</span></a><div class="am-comment-main"><header class="am-comment-hd"><div class="am-comment-meta"><a href="#" class="am-comment-author" style="color:Black;">原料种植</a><span style="margin-left:30px">2017-03-15</span></div></header><div class="am-comment-bd"><p>青稞以山泉水灌溉并使用有机肥，天然无公害</p><figure data-am-widget="figure" class="am am-figure am-figure-default  am-figure-zoomable" data-am-figure="{pureview: &quot;true&quot;}"><img src="~/images/zz.jpg" data-rel="/images/zz.jpg" alt="原料种植" data-am-pureviewed="1"></figure><p></p></div></div></li>
+                    <li class="am-comment"><a href="#"><span class="am-comment-avatar">2</span></a><div class="am-comment-main"><header class="am-comment-hd"><div class="am-comment-meta"><a href="#" class="am-comment-author" style="color:Black;">原料粉碎</a><span style="margin-left:30px">2017-07-15</span></div></header><div class="am-comment-bd"><p>采用最新粉碎技术，粉碎精细度，适中使颗粒淀粉暴露出来，增加原料表面积，有利于淀粉颗粒的吸收膨胀和蒸煮糊化，糖化时增加与酶的接触，为糖化发酵创造良好条件</p><figure data-am-widget="figure" class="am am-figure am-figure-default  am-figure-zoomable" data-am-figure="{pureview: &quot;true&quot;}"><img src="~/images//3c074b72-26ce-4e6f-96af-df0fe36f5f02.png" data-rel="~/images//3c074b72-26ce-4e6f-96af-df0fe36f5f02.png" alt="原料粉碎" data-am-pureviewed="1"></figure><p></p></div></div></li>
+                    <li class="am-comment"><a href="#"><span class="am-comment-avatar">3</span></a><div class="am-comment-main"><header class="am-comment-hd"><div class="am-comment-meta"><a href="#" class="am-comment-author" style="color:Black;">配料</a><span style="margin-left:30px">2017-08-15</span></div></header><div class="am-comment-bd"><p>做到”稳、准、细、净”，对原料用量、配醅加糠的数量比例等要严格控制，并根据原料性质、气候条件进行必要调节，发酵的稳定。多种原料呼和使用，充分利用了各种粮食资源，而且能给微生物提供全面的英洋成分，原料中的用用成分经过微生物发酵代谢，产生多种副产物，使酒的香味、口味更为协调丰满。</p><figure data-am-widget="figure" class="am am-figure am-figure-default  am-figure-zoomable" data-am-figure="{pureview: &quot;true&quot;}"><img src="~/images//d5ec1d34-6e43-4ca0-aa97-e86958afc444.png" data-rel="~/images//d5ec1d34-6e43-4ca0-aa97-e86958afc444.png" alt="配料" data-am-pureviewed="1"></figure><p></p></div></div></li>
+                    <li class="am-comment"><a href="#"><span class="am-comment-avatar">4</span></a><div class="am-comment-main"><header class="am-comment-hd"><div class="am-comment-meta"><a href="#" class="am-comment-author" style="color:Black;">蒸煮糊化</a><span style="margin-left:30px">2017-09-15</span></div></header><div class="am-comment-bd"><p>利用蒸煮使淀粉糊化。蒸煮的温度和时间视原料种类粉碎成都等而定。蒸煮后外观蒸透，熟而不粘，内无生心</p><figure data-am-widget="figure" class="am am-figure am-figure-default  am-figure-zoomable" data-am-figure="{pureview: &quot;true&quot;}"><img src="~/images//da88fd3a-e842-4d26-8c8d-9bde3fdac313.png" data-rel="~/images//da88fd3a-e842-4d26-8c8d-9bde3fdac313.png" alt="蒸煮糊化" data-am-pureviewed="1"></figure><p></p></div></div></li>
+                    <li class="am-comment"><a href="#"><span class="am-comment-avatar">5</span></a><div class="am-comment-main"><header class="am-comment-hd"><div class="am-comment-meta"><a href="#" class="am-comment-author" style="color:Black;">冷却</a><span style="margin-left:30px">2017-10-15</span></div></header><div class="am-comment-bd"><p>用扬渣或晾渣的方法，使料迅速冷却，使之达到微生物事宜生长的温度</p><figure data-am-widget="figure" class="am am-figure am-figure-default  am-figure-zoomable" data-am-figure="{pureview: &quot;true&quot;}"><img src="~/images//4a84e77a-21f2-415a-8a5a-0d2145b5587d.png" data-rel="~/images//4a84e77a-21f2-415a-8a5a-0d2145b5587d.png" alt="冷却" data-am-pureviewed="1"></figure><p></p></div></div></li>
+                    <li class="am-comment"><a href="#"><span class="am-comment-avatar">6</span></a><div class="am-comment-main"><header class="am-comment-hd"><div class="am-comment-meta"><a href="#" class="am-comment-author" style="color:Black;">拌培发酵</a><span style="margin-left:30px">2018-03-15</span></div></header><div class="am-comment-bd"><p>采用边糖化边发酵工艺，扬渣之后，同时加入曲子和酒母。酒曲的用量适当，入窖的醅料适当 装好后，在醅料上盖上一层糠，用窖泥密封，在加上一层糠。</p><figure data-am-widget="figure" class="am am-figure am-figure-default  am-figure-zoomable" data-am-figure="{pureview: &quot;true&quot;}"><img src="~/images//753e8c1f-50ba-4105-a625-ca8f30bce39b.png" data-rel="~/images//753e8c1f-50ba-4105-a625-ca8f30bce39b.png" alt="拌培发酵" data-am-pureviewed="1"></figure><p></p></div></div></li>
+                    <li class="am-comment"><a href="#"><span class="am-comment-avatar">7</span></a><div class="am-comment-main"><header class="am-comment-hd"><div class="am-comment-meta"><a href="#" class="am-comment-author" style="color:Black;">蒸酒</a><span style="margin-left:30px">2018-04-15</span></div></header><div class="am-comment-bd"><p>通过蒸酒把酒醅中的酒精、水、高级醇、酸类等有效成分蒸发为蒸汽，再经冷却。</p><figure data-am-widget="figure" class="am am-figure am-figure-default  am-figure-zoomable" data-am-figure="{pureview: &quot;true&quot;}"><img src="~/images//f67a6e9f-3240-4dd5-a4a6-f71ff2f3c9f3.png" data-rel="~/images//f67a6e9f-3240-4dd5-a4a6-f71ff2f3c9f3.png" alt="蒸酒" data-am-pureviewed="1"></figure><p></p></div></div></li>
+                    <li class="am-comment"><a href="#"><span class="am-comment-avatar">8</span></a><div class="am-comment-main"><header class="am-comment-hd"><div class="am-comment-meta"><a href="#" class="am-comment-author" style="color:Black;">灌装</a><span style="margin-left:30px">2018-05-15</span></div></header><div class="am-comment-bd"><p>采用先进的流水线灌装，灌装流程细化灌装后的酒体达到清澈、透明、无悬浮物、无沉淀。</p><figure data-am-widget="figure" class="am am-figure am-figure-default  am-figure-zoomable" data-am-figure="{pureview: &quot;true&quot;}"><img src="~/images//36a940f5-d20f-4623-9faf-0e0a4fa7160c.png" data-rel="~/images//36a940f5-d20f-4623-9faf-0e0a4fa7160c.png" alt="灌装" data-am-pureviewed="1"></figure><p></p></div></div></li>
+                </ul>
+            </div>
+        </div>
+        <div class="am-panel am-panel-default">
+            <div class="am-panel-hd">
+                <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-4'}">
+                    <span>质量检验</span>
+                </h4>
+            </div>
+            <div id="do-not-say-4" class="am-panel-collapse am-collapse" style="">
+                <div class="am-panel-bd" style="padding-top: 0px;">
+                    <ul class="am-list am-list-static am-list-border" id="ul_test" style="padding-top:5px;"><li>检验日期：2018-06-01</li><li>检验单位：青岛质量技术监督局</li><li>报告编号：1</li><li>参考标准：GB/t10781.1</li><li>检验结果：合格</li></ul>
+                    <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-bordered am-no-layout" data-am-gallery="{  }" id="ul_testimage">
+                        <li><img src="~/images/20178185348.png" style="width:150px; height:200px" data-am-pureviewed="1"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default ">
+        <ul class="am-navbar-nav am-cf am-avg-sm-4">
+
+            <li>
+                <a id="href_wuliu">
+                    <span class="am-icon-truck"></span>
+                    <span class="am-navbar-label">产品溯源</span>
+                </a>
+            </li>
+            <li>
+                <a href="logisticsinfo?code=@ViewBag.code" id="href_fangwei">
+                    <span class="am-icon-search"></span>
+                    <span class="am-navbar-label">物流查询</span>
+                </a>
+            </li>
+            <li>
+                <a href="/q/?@ViewBag.code" id="href_redpack">
+                    <span class="am-icon-gift"></span>
+                    <span class="am-navbar-label">领红包</span>
+                </a>
+            </li>
+            <li>
+                <a href="about" id="href_aboutus">
+                    <span class="am-icon-smile-o"></span>
+                    <span class="am-navbar-label">关于我们</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.zhongjiu.cn/list/2-838-0-1-1-1.htm" id="href_contactus">
+                    <span class="am-icon-phone"></span>
+                    <span class="am-navbar-label">在线购买</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
+
+
+    <footer data-am-widget="footer" class="am-footer am-footer-default">
+        <div class="am-footer-miscs ">
+
+        </div>
+    </footer>
+
+</html>

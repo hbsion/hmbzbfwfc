@@ -1,0 +1,14 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+
+					
+.basecenter{width:100%;height:auto;}
+	.Notice_Details{width:auto;height:auto; position:relative;display:block;padding:0 10px;}
+		.Notice_Details_nr{width:100%;height:auto;overflow: hidden;padding-top:20px;}
+			.Notice_Details_nr h1{width:100%;height:auto;line-height:22px;padding:15px 0;text-align:center;font-size:18px;color:#e5007f;}
+			.Notice_Details_nr ol{width:100%;height:auto;padding-bottom:20px;}
+				.Notice_Details_nr ol li{width:100%;line-height:18px;margin:20px 0 20px 0;font-size:14px;color:#666;}
+				.Notice_Details_nr ol li img{width:100%;height:auto;}
+	
+		

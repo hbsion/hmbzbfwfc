@@ -1,0 +1,259 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="zh" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="zh" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/font-awesome4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/plugins/jbox-v2.3/jBox/Skins/Gray/jbox.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Theme/plugins/Flexigrid/css/flexigrid.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/Content/Theme/selector/css/upload.css" />
+    <link rel="stylesheet" href="~/Content/Theme/selector/css/ion.calendar.css" />
+    <!--kindeditor富文本编辑器-->
+    <link rel="stylesheet" href="../editor/Content/kindeditor/themes/default/default.css" />
+    <link rel="stylesheet" href="../editor/Content/kindeditor/plugins/code/prettify.css" />
+
+    <style>
+        img {
+            cursor: pointer;
+        }
+
+        #pic {
+            position: absolute;
+        }
+
+        #pic1 {
+            width: 300px;
+            height: 300px;
+            margin-left: 100px;
+            margin-top: -200px;
+            border-radius: 5px;
+            -webkit-box-shadow: 5px 5px 5px 5px hsla(0,0%,5%,1.00);
+            box-shadow: 5px 5px 5px 0px hsla(0,0%,5%,0.3);
+        }
+    </style>
+</head>
+<body class="fixed-top">
+
+    <div id="body">
+
+        <div class="row">
+            <div class="span12">
+                <div class="widget box light-grey">
+                    <div class="widget-title">
+                        <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>@(ViewBag.type == "add" ? "新增产品" : "修改产品")</h4>
+
+                    </div>
+
+                    <div class="tab-pane active" id="widget_tab1">
+
+                        <form action="InvLotAddOrUpd" method="post" backurl="InvLotList" id="commentForm">
+
+
+                            <table class="formtab_user table table-bordered table-hover mytable">
+                                <tbody>
+
+                                    <tr>
+                                        <td style="width:30%; text-align:right;">批号</td>
+                                        <td style="width:70%">
+                                            <input id="lot_no" name="lot_no" style="width: 280px" @(ViewBag.type == "add" ? "" : "readonly") onchange="@(ViewBag.type=="add" ? "pnochange();" : "")" placeholder="批号" value="@(ViewBag.type == "add" ? "" : ViewBag.model.lot_no)" class="form-control" type="text" required>
+                                            <span class="error" id="isok"></span>
+                                            <input type="hidden" value="@(ViewBag.type=="add" ? "" : ViewBag.model.fid)" name="fid">
+                                        </td>
+                                    </tr>
+
+
+
+                                    <tr>
+                                        <td style="width:30%; text-align:right;">产品</td>
+                                        <td style="width:70%">
+
+                                            <input type="text" onclick="getprod();" readonly style="width:300px;background-color: #fff;" id="pname" name="pname" class="form-control" data-toggle="modal" data-target=".modal_cp" required />
+                                            <input type="hidden" id="pno" name="p_no" />
+
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style=" text-align:right;">生产日期</td>
+                                        <td>
+                                            <input id="txtpr_date" style="width:182px" name="pr_date" placeholder="生产日期" value="@(ViewBag.type == "add" ? "" : ViewBag.model.pr_date)" class="form-control date" type="text">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style=" text-align:right;">产地</td>
+                                        <td>
+                                            <input id="txtmakeare" style="" name="makeare" placeholder="产地" value="@(ViewBag.type == "add" ? "" : ViewBag.model.makeare)" class="form-control" type="text">
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td style=" text-align:right;">批号样品图片</td>
+                                        <td class="container">
+                                            <div class="uploader white" style="height:32px;">
+                                                <input type="text" class="filename" id="filename" readonly=readonly style="height:32px;" />
+                                                <input type="button" name="file" class="button" value="选择" />
+                                                <input type="file" size="30" id="filePicture" name="filePicture" accept="*" onchange="filePictureChange()" />
+                                                <input type="hidden" value="@(ViewBag.type == "add" ? "" : ViewBag.model.imgurl)" name="imgurl" id="filepath" />
+                                            </div>
+                                            <img style="display:@(ViewBag.type == "add" ? "none" : "");" src="@(ViewBag.type == "add" ? "" : ViewBag.model.imgurl)" id="imgurl" width="100" height="100" />
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style=" text-align:right;">溯源及检验信息</td>
+                                        <td>
+                                            <textarea id="WebEditor1" cols="100" name="retxt" rows="8" style="width: 100%; height: 380px;">@(ViewBag.type == "add" ? "" : ViewBag.model.retxt) </textarea>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style=" text-align:right;">备注</td>
+                                        <td><textarea id="" style="width:100%" name="remark" placeholder="备注" class="form-control">@(ViewBag.type == "add" ? "" : ViewBag.model.remark) </textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="padding-left:30%;padding-bottom:10px;">
+                                            <button type="button" class="btn btn-info" onclick="Public.Add()" style="margin:0px 50px 0px -50px;"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 提交保存</button>
+
+                                            <button type="button" class="btn btn-danger" onclick="javascript:history.back(-1)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>取消返回</button>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_modal_pro");
+
+    @Html.Partial("_Foot")
+
+  
+    <script src="~/Content/Theme/selector/js/moment.min.js"></script>         <!--日期-->
+    <script src="~/Content/Theme/selector/js/moment.zh-cn.js"></script>       <!--日期-->
+    <script src="~/Content/Theme/selector/js/ion.calendar.min.js"></script>   <!--日期-->
+
+    <script type="text/javascript" src="/Content/Theme/selector/js/ajaxFileUpload.js"></script>
+    <script charset="utf-8" src="~/Content/Theme/editor/Content/kindeditor/kindeditor.js"></script>
+    <script charset="utf-8" src="~/Content/Theme/editor/Content/kindeditor/lang/zh_CN.js"></script>
+    <script charset="utf-8" src="~/Content/Theme/editor/Content/kindeditor/plugins/code/prettify.js"></script>
+
+    <script>
+    //kindeditor 富文本编辑器
+    KindEditor.ready(function (K) {
+        var editor1 = K.create('#WebEditor1', {
+            cssPath: '/Content/Theme/editor/Content/kindeditor/plugins/code/prettify.css',
+            uploadJson: '/Content/Theme/editor/Content/uptools/upload_json.ashx',
+            fileManagerJson: '/Content/Theme/editor/Content/uptools/file_manager_json.ashx',
+            allowFileManager: true,
+            afterCreate: function () {
+                this.sync();
+            },
+            afterBlur: function () {
+                this.sync();
+            }
+        });
+        prettyPrint();
+    });
+
+
+
+        $(function () {
+
+
+            $('.date').each(function () {
+                $(this).ionDatePicker({
+                    lang: 'zh-cn',
+                    format: 'YYYY-MM-DD'
+                });
+            });
+        });;
+
+        //文件上传
+        $(function () {
+
+
+            $("input[type=file]").each(function () {
+                if ($(this).val() == "") { $(this).parents(".uploader").find(".filename").val("未选择文件..."); }
+            });
+
+
+        });
+        function filePictureChange() {
+            $.ajaxFileUpload({
+                url: "/UploadFile/MD5Upload", //用于文件上传的服务器端请求地址
+                type: "post",
+                secureuri: false, //一般设置为false
+                fileElementId: "filePicture", //文件上传空间的id属性
+                dataType: "json", //返回值类型 一般设置为json
+                success: function (data, status) {  //服务器成功响应处理函数
+                    //var json = JSON.stringify(data);
+                    document.getElementById("filename").value = data["FileName"];
+                    document.getElementById("filepath").value = data["FilePath"];
+                    document.getElementById("imgurl").src = data["FilePath"];
+                    $("#imgurl").css("display", "");
+                },
+                error: function (data, status, e) {  //服务器响应失败处理函数
+                    alert("上传错误：" + e);
+                }
+            });
+        };
+
+
+
+        $.validator.setDefaults({
+            submitHandler: function () {
+                document.getElementById("commentForm").submit();
+            }
+        });
+        $().ready(function () {
+            $("#commentForm").validate();
+        });
+
+
+        function pnochange() {
+            $("#isok").hide();
+            $("#isok").show();
+            $("#isok").empty();
+            $.ajax({
+                type: "post",
+                url: "/BasicData/CheckNo",
+                data: { pno: $("#p_no").val() },
+                dataType: "json",
+                success: function (data) {
+                    $("#isok").append(data["data"]);
+                }, error: function (data, status, e) {
+
+                },
+            });
+        }
+
+
+    </script>
+
+
+
+</body>
+</html>

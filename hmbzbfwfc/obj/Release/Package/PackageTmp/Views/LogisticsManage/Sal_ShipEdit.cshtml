@@ -1,0 +1,443 @@
+﻿@{
+    Layout = null;
+    int i = 0;
+    int b = 0;
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="zh" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="zh" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    @Html.Partial("_Title")
+
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/font-awesome4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css"  rel="stylesheet" type="text/css" />
+    <link href="/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/plugins/jbox-v2.3/jBox/Skins/Gray/jbox.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Theme/plugins/Flexigrid/css/flexigrid.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/Content/Theme/selector/css/ion.calendar.css" />
+
+    <link rel="stylesheet" href="/Content/Theme/selector/css/upload.css" />
+    <style>
+        .addcolor {
+            background-color: #f7f7f7;
+        }
+
+       dl {margin-top: 0; margin-bottom: 20px;width: 170px;float: left;        }
+       dl dd  table {  font-family: '微软雅黑', '宋体', '黑体'; }
+       dl dd td {background-color: rgb(249,252,255);  height: 24px;   width: 160px;}
+       dl dd td:hover { background-color: rgb(168,213,252);cursor: default;}
+       dl dd .main { width:400px;}       
+       dl dd td label:hover{cursor:pointer}
+    </style>
+
+</head>
+<body class="fixed-top">
+
+
+  
+        <div class="row">
+            <div class="span12">
+                <div class="widget box light-grey">
+                    <div class="widget-title">
+                        <div class="widget-title">
+                            <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>出库数据明细</h4>
+                            <div class="actions">
+                                <a class="btn btn-primary hide" href="javascript:void(0)" onclick="location.href='ShipDataToExcel'"><i class="icon-pencil"></i>&nbsp;导出</a>
+                            </div>
+                        </div>
+                        
+                        <div class="widget-body" style="margin-left:30px;">
+                            <span style="color:red;">
+                                操作说明： 1.选择条件查询，将列出内容  2.输入新的内容，点击修改，将修改改变的内容
+                            </span>
+                            <hr />
+                            <div class="">
+                                <form class="form-horizontal" action="javascript:void(0)">
+                                    <div class="form-group">
+                                        <div class="form-inline" >
+                                            <input id="txtSearch" type="text" class="form-control" value="@ViewBag.shipname" placeholder="箱码/条码"  /> 
+                                            <span style="color:#808080">出库日期</span>
+                                            <input type="text" class="date startdate form-control" placeholder="起始日期" value="@(ViewBag.startdate==null? DateTime.Now.ToString("yyyy-MM-dd") : ViewBag.startdate)"  />
+                                            <span>~</span>
+                                            <input type="text" class="date enddate form-control" placeholder="结束日期" value="@(ViewBag.enddate==null? DateTime.Now.ToString("yyyy-MM-dd") : ViewBag.enddate)" />
+                                          
+                                            <input type="hidden" id="hpno" value="@ViewBag.pro" />
+                                            <input type="text" id="pname1" onclick="ogetprod();" placeholder="产品名称" readonly  style="width:182px;background-color: #fff;"  data-toggle="modal" data-target=".omodal_cp" name="proname" value="@ViewBag.pname" class=" form-control"  />
+                                            
+                                            <input type="hidden" id="hcno" value="@ViewBag.cus" />
+                                            <input type="text" id="cname" name="cusname" value="@ViewBag.cname" class=" form-control" placeholder="经销商名称"  data-toggle="modal" data-target=".omodal_cus" onclick="ogetcus();" readonly style="width:182px;background-color: #fff;" />
+                                               
+                                            <input type="text" id="shipno"  class=" form-control" placeholder="单号" value="@ViewBag.shipno" />
+                                            <a id="gritter-remove-all"  class="btn btn-info" href="javascript:void(0)" onclick="selectbylike();"><i class="icon-search"></i>&nbsp;搜索</a>  
+                                            <a id="gritter-remove-all"  class="btn btn-info" href="Sal_ShipEdit" onclick=""><i class="icon-search"></i>&nbsp;刷新</a>                                            
+                                        </div> 
+                                                                           
+                                    </div>                                   
+                                </form>                              
+                            </div>
+                           
+                            <hr/>                           
+                           
+                            <div class="" >
+                                <form class="form-horizontal" id="shipedit" action="javascript:void(0)">
+                                    <div class="form-group">
+                                        <div class="form-inline">
+                                            
+                                            <input type="text" id="nshipno" class="enddate form-control" placeholder="单号" value="" />
+                                            <input type="text" id="nshipdate" class="date form-control" placeholder="出库日期" value="" />
+                                            <input type="text" onclick="getprod();" placeholder="产品名称" readonly required style="width:182px;background-color: #fff;" id="pname" name="pname" class="form-control" data-toggle="modal" data-target=".modal_cp" />
+                                            <input type="hidden" id="pno" name="p_no" />
+                                            <input type="text" id="cu_name" name="cu_name" placeholder="经销商名称" required data-toggle="modal" data-target=".modal_cus" onclick="getcus();" readonly style="width:182px;background-color: #fff;" class="form-control" />
+                                            <input type="hidden" id="cu_no" name="cu_no" />
+                                            <a id="gritter-remove-all"  class="btn btn-info" href="javascript:void(0)" onclick="updship();"><i class="icon-search"></i>&nbsp;修改</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <hr />
+
+                            <table class="table table-hover table-bordered table-striped" id="tabInfo">
+                                <thead>
+                                    <tr class="widget-title">
+
+                                        <th class="hidden-480">出库单号</th>
+                                        <th class="hidden-480">条码编号</th>
+                                        <th class="hidden-480">出库日期</th>
+                                        <th class="hidden-480">产品编码</th>
+                                        <th class="hidden-480">产品名称</th>
+                                        <th class="hidden-480">经销商编码</th>
+                                        <th class="hidden-480">经销商名称</th>
+                                        <th class="hidden-480">包装规格</th>
+                                       
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    @foreach (var item in ViewBag.list)
+                                    {
+
+                                        <tr class="@(i % 2 == 0 ? "" : "addcolor")">
+                                            <td>@item.ship_no</td>
+                                            <td>@item.bsnno  @*@(item.upyn=="R" ? "(已退货)" : "")*@</td>
+                                            <td>@item.ship_date</td>   
+                                            <td>@item.p_no</td>                                         
+                                            <td>@item.pname</td>
+                                            <td>@item.cu_no</td>
+                                            <td>@item.cu_name</td>                                            
+                                            <td>@item.mqty</td>
+                                        </tr>
+
+                                        i++;
+                                    }
+                                </tbody>
+                            </table>
+                            <div class="row" id="mypager">
+                                <div class="pager" id="pager">
+                                    @if (ViewBag.count > 10)
+                                    {
+                                        <div style="float:right; margin-right:80px">
+
+                                            <span class="form-inline">
+                                                <select class="form-control" style="width: 120px;" id="pagesize" onchange="changepagesize()" number>
+                                                    <option value="10">每页条数</option>
+                                                    <option value="10">10</option>
+                                                    <option value="20">20</option>
+                                                    <option value="30">30</option>
+                                                    <option value="40">40</option>
+
+                                                </select>
+                                            </span>
+
+                                            @if (ViewBag.pageno != 1)
+                                            {
+                                                <a class="btn btn-default" href="Sal_ShipEdit?pageno=1&pagesize=@ViewBag.pagesize&@ViewBag.parme">首页</a>
+                                                <a class="btn btn-default" href="Sal_ShipEdit?pageno=@(ViewBag.pageno-1)&pagesize=@ViewBag.pagesize&@ViewBag.parme">上一页</a>                                                
+                                            }
+                                            @for (int a = ViewBag.pageno; a <= ViewBag.pagecount; a++)
+                                            {
+                                                b++;
+                                                <a class="btn btn-default @(ViewBag.pageno==a? "active" : "") " href="Sal_ShipEdit?pageno=@a&pagesize=@ViewBag.pagesize&@ViewBag.parme">@a</a>                                                
+                                                if (b > 9)
+                                                {
+                                                    break;
+                                                }
+
+                                            }
+
+                                            @if (ViewBag.pageno != ViewBag.pagecount)
+                                            {
+                                            
+                                                    <a class="btn btn-default" href="Sal_ShipEdit?pageno=@(ViewBag.pageno+1)&pagesize=@ViewBag.pagesize&@ViewBag.parme">下一页</a>                                              
+                                                    <a class="btn btn-default" href="Sal_ShipEdit?pageno=@ViewBag.pagecount&pagesize=@ViewBag.pagesize&@ViewBag.parme">尾页</a>                                            
+                                            }
+
+                                            <span class="form-inline">
+                                                <input class="pageIndex form-control number" id="pageno" onchange="changepagenum();" value="@ViewBag.pageno" style="width:100px;text-align:center" type="number" max="@ViewBag.pagecount" min="1"/>
+                                            </span>                                            
+                                        </div>
+                                    }
+                                    <div style="float:left;">
+                                        <span>
+                                            当前第<span style="font-size:16px; font-weight:bold;margin:10px;">@ViewBag.pageno</span>页
+                                            <span style="font-size:22px; font-weight:bold;margin:10px;">/</span>共
+                                            <span style="font-size:16px; font-weight:bold;margin:10px;">@ViewBag.pagecount</span>页
+                                            <span style="font-size:16px; font-weight:bold;margin:10px;">@ViewBag.count</span>条数据
+                                        </span>
+                                    </div>
+
+                                    <div class="modal fade omodal_cp" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                                        <div class="modal-dialog modal-lg" role="document" style="background-color:#fff;margin-top: 100px;border-radius: 10px;">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="gridSystemModalLabel">选择产品</h4>
+                                            </div>
+                                            <div class="modal-content" style="min-height:400px; max-height:400px; overflow:auto;">
+                                                <div class="tab-pane active" id="widget_tab1">
+                                                    <table class="formtab_user table table-bordered table-hover mytable" style="width:95%">
+                                                        <thead>
+                                                            <tr>
+                                                                <td colspan="5">
+                                                                    <input type="text" id="oprodparme" name="prodparme" class="form-control" placeholder="输入产品名称/编号查询" style="width:180px;float:left;" />
+                                                                    <button type="button" class="btn btn-primary" onclick="ogetprod('@ViewBag.cu_no');" style="float:left;"><i class="fa fa-search"></i>查询</button>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="widget-title">
+                                                                <th class="hidden-480">--</th>
+                                                                <th class="hidden-480">产品编号</th>
+                                                                <th class="hidden-480">产品名称</th>
+                                                                <th class="hidden-480">产品规格</th>
+                                                                <th class="hidden-480">单位</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="oshowprod"></tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" onclick="osetpro();" data-dismiss="modal">确定</button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal fade omodal_cus" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                                        <div class="modal-dialog modal-lg" role="document" style="background-color:#fff;margin-top: 100px;border-radius: 10px;">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="gridSystemModalLabel">选择企业</h4>
+                                            </div>
+                                            <div class="modal-content" style="min-height:400px; max-height:400px; overflow:auto;">
+                                                <div class="tab-pane active" id="widget_tab1">
+                                                    <table class="formtab_user table table-bordered table-hover mytable" style="width:95%">
+                                                        <thead>
+                                                            <tr>
+                                                                <td colspan="5">
+                                                                    <input type="text" id="ocusparme" name="cusparme" class="form-control" placeholder="输入名称/编号查询" style="width:180px;float:left;" />
+                                                                    <button type="button" class="btn btn-primary" onclick="ogetcus('@ViewBag.cuno');" style="float:left;"><i class="fa fa-search"></i>查询</button>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="widget-title">
+                                                                <th class="hidden-480">--</th>
+                                                                <th class="hidden-480">企业编号</th>
+                                                                <th class="hidden-480">企业名称</th>
+                                                                <th class="hidden-480">省份</th>
+                                                                <th class="hidden-480">城市</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="oshowcus"></tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" onclick="osetcus();" data-dismiss="modal">确定</button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script>
+                                        function ogetcus(xtcuno) {
+                                            var cusparme = $("#ocusparme").val();
+                                            $.ajax({
+                                                type: "post",
+                                                url: "/Index/GetCustomer",
+                                                data: { parme: cusparme, xtcuno: xtcuno },
+                                                dataType: "json",
+                                                success: function (data) {
+                                                    var prod = ""
+                                                    for (var i in data) {
+                                                        prod += '<tr><td><label><input type="radio" name="cus" id="cus" value="' + data[i].cu_no + '|' + data[i].cu_name + '" />选择</label></td>';
+                                                        prod += '<td>' + data[i].cu_no + '</td>';
+                                                        prod += '<td>' + data[i].cu_name + '</td>';
+                                                        prod += '<td>' + data[i].province + '</td>';
+                                                        prod += '<td>' + data[i].city + '</td></tr>';
+                                                    }
+                                                    if (data.length <= 0) {
+                                                        prod += "<tr><td colspan='5' style='text-align:center'>暂无经销商</td></tr>";
+                                                    }
+                                                    $("#oshowcus").empty();
+                                                    $("#oshowcus").append(prod);
+                                                }, error: function (data, status, e) {
+
+                                                },
+                                            });
+                                        }
+
+                                        function osetcus() {
+                                            var xtcuno = $("input[name='cus']:checked").val();
+                                            var a = xtcuno.split('|');
+                                            $("#hcno").val(a[0]);
+                                            $("#cname").val(a[1]);
+                                        }
+                                    </script>
+
+                                    @Html.Partial("_modal_cus")
+
+                                    @Html.Partial("_modal_pro")
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @Html.Partial("_Foot")
+        <script src="~/Content/Theme/selector/js/moment.min.js"></script>         <!--日期-->
+        <script src="~/Content/Theme/selector/js/moment.zh-cn.js"></script>       <!--日期-->
+        <script src="~/Content/Theme/selector/js/ion.calendar.min.js"></script>   <!--日期-->
+
+        <script>
+            function ogetprod() {
+                var prodname = $("#oprodparme").val();
+                $.ajax({
+                    type: "post",
+                    url: "/Index/GetProd",
+                    data: { pname_no: prodname },
+                    dataType: "json",
+                    success: function (data) {
+                        var prod = ""
+                        for (var i in data) {
+                            prod += '<tr><td><label><input type="radio" name="oxtcunor" id="xtcunor" value="' + data[i].p_no + '|' + data[i].pname + '|' + data[i].type + '|' + data[i].bm_no + '|' + data[i].unit + '" />选择</label></td>';
+                            prod += '<td>' + data[i].p_no + '</td>';
+                            prod += '<td>' + data[i].pname + '</td>';
+                            prod += '<td>' + data[i].type + '</td>';
+                            prod += '<td>' + data[i].unit + '</td></tr>';
+                        }
+
+                        if (data.length <= 0) {
+                            prod += "<tr><td colspan='5' style='text-align:center'>暂无产品</td></tr>";
+                        }
+                        $("#oshowprod").empty();
+                        $("#oshowprod").append(prod);
+                    }, error: function (data, status, e) {
+
+                    },
+                });
+            }
+
+            function osetpro() {
+                var xtpno = $("input[name='oxtcunor']:checked").val();
+                var a = xtpno.split('|');
+                $("#hpno").val(a[0]);
+                $("#pname1").val(a[1]);
+            }
+            
+    //日期
+    $(function () {
+        $('.date').each(function () {
+            $(this).ionDatePicker({
+                lang: 'zh-cn',
+                format: 'YYYY-MM-DD'
+            });
+        });
+    });
+
+    function changepagesize() {
+        var pagesize = $("#pagesize").val();
+        location.href = "Sal_ShipEdit?pageno=@ViewBag.pageno&@Html.Raw(ViewBag.parme)&pagesize=" + pagesize;
+    }
+
+    function changepagenum() {
+        var pageno = $("#pageno").val();
+
+        location.href = "Sal_ShipEdit?pagesize=@ViewBag.pagesize&@Html.Raw(ViewBag.parme)&pageno=" + pageno;
+    }
+
+    function selectbylike() {
+        var shipname = $("#txtSearch").val();
+        var startdate = $(".startdate").val();
+        var enddate = $(".enddate").val();
+        var cur = $("#hcno").val();
+        var pno = $("#hpno").val();
+        var shipno = $("#shipno").val();
+        var cname = $("#cname").val();
+        var pname = $("#pname1").val();
+        if (enddate < startdate || startdate=="") {
+            alert("日期不能为空并且结束日期不能小于起始日期");
+        } else {
+            location.href = "Sal_ShipEdit?shipname=" + shipname + "&startdate=" + startdate + "&enddate=" + enddate + "&cus=" + cur + "&pro=" + pno + "&shipno=" + shipno+"&cname="+cname+"&pname="+pname;
+        }
+
+    }
+    
+    
+
+    function updship() {
+        var submit = function (v, h, f) {
+            if (v == 'ok') {
+                var shipname = $("#txtSearch").val();
+                var startdate = $(".startdate").val();
+                var enddate = $(".enddate").val();
+                var cur = $("#hcno").val();
+                var pno = $("#hpno").val();
+                var shipno = $("#shipno").val();
+                var npname = $("#pname").val();
+                var npno = $("#pno").val();
+                var ncno = $("#cu_no").val();
+                var ncname = $("#cu_name").val();
+                var nshipno = $("#nshipno").val();
+                var nshipdate = $("#nshipdate").val();
+                var data = {
+                    shipname: shipname, startdate: startdate, enddate: enddate, cur: cur, pro: pno, shipno: shipno,
+                    ncno: ncno, ncname: ncname, npno: npno, npname: npname, nshipdate: nshipdate, nshipno: nshipno
+                };
+                $.ajax({
+                    url: "Sal_ShipUpd",
+                    data: data,
+                    type: 'post',
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data["status"] == "success") {
+                            $.jBox.tip(data["data"], "success");                            
+                            setTimeout(function () { window.location.href = "Sal_ShipEdit"; }, 2000);
+                        } else {
+                            $.jBox.tip(data["data"], "error");
+                            
+                        }
+                    },
+                    error: function () {
+                        $.jBox.tip("erroe:操作失败", "error");
+                    }
+                })
+            }
+        };
+        $.jBox.confirm("确定要修改吗？", "提示", submit);        
+
+    }
+
+
+</script>
+
+</body>
+</html>

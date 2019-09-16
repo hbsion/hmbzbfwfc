@@ -1,0 +1,71 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+					
+.basecenter{width:100%;height:auto; }
+	.Orderto{width:auto;height:auto;padding:0 10px;}
+		/********订单明细*******/
+		.Orderto_Details{width:100%;height:auto;display:block;margin-top:20px;}
+			.Orderto_Details_title{width:100%;height:50px;}
+				.Orderto_Details_title ol{width:100%;height:50px;}
+					.Orderto_Details_title ol li{line-height:50px;font-size:20px;color:#57a700;padding-left:8px;}
+			.Orderto_Details_text{width:100%;height:auto;background:#fff; position: relative;-webkit-box-shadow:1px 2px 4px #DBDBDB;-moz-box-shadow:1px 2px 4px #DBDBDB;}
+				.Orderto_Details_text ol{width:auto;height:auto;padding:15px 20px;}
+					.Orderto_Details_text ol li{line-height:26px;font-size:16px;}
+				.Orderto_Details_text span.bj{width:100%;height:11px;background:url("../images/index_fot_fot.png")/*tpa=http://yyz.kansws.com.cn/static/css/default/home/images/index_fot_fot.png*/ repeat-x;  background-size:12px auto;position:absolute; z-index:11;left:0;bottom:-9px;}
+	
+	
+	
+		/************* 流程 *************/
+		.Flow{width:100%;height:auto;}
+			.Flow_title{width:100%;height:50px;background:#66c300;}
+				.Flow_title ol{width:100%;height:50px;}
+					.Flow_title ol li{width:22%;float:left;height:50px;line-height:50px;text-align:center;color:#fff;}
+					.Flow_title ol li.hover{width:34%;height:50px;float:Left;}
+			.Flow_text{width:100%;height:auto;position: relative;-webkit-box-shadow:1px 2px 4px #DBDBDB;-moz-box-shadow:1px 2px 4px #DBDBDB;padding:10px 0;background:#fff;}
+				.Flow_text ol{width:100%;height:auto;}
+					.Flow_text ol li{width:100%;height:40px;line-height:40px;}
+						.Flow_text ol li span{width:21%;height:40px;float:left; display:block; text-align:center;}
+						.Flow_text ol li span.hover{width:37%;height:40px;}
+			
+			
+			.Flow_text span.bj{width:100%;height:11px;background:url("../images/index_fot_fot.png")/*tpa=http://yyz.kansws.com.cn/static/css/default/home/images/index_fot_fot.png*/ repeat-x;  background-size:12px auto;position:absolute; z-index:11;left:0;bottom:-9px;}
+	
+	
+	
+	/********** 下载 ********/
+	
+	.dete{width:100%;height:auto;margin-top:40px;}
+		.dete ol{width:100%;height:auto;}
+			.dete ol li{width:100%;height:50px;background:#66c300; text-align:center;line-height:50px;margin:0 auto 30px auto;border-radius:6px;}
+			.dete ol li a{width:100%;height:50px; display:block;color:#fff;font-size:18px;}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		.userinfo_top{width:auto;height:auto;padding:20px 10px 0 10px;overflow: hidden;}
+			.userinfo_top ol{width:100%;height:auto;background:#fff;padding-bottom:20px;}
+				.userinfo_top ol li{width:100%;height:30px;line-height:30px;color:#666;font-size:16px;}
+		.userinfo_fot{width:100%;height:11px;background:url("../images/index_fot_fot.png")/*tpa=http://yyz.kansws.com.cn/static/css/default/home/images/index_fot_fot.png*/ repeat-x;  background-size:12px auto;position:absolute; z-index:11;left:0;bottom:-9px;}
+	
+		
+		.user_pic{width:70px;height:70px;position:absolute;background:#f0f; top:20px;right:20px; z-index:99;}
+			.user_pic .pic{width:70px;height:70px;display:block;float:left;}
+				.user_pic .pic img{width:70px;height:70px;border-radius:6px;-webkit-box-shadow:2px 1px 4px rgba(0, 0, 0, 0.53);-moz-box-shadow:2px 1px 4px rgba(0, 0, 0, 0.53);}
+				.user_pic .pic p{width: 20px;height: 20px;background:#000; position:absolute; line-height:19px;z-index:99;text-align: center;bottom:5px;right:5px; display:block;border-radius:4px;color:#82f900;filter:alpha(opacity:50);opacity:0.5;}
+		
+		
+		
+		
+				
+		
+		
+		

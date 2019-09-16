@@ -1,0 +1,42 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/*********头部 ********/
+.head{width:100%;height:54px;background:#e5007f;border-bottom:1px solid #f4f4f4; overflow:hidden;}
+	.head nav{width:auto;height:54px;padding:0 10px;}
+		.head_left{width:55%;height:54px;float:left;}
+			.head_left dl{width:100%;height:34px;margin-top:10px;}
+				.head_left dl dt{float:left;width:34px;height:34px;}
+					.head_left dl dt img{width:34px;height:34px;}
+				.head_left dl dd{color:#fff;font-size:18px;line-height:34px;}
+			
+			.head_left ol{width:100%;height:40px;margin-top:7px;}
+				.head_left ol li{width:100%;height:40px;}
+					.head_left ol li img{width:auto;height:100%;}
+		
+		.head_right{width:45%;height:54px;float:left;}
+			.head_right ol{float:right;width:auto;height:34px;margin-top:10px;}
+				.head_right ol li{float:left;width:34px;height:34px;margin-left:8px;Position:absolut; display:inline;}
+				.head_right ol li img{width:34px;height:34px;}
+
+
+			
+		.who_right{width:60%;background:#333436; display:block; overflow:hidden;float:right;padding-bottom:80px;position:absolute;right:0px;top:54px; z-index:1000;}
+	.who_right_top{width:100%;height:auto;}
+		.who_right_top dl{width:100%;height:auto;display:block;margin-bottom:1px;}
+			.who_right_top dl dt{width:auto;height:50px; display:block;border-right:0px solid #111;border-bottom:1px solid #494a4c;line-height:50px;}
+			.who_right_top dl dt .who_right_top_left{width:85%;height:50px;float:left;}
+				.who_right_top dl dt .who_right_top_left a{width:100%;height:50px; display:block;color:#fff;font-size:18px;}
+					.who_right_top dl dt .who_right_top_left img{width:28px;height:auto;margin:11px 8px 0 30px;}
+			.who_right_top dl dt .who_right_top_right{width:15%;height:50px;float:left; text-align:right;}
+				.who_right_top dl dt .who_right_top_right img{margin:12px 0 0 0;}
+				
+				
+	
+			who_right_top dl dd{width:100%;height:auto;}
+					.who_right_top dl dd span{width:100%;height:50px;border-bottom:1px solid #494a4c; display:block;background:url("../images/sanjiao_2.png")/*tpa=http://yyz.kansws.com.cn/static/css/default/home/images/sanjiao_2.png*/ no-repeat right 16px;text-indent:68px;}
+						.who_right_top dl dd span a{width:100%;height:50px;color:#999999;font-size:16px;line-height:50px; display:block;}
+	
+	
+	
+		.who_right_top dl.hover dt{background:#1d1d1d; display:block;border-right:0px solid #66c300;}

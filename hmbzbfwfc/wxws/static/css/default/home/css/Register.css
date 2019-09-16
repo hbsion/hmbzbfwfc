@@ -1,0 +1,69 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+
+					
+.basecenter{width:100%;height:auto;}
+	.Register{width:auto;height:auto;padding:0 10px;}
+		.Register_top{width:100%;height:auto;padding-top:20px;}
+			.Register_top_list{width:auto;height:auto;}
+			.Register_top_list ol{width:100%;height:auto;}
+				.Register_top_list ol li{width:100%;height:40px;margin-bottom:10px;}
+					.Register_top_list ol li .Determine-item{box-sizing:border-box;width:100%;padding:0 10px;font-size:14px;height:40px;border-radius:4px;color:#303030;background:#e0e0e0;}
+	
+		/******** 地址 *********/
+		.Register_top_add{width:100%;height:auto;}
+			.Register_add{width:100%;height:auto;}
+				.Register_add dl{width:100%;height:auto;;}
+					.Register_add dl dt{width:100%;height:45px;line-height:45px;text-indent:28px;}
+						.Register_add dl dt span{color:#e5007f;}
+					.Register_add dl dd{width:100%;height:45px;position:relative;overflow:hidden;}
+				.Register_add dl.Determine_xm dd span{width: 32%;height:42px;float:left;margin-right: 1%;}
+					.Register_add dl.Determine_xm dd span.add_jd{width:65%;height:42px;}
+				.Register_add dl .Determine-item{box-sizing:border-box;width:100%;padding:0 10px;font-size:14px;height:37px;border-radius:4px;color:#303030;background:#e2e2e2;}
+				.Register_add dl button.Determine-item{box-sizing:border-box;width:100%;padding:0 10px;font-size:14px;height:37px;border-radius:4px;color:#303030;background:#666;display:block;float:left;line-height:37px;color:#fff;text-align:center;border:0;}
+			.Register_add dl.Determine_xm dd .Determine-item.textarea{padding:8px 10px;height:80px}
+			.Register_add dl.Determine_xm dd select{position:relative;border:none;-webkit-appearance:none;background:#e2e2e2 url("../images/sanjiao_5.png")/*tpa=http://yyz.kansws.com.cn/static/css/default/home/images/sanjiao_5.png*/ no-repeat right;background-size:24px 15px; z-index:99;color:#666;}
+			
+			
+			.Register_add dl p .form-item{box-sizing:border-box;border:1px solid #d0cfcf;width:100%;padding:0 10px;font-size:14px;height:39px;border-radius:4px;color:#303030;background:#e2e2e2;}
+			.Register_add dl p .textarea{padding:8px 10px;height:100px;}
+			
+			
+			
+		/********** 证件  **************/
+		.Register_fot{width:100%;height:auto;}
+			.Register_fot_top{width:100%;height:auto;}
+				.Register_fot_top dl{width:100%;height:auto;}
+					.Register_fot_top dl dt{width:100%;height:40px;line-height:40px;}
+					.Register_fot_top dl dd{width:auto;height:40px;padding:10px;background:#e2e2e2;border-radius:4px;}
+						.Register_fot_top dl dd span.cer_left{width:70%;height:40px;background:#fff;float:left;border-radius:4px 0 0 4px;}
+							.Register_fot_top dl dd span.cer_left input{width:100%;height:40px;border:none;background:#fff;border-radius:4px 0 0 4px;color:#666;line-height:40px;}
+						.Register_fot_top dl dd span.cer_right{width:30%;height:40px;background:#e5007f;float:left;border-radius: 0 4px 4px 0;}
+							.Register_fot_top dl dd span.cer_right a{width:100%;height:40px; display:block;color:#fff;line-height:40px; text-align:center;}
+							
+				.Register_fot_top ol{width:100%;height:auto;padding-top:10px;}
+					.Register_fot_top ol li{line-height:18px;margin-bottom:20px;}
+						.Register_fot_top ol li img{width:auto;height:120px;}
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						

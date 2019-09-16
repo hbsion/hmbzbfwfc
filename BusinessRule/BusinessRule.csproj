@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3021F255-0A5C-4A43-A2EB-C46D445E225E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>marr.BusinessRule</RootNamespace>
+    <AssemblyName>marr.BusinessRule</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.5.452, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="brBarcode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="brBasfwjf.cs" />
+    <Compile Include="brBasoneto.cs" />
+    <Compile Include="brBillNumber.cs" />
+    <Compile Include="brCorder.cs" />
+    <Compile Include="brCuReScan.cs" />
+    <Compile Include="brCuSaleScan.cs" />
+    <Compile Include="brCuShipScan.cs" />
+    <Compile Include="brDfwcust.cs" />
+    <Compile Include="brDhmfwout.cs" />
+    <Compile Include="brFgilot.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="brFgiScan.cs" />
+    <Compile Include="brHbjianpin.cs" />
+    <Compile Include="brHbjuan.cs" />
+    <Compile Include="brHblistdjjl.cs" />
+    <Compile Include="brHblistjuan.cs" />
+    <Compile Include="brHbpbyship.cs" />
+    <Compile Include="brhydian.cs" />
+    <Compile Include="brHydianDjlist.cs" />
+    <Compile Include="brHydianJflist.cs" />
+    <Compile Include="brhyhy.cs" />
+    <Compile Include="brImages.cs" />
+    <Compile Include="brInvDaqu.cs" />
+    <Compile Include="brInvHunhe.cs" />
+    <Compile Include="brInvHunheb.cs" />
+    <Compile Include="brInvloca.cs" />
+    <Compile Include="brInvLotb.cs" />
+    <Compile Include="brInvmark.cs" />
+    <Compile Include="brInvmlot.cs" />
+    <Compile Include="brInvMpart.cs" />
+    <Compile Include="brInvYuanjiu.cs" />
+    <Compile Include="brInv_Lot.cs" />
+    <Compile Include="brOper.cs" />
+    <Compile Include="brPackb.cs" />
+    <Compile Include="brProcess.cs" />
+    <Compile Include="brProduct.cs" />
+    <Compile Include="brQclot.cs" />
+    <Compile Include="brReScan.cs" />
+    <Compile Include="brRmiScan.cs" />
+    <Compile Include="brSalPack.cs" />
+    <Compile Include="brShipScan.cs" />
+    <Compile Include="brStDian.cs" />
+    <Compile Include="brCustomer.cs" />
+    <Compile Include="brCzygl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="brfwcust.cs" />
+    <Compile Include="brHbsetup.cs" />
+    <Compile Include="brHbyuerout.cs" />
+    <Compile Include="brHobItem.cs" />
+    <Compile Include="brTellist.cs" />
+    <Compile Include="brTstScan.cs" />
+    <Compile Include="brUplogs.cs" />
+    <Compile Include="brVender.cs" />
+    <Compile Include="brWebnot.cs" />
+    <Compile Include="brwxaccess.cs" />
+    <Compile Include="brWxgid.cs" />
+    <Compile Include="brXtloca.cs" />
+    <Compile Include="brXtshebei.cs" />
+    <Compile Include="DbHelper.cs" />
+    <Compile Include="EntityUtilities.cs" />
+    <Compile Include="Entity\Barcode.cs" />
+    <Compile Include="Entity\Fwcode.cs" />
+    <Compile Include="Entity\User.cs" />
+    <Compile Include="Filter.cs" />
+    <Compile Include="IBrObject.cs" />
+    <Compile Include="ICustomEntity.cs" />
+    <Compile Include="ListContext.cs" />
+    <Compile Include="ListContextState.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sorter.cs" />
+    <Compile Include="Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
+      <Project>{A9DCAA4F-AD5F-44EC-966E-924AD88584B5}</Project>
+      <Name>DataLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\marr.BusinessRule.dll" />
+    <Content Include="bin\Debug\marr.BusinessRule.pdb" />
+    <Content Include="bin\Debug\marr.DataLayer.dll" />
+    <Content Include="bin\Debug\marr.DataLayer.pdb" />
+    <Content Include="bin\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="bin\Release\marr.BusinessRule.dll" />
+    <Content Include="bin\Release\marr.BusinessRule.pdb" />
+    <Content Include="bin\Release\marr.DataLayer.dll" />
+    <Content Include="bin\Release\marr.DataLayer.pdb" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

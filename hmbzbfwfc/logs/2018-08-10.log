@@ -1,0 +1,86 @@
+2018-08-10 05:40:00.728 DEBUG hbcm: 无ID
+2018-08-10 05:40:37.627 DEBUG hbcm: 无ID
+2018-08-10 05:43:04.116 DEBUG hbcm: 无ID
+2018-08-10 05:44:45.704 DEBUG hbcm: 无ID
+2018-08-10 05:45:29.180 DEBUG hbcm: 无ID
+2018-08-10 05:46:03.993 DEBUG hbcm: 无ID
+2018-08-10 05:53:37.062 DEBUG hbcm: 无ID
+2018-08-10 05:54:11.810 DEBUG hbcm: 无ID
+2018-08-10 05:54:38.871 DEBUG hbcm: 无ID
+2018-08-10 05:55:21.514 DEBUG hbcm: 无ID
+2018-08-10 05:55:49.303 DEBUG hbcm: 无ID
+2018-08-10 05:56:35.401 DEBUG hbcm: 无ID
+2018-08-10 05:57:01.561 DEBUG hbcm: 无ID
+2018-08-10 06:08:29.205 DEBUG hbcm: 无ID
+2018-08-10 06:12:27.037 DEBUG hbcm: 无ID
+2018-08-10 06:13:49.866 DEBUG hbcm: 无ID
+2018-08-10 06:28:24.880 DEBUG hbcm: 无ID
+2018-08-10 06:29:13.220 DEBUG CM: 
+2018-08-10 06:29:13.288 ERROR token: secret:6066de954f26a0cf26b29587bf7614f2
+2018-08-10 06:29:13.289 ERROR token: appid:wxa5b70ffe8842f891
+2018-08-10 06:29:13.521 ERROR token: {"errcode":40164,"errmsg":"invalid ip 223.73.197.233, not in whitelist hint: [jCP07643612]"}
+2018-08-10 06:29:13.562 ERROR token: 给定关键字不在字典中。
+2018-08-10 06:29:13.573 ERROR token: secret:6066de954f26a0cf26b29587bf7614f2
+2018-08-10 06:29:13.573 ERROR token: appid:wxa5b70ffe8842f891
+2018-08-10 06:29:13.668 ERROR token: {"errcode":40164,"errmsg":"invalid ip 223.73.197.233, not in whitelist hint: [NKcWNa0764sha2]"}
+2018-08-10 06:29:13.688 ERROR token: 给定关键字不在字典中。
+2018-08-10 06:29:13.732 DEBUG hbcm: 
+2018-08-10 06:29:13.733 DEBUG hbcm: 无ID
+2018-08-10 06:30:05.880 DEBUG CM: 
+2018-08-10 06:30:05.947 ERROR token: secret:6066de954f26a0cf26b29587bf7614f2
+2018-08-10 06:30:05.947 ERROR token: appid:wxa5b70ffe8842f891
+2018-08-10 06:30:06.155 ERROR token: {"errcode":40164,"errmsg":"invalid ip 223.73.197.233, not in whitelist hint: [hCovMa08172994]"}
+2018-08-10 06:30:06.198 ERROR token: 给定关键字不在字典中。
+2018-08-10 06:30:06.209 ERROR token: secret:6066de954f26a0cf26b29587bf7614f2
+2018-08-10 06:30:06.210 ERROR token: appid:wxa5b70ffe8842f891
+2018-08-10 06:30:06.314 ERROR token: {"errcode":40164,"errmsg":"invalid ip 223.73.197.233, not in whitelist hint: [1tI6Sa08171466]"}
+2018-08-10 06:30:06.334 ERROR token: 给定关键字不在字典中。
+2018-08-10 06:30:06.373 DEBUG hbcm: 
+2018-08-10 06:30:06.374 DEBUG hbcm: 无ID
+2018-08-10 06:31:39.991 DEBUG CM: 
+2018-08-10 06:31:40.065 ERROR token: secret:6066de954f26a0cf26b29587bf7614f2
+2018-08-10 06:31:40.066 ERROR token: appid:wxa5b70ffe8842f891
+2018-08-10 06:31:40.293 ERROR token: {"errcode":40164,"errmsg":"invalid ip 223.73.197.233, not in whitelist hint: [OZYwsA0911sha2]"}
+2018-08-10 06:31:40.334 ERROR token: 给定关键字不在字典中。
+2018-08-10 06:31:40.345 ERROR token: secret:6066de954f26a0cf26b29587bf7614f2
+2018-08-10 06:31:40.345 ERROR token: appid:wxa5b70ffe8842f891
+2018-08-10 06:31:40.448 ERROR token: {"errcode":40164,"errmsg":"invalid ip 223.73.197.233, not in whitelist hint: [35btua09111512]"}
+2018-08-10 06:31:40.469 ERROR token: 给定关键字不在字典中。
+2018-08-10 06:31:40.515 DEBUG hbcm: 
+2018-08-10 06:31:40.515 DEBUG hbcm: 无ID
+2018-08-10 06:32:26.961 DEBUG CM: 
+2018-08-10 06:32:27.029 ERROR token: secret:6066de954f26a0cf26b29587bf7614f2
+2018-08-10 06:32:27.030 ERROR token: appid:wxa5b70ffe8842f891
+2018-08-10 06:32:27.313 ERROR token: {"errcode":40164,"errmsg":"invalid ip 223.73.197.233, not in whitelist hint: [yMO4HA09583612]"}
+2018-08-10 06:32:27.357 ERROR token: 给定关键字不在字典中。
+2018-08-10 06:32:27.368 ERROR token: secret:6066de954f26a0cf26b29587bf7614f2
+2018-08-10 06:32:27.369 ERROR token: appid:wxa5b70ffe8842f891
+2018-08-10 06:32:27.454 ERROR token: {"errcode":40164,"errmsg":"invalid ip 223.73.197.233, not in whitelist hint: [Xum5fA09581501]"}
+2018-08-10 06:32:27.474 ERROR token: 给定关键字不在字典中。
+2018-08-10 06:32:27.509 DEBUG hbcm: 
+2018-08-10 06:32:27.509 DEBUG hbcm: 无ID
+2018-08-10 10:24:06.967 DEBUG fgiScan: {"st_no":"02        ","intQty":6,"lot_no":"3415252","intMax":0,"Message":"","pname":"a","success":true,"snno":"82081109478937","p_no":"3241","pqty":6}
+2018-08-10 10:24:30.668 DEBUG recan: {"st_no":"01        ","Message":"","shipcu_no":"444","success":true,"snno":"82081109478937","p_no":"3241","pname":"a","pqty":6}
+2018-08-10 11:10:13.896 DEBUG recan: {"snno":"82081109478937","Message":"","nst_no":"01        ","pname":"a","success":true,"ost_no":"02        ","p_no":"3241","pqty":6}
+2018-08-10 13:42:31.717 DEBUG CM: 
+2018-08-10 13:42:31.894 ERROR token: secret:6066de954f26a0cf26b29587bf7614f2
+2018-08-10 13:42:31.895 ERROR token: appid:wxa5b70ffe8842f891
+2018-08-10 13:42:32.103 ERROR token: {"errcode":40164,"errmsg":"invalid ip 119.131.152.33, not in whitelist hint: [ArMniA07633612]"}
+2018-08-10 13:42:32.136 ERROR token: 给定关键字不在字典中。
+2018-08-10 13:42:32.145 ERROR token: secret:6066de954f26a0cf26b29587bf7614f2
+2018-08-10 13:42:32.146 ERROR token: appid:wxa5b70ffe8842f891
+2018-08-10 13:42:32.247 ERROR token: {"errcode":40164,"errmsg":"invalid ip 119.131.152.33, not in whitelist hint: [32ATza07633612]"}
+2018-08-10 13:42:32.264 ERROR token: 给定关键字不在字典中。
+2018-08-10 13:42:32.307 DEBUG hbcm: 
+2018-08-10 13:42:32.308 DEBUG hbcm: 无ID
+2018-08-10 14:07:46.682 DEBUG CM: 
+2018-08-10 14:07:46.725 ERROR token: secret:6066de954f26a0cf26b29587bf7614f2
+2018-08-10 14:07:46.725 ERROR token: appid:wxa5b70ffe8842f891
+2018-08-10 14:07:46.957 ERROR token: {"errcode":40164,"errmsg":"invalid ip 119.131.152.33, not in whitelist hint: [UfmzVa02783054]"}
+2018-08-10 14:07:46.990 ERROR token: 给定关键字不在字典中。
+2018-08-10 14:07:47.000 ERROR token: secret:6066de954f26a0cf26b29587bf7614f2
+2018-08-10 14:07:47.000 ERROR token: appid:wxa5b70ffe8842f891
+2018-08-10 14:07:47.109 ERROR token: {"errcode":40164,"errmsg":"invalid ip 119.131.152.33, not in whitelist hint: [r9asAA02783055]"}
+2018-08-10 14:07:47.126 ERROR token: 给定关键字不在字典中。
+2018-08-10 14:07:47.174 DEBUG hbcm: 
+2018-08-10 14:07:47.174 DEBUG hbcm: 无ID

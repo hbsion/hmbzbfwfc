@@ -1,0 +1,277 @@
+﻿<!DOCTYPE HTML >
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>cityselect</title>
+
+    <script src="jquery/jquery-1.9.1.min.js"></script>
+       
+    <link rel="stylesheet" href="css/upload.css" />
+
+    <link href="css/cityLayout.css" type="text/css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/ion.calendar.css" />
+
+    <link rel="stylesheet" href="../../Theme/plugins/bootstrap/css/bootstrap.css"/>
+   
+    <link rel="stylesheet" href="/Content/Theme/webuploader/webuploader.css" />
+    <!--summernote富文本编辑器
+    <link rel="stylesheet" href="../../../Content/bootstrap.css" />
+    <link rel="stylesheet" href="../editor/summernote/summernote.css" />
+    <script src="../editor/summernote/summernote.js"></script>
+    <script src="../../../Scripts/bootstrap.min.js"></script>
+    <script src="../editor/summernote/lang/summernote-zh-CN.js"></script>-->
+
+    <!--kindeditor富文本编辑器-->
+    <link rel="stylesheet" href="../editor/Content/kindeditor/themes/default/default.css" />
+    <link rel="stylesheet" href="../editor/Content/kindeditor/plugins/code/prettify.css" />
+    <script charset="utf-8" src="../editor/Content/kindeditor/kindeditor.js"></script>
+    <script charset="utf-8" src="../editor/Content/kindeditor/lang/zh_CN.js"></script>
+    <script charset="utf-8" src="../editor/Content/kindeditor/plugins/code/prettify.js"></script>
+
+    <script src="/Content/Theme/webuploader/webuploader.js"></script>
+    <script>
+      
+        //城市
+        $(function () {
+            init_city_select($("#sel1"));
+        });
+
+        //日期
+        $(function () {
+            $('.date').each(function () {
+                $(this).ionDatePicker({
+                    lang: 'zh-cn',
+                    format: 'YYYY-MM-DD'
+                });
+            });
+        });
+
+        //文件上传
+        $(function () {            
+            $("input[type=file]").each(function(){
+                if($(this).val()==""){$(this).parents(".uploader").find(".filename").val("未选择文件...");}
+            });
+        });
+        function filePictureChange() {
+            $.ajaxFileUpload({
+                url: "/UploadFile/Upload", //用于文件上传的服务器端请求地址
+                type: "post",
+                secureuri: false, //一般设置为false
+                fileElementId: "filePicture", //文件上传空间的id属性
+                dataType: "json", //返回值类型 一般设置为json
+                success: function (data, status) {  //服务器成功响应处理函数
+                    //var json = JSON.stringify(data);   
+                    alert(data["FileName"]);
+                    document.getElementById("filename").value = data["FileName"];
+                    document.getElementById("filepath").value = data["FilePath"];
+                },
+                error: function (data, status, e) {  //服务器响应失败处理函数
+                    alert("上传错误："+e);
+                }
+            });
+        };
+
+        //kindeditor 富文本编辑器
+        KindEditor.ready(function (K) {
+            var editor1 = K.create('#WebEditor1', {
+                cssPath: '../editor/Content/kindeditor/plugins/code/prettify.css',
+                uploadJson: '../editor/Content/uptools/upload_json.ashx',
+                fileManagerJson: '../editor/Content/uptools/file_manager_json.ashx',
+                allowFileManager: true,
+                afterCreate: function () {
+                    this.sync();
+                },
+                afterBlur: function () {
+                    this.sync();
+                }
+            });
+            prettyPrint();
+        });
+
+        //测试数据
+        $(function () {          
+            $('#send').click(function () {
+               
+                var city= $("#sel1").val() ;
+                var date=$(".date").val();
+                var imgpath = $("#filepath").val();
+                var content = $("#WebEditor1").val();
+                $.ajax({
+                    type: "post",
+                    url: "/Index/test",
+                    data: { city: city, date: date, imgurl:imgpath, content:content},
+                    dataType: "json",
+                    success: function (data) {
+                        alert(data["status"]);
+                    }, error: function (data, status, e) {
+                        alert(data["status"]);
+                        console.log(e);
+                    },
+                });
+            });
+        });
+       
+        // summernote赋值：$('.summernote').summernote('code', value)
+        //summernote取值 $('#summernote').summernote('code')
+        var applicationPath = window.applicationPath === "" ? "" : window.applicationPath || "../../";
+        var GUID = WebUploader.Base.guid();//一个GUID
+        $(function () {
+            var $ = jQuery;
+            var $list = $('#thelist');
+            var uploader = WebUploader.create({
+
+                // 选完文件后，是否自动上传。
+                auto: false,
+                // swf文件路径
+                swf: applicationPath + '~/Content/Theme/webuploader/Uploader.swf',
+
+                // 文件接收服务端。
+                server: applicationPath + '../../../LogisticsManage/Upload',
+
+                // 选择文件的按钮。可选。
+                // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+                pick: '#picker',
+
+                chunked: true,//开始分片上传
+                chunkSize: 2048000,//每一片的大小
+                formData: {
+                    guid: GUID //自定义参数，待会儿解释
+                },
+
+                // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+                resize: false
+            });
+            // 当有文件被添加进队列的时候
+            uploader.on('fileQueued', function (file) {
+                $list.append('<div id="' + file.id + '" class="item">' +
+                    '<h4 class="info">' + file.name + '</h4>' +
+                    '<p class="state">等待上传...</p>' +
+                '</div>');
+            });
+            // 文件上传过程中创建进度条实时显示。
+            uploader.on('uploadProgress', function (file, percentage) {
+                var $li = $('#' + file.id),
+            $percent = $li.find('.progress .progress-bar');
+
+                // 避免重复创建
+                if (!$percent.length) {
+                    $percent = $('<div class="progress progress-striped active">' +
+                      '<div class="progress-bar" role="progressbar" style="width: 0%">' +
+                      '</div>' +
+                    '</div>').appendTo($li).find('.progress-bar');
+                }
+
+                $li.find('p.state').text('上传中');
+
+                $percent.css('width', percentage * 100 + '%');
+            });
+
+            // 文件上传成功，给item添加成功class, 用样式标记上传成功。
+            uploader.on('uploadSuccess', function (file, response) {
+
+                $('#' + file.id).find('p.state').text('已上传');
+                $.post('../../../LogisticsManage/Merge', { guid: GUID, fileName: file.name }, function (data) {
+                    $("#uploader .state").html("上传成功...");
+                });
+            });
+
+            // 文件上传失败，显示上传出错。
+            uploader.on('uploadError', function (file) {
+                $('#' + file.id).find('p.state').text('上传出错');
+            });
+
+            // 完成上传完了，成功或者失败，先删除进度条。
+            uploader.on('uploadComplete', function (file) {
+                $('#' + file.id).find('.progress').fadeOut();
+            });
+
+            //所有文件上传完毕
+            uploader.on("uploadFinished", function () {
+                //提交表单
+
+            });
+            //开始上传
+            $("#ctlBtn").click(function () {
+                uploader.upload();
+
+            });
+
+        });
+    </script>
+
+
+</head>
+<body>
+   
+        选择城市<input name="" id="sel1" type="text" class="city_input" style="width:200px" /><br /><br /><br />
+        选择日期<input type="text" class="date" placeholder="请选择日期" /><br /><br /><br />
+
+
+    选择文件<div class="uploader white" style="height:32px;">
+            <input type="text" class="filename" id="filename" readonly=readonly style="height:32px;" />
+            <input type="button" name="file" class="button" value="选择" />
+            <input type="file" size="30" id="filePicture" name="filePicture" accept="*" onchange="filePictureChange()" />
+            <input type="hidden" id="filepath" />
+        </div>
+       <br /><br />
+        <!--<div id="summernote"></div>-->
+
+        <textarea id="WebEditor1" cols="100" rows="8" style="width: 800px; height: 300px;" ></textarea>
+
+    <div id="uploader" class="wu-example">
+        <!--用来存放文件信息-->
+        <div id="thelist" class="uploader-list"></div>
+        <div class="btns">
+            <div id="picker">选择文件</div>
+            <input id="ctlBtn" type="button" value="开始上传" class="btn btn-default" />
+        </div>
+    </div>
+
+        <input  type="button" value="提交" class="btn" id="send"/>
+   
+</body>
+</html>
+<script src="js/moment.min.js"></script>         <!--日期-->
+<script src="js/moment.zh-cn.js"></script>       <!--日期-->
+<script src="js/ion.calendar.min.js"></script>   <!--日期-->
+<script src="js/cityselect.js"></script>         <!--城市-->
+<script src="js/ajaxFileUpload.js"></script>     <!--文件上传-->
+
+
+
+<!--<script>
+    //summernote富文本框
+    $(document).ready(function () {
+        $('#summernote').summernote({
+            lang: 'zh-CN',
+            height: "200px",
+            callbacks: {
+                onImageUpload: function (files, editor, $editable) {
+                    sendFile(files);
+                }
+            }
+        });
+    });
+
+    function sendFile(files, editor, $editable) {
+        var data = new FormData();
+        data.append("ajaxTaskFile", files[0]);
+        $.ajax({
+            data: data,
+            type: "POST",
+            url: "/UploadFile/MD5Upload", //图片上传出来的url，返回的是图片上传后的路径，http格式
+            cache: false,
+            contentType: false,
+            processData: false,
+            dataType: "json",
+            success: function (data) {//data是返回的hash,key之类的值，key是定义的文件名
+                $('#summernote').summernote('insertImage', data["FilePath"]);
+                alert(data["FilePath"]);
+            },
+            error: function () {
+                alert("上传失败");
+            }
+        });
+    }
+</script> -->

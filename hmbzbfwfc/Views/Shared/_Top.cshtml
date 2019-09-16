@@ -1,0 +1,26 @@
+﻿
+
+<div class="dropdown profile-element">
+
+    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+        <span class="clear">
+            <span class="block m-t-xs"><strong class="font-bold"><i class="fa fa-user-circle" aria-hidden="true"></i></strong>&nbsp;&nbsp;当前登录</span>
+            <span class="text-muted text-xs block" style="margin-left: 20px; margin-top: 8px;">@ViewBag.username<b class="caret"></b></span>
+        </span>
+    </a>
+    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+
+
+        <li>
+            <a class="J_menuItem" href="/Users/showeditpwd?logintype=@ViewBag.logintype">修改密码</a>
+        </li>
+
+        <li class="divider"></li>
+        <li>
+            <a href="/Login/userexit">安全退出</a>
+        </li>
+    </ul>
+</div>
+<div class="logo-element">
+</div>
+

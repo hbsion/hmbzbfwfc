@@ -1,0 +1,33 @@
+/*公共样式*/
+body{z-index:0; margin:0 auto; padding:0;font-family:verdana,"微软雅黑","Arial"; max-width:640px;min-width:320px;font-size:16px;line-height:18px;color:#666;text-align:left; border:none; background:#fff;}
+img,html,p,ul,li,input,form,h1,h2,h3,h4,h5,h6,dl,dd,dt,ol,input,div,span{margin:0;padding:0;border:0;}
+ul,li{list-style-type:none;}
+img{vertical-align:top;border:0;}
+a:link{color:#666;text-decoration: none;}
+a:visited{color:#666;text-decoration: none;}
+a:hover{color:#c00;text-decoration:none;}
+a:active{color:#c00;text-decoration: none;}
+.clear{
+	clear:both;
+	font-size:0px;
+	height:0px;
+	line-height:0px;
+	overflow:hidden;
+}
+fieldset, img{
+	border:0;
+}
+input, label, select, option, textarea, button, fieldset, legend{
+	vertical-align:middle;font-family: inherit;letter-spacing: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 18px;
+}
+textarea {
+	resize: none;
+	overflow: auto;
+	vertical-align:top;
+	width: 501px;
+}

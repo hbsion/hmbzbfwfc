@@ -1,0 +1,82 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>防伪验证</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="物流溯源管理系统,二维码物流追踪,二维码防伪,防伪防窜货,防伪标签,二维码防伪" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="renderer" content="webkit" />
+    <meta name="author" content="2id.cn" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="full-screen" content="yes" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="browsermode" content="application" />
+    <meta name="x5-page-mode" content="app" />
+    <link href="/w/AmazeUI/css/amazeui.min.css" rel="stylesheet" type="text/css" />
+    <link href="/w/AmazeUI/css/app.css" rel="stylesheet" type="text/css" />
+    <script src="/w/AmazeUI/js/jquery.min.js" type="text/javascript"></script>
+    <script src="/w/AmazeUI/js/amazeui.min.js" type="text/javascript"></script>
+   
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <style>
+        img{
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <header data-am-widget="header" class="am-header am-header-default am-header-fixed">
+        <h1 class="am-header-title" style="margin: 0;font-size:1.2em;">关于我们</h1>
+        <div class="am-header-left am-header-nav">
+            <a href="javascript:history.back();void(0)" class="">
+                <i class="am-header-icon am-icon-reply">&nbsp;</i>
+            </a>
+        </div>
+    </header>
+    <div id="pdm_slider_index" class="am-slider  am-slider-a5" data-am-slider='{&quot;directionNav&quot;:false}'>
+        <ul class="am-slides">
+            <li>&nbsp;</li>
+        </ul>
+    </div>
+    <hr data-am-widget="divider" style="margin-top:80px" class="am-divider am-divider-dashed" />
+   
+    @foreach (var item in ViewBag.info) { 
+    <div class="am-panel am-panel-default" >
+        <div class="am-panel-hd">
+            <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-4'}">
+                <span>@item.sys_title</span>
+            </h4>
+        </div>
+        <div >
+            <div class="am-panel-bd" style="padding-top: 0px;">
+                @Html.Raw(item.sys_note)
+            </div>
+        </div>
+    </div>
+    }
+    <hr data-am-widget="divider" style="" class="am-divider am-divider-dashed" />
+    <footer data-am-widget="footer" class="am-footer am-footer-default">
+        <div class="am-footer-miscs ">
+           
+        </div>
+    </footer>
+
+
+    
+    <script type="text/javascript">
+
+        
+    </script>
+
+</body>
+</html>

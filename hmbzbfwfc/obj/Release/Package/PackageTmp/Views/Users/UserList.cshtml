@@ -1,0 +1,289 @@
+﻿@{
+    Layout = null;
+    int i = 0;
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="zh" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="zh" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    @Html.Partial("_Title")
+    
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/font-awesome4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css"  rel="stylesheet" type="text/css" />
+    <link href="/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/css/default.css" rel="stylesheet" type="text/css" />
+
+    <link href="/Content/plugins/jbox-v2.3/jBox/Skins/Gray/jbox.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Theme/plugins/Flexigrid/css/flexigrid.css" rel="stylesheet" />
+
+
+    <style >
+        .addcolor {background-color:#f7f7f7;}
+    </style>   
+
+</head>
+<body class="fixed-top">
+  
+            <div id="test">
+                
+                <div class="row">
+                    <div class="span12" >
+                        <div class="widget box light-grey">
+                            <div class="widget-title">
+                                <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>用户管理</h4>
+                                <div class="actions">
+                                    <a class="btn btn-primary" href="javascript:void(0)" onclick="location.href='UserEdit'"><i class="icon-pencil"></i>&nbsp;新增</a>
+                                    <a class="btn btn-danger" href="javascript:void(0)" onclick="User.BatchDel()"><i class="icon-trash"></i>&nbsp;删除</a>
+                                    <a class="btn btn-info hide" href="javascript:void(0)" onclick="location.href = 'Excel?1=1@(ViewBag.parme)'"><i class="icon-download"></i>&nbsp;导出</a>
+                                </div>
+                            </div>
+                            <div class="widget-body" style="margin-left:30px;">
+                                <div class="" >
+                                    <form class="form-horizontal" action="javascript:void(0)">
+                                        <div class="form-group">
+                                            <div class="form-inline">
+                                                <input id="txtSearch" type="text" class="form-control"  placeholder="请输入用户名或者工号" />
+                                                <a id="gritter-remove-all" class="btn btn-info" href="javascript:void(0)" onclick="selectbyuname();"><i class="icon-search"></i>&nbsp;搜索</a>
+                                               
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                
+                                <table class="table table-hover table-bordered table-striped" id="tabInfo">
+                                    <thead>
+                                        <tr class="widget-title">
+                                            <th style="width: 8px;"><input type="checkbox" class="group-checkable" onclick="User.SelectAll(this)" /></th>
+                                            <th class="hidden-480">操作员编号</th>
+                                            <th class="hidden-480">操作员名称</th>
+                                            <th class="hidden-480">角色名称</th>
+                                            <th class="hidden-480">加入日期</th>
+
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                        @foreach (var item in ViewBag.list)
+                                        {
+
+
+                                            <tr class="@(i % 2 == 0 ? "" : "addcolor")">
+                                                <td>@if(item.czybm!="admin"){<input name="user_item" class="checkboxes" data="@item.fid" value="@item.fid" type="checkbox">}</td>
+                                                <td>@item.czybm</td>
+                                                <td>@item.czymc</td>
+                                                <td>@item.sysrole</td>
+                                                <td>@item.in_date</td>
+                                                @if(item.czybm!="admin"){<td><a class="icon-edit" href="javascript:void(0)" onclick="location.href = 'UserEdit?fid=@item.fid'" title="编辑"><i class="fa fa-pencil" aria-hidden="true"></i> </a>&nbsp;&nbsp;<a class="icon-remove" href="javascript:void(0)" onclick="User.Delete('@item.fid')" title="删除"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>}
+                                            </tr>
+
+                                            i++;
+                                        }
+                                    </tbody>
+                                </table>
+                                <div class="row" id="mypager">
+                                    <div class="pager" id="pager">
+                                        @if (ViewBag.count >= 10)
+                                        {
+                                            <span class="form-inline">
+                                                <select class="form-control" style="width: 100px;" v-model="pagesize" v-on:change="showPage2(pageCurrent,$event,true)" number>
+                                                    <option value="10">10</option>
+                                                    <option value="20">20</option>
+                                                    <option value="30">30</option>
+                                                    <option value="40">40</option>
+                                                </select>
+                                            </span>
+                                            <template v-for="item in pageCount+1">
+                                                @if (ViewBag.pageno != 1)
+                                                {
+                                                    <span v-if="item==1" class="btn btn-default" v-on:click="showPage2(1,$event)">
+                                                        首页
+                                                    </span>
+                                                    <span v-if="item==1" class="btn btn-default" v-on:click="showPage2(pageCurrent-1,$event)">
+                                                        上一页
+                                                    </span>
+                                                }
+                                                <span v-if="item==1" class="btn btn-default" v-on:click="showPage2(item,$event)">
+                                                    {{item}}
+                                                </span>
+                                                <span v-if="item==1&&item<showPagesStart-1" class="btn btn-default disabled">
+                                                    ...
+                                                </span>
+                                                <span v-if="item>1&&item<=pageCount-1&&item>=showPagesStart&&item<=showPageEnd&&item<=pageCount" class="btn btn-default" v-on:click="showPage2(item,$event)">
+                                                    {{item}}
+                                                </span>
+                                                <span v-if="item==pageCount&&item>showPageEnd+1" class="btn btn-default disabled">
+                                                    ...
+                                                </span>
+                                                <span v-if="item==pageCount" class="btn btn-default" v-on:click="showPage2(item,$event)">
+                                                    {{item}}
+                                                </span>
+                                                @if (ViewBag.pageno != ViewBag.pagecount)
+                                                {
+                                                    <span v-if="item==pageCount" class="btn btn-default" v-on:click="showPage2(pageCurrent+1,$event)">
+                                                        下一页
+                                                    </span>
+                                                    <span v-if="item==pageCount" class="btn btn-default" v-on:click="showPage2(pageCount,$event)">
+                                                        尾页
+                                                    </span>
+                                                }
+                                            </template>
+                                            <span class="form-inline">
+                                                <input class="pageIndex form-control" style="width:60px;text-align:center" type="text" v-model="pageCurrent | onlyNumeric" v-on:keyup.enter="showPage2(pageCurrent,$event,true)" />
+                                            </span>
+                                        }
+                                        <span style="float:left;">
+                                            当前第<span style="margin:10px;">@ViewBag.pageno</span>页
+                                            <span style="margin:10px;">/</span>共
+                                            <span style="margin:10px;">@ViewBag.pagecount</span>页
+                                            <span style="margin:10px;">@ViewBag.count</span>条数据
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+      
+    @Html.Partial("_Foot")
+    <script src="/Content/Theme/plugins/Flexigrid/js/flexigrid.js"></script>    
+    <script src="~/Content/js/vue.js"></script>
+    
+    <script>
+    //只能输入正整数过滤器
+    Vue.filter('onlyNumeric', {
+        // model -> view
+        // 在更新 `<input>` 元素之前格式化值
+        read: function (val) {
+            return val;
+        },
+        // view -> model
+        // 在写回数据之前格式化值
+        write: function (val, oldVal) {
+            var number = +val.replace(/[^\d]/g, '')
+            return isNaN(number) ? 1 : parseFloat(number.toFixed(2))
+        }
+    })
+
+    //数组删除某项功能
+    Array.prototype.remove = function (dx) {
+        if (isNaN(dx) || dx > this.length) { return false; }
+        for (var i = 0, n = 0; i < this.length; i++) {
+            if (this[i] != this[dx]) {
+                this[n++] = this[i]
+            }
+        }
+        this.length -= 1
+    }
+
+    var vue = new Vue({
+        el: "#test",
+        data: {
+            //总项目数
+            totalCount: @ViewBag.count,
+            //分页数
+            pageCount: @ViewBag.pagecount,
+            //当前页面
+            pageCurrent: @ViewBag.pageno,
+            //分页大小
+            pagesize: @ViewBag.pagesize,
+            //显示分页按钮数
+            showPages: 10,
+            //开始显示的分页按钮
+            showPagesStart: 1,
+            //条件参数
+            parme: "@ViewBag.parme",
+            //结束显示的分页按钮
+            showPageEnd: @ViewBag.pagecount,
+            //分页数据
+            arrayData: []
+        },
+        methods: {
+            //分页方法
+            showPage: function (pageIndex, $event, forceRefresh) {
+
+                if (pageIndex > 0) {
+
+
+                    if (pageIndex > this.pageCount) {
+                        pageIndex = this.pageCount;
+                    }
+
+                    //判断数据是否需要更新
+                    var currentPageCount = Math.ceil(this.totalCount / this.pagesize);
+                    if (currentPageCount != this.pageCount) {
+                        pageIndex = 1;
+                        this.pageCount = currentPageCount;
+                    }
+                    else if (this.pageCurrent == pageIndex && currentPageCount == this.pageCount && typeof (forceRefresh) == "undefined") {
+                        console.log("not refresh");
+                        return;
+                    }
+
+                    //处理分页点中样式
+                    var buttons = $("#pager").find("span");
+                    for (var i = 0; i < buttons.length; i++) {
+                        if (buttons.eq(i).html() != pageIndex) {
+                            buttons.eq(i).removeClass("active");
+                        }
+                        else {
+                            buttons.eq(i).addClass("active");
+                        }
+                    }
+
+
+
+                    //计算分页按钮数据
+                    if (this.pageCount > this.showPages) {
+                        if (pageIndex <= (this.showPages - 1) / 2) {
+                            this.showPagesStart = 1;
+                            this.showPageEnd = this.showPages - 1;
+                            console.log("showPage1")
+                        }
+                        else if (pageIndex >= this.pageCount - (this.showPages - 3) / 2) {
+                            this.showPagesStart = this.pageCount - this.showPages + 2;
+                            this.showPageEnd = this.pageCount;
+                            console.log("showPage2")
+                        }
+                        else {
+                            console.log("showPage3")
+                            this.showPagesStart = pageIndex - (this.showPages - 3) / 2;
+                            this.showPageEnd = pageIndex + (this.showPages - 3) / 2;
+                        }
+                    }
+                    console.log("showPagesStart:" + this.pagesize + ",showPageEnd:" + this.showPageEnd + ",pageIndex:" + pageIndex);
+                    // location.href="/Users/UserList?pageno="+pageIndex+"&pagesize="+this.pagesize+"@ViewBag.parme"
+                }
+
+            }, showPage2: function (pageIndex, $event, forceRefresh) {
+                location.href="/Users/UserList?pageno="+pageIndex+"&pagesize="+this.pagesize+"&"+this.parme;
+            }
+
+        }
+    });
+    vue.$watch("arrayData", function (value) {
+    });
+    vue.showPage(vue.pageCurrent, null, true);
+
+    function selectbyuname() {
+        var unameoruid=$("#txtSearch").val();
+        location.href = "UserList?unameoruid=" + unameoruid+"&pageno=1";
+    }
+
+    $(document).ready(function () {
+        User.SearchEvent();       
+    });
+</script>
+
+</body>
+</html>

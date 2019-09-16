@@ -1,0 +1,219 @@
+﻿@{
+    Layout = null;
+    int i = 0;
+    int b = 0;
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="zh" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="zh" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    @Html.Partial("_Title")
+
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/font-awesome4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css"  rel="stylesheet" type="text/css" />
+    <link href="/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/plugins/jbox-v2.3/jBox/Skins/Gray/jbox.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Theme/plugins/Flexigrid/css/flexigrid.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/Content/Theme/webuploader/webuploader.css" />
+    <style>
+        .addcolor {
+            background-color: #f7f7f7;
+        }
+    </style>
+
+</head>
+<body class="fixed-top">
+
+
+
+    <div class="widget box light-grey">
+        <div class="widget-title">
+            @if (ViewBag.filetype == "Sys") { 
+                <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>系统参数文件上传导入</h4>
+            }else if (ViewBag.filetype == "Pro") {
+                <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>产品资料导入</h4>
+            }
+            else if (ViewBag.filetype == "Fx")
+            {
+                <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>发行记录文件上传导入</h4>
+            }
+            else if (ViewBag.filetype == "Cus")
+            {
+                <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>门店资料导入</h4>
+            }
+            else if (ViewBag.filetype == "Ven")
+            {
+                <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>供应商资料导入</h4>
+            }
+
+          
+           @if (ViewBag.filetype == "Sys" || ViewBag.filetype == "Fx" || ViewBag.filetype == "Old")
+           { 
+             <div class="actions">
+                <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" onclick="location.href='/LogisticsManage/FileDataList?filetype=@ViewBag.filetype'">返回列表页</button>
+            </div>
+           }
+        </div>
+
+
+    </div>
+    <div id="uploader" class="wu-example" style="border: 2px solid #f1f1f1;margin: 50px auto; padding:40px">
+        <!--用来存放文件信息-->
+        <div id="thelist" class="uploader-list"></div>
+        <div class="btns">
+            @if (ViewBag.filetype == "Pro")
+            {
+                <p>产品编号、名称不能为空，编号不能重复；其他选填，产品图片为网络可以访问的图片地址。<a href="/BasicInfo/Product/ProductToExcelTemp" >点我下载模板</a></p>
+            }
+            @if (ViewBag.filetype == "Cus")
+            {
+                <p>门店编号、名称、省、市、密码不能为空，编号不能重复；其他选填。<a href="/BasicInfo/Customer/CustomerToExcelTemp">点我下载模板</a></p>
+            }
+            @if (ViewBag.filetype == "Ven")
+            {
+                <p>供应商编号、名称不能为空，编号不能重复；其他选填。<a href="/BasicInfo/Vender/VenderToExcelTemp">点我下载模板</a></p>
+            }
+            <br />
+            <div id="picker">选择文件</div><br />
+            @if (ViewBag.filetype == "Sys")
+            {             
+            <input id="ctlBtn" type="button" value="系统参数资料上传导入" class="btn btn-default" /><br /><br />
+            }
+            @if (ViewBag.filetype == "Fx")
+            {
+                <input id="ctlBtn" type="button" value="发行记录导入" class="btn btn-default" /><br /><br />
+            }
+            @if (ViewBag.filetype == "Pro") {
+            <input id="ctlBtn" type="button" value="产品资料上传导入" class="btn btn-default" /><br /><br />
+            }
+            @if (ViewBag.filetype == "Cus")
+            {
+                <input id="ctlBtn" type="button" value="门店资料上传导入" class="btn btn-default" /><br /><br />
+            }
+            @if (ViewBag.filetype == "Ven")
+            {
+                <input id="ctlBtn" type="button" value="供应商资料上传导入" class="btn btn-default" /><br /><br />
+            }
+
+        </div>
+    </div>
+
+    @Html.Partial("_Foot")
+
+    <script type="text/javascript" src="~/Content/Theme/webuploader/webuploader.js"></script>
+
+    <script>
+        var applicationPath = window.applicationPath === "" ? "" : window.applicationPath || "../../";
+        var GUID = WebUploader.Base.guid();//一个GUID
+        $(function () {
+            var $ = jQuery;
+            var $list = $('#thelist');
+            var uploader = WebUploader.create({
+
+                // 选完文件后，是否自动上传。
+                auto: false,
+                // swf文件路径
+                swf: applicationPath + '../../Content/Theme/webuploader/Uploader.swf',
+
+                // 文件接收服务端。
+                server: applicationPath + 'LogisticsManage/Upload',
+
+                // 选择文件的按钮。可选。
+                // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+                pick: '#picker',
+
+                chunked: true,//开始分片上传
+                chunkSize: 2048000,//每一片的大小
+                formData: {
+                    guid: GUID //自定义参数，待会儿解释
+                },
+
+                // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+                resize: false
+            });
+            // 当有文件被添加进队列的时候
+            uploader.on('fileQueued', function (file) {
+                $.ajax({
+                    type: "post",
+                    url: "/LogisticsManage/FileIsUpload",
+                    data: { filename: file.name , filetype : '@ViewBag.filetype' },
+                    dataType: "json",
+                    success: function (data) {
+
+                        if (data["status"] == "no") {
+                            alert(data["data"]);
+                            location.href = "SystemDataImportPage?filetype=@ViewBag.filetype";
+                        } else {
+                            $list.append('<div id="' + file.id + '" class="item">' +
+                            '<h4 class="info">' + file.name + '</h4>' +
+                            '<p class="state">等待上传...</p>' +
+                            '</div>');
+                        }
+                    }
+                });
+
+            });
+            // 文件上传过程中创建进度条实时显示。
+            uploader.on('uploadProgress', function (file, percentage) {
+                var $li = $('#' + file.id),
+            $percent = $li.find('.progress .progress-bar');
+
+                // 避免重复创建
+                if (!$percent.length) {
+                    $percent = $('<div class="progress progress-striped active">' +
+                      '<div class="progress-bar" role="progressbar" style="width: 0%;background-color:red;height:10px">' +
+                      '</div>' +
+                    '</div>').appendTo($li).find('.progress-bar');
+                }
+
+                $li.find('p.state').text('上传中');
+
+                $percent.css('width', percentage * 100 + '%');
+            });
+
+            // 文件上传成功，给item添加成功class, 用样式标记上传成功。
+            uploader.on('uploadSuccess', function (file, response) {
+
+                $('#' + file.id).find('p.state').text('已上传,等待数据导入...');
+                $.post('../../LogisticsManage/Merge', { guid: GUID, fileName: file.name,filetype:'@ViewBag.filetype' }, function (data) {
+                    console.log(data);
+                    alert(data["data"]);
+                    $("#uploader .state").html("上传成功...");
+                });
+            });
+
+            // 文件上传失败，显示上传出错。
+            uploader.on('uploadError', function (file) {
+                $('#' + file.id).find('p.state').text('上传出错');
+            });
+
+            // 完成上传完了，成功或者失败，先删除进度条。
+            uploader.on('uploadComplete', function (file) {
+                $('#' + file.id).find('.progress').fadeOut();
+            });
+
+            //所有文件上传完毕
+            uploader.on("uploadFinished", function () {
+                //提交表单
+
+            });
+            //开始上传
+            $("#ctlBtn").click(function () {
+                uploader.upload();
+
+            });
+
+        });
+    </script>
+
+</body>
+</html>

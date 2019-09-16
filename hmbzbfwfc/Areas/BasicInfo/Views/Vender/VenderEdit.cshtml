@@ -1,0 +1,157 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="zh" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="zh" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/font-awesome4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/plugins/jbox-v2.3/jBox/Skins/Gray/jbox.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Theme/plugins/Flexigrid/css/flexigrid.css" rel="stylesheet" />
+
+    <link href="/Content/Theme/selector/css/cityLayout.css" type="text/css" rel="stylesheet" />
+
+</head>
+<body class="fixed-top">
+
+    <div id="body">
+
+        <div class="row">
+            <div class="span12">
+                <div class="widget box light-grey">
+                    <div class="widget-title">
+                        <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>@(ViewBag.type == "add" ? "新增供应商" : "修改供应商")</h4>
+
+                    </div>
+
+                    <div class="tab-pane active" id="widget_tab1">
+                        <form action="VenderAddOrUpd" method="post" backurl="VenderList" id="commentForm">
+                            <table class="formtab_user table table-bordered table-hover mytable">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:30%; text-align:right;" class="notnull">*供应商编号</td>
+                                        <td style="width:70%">
+                                            <input id="c_no" style="width:182px" name="cu_no" @(ViewBag.type == "add" ? "" : "readonly") onchange="@(ViewBag.type=="add" ? "cnochange();" : "")" placeholder="供应商编号" value="@(ViewBag.type=="add" ? "" : ViewBag.model.cu_no)" class="form-control" type="text" required>
+                                            <span class="error" id="isok"></span>
+                                            <input type="hidden" value="@(ViewBag.type=="add" ? "" : ViewBag.model.fid)" name="fid">
+                                            <input type="hidden" value="@ViewBag.logintype" name="logintype">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style=" text-align:right;" class="notnull">*供应商名称</td>
+                                        <td>
+                                            <input id="txtUserName" name="cu_name" placeholder="供应商名称" value="@(ViewBag.type == "add" ? "" : ViewBag.model.cu_name)" class="form-control" type="text" required>
+                                        </td>
+                                    </tr>
+
+
+
+                                    <tr>
+                                        <td style=" text-align:right;">省份</td>
+                                        <td>
+                                            <input id="txtprovince" style="width:182px" name="province" placeholder="省份" value="@(ViewBag.type == "add" ? "" : ViewBag.model.province)" class="form-control" type="text" required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style=" text-align:right;">城市</td>
+                                        <td>
+                                            <input id="txtcity" name="city" style="width:182px" placeholder="城市" value="@(ViewBag.type == "add" ? "" : ViewBag.model.city)" class="form-control" type="text">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style=" text-align:right;">详细地址</td>
+                                        <td>
+                                            <input id="txtaddr" name="addr" placeholder="地址" value="@(ViewBag.type == "add" ? "" : ViewBag.model.addr)" class="form-control" type="text" required>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style=" text-align:right;">电话</td>
+                                        <td>
+                                            <input id="jf" name="phone" placeholder="电话" value="@(ViewBag.type == "add" ? "" : ViewBag.model.phone)" class="form-control" type="text" required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style=" text-align:right;">传真</td>
+                                        <td class="container">
+                                            <input id="cz" name="fax" style="width:182px" placeholder="传真" value="@(ViewBag.type == "add" ? "" : ViewBag.model.fax)" class="form-control" type="text">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style=" text-align:right;">联系人</td>
+                                        <td>
+                                            <input id="" name="link_man" style="width:182px" placeholder="联系人" value="@(ViewBag.type == "add" ? "" : ViewBag.model.link_man)" class="form-control" type="text" required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style=" text-align:right;">备注</td>
+                                        <td><textarea id="" style="width:100%;height:50px;" name="remark" placeholder="备注" class="form-control">@(ViewBag.type == "add" ? "" : ViewBag.model.remark) </textarea></td>
+                                    </tr>
+                                    <tr class="hide">
+                                        <td style="text-align:right;">登录密码</td>
+                                        <td>
+                                            <input id="" name="passwd" style="width:182px" placeholder="登录密码" value="@(ViewBag.type == "add" ? "" : ViewBag.model.passwd)" class="form-control" type="password" required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td style=" color:red;" id="error"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="padding-left:22%;padding-bottom:10px;">
+                                            <button type="button" class="btn btn-info" onclick="Public.Add()" style="margin:0px 50px 0px -50px;"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 提交保存</button>
+                                            <button type="button" class="btn btn-danger" onclick="javascript:history.back(-1)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>取消返回</button>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_Foot")
+
+    <script type="text/javascript" src="/Content/Theme/selector/js/cityselect.js"></script>
+    <script type="text/javascript" src="/Content/Theme/Validate/jquery.validate.min.js"></script>
+    <script type="text/javascript" charset="GBK" src="/Content/Theme/Validate/messages_zh.js"></script>
+    <script>
+        
+
+        
+    $(function () {
+        init_city_select($("#txtprovince,#txtcity"));
+    });
+
+    function viewAll(countyId) {
+        $("#" + countyId).addClass("current").closest("li").siblings("li").find("a").removeClass("current");
+        $(".provinceCityAll").hide();
+        var prvinceName = $(".provinceAll .list li a.current").attr("title");
+        var cityName = $(".cityAll .list li a.current").attr("title");
+        var countyName = $(".countyAll .list li a.current").attr("title");
+        $cityInput.val(prvinceName + "-" + cityName + "-" + countyName);
+        $("#txtprovince").val(prvinceName);
+        $("#txtcity").val(cityName);
+        $("#txtaddr").val(countyName);
+    }
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+﻿@charset "utf-8";
+/* 公共样式 */
+body{margin:0; padding:0;font-family:verdana,"微软雅黑","Arial"; font-size:14px;line-height:18px;color:#666;text-align:left; border:none; background:#f4f4f4;}
+img,html,p,ul,li,input,form,h1,h2,h3,h4,h5,h6,dl,dd,dt,ol,input{margin:0;padding:0;border:0;}
+ul,li{list-style-type:none;}
+img{vertical-align:top;border:0;}
+a:link{color:#666;text-decoration: none;}
+a:visited{color:#666;text-decoration: none;}
+a:hover{color:#c00;text-decoration:none;}
+a:active{color:#c00;text-decoration: none;}
+.clear{clear:both;font-size:0px;height:0px;line-height:0px;overflow:hidden;}
+fieldset, img{border:0;}
+
+input, label, select, option, textarea, button, fieldset, legend{vertical-align:middle;font-family: inherit;letter-spacing: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+textarea {
+	resize: none;
+	overflow: auto;
+	vertical-align: top;
+	width: 501px;
+}
+
+#Whole{ min-width:320px;max-width:100%;margin:0 auto;background:#f4f4f4;position:relative;min-height:721px;}
+#base_Whole{ min-width:320px;max-width:100%;margin:0 auto;background:#f4f4f4;position:relative; overflow:hidden;height:auto;min-height:721px;
+	
+}
+
+.base_center{width:100%;height:auto;}
+
+
+/*********翻页 ***********/
+.page{width:auto;height:40px;padding:0 10px;margin-top:40px;}
+	.page ol{width:100%;height:40px;line-height:40px;margin:0 auto;}
+		.page ol li{float:left;width:100%;margin:0 4px; text-align:center;}
+			.page ol li a{height:40px;padding:0 4px;color:#666666;}
+			.page ol li a.hover{color:#66c300;}
+			
+			
+/*********** 回顶部 ***********/
+		.index_nav_3{width:100%;height:auto;padding-top:20px;}
+			.index_nav_3 ol{width:100%;height:auto;}
+				.index_nav_3 ol li{width:100%;height:auto; text-align:center;}
+					.index_nav_3 ol li a{font-size:18px;color:#57a700;}
+					.index_nav_3 ol li img{width:50px;height:auto;margin-bottom:6px;}
+					
+					
+/*********** 按钮 *******************/
+.base_ann{width:100%;height:55px;margin-top:60px;}
+	.base_ann ol{width:100%;height:55px;}
+		.base_ann ol li{width:100%;height:55px;line-height:55px; text-align:center;background:#66c300;border-radius:8px;}
+		.base_ann ol li a{width:100%;height:55px; display:block;color:#fff;font-size:18px;}
+		
+/**********登录注册按钮
+			  ************/
+.dete{width:100%;height:auto;margin-top:60px;}
+	.dete ol{width:100%;height:auto;}
+		.dete ol li{width:100%;height:50px;background:#e5007f; text-align:center;line-height:50px;margin:0 auto;border-radius:6px;margin-bottom:14px;}
+		.dete ol li.hover{background:#4a4a4a}
+			.dete ol li a{width:100%;height:50px; display:block;color:#fff;font-size:18px;}
+		.dete ol span{width:100%;height:40px;line-height:40px;text-align:center; display:block; }	
+			.dete ol span a{color:#e5007f;}

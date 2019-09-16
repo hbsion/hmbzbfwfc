@@ -1,0 +1,282 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="zh" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="zh" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/font-awesome4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/plugins/jbox-v2.3/jBox/Skins/Gray/jbox.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Theme/plugins/Flexigrid/css/flexigrid.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/Content/Theme/selector/css/ion.calendar.css" />
+    <style>
+       
+       dl dd  table {  font-family: '微软雅黑', '宋体', '黑体'; }
+       dl dd td {background-color: rgb(249,252,255);  height: 24px;  }
+       dl dd td:hover { background-color: rgb(168,213,252);cursor: default;}
+           
+    </style>
+</head>
+<body class="fixed-top">
+
+    <div id="">
+
+        <div class="row">
+            
+                <div class="widget box light-grey">
+                    
+                        <div class="widget-title">
+                            <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>创建入库单</h4>
+                            <div class="actions">                                
+                                <a class="btn btn-info" href="/ERP/InStoreBillList" >返回列表页</a>
+                            </div>
+                        </div>
+
+                        <div class="instorebill" id="widget_tab1"> 
+                            <form id="BillForm">
+                                     <div class="col-lg-3 col-sm-6">
+                                        <div class="control-group">
+                                            <label class="control-label" for="txtOrderTime">制单时间</label>
+                                            <div class="controls">
+                                                <input type="text" id="ordertime" name="ordertime" class="form-control" placeholder="" value="@DateTime.Now.ToString("yyyy-MM-dd HH:mm")" />
+                                                <input type="hidden" id="orderno" name="orderno" value="@ViewBag.orderno" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3 col-sm-6">
+                                        <div class="control-group">
+                                            <label class="control-label" for="ddlInType">入库单类型</label>
+                                            <div class="controls">
+                                                <input id="intype" name="intype" class="form-control" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6">
+                                        <div class="control-group">
+                                            <label class="control-label" for="txtContractOrder">关联订单号</label>
+                                            <div class="controls">
+                                                <input type="text" id="corder" name="corder" class="form-control" placeholder="" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6">
+                                        <div class="control-group">
+                                            <label class="control-label" for="txtCrateUser">制单人</label>
+                                            <div class="controls">
+                                                <input type="text" id="cuser" name="cuser" class="form-control" placeholder="" value="" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                               
+                                
+                                    <div class="col-lg-3 col-sm-6">
+                                        <div class="control-group">
+                                            <label class="control-label" for="txtSupNum">供应商编号</label>
+                                            <div class="controls">                                                
+                                            <dl>
+                                              <dd>
+                                                  <input type="text" class="form-control " value="" autocomplete="off" id="supno" name="supno" required />
+                                                  <table style="z-index: 9999999; position: absolute">
+                                                      <tbody id="sup">
+                                                          
+                                                      </tbody>
+                                                  </table>
+                                              </dd>
+                                            </dl>
+                                            <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6">
+                                        <div class="control-group">
+                                            <label class="control-label" for="txtSupName">供应商名称</label>
+                                            <div class="controls">
+                                                <input type="text" id="supname" name="supname" class="form-control" placeholder="" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6">
+                                        <div class="control-group">
+                                            <label class="control-label" for="txtContactName">供应商联系人</label>
+                                            <div class="controls">
+                                                <input type="text" id="suplinkman" name="suplinkman" class="form-control" placeholder="" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6">
+                                        <div class="control-group">
+                                            <label class="control-label" for="txtSupPhone">供应商联系方式</label>
+                                            <div class="controls">
+                                                <input type="text" id="supphone" name="supphone" class="form-control" placeholder="" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                            
+                                    <div class="col-lg-12 col-sm-6">
+                                        <div class="control-group">
+                                            <label class="control-label" for="txtRemark">备注</label>
+                                            <div class="controls">
+                                                <input type="text" id="remark" name="remark" class="form-control" placeholder="" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                            </form>
+                        </div>
+                    <form id="AddProd">
+                        <table class="table table-hover table-bordered table-striped" id="tabInfo" style="position:static;float:left;margin-left:28px;width: 97%;">
+                            <thead>
+                                <tr class="widget-title">
+                                    <th class="hidden-480">产品名称</th>
+                                    <th class="hidden-480">产品条码</th>
+                                    <th class="hidden-480">规格</th>
+                                    <th class="hidden-480">批次</th>
+                                    <th class="hidden-480">库别</th>
+                                    <th class="hidden-480">单价</th>
+                                    <th class="hidden-480">入库数</th>
+                                    <th class="hidden-480">总价</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="prodata">
+
+                                <tr id="proinput" style="display:none">
+                                    
+                                    <td><input type="hidden" value="" id="cpno" /><input type="text" readonly style="width:182px;background-color: #fff;" property="选择产品" onclick="getprod();" id="prod" name="prod" class="form-control" data-toggle="modal" data-target=".bs-example-modal-lg" required /> </td>
+                                    <td><input type="text" id="bmno" name="bmno" class="form-control" placeholder="产品条码" disabled /></td>
+                                    <td><input type="text" id="type" name="type" class="form-control" placeholder="规格" disabled style="width:120px" /></td>
+                                    <td><input type="text" id="pc" name="pc" class="form-control" placeholder="批次" style="width:120px" /></td>
+                                    <td>
+                                        <select name="kb" id="kb" class="form-control" style="width:150px;">
+                                            @foreach (var item in ViewBag.kb)
+                                            {
+                                                <option value="@item.st_no">@item.st_name</option>
+                                            }
+                                        </select>
+                                    </td>
+                                    <td><input type="text" id="aprice" name="aprice" class="form-control" placeholder="单价" style="width:120px" /></td>
+                                    <td><input type="text" id="fginum" name="fginum" class="form-control" placeholder="入库数" style="width:80px" required /></td>
+                                    <td><input type="text" id="sprice" name="sprice" class="form-control" placeholder="总价" readonly style="width:120px" /></td>
+                                    <td>
+                                        <button type="submit"  class="btn btn-primary"><i class="fa fa-check"></i>确定</button>
+                                        <button type="reset" class="btn btn-danger"  onclick="cancelprod()"><i class="fa fa-close"></i>取消</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form> 
+                    <div class="form-actions formBtn" id="submit" style="padding-left: 30px; padding-bottom: 20px;">
+                        <button type="submit" class="btn btn-primary" onclick="addprod();"><i class="fa fa-plus"></i>新增产品</button>
+                        <button type="submit" class="btn btn-primary" onclick="createbill();"><i class="fa fa-check"></i>保存</button>
+                        <button type="button" class="btn btn-danger" onclick="resetbill();"><i class="fa fa-close"></i>重置</button>
+                    </div>
+                    <hr />
+
+                        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                            <div class="modal-dialog modal-lg" role="document" style="background-color:#fff;margin-top: 100px;border-radius: 10px;">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="gridSystemModalLabel">选择产品</h4>                                    
+                                </div>
+                                <div class="modal-content" style="min-height:400px; max-height:400px; overflow:auto;">
+
+                                    <div class="tab-pane active" id="widget_tab1">
+
+                                        <table class="formtab_user table table-bordered table-hover mytable" style="width:95%">
+                                           <thead>
+                                               <tr>
+                                                   <td colspan="5">
+                                                    <input type="text" id="prodparme" name="prodparme" class="form-control" placeholder="输入产品名称/编号查询" style="width:180px;float:left;" />
+                                                       <button type="button" class="btn btn-primary" onclick="getprod();" style="float:left;"><i class="fa fa-search"></i>查询</button>
+                                                   </td>
+                                               </tr>
+                                               <tr class="widget-title">
+                                                   <th class="hidden-480">--</th>
+                                                   <th class="hidden-480">产品编号</th>
+                                                   <th class="hidden-480">产品名称</th>
+                                                   <th class="hidden-480">产品规格</th>
+                                                   <th class="hidden-480">价格</th>
+                                               </tr>
+                                           </thead>
+                                           <tbody id="showprod">
+                                               
+                                           </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" onclick="setcunor();" data-dismiss="modal">确定</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
+                                </div>
+                            </div>
+                        </div>   
+                    
+                    <div class="modal fade model_gys" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                        <div class="modal-dialog modal-lg" role="document" style="background-color:#fff;margin-top: 100px;border-radius: 10px;">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">选择供应商</h4>
+                            </div>
+                            <div class="modal-content" style="min-height:400px; max-height:400px; overflow:auto;">
+
+                                <div class="tab-pane active" id="widget_tab1">
+
+                                    <table class="formtab_user table table-bordered table-hover mytable" style="width:95%">
+                                        <tbody>
+                                            <tr class="widget-title">
+                                                <th class="hidden-480">--</th>
+                                                <th class="hidden-480">产品编号</th>
+                                                <th class="hidden-480">产品名称</th>
+                                                <th class="hidden-480">产品规格</th>
+                                                <th class="hidden-480">价格</th>
+                                            </tr>
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" onclick="setcunor();" data-dismiss="modal">确定</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
+                            </div>
+                        </div>
+                    </div>  
+                    
+                                    
+                   </div>            
+             </div>
+         </div>
+
+    @Html.Partial("_Foot")
+    <script type="text/javascript" src="~/Content/js/CreateInStoreBill.js"></script> 
+    <script type="text/javascript" src="/Content/Theme/Validate/jquery.validate.min.js"></script>      <!--验证-->
+    <script type="text/javascript" charset="GBK" src="/Content/Theme/Validate/messages_zh.js"></script><!--验证-->
+    <script>
+       
+    </script>
+
+
+
+</body>
+</html>

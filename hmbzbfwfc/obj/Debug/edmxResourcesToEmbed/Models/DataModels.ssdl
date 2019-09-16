@@ -1,0 +1,1662 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="yMfwfcjfModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="bas_dict">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bm_no" Type="varchar" MaxLength="10" />
+    <Property Name="bm_name" Type="varchar" MaxLength="50" />
+    <Property Name="bmtype" Type="varchar" MaxLength="50" />
+    <Property Name="tcode" Type="int" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cu_no" Type="varchar" MaxLength="20" />
+    <Property Name="cu_name" Type="varchar" MaxLength="80" />
+    <Property Name="cutype" Type="varchar" MaxLength="20" />
+    <Property Name="lc_no" Type="varchar" MaxLength="30" />
+    <Property Name="loca" Type="varchar" MaxLength="50" />
+    <Property Name="addr" Type="varchar" MaxLength="200" />
+    <Property Name="phone" Type="varchar" MaxLength="50" />
+    <Property Name="post" Type="varchar" MaxLength="50" />
+    <Property Name="fax" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="link_man" Type="varchar" MaxLength="50" />
+    <Property Name="remark" Type="varchar" MaxLength="100" />
+    <Property Name="province" Type="varchar" MaxLength="50" />
+    <Property Name="city" Type="varchar" MaxLength="50" />
+    <Property Name="acting" Type="char" MaxLength="2" />
+    <Property Name="acting_cu_no" Type="varchar" MaxLength="20" />
+    <Property Name="xtcu_no" Type="varchar" MaxLength="20" />
+    <Property Name="passwd" Type="varchar" MaxLength="50" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="imgurl" Type="varchar" MaxLength="200" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="gclass" Type="varchar" MaxLength="50" />
+    <Property Name="xtName" Type="varchar" MaxLength="50" />
+    <Property Name="xtWxId" Type="varchar" MaxLength="50" />
+    <Property Name="myHead" Type="varchar" MaxLength="200" />
+    <Property Name="mySfz" Type="varchar" MaxLength="50" />
+    <Property Name="myPhoto" Type="varchar" MaxLength="50" />
+    <Property Name="WxId" Type="varchar" MaxLength="50" />
+    <Property Name="QQ" Type="varchar" MaxLength="20" />
+    <Property Name="WanWan" Type="varchar" MaxLength="50" />
+    <Property Name="checkyn" Type="char" MaxLength="1" />
+    <Property Name="in_date" Type="datetime" />
+    <Property Name="item" Type="varchar" MaxLength="100" />
+    <Property Name="itlevel" Type="int" />
+    <Property Name="ht_no" Type="varchar" MaxLength="50" />
+    <Property Name="xtcheckyn" Type="char" MaxLength="1" />
+    <Property Name="cstatus" Type="int" />
+    <Property Name="fmoney" Type="varchar" MaxLength="20" />
+    <Property Name="taoid" Type="varchar" MaxLength="50" />
+    <Property Name="shitidian" Type="varchar" MaxLength="50" />
+    <Property Name="salloca" Type="varchar" MaxLength="80" />
+    <Property Name="zfb" Type="varchar" MaxLength="50" />
+    <Property Name="khh" Type="varchar" MaxLength="50" />
+    <Property Name="yhzh" Type="varchar" MaxLength="50" />
+    <Property Name="maxstorenum" Type="int" />
+  </EntityType>
+  <EntityType Name="dhm_code">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="Address" Type="int" />
+    <Property Name="Vcode" Type="varchar" MaxLength="50" />
+    <Property Name="CodeA" Type="varchar" MaxLength="10" />
+    <Property Name="CodeB" Type="varchar" MaxLength="10" />
+    <Property Name="CodeC" Type="varchar" MaxLength="10" />
+    <Property Name="CodeD" Type="varchar" MaxLength="10" />
+    <Property Name="codelen" Type="int" />
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="dhm_cust">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UnitCode" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="UnitName" Type="varchar" MaxLength="50" />
+    <Property Name="remark" Type="varchar" MaxLength="200" />
+    <Property Name="codeLen" Type="int" />
+    <Property Name="RegDate" Type="smalldatetime" />
+    <Property Name="renote" Type="text" />
+    <Property Name="vyn" Type="char" MaxLength="1" />
+    <Property Name="vlen" Type="int" />
+    <Property Name="wlyn" Type="char" MaxLength="1" />
+    <Property Name="wlLen" Type="int" />
+    <Property Name="wlpr" Type="varchar" MaxLength="10" />
+    <Property Name="snyn" Type="char" MaxLength="1" />
+    <Property Name="snpr" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="dhm_fwout">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UnitCode" Type="varchar" MaxLength="4" />
+    <Property Name="SellCount" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="myBegin" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="SellDateTime" Type="smalldatetime" />
+    <Property Name="snbegin" Type="varchar" MaxLength="30" />
+    <Property Name="snend" Type="varchar" MaxLength="30" />
+    <Property Name="mqty" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="packtype" Type="varchar" MaxLength="50" />
+    <Property Name="pdqty" Type="int" />
+    <Property Name="pzqty" Type="int" />
+    <Property Name="pxqty" Type="int" />
+    <Property Name="bxqty" Type="int" />
+    <Property Name="sxqty" Type="int" />
+    <Property Name="remark" Type="text" />
+    <Property Name="dxtyn" Type="char" MaxLength="1" />
+    <Property Name="dzfyn" Type="char" MaxLength="1" />
+    <Property Name="xnvyn" Type="char" MaxLength="1" />
+    <Property Name="fwpr" Type="varchar" MaxLength="200" />
+    <Property Name="wlpr" Type="varchar" MaxLength="200" />
+    <Property Name="snpr" Type="varchar" MaxLength="200" />
+    <Property Name="lfwyn" Type="char" MaxLength="1" />
+    <Property Name="lwlyn" Type="char" MaxLength="1" />
+    <Property Name="lsnyn" Type="char" MaxLength="1" />
+    <Property Name="codeLen" Type="int" />
+  </EntityType>
+  <EntityType Name="dhm_snmm">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="Address" Type="int" />
+    <Property Name="Vcode" Type="varchar" MaxLength="40" />
+    <Property Name="CodeA" Type="varchar" MaxLength="10" />
+    <Property Name="CodeB" Type="varchar" MaxLength="10" />
+    <Property Name="CodeC" Type="varchar" MaxLength="10" />
+    <Property Name="CodeD" Type="varchar" MaxLength="10" />
+    <Property Name="codelen" Type="int" />
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="dtproperties">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="property" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="objectid" Type="int" />
+    <Property Name="property" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="value" Type="varchar" MaxLength="255" />
+    <Property Name="uvalue" Type="nvarchar" MaxLength="255" />
+    <Property Name="lvalue" Type="image" />
+    <Property Name="version" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="fw_code">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="UnitCode" Type="nvarchar" MaxLength="4" />
+    <Property Name="Address" Type="int" />
+    <Property Name="CodeA" Type="nvarchar" MaxLength="30" />
+    <Property Name="CodeB" Type="nvarchar" MaxLength="30" />
+    <Property Name="CodeC" Type="nvarchar" MaxLength="30" />
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="fw_cust">
+    <Key>
+      <PropertyRef Name="UnitCode" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UnitCode" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="UnitName" Type="varchar" MaxLength="50" />
+    <Property Name="Addr" Type="varchar" MaxLength="50" />
+    <Property Name="Master" Type="varchar" MaxLength="80" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="Post" Type="varchar" MaxLength="20" />
+    <Property Name="Fax" Type="varchar" MaxLength="50" />
+    <Property Name="Property" Type="varchar" MaxLength="100" />
+    <Property Name="remark" Type="varchar" MaxLength="200" />
+    <Property Name="codeLen" Type="int" />
+    <Property Name="Mlength" Type="int" />
+    <Property Name="MaxValue" Type="varchar" MaxLength="50" />
+    <Property Name="RegDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="Operator" Type="varchar" MaxLength="50" />
+    <Property Name="OverK" Type="int" />
+    <Property Name="VoiceWelcome" Type="varchar" MaxLength="250" />
+    <Property Name="smsnote" Type="varchar" MaxLength="200" />
+    <Property Name="bcode" Type="char" MaxLength="1" />
+    <Property Name="upyn" Type="char" MaxLength="1" />
+    <Property Name="voicere" Type="varchar" MaxLength="150" />
+    <Property Name="renote" Type="varchar" MaxLength="200" />
+    <Property Name="vlen" Type="int" />
+    <Property Name="jfyn" Type="char" MaxLength="1" />
+    <Property Name="zjyn" Type="char" MaxLength="1" />
+    <Property Name="aajf" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="p_no" Type="varchar" MaxLength="20" />
+    <Property Name="unitinfo" Type="varchar" MaxLength="500" />
+    <Property Name="prodinfo" Type="varchar" MaxLength="500" />
+    <Property Name="zp" Type="image" />
+    <Property Name="ccodeyn" Type="char" MaxLength="1" />
+    <Property Name="ctype" Type="varchar" MaxLength="20" />
+    <Property Name="sntype" Type="varchar" MaxLength="50" />
+    <Property Name="snLen" Type="int" />
+    <Property Name="Msnlength" Type="int" />
+    <Property Name="dckyn" Type="char" MaxLength="1" />
+    <Property Name="snpr" Type="char" MaxLength="10" />
+    <Property Name="chrtype" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="fw_more">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="unitcode" Type="varchar" MaxLength="10" />
+    <Property Name="restitle" Type="varchar" MaxLength="50" />
+    <Property Name="resnotes" Type="text" />
+    <Property Name="remark" Type="varchar" MaxLength="50" />
+    <Property Name="status" Type="int" />
+  </EntityType>
+  <EntityType Name="fw_snmm">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="UnitCode" Type="nvarchar" MaxLength="4" />
+    <Property Name="Address" Type="int" />
+    <Property Name="CodeA" Type="nvarchar" MaxLength="30" />
+    <Property Name="CodeB" Type="nvarchar" MaxLength="30" />
+    <Property Name="CodeC" Type="nvarchar" MaxLength="30" />
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Gy_Czygl">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="czybm" Type="varchar" MaxLength="30" />
+    <Property Name="czymc" Type="varchar" MaxLength="50" />
+    <Property Name="czmm" Type="varchar" MaxLength="120" />
+    <Property Name="deptname" Type="varchar" MaxLength="50" />
+    <Property Name="in_date" Type="smalldatetime" />
+    <Property Name="sysrole" Type="varchar" MaxLength="30" />
+    <Property Name="sysgroupid" Type="int" />
+    <Property Name="cu_no" Type="varchar" MaxLength="20" />
+    <Property Name="cu_name" Type="varchar" MaxLength="50" />
+    <Property Name="checkyn" Type="char" MaxLength="1" />
+    <Property Name="st_no" Type="varchar" MaxLength="20" />
+    <Property Name="last_time" Type="datetime" />
+    <Property Name="last_ip" Type="varchar" MaxLength="30" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="remark" Type="varchar" MaxLength="50" />
+    <Property Name="rms_name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="hob_bfwjf">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="snnof" Type="varchar" MaxLength="30" />
+    <Property Name="snnot" Type="varchar" MaxLength="30" />
+    <Property Name="snqty" Type="int" />
+    <Property Name="p_no" Type="varchar" MaxLength="20" />
+    <Property Name="pname" Type="varchar" MaxLength="100" />
+    <Property Name="jf" Type="numeric" Precision="18" Scale="1" />
+    <Property Name="in_date" Type="datetime" />
+    <Property Name="remark" Type="varchar" MaxLength="100" />
+    <Property Name="cu_no" Type="varchar" MaxLength="20" />
+    <Property Name="cu_name" Type="varchar" MaxLength="50" />
+    <Property Name="lot_no" Type="varchar" MaxLength="30" />
+    <Property Name="imgurl" Type="varchar" MaxLength="100" />
+    <Property Name="mqty" Type="int" />
+    <Property Name="revoc" Type="varchar" MaxLength="80" />
+    <Property Name="tcode" Type="int" />
+    <Property Name="hbitems" Type="varchar" MaxLength="80" />
+    <Property Name="xtcu_no" Type="varchar" MaxLength="20" />
+    <Property Name="xtcu_name" Type="varchar" MaxLength="80" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="dian_no" Type="varchar" MaxLength="20" />
+    <Property Name="salitems" Type="varchar" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="hob_code">
+    <Key>
+      <PropertyRef Name="fwcode" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fwcode" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="snno" Type="varchar" MaxLength="30" />
+    <Property Name="useyn" Type="varchar" MaxLength="10" />
+    <Property Name="ship_date" Type="datetime" />
+    <Property Name="remark" Type="varchar" MaxLength="100" />
+    <Property Name="cu_no" Type="varchar" MaxLength="20" />
+    <Property Name="dian_no" Type="varchar" MaxLength="50" />
+    <Property Name="hbitems" Type="varchar" MaxLength="80" />
+    <Property Name="tcode" Type="int" />
+  </EntityType>
+  <EntityType Name="hob_dzp">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="jpname" Type="varchar" MaxLength="50" />
+    <Property Name="jpjf" Type="numeric" Precision="10" Scale="1" />
+    <Property Name="remark" Type="varchar" MaxLength="500" />
+    <Property Name="imgurl" Type="varchar" MaxLength="100" />
+    <Property Name="jptype" Type="varchar" MaxLength="50" />
+    <Property Name="in_date" Type="datetime" />
+    <Property Name="mqty" Type="int" />
+    <Property Name="hmlv" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="dian_no" Type="varchar" MaxLength="20" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="slimit" Type="int" />
+    <Property Name="elimit" Type="int" />
+  </EntityType>
+  <EntityType Name="hob_dzpsetup">
+    <Key>
+      <PropertyRef Name="dian_no" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dian_no" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="act_note" Type="varchar" MaxLength="800" />
+    <Property Name="remark" Type="varchar" MaxLength="100" />
+    <Property Name="hbimg" Type="varchar" MaxLength="100" />
+    <Property Name="hbang" Type="int" />
+    <Property Name="mutihb" Type="int" />
+    <Property Name="mutitime" Type="int" />
+    <Property Name="shareurl" Type="varchar" MaxLength="150" />
+    <Property Name="sharetitle" Type="varchar" MaxLength="150" />
+    <Property Name="shareurlimg" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="hob_item">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="itme_no" Type="varchar" MaxLength="10" />
+    <Property Name="itme_name" Type="varchar" MaxLength="30" />
+    <Property Name="in_date" Type="datetime" />
+    <Property Name="en_date" Type="datetime" />
+    <Property Name="itemtype" Type="varchar" MaxLength="50" />
+    <Property Name="mqtyf" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="mqtyt" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="hmlv" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="remark" Type="varchar" MaxLength="50" />
+    <Property Name="actyn" Type="char" MaxLength="1" />
+    <Property Name="avqty" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="cu_no" Type="varchar" MaxLength="20" />
+    <Property Name="cu_name" Type="varchar" MaxLength="50" />
+    <Property Name="jp_name" Type="varchar" MaxLength="50" />
+    <Property Name="jpnotes" Type="varchar" MaxLength="150" />
+    <Property Name="p_no" Type="varchar" MaxLength="20" />
+    <Property Name="pname" Type="varchar" MaxLength="50" />
+    <Property Name="dian_no" Type="varchar" MaxLength="20" />
+    <Property Name="bjlist" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="hob_jianpin">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="jpname" Type="varchar" MaxLength="50" />
+    <Property Name="jpjf" Type="numeric" Precision="10" Scale="1" />
+    <Property Name="remark" Type="varchar" MaxLength="500" />
+    <Property Name="imgurl" Type="varchar" MaxLength="100" />
+    <Property Name="jptype" Type="varchar" MaxLength="50" />
+    <Property Name="in_date" Type="datetime" />
+    <Property Name="mqty" Type="int" />
+    <Property Name="dian_no" Type="varchar" MaxLength="20" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="hob_juan">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="jpname" Type="varchar" MaxLength="50" />
+    <Property Name="jpjf" Type="numeric" Precision="10" Scale="1" />
+    <Property Name="remark" Type="varchar" MaxLength="500" />
+    <Property Name="imgurl" Type="varchar" MaxLength="100" />
+    <Property Name="jptype" Type="varchar" MaxLength="50" />
+    <Property Name="in_date" Type="datetime" />
+    <Property Name="mqty" Type="int" />
+    <Property Name="dian_no" Type="varchar" MaxLength="20" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="ex_date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="hob_listdjjl">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="wx_id" Type="varchar" MaxLength="50" />
+    <Property Name="wx_name" Type="varchar" MaxLength="80" />
+    <Property Name="in_date" Type="datetime" />
+    <Property Name="Jp_id" Type="int" />
+    <Property Name="Jp_name" Type="varchar" MaxLength="150" />
+    <Property Name="jf" Type="decimal" Precision="18" Scale="1" />
+    <Property Name="status" Type="int" />
+    <Property Name="linkname" Type="varchar" MaxLength="50" />
+    <Property Name="linktell" Type="varchar" MaxLength="50" />
+    <Property Name="linkaddr" Type="varchar" MaxLength="100" />
+    <Property Name="KName" Type="varchar" MaxLength="50" />
+    <Property Name="KNo" Type="varchar" MaxLength="50" />
+    <Property Name="Kin_date" Type="datetime" />
+    <Property Name="tcode" Type="int" />
+    <Property Name="dian_no" Type="varchar" MaxLength="20" />
+    <Property Name="dian_name" Type="varchar" MaxLength="80" />
+    <Property Name="djtype" Type="varchar" MaxLength="50" />
+    <Property Name="djoper" Type="varchar" MaxLength="50" />
+    <Property Name="fwcode" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="hob_listdzp">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="wx_id" Type="varchar" MaxLength="50" />
+    <Property Name="wx_name" Type="varchar" MaxLength="80" />
+    <Property Name="in_date" Type="datetime" />
+    <Property Name="Jp_id" Type="int" />
+    <Property Name="Jp_name" Type="varchar" MaxLength="150" />
+    <Property Name="jptype" Type="varchar" MaxLength="50" />
+    <Property Name="jf" Type="decimal" Precision="18" Scale="1" />
+    <Property Name="status" Type="int" />
+    <Property Name="linkname" Type="varchar" MaxLength="50" />
+    <Property Name="linktell" Type="varchar" MaxLength="50" />
+    <Property Name="linkaddr" Type="varchar" MaxLength="100" />
+    <Property Name="KName" Type="varchar" MaxLength="50" />
+    <Property Name="KNo" Type="varchar" MaxLength="50" />
+    <Property Name="Kin_date" Type="datetime" />
+    <Property Name="tcode" Type="int" />
+    <Property Name="dian_no" Type="varchar" MaxLength="20" />
+    <Property Name="dian_name" Type="varchar" MaxLength="80" />
+    <Property Name="djtype" Type="varchar" MaxLength="50" />
+    <Property Name="djoper" Type="varchar" MaxLength="50" />
+    <Property Name="fwcode" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="hob_listjuan">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="juan_no" Type="varchar" MaxLength="50" />
+    <Property Name="wx_id" Type="varchar" MaxLength="50" />
+    <Property Name="wx_name" Type="varchar" MaxLength="80" />
+    <Property Name="in_date" Type="datetime" />
+    <Property Name="Jp_id" Type="int" />
+    <Property Name="Jp_name" Type="varchar" MaxLength="150" />
+    <Property Name="jf" Type="decimal" Precision="18" Scale="1" />
+    <Property Name="status" Type="int" />
+    <Property Name="linkname" Type="varchar" MaxLength="50" />
+    <Property Name="linktell" Type="varchar" MaxLength="50" />
+    <Property Name="linkaddr" Type="varchar" MaxLength="100" />
+    <Property Name="tcode" Type="int" />
+    <Property Name="dian_no" Type="varchar" MaxLength="20" />
+    <Property Name="dian_name" Type="varchar" MaxLength="80" />
+    <Property Name="djtype" Type="varchar" MaxLength="50" />
+    <Property Name="djoper" Type="varchar" MaxLength="50" />
+    <Property Name="Kin_date" Type="datetime" />
+    <Property Name="djremark" Type="varchar" MaxLength="100" />
+    <Property Name="fwcode" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="hob_pbyship">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pjname" Type="varchar" MaxLength="50" />
+    <Property Name="p_no" Type="varchar" MaxLength="20" />
+    <Property Name="pname" Type="varchar" MaxLength="100" />
+    <Property Name="in_date" Type="datetime" />
+    <Property Name="remark" Type="varchar" MaxLength="100" />
+    <Property Name="cu_no" Type="varchar" MaxLength="20" />
+    <Property Name="cu_name" Type="varchar" MaxLength="50" />
+    <Property Name="ship_no" Type="varchar" MaxLength="30" />
+    <Property Name="po_no" Type="varchar" MaxLength="30" />
+    <Property Name="mqty" Type="int" />
+    <Property Name="hbitems" Type="varchar" MaxLength="80" />
+    <Property Name="salitems" Type="varchar" MaxLength="80" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="tcode" Type="int" />
+    <Property Name="hblist" Type="varchar" MaxLength="80" />
+    <Property Name="sallist" Type="varchar" MaxLength="80" />
+    <Property Name="ovqty" Type="int" />
+  </EntityType>
+  <EntityType Name="hob_setup">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dian_no" Type="varchar" MaxLength="20" />
+    <Property Name="dian_name" Type="varchar" MaxLength="80" />
+    <Property Name="wishing" Type="varchar" MaxLength="50" />
+    <Property Name="act_name" Type="varchar" MaxLength="50" />
+    <Property Name="remark" Type="varchar" MaxLength="100" />
+    <Property Name="act_note" Type="varchar" MaxLength="100" />
+    <Property Name="unit_note" Type="text" />
+    <Property Name="hbnotes" Type="varchar" MaxLength="100" />
+    <Property Name="hbtop" Type="varchar" MaxLength="100" />
+    <Property Name="hbboot" Type="varchar" MaxLength="100" />
+    <Property Name="hbappID" Type="varchar" MaxLength="50" />
+    <Property Name="yuer" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="yertype" Type="varchar" MaxLength="50" />
+    <Property Name="hbgettype" Type="varchar" MaxLength="50" />
+    <Property Name="csloca" Type="char" MaxLength="2" />
+    <Property Name="cszilao" Type="char" MaxLength="2" />
+    <Property Name="csguanzhu" Type="char" MaxLength="2" />
+    <Property Name="csship" Type="char" MaxLength="2" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="mutihb" Type="int" />
+    <Property Name="mutitime" Type="int" />
+    <Property Name="csshare" Type="int" />
+    <Property Name="shareurl" Type="varchar" MaxLength="150" />
+    <Property Name="shareimg" Type="varchar" MaxLength="150" />
+    <Property Name="sharetitle" Type="varchar" MaxLength="150" />
+    <Property Name="noactive" Type="varchar" MaxLength="300" />
+    <Property Name="nozj" Type="varchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="hob_share">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sharename" Type="varchar" MaxLength="80" />
+    <Property Name="sharenotes" Type="text" />
+    <Property Name="shareurl" Type="varchar" MaxLength="150" />
+    <Property Name="imgurl" Type="varchar" MaxLength="100" />
+    <Property Name="remark" Type="varchar" MaxLength="500" />
+    <Property Name="in_date" Type="datetime" />
+    <Property Name="dian_no" Type="varchar" MaxLength="20" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="hob_ship">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bsnno" Type="varchar" MaxLength="30" />
+    <Property Name="ship_date" Type="datetime" />
+    <Property Name="remark" Type="varchar" MaxLength="50" />
+    <Property Name="item_no" Type="varchar" MaxLength="10" />
+    <Property Name="mqty" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="hmlv" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="hob_yuerin">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bill_no" Type="varchar" MaxLength="50" />
+    <Property Name="in_date" Type="datetime" />
+    <Property Name="mqty" Type="int" />
+    <Property Name="dian_no" Type="varchar" MaxLength="20" />
+    <Property Name="czybm" Type="varchar" MaxLength="30" />
+    <Property Name="remark" Type="varchar" MaxLength="50" />
+    <Property Name="intype" Type="varchar" MaxLength="50" />
+    <Property Name="inzh" Type="varchar" MaxLength="50" />
+    <Property Name="inname" Type="varchar" MaxLength="50" />
+    <Property Name="inremark" Type="varchar" MaxLength="50" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="hob_yuerintemp">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bill_no" Type="varchar" MaxLength="50" />
+    <Property Name="in_date" Type="datetime" />
+    <Property Name="mqty" Type="int" />
+    <Property Name="dian_no" Type="varchar" MaxLength="20" />
+    <Property Name="czybm" Type="varchar" MaxLength="30" />
+    <Property Name="remark" Type="varchar" MaxLength="50" />
+    <Property Name="intype" Type="varchar" MaxLength="50" />
+    <Property Name="inzh" Type="varchar" MaxLength="50" />
+    <Property Name="inname" Type="varchar" MaxLength="50" />
+    <Property Name="inremark" Type="varchar" MaxLength="50" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="hob_yuerout">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bill_no" Type="varchar" MaxLength="20" />
+    <Property Name="in_date" Type="datetime" />
+    <Property Name="mqty" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="czybm" Type="varchar" MaxLength="30" />
+    <Property Name="remark" Type="varchar" MaxLength="50" />
+    <Property Name="wx_id" Type="varchar" MaxLength="50" />
+    <Property Name="wx_name" Type="varchar" MaxLength="80" />
+    <Property Name="outremark" Type="varchar" MaxLength="50" />
+    <Property Name="wxsex" Type="varchar" MaxLength="10" />
+    <Property Name="fwcode" Type="varchar" MaxLength="30" />
+    <Property Name="wlcode" Type="varchar" MaxLength="30" />
+    <Property Name="province" Type="varchar" MaxLength="50" />
+    <Property Name="city" Type="varchar" MaxLength="50" />
+    <Property Name="loca" Type="varchar" MaxLength="50" />
+    <Property Name="address" Type="varchar" MaxLength="100" />
+    <Property Name="itme_no" Type="varchar" MaxLength="10" />
+    <Property Name="jp_name" Type="varchar" MaxLength="50" />
+    <Property Name="status" Type="int" />
+    <Property Name="keycode" Type="varchar" MaxLength="100" />
+    <Property Name="yertype" Type="varchar" MaxLength="10" />
+    <Property Name="tcode" Type="int" />
+    <Property Name="dian_no" Type="varchar" MaxLength="20" />
+    <Property Name="dian_name" Type="varchar" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="hy_dian">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hy_no" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="hy_cn" Type="varchar" MaxLength="50" />
+    <Property Name="mobile" Type="varchar" MaxLength="20" />
+    <Property Name="password" Type="varchar" MaxLength="20" />
+    <Property Name="email" Type="varchar" MaxLength="30" />
+    <Property Name="jf" Type="numeric" Precision="18" Scale="1" />
+    <Property Name="historyjf" Type="numeric" Precision="18" Scale="1" />
+    <Property Name="realname" Type="varchar" MaxLength="20" />
+    <Property Name="cu_no" Type="varchar" MaxLength="20" />
+    <Property Name="cu_name" Type="varchar" MaxLength="200" />
+    <Property Name="BankAccount" Type="varchar" MaxLength="50" />
+    <Property Name="khh" Type="nvarchar" MaxLength="100" />
+    <Property Name="in_date" Type="datetime" />
+    <Property Name="loca" Type="varchar" MaxLength="20" />
+    <Property Name="statu" Type="int" />
+    <Property Name="remarks" Type="varchar" MaxLength="200" />
+    <Property Name="birthday" Type="datetime" />
+    <Property Name="postcode" Type="varchar" MaxLength="10" />
+    <Property Name="address" Type="nvarchar" MaxLength="100" />
+    <Property Name="sex" Type="varchar" MaxLength="10" />
+    <Property Name="sfz_no" Type="varchar" MaxLength="50" />
+    <Property Name="imgurl" Type="varchar" MaxLength="200" />
+    <Property Name="Grade_no" Type="varchar" MaxLength="20" />
+    <Property Name="diagnosis_result" Type="varchar" MaxLength="100" />
+    <Property Name="post_adress" Type="varchar" MaxLength="100" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="xttype" Type="varchar" MaxLength="30" />
+    <Property Name="ship_date" Type="smalldatetime" />
+    <Property Name="wx_id" Type="varchar" MaxLength="50" />
+    <Property Name="province" Type="varchar" MaxLength="50" />
+    <Property Name="city" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="infoupdate">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="updfid" Type="int" />
+    <Property Name="cu_no" Type="varchar" MaxLength="50" />
+    <Property Name="before" Type="text" />
+    <Property Name="after" Type="text" />
+    <Property Name="issel" Type="int" />
+    <Property Name="upddate" Type="datetime" />
+    <Property Name="p_no" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="InStore">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderNum" Type="varchar" MaxLength="50" />
+    <Property Name="InType" Type="varchar" MaxLength="100" />
+    <Property Name="ProductType" Type="int" />
+    <Property Name="StorageNum" Type="varchar" MaxLength="50" />
+    <Property Name="SupNum" Type="varchar" MaxLength="50" />
+    <Property Name="SupName" Type="varchar" MaxLength="100" />
+    <Property Name="ContactName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="100" />
+    <Property Name="ContractOrder" Type="varchar" MaxLength="50" />
+    <Property Name="ContractType" Type="int" />
+    <Property Name="Status" Type="int" />
+    <Property Name="IsDelete" Type="int" />
+    <Property Name="Num" Type="float" />
+    <Property Name="Amount" Type="float" />
+    <Property Name="NetWeight" Type="float" />
+    <Property Name="GrossWeight" Type="float" />
+    <Property Name="OrderTime" Type="datetime" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="AuditUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="AuditeTime" Type="datetime" />
+    <Property Name="PrintUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="PrintTime" Type="datetime" />
+    <Property Name="StoreKeeper" Type="nvarchar" MaxLength="50" />
+    <Property Name="Reason" Type="nvarchar" MaxLength="400" />
+    <Property Name="OperateType" Type="int" />
+    <Property Name="EquipmentNum" Type="varchar" MaxLength="50" />
+    <Property Name="EquipmentCode" Type="varchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="400" />
+  </EntityType>
+  <EntityType Name="InStoreDetail">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="billno" Type="varchar" MaxLength="50" />
+    <Property Name="indate" Type="datetime" />
+    <Property Name="p_no" Type="varchar" MaxLength="50" />
+    <Property Name="pname" Type="varchar" MaxLength="500" />
+    <Property Name="barcode" Type="varchar" MaxLength="50" />
+    <Property Name="ptype" Type="varchar" MaxLength="50" />
+    <Property Name="batchnum" Type="varchar" MaxLength="100" />
+    <Property Name="num" Type="float" />
+    <Property Name="inprice" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="sumprice" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="storenum" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Inv_Custqty">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="p_no" Type="char" MaxLength="20" />
+    <Property Name="cu_no" Type="varchar" MaxLength="20" />
+    <Property Name="stqty" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="bakqty" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="inqty" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="outqty" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="m_date" Type="datetime" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Inv_Lot">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="in_date" Type="datetime" />
+    <Property Name="lot_no" Type="varchar" MaxLength="30" />
+    <Property Name="p_no" Type="char" MaxLength="20" />
+    <Property Name="pname" Type="varchar" MaxLength="50" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="pr_date" Type="datetime" />
+    <Property Name="ex_date" Type="datetime" />
+    <Property Name="exdays" Type="int" />
+    <Property Name="makeare" Type="varchar" MaxLength="100" />
+    <Property Name="mqty" Type="int" />
+    <Property Name="remark" Type="varchar" MaxLength="100" />
+    <Property Name="imgurl" Type="varchar" MaxLength="100" />
+    <Property Name="retxt" Type="text" />
+  </EntityType>
+  <EntityType Name="inv_mlot">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="lot_no" Type="varchar" MaxLength="30" />
+    <Property Name="ship_no" Type="varchar" MaxLength="20" />
+    <Property Name="ship_date" Type="smalldatetime" />
+    <Property Name="mqty" Type="int" />
+    <Property Name="p_no" Type="varchar" MaxLength="30" />
+    <Property Name="pname" Type="varchar" MaxLength="50" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="mlot_no" Type="varchar" MaxLength="30" />
+    <Property Name="xtUserno" Type="varchar" MaxLength="20" />
+    <Property Name="remark" Type="varchar" MaxLength="200" />
+    <Property Name="pc_no" Type="char" MaxLength="10" />
+    <Property Name="pc_name" Type="varchar" MaxLength="50" />
+    <Property Name="op_no" Type="char" MaxLength="10" />
+    <Property Name="op_name" Type="varchar" MaxLength="50" />
+    <Property Name="msnno" Type="varchar" MaxLength="30" />
+    <Property Name="eship_date" Type="smalldatetime" />
+    <Property Name="imgurl" Type="varchar" MaxLength="100" />
+    <Property Name="mpart" Type="varchar" MaxLength="150" />
+    <Property Name="makeinfo" Type="varchar" MaxLength="100" />
+    <Property Name="reuser" Type="varchar" MaxLength="50" />
+    <Property Name="lop_no" Type="char" MaxLength="10" />
+    <Property Name="lop_name" Type="varchar" MaxLength="50" />
+    <Property Name="sop_no" Type="char" MaxLength="10" />
+    <Property Name="sop_name" Type="varchar" MaxLength="50" />
+    <Property Name="qc_no" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Inv_Mpart">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="p_no" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="pname" Type="varchar" MaxLength="50" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="unit" Type="char" MaxLength="10" />
+    <Property Name="loca" Type="varchar" MaxLength="50" />
+    <Property Name="remark" Type="varchar" MaxLength="50" />
+    <Property Name="in_date" Type="smalldatetime" />
+    <Property Name="price" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="parttype" Type="varchar" MaxLength="20" />
+    <Property Name="qcdays" Type="int" />
+    <Property Name="saftqty" Type="int" />
+    <Property Name="bm_no" Type="varchar" MaxLength="20" />
+    <Property Name="pqty" Type="int" />
+    <Property Name="usetype" Type="varchar" MaxLength="300" />
+    <Property Name="usefor" Type="varchar" MaxLength="300" />
+    <Property Name="imgurl" Type="varchar" MaxLength="100" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Inv_Part">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="p_no" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="pname" Type="varchar" MaxLength="50" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="unit" Type="char" MaxLength="10" />
+    <Property Name="loca" Type="varchar" MaxLength="50" />
+    <Property Name="remark" Type="varchar" MaxLength="50" />
+    <Property Name="remark2" Type="varchar" MaxLength="30" />
+    <Property Name="in_date" Type="smalldatetime" />
+    <Property Name="m_user" Type="char" MaxLength="10" />
+    <Property Name="sfqty" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="price" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="cur_no" Type="char" MaxLength="5" />
+    <Property Name="mtype" Type="varchar" MaxLength="20" />
+    <Property Name="back" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="stqty" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="st_date" Type="datetime" />
+    <Property Name="inqty" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="outqty" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="parttype" Type="varchar" MaxLength="20" />
+    <Property Name="curprice" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="curchang" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="prodtype" Type="varchar" MaxLength="50" />
+    <Property Name="qcdays" Type="int" />
+    <Property Name="saftqty" Type="int" />
+    <Property Name="bm_no" Type="varchar" MaxLength="20" />
+    <Property Name="pqty" Type="int" />
+    <Property Name="mprice" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="mpack" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="mall" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="fwcode" Type="varchar" MaxLength="30" />
+    <Property Name="usetype" Type="varchar" MaxLength="300" />
+    <Property Name="usefor" Type="varchar" MaxLength="300" />
+    <Property Name="xtcu_no" Type="varchar" MaxLength="20" />
+    <Property Name="jf" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="ajf" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="bjf" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="cjf" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="upyn" Type="char" MaxLength="1" />
+    <Property Name="zqty" Type="int" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="imgurl" Type="varchar" MaxLength="100" />
+    <Property Name="imgurl2" Type="varchar" MaxLength="100" />
+    <Property Name="imgurl3" Type="varchar" MaxLength="100" />
+    <Property Name="imgurl4" Type="varchar" MaxLength="100" />
+    <Property Name="pnamejs" Type="text" />
+    <Property Name="fwnote" Type="varchar" MaxLength="100" />
+    <Property Name="renote" Type="varchar" MaxLength="300" />
+    <Property Name="p_star" Type="int" />
+    <Property Name="cu_no" Type="varchar" MaxLength="20" />
+    <Property Name="cu_name" Type="varchar" MaxLength="50" />
+    <Property Name="oid" Type="int" />
+    <Property Name="hbitems" Type="varchar" MaxLength="80" />
+    <Property Name="salitems" Type="varchar" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="Inv_Store">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="st_no" Type="char" MaxLength="10" />
+    <Property Name="st_name" Type="varchar" MaxLength="50" />
+    <Property Name="remark" Type="varchar" MaxLength="50" />
+    <Property Name="in_date" Type="smalldatetime" />
+    <Property Name="m_user" Type="varchar" MaxLength="30" />
+    <Property Name="sttype" Type="varchar" MaxLength="30" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="xtcu_no" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Inv_Stqty">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="p_no" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="st_no" Type="char" MaxLength="10" />
+    <Property Name="stqty" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="bakqty" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="inqty" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="outqty" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="m_date" Type="datetime" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="fgiqty" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“yfwfc_asyjt.dbo.pdauser”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="pdauser">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pdano" Type="varchar" MaxLength="50" />
+    <Property Name="pdaname" Type="varchar" MaxLength="500" />
+    <Property Name="pdapwd" Type="varchar" MaxLength="200" />
+    <Property Name="cu_no" Type="varchar" MaxLength="50" />
+    <Property Name="add_date" Type="datetime" />
+    <Property Name="phone" Type="varchar" MaxLength="50" />
+    <Property Name="realname" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="QueryLog">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="seluser" Type="varchar" MaxLength="50" />
+    <Property Name="seldate" Type="datetime" />
+    <Property Name="selnum" Type="varchar" MaxLength="100" />
+    <Property Name="selresult" Type="text" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sal_cufgi">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ship_no" Type="varchar" MaxLength="20" />
+    <Property Name="bsnno" Type="varchar" MaxLength="30" />
+    <Property Name="ship_date" Type="smalldatetime" />
+    <Property Name="cu_no" Type="varchar" MaxLength="20" />
+    <Property Name="cu_name" Type="varchar" MaxLength="50" />
+    <Property Name="loca" Type="varchar" MaxLength="50" />
+    <Property Name="mqty" Type="int" />
+    <Property Name="p_no" Type="char" MaxLength="20" />
+    <Property Name="pname" Type="varchar" MaxLength="50" />
+    <Property Name="upyn" Type="char" MaxLength="1" />
+    <Property Name="xtcu_no" Type="varchar" MaxLength="20" />
+    <Property Name="jf" Type="numeric" Precision="18" Scale="1" />
+    <Property Name="price" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="lot_no" Type="varchar" MaxLength="30" />
+    <Property Name="st_no" Type="char" MaxLength="10" />
+    <Property Name="xtcu_name" Type="varchar" MaxLength="50" />
+    <Property Name="po_no" Type="varchar" MaxLength="20" />
+    <Property Name="pda_no" Type="varchar" MaxLength="20" />
+    <Property Name="remark" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sal_cure">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ship_no" Type="varchar" MaxLength="20" />
+    <Property Name="bsnno" Type="varchar" MaxLength="30" />
+    <Property Name="ship_date" Type="smalldatetime" />
+    <Property Name="cu_no" Type="varchar" MaxLength="20" />
+    <Property Name="cu_name" Type="varchar" MaxLength="50" />
+    <Property Name="loca" Type="varchar" MaxLength="50" />
+    <Property Name="mqty" Type="int" />
+    <Property Name="p_no" Type="char" MaxLength="20" />
+    <Property Name="pname" Type="varchar" MaxLength="50" />
+    <Property Name="upyn" Type="char" MaxLength="1" />
+    <Property Name="xtcu_no" Type="varchar" MaxLength="20" />
+    <Property Name="jf" Type="numeric" Precision="18" Scale="1" />
+    <Property Name="price" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="lot_no" Type="varchar" MaxLength="30" />
+    <Property Name="st_no" Type="char" MaxLength="10" />
+    <Property Name="xtcu_name" Type="varchar" MaxLength="50" />
+    <Property Name="pda_no" Type="varchar" MaxLength="20" />
+    <Property Name="remark" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sal_cuship">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ship_no" Type="varchar" MaxLength="20" />
+    <Property Name="bsnno" Type="varchar" MaxLength="30" />
+    <Property Name="ship_date" Type="datetime" />
+    <Property Name="cu_no" Type="varchar" MaxLength="20" />
+    <Property Name="cu_name" Type="varchar" MaxLength="50" />
+    <Property Name="loca" Type="varchar" MaxLength="50" />
+    <Property Name="mqty" Type="int" />
+    <Property Name="p_no" Type="char" MaxLength="20" />
+    <Property Name="pname" Type="varchar" MaxLength="50" />
+    <Property Name="upyn" Type="char" MaxLength="1" />
+    <Property Name="xtcu_no" Type="varchar" MaxLength="20" />
+    <Property Name="jf" Type="numeric" Precision="18" Scale="1" />
+    <Property Name="price" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="lot_no" Type="varchar" MaxLength="30" />
+    <Property Name="st_no" Type="char" MaxLength="10" />
+    <Property Name="xtcu_name" Type="varchar" MaxLength="50" />
+    <Property Name="pda_no" Type="varchar" MaxLength="20" />
+    <Property Name="remark" Type="varchar" MaxLength="50" />
+    <Property Name="po_no" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="sal_fgi">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ship_no" Type="varchar" MaxLength="20" />
+    <Property Name="bsnno" Type="varchar" MaxLength="30" />
+    <Property Name="ship_date" Type="smalldatetime" />
+    <Property Name="cu_no" Type="varchar" MaxLength="20" />
+    <Property Name="cu_name" Type="varchar" MaxLength="50" />
+    <Property Name="loca" Type="varchar" MaxLength="50" />
+    <Property Name="mqty" Type="int" />
+    <Property Name="p_no" Type="varchar" MaxLength="30" />
+    <Property Name="pname" Type="varchar" MaxLength="50" />
+    <Property Name="upyn" Type="char" MaxLength="1" />
+    <Property Name="xtcu_no" Type="varchar" MaxLength="20" />
+    <Property Name="jf" Type="numeric" Precision="18" Scale="1" />
+    <Property Name="price" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="lot_no" Type="varchar" MaxLength="30" />
+    <Property Name="st_no" Type="char" MaxLength="10" />
+    <Property Name="xtcu_name" Type="varchar" MaxLength="50" />
+    <Property Name="fc_no" Type="varchar" MaxLength="20" />
+    <Property Name="fc_name" Type="varchar" MaxLength="60" />
+    <Property Name="pda_no" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="sal_packa">
+    <Key>
+      <PropertyRef Name="pack_no" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pack_no" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="pack_date" Type="smalldatetime" />
+    <Property Name="pfilename" Type="varchar" MaxLength="200" />
+    <Property Name="uplog" Type="varchar" MaxLength="200" />
+    <Property Name="unitcode" Type="varchar" MaxLength="50" />
+    <Property Name="line_no" Type="varchar" MaxLength="50" />
+    <Property Name="wo_no" Type="varchar" MaxLength="50" />
+    <Property Name="log_no" Type="varchar" MaxLength="50" />
+    <Property Name="p_no" Type="varchar" MaxLength="50" />
+    <Property Name="remark" Type="varchar" MaxLength="50" />
+    <Property Name="absolutepath" Type="varchar" MaxLength="500" />
+    <Property Name="relativepath" Type="varchar" MaxLength="500" />
+    <Property Name="add_date" Type="datetime" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="status" Type="int" />
+    <Property Name="okqty" Type="int" />
+    <Property Name="errqty" Type="int" />
+    <Property Name="okpcs" Type="int" />
+    <Property Name="cu_no" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="sal_packb">
+    <Key>
+      <PropertyRef Name="snno" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pack_no" Type="varchar" MaxLength="30" />
+    <Property Name="snno" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="usnno" Type="varchar" MaxLength="30" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="p_no" Type="varchar" MaxLength="20" />
+    <Property Name="in_date" Type="datetime" />
+    <Property Name="lot_no" Type="varchar" MaxLength="30" />
+    <Property Name="line_no" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="sal_re">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ship_no" Type="varchar" MaxLength="20" />
+    <Property Name="bsnno" Type="varchar" MaxLength="30" />
+    <Property Name="ship_date" Type="smalldatetime" />
+    <Property Name="cu_no" Type="varchar" MaxLength="20" />
+    <Property Name="cu_name" Type="varchar" MaxLength="50" />
+    <Property Name="loca" Type="varchar" MaxLength="50" />
+    <Property Name="mqty" Type="int" />
+    <Property Name="p_no" Type="varchar" MaxLength="30" />
+    <Property Name="pname" Type="varchar" MaxLength="50" />
+    <Property Name="upyn" Type="char" MaxLength="1" />
+    <Property Name="xtcu_no" Type="varchar" MaxLength="20" />
+    <Property Name="jf" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="price" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="lot_no" Type="varchar" MaxLength="30" />
+    <Property Name="st_no" Type="char" MaxLength="10" />
+    <Property Name="xtcu_name" Type="varchar" MaxLength="50" />
+    <Property Name="pda_no" Type="varchar" MaxLength="20" />
+    <Property Name="adddatetime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="sal_ship">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ship_no" Type="varchar" MaxLength="20" />
+    <Property Name="bsnno" Type="varchar" MaxLength="30" />
+    <Property Name="ship_date" Type="datetime" />
+    <Property Name="cu_no" Type="varchar" MaxLength="20" />
+    <Property Name="cu_name" Type="varchar" MaxLength="50" />
+    <Property Name="loca" Type="varchar" MaxLength="50" />
+    <Property Name="mqty" Type="int" />
+    <Property Name="p_no" Type="varchar" MaxLength="30" />
+    <Property Name="pname" Type="varchar" MaxLength="50" />
+    <Property Name="upyn" Type="char" MaxLength="1" />
+    <Property Name="xtcu_no" Type="varchar" MaxLength="20" />
+    <Property Name="jf" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="price" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="lot_no" Type="varchar" MaxLength="30" />
+    <Property Name="st_no" Type="char" MaxLength="10" />
+    <Property Name="xtcu_name" Type="varchar" MaxLength="50" />
+    <Property Name="cureyn" Type="char" MaxLength="1" />
+    <Property Name="curedate" Type="datetime" />
+    <Property Name="bloca" Type="varchar" MaxLength="80" />
+    <Property Name="cloca" Type="varchar" MaxLength="80" />
+    <Property Name="mtype" Type="varchar" MaxLength="50" />
+    <Property Name="po_no" Type="varchar" MaxLength="20" />
+    <Property Name="recu_no" Type="varchar" MaxLength="20" />
+    <Property Name="recu_name" Type="varchar" MaxLength="50" />
+    <Property Name="renotes" Type="varchar" MaxLength="50" />
+    <Property Name="pda_no" Type="varchar" MaxLength="20" />
+    <Property Name="reship_no" Type="varchar" MaxLength="20" />
+    <Property Name="remark" Type="varchar" MaxLength="50" />
+    <Property Name="adddatetime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="sal_tiaoji">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ship_no" Type="varchar" MaxLength="20" />
+    <Property Name="bsnno" Type="varchar" MaxLength="30" />
+    <Property Name="ship_date" Type="smalldatetime" />
+    <Property Name="cu_no" Type="varchar" MaxLength="20" />
+    <Property Name="cu_name" Type="varchar" MaxLength="50" />
+    <Property Name="checkyn" Type="char" MaxLength="1" />
+    <Property Name="oclass" Type="varchar" MaxLength="20" />
+    <Property Name="nclass" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="sal_tst">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ship_no" Type="varchar" MaxLength="20" />
+    <Property Name="bsnno" Type="varchar" MaxLength="30" />
+    <Property Name="ship_date" Type="smalldatetime" />
+    <Property Name="mqty" Type="int" />
+    <Property Name="p_no" Type="varchar" MaxLength="30" />
+    <Property Name="pname" Type="varchar" MaxLength="50" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="ost_no" Type="char" MaxLength="10" />
+    <Property Name="nst_no" Type="char" MaxLength="10" />
+    <Property Name="remark" Type="varchar" MaxLength="50" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="vender">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cu_no" Type="varchar" MaxLength="20" />
+    <Property Name="cu_name" Type="varchar" MaxLength="80" />
+    <Property Name="cutype" Type="varchar" MaxLength="20" />
+    <Property Name="lc_no" Type="varchar" MaxLength="30" />
+    <Property Name="loca" Type="varchar" MaxLength="50" />
+    <Property Name="addr" Type="varchar" MaxLength="80" />
+    <Property Name="phone" Type="varchar" MaxLength="50" />
+    <Property Name="post" Type="varchar" MaxLength="50" />
+    <Property Name="fax" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="link_man" Type="varchar" MaxLength="50" />
+    <Property Name="remark" Type="varchar" MaxLength="100" />
+    <Property Name="province" Type="varchar" MaxLength="50" />
+    <Property Name="city" Type="varchar" MaxLength="50" />
+    <Property Name="acting" Type="char" MaxLength="2" />
+    <Property Name="acting_cu_no" Type="varchar" MaxLength="20" />
+    <Property Name="xtcu_no" Type="varchar" MaxLength="20" />
+    <Property Name="passwd" Type="varchar" MaxLength="50" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="zizhi" Type="text" />
+  </EntityType>
+  <EntityType Name="wx_accessToken">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="access_token" Type="varchar" MaxLength="1000" />
+    <Property Name="expires_in" Type="int" />
+    <Property Name="in_date" Type="datetime" />
+    <Property Name="WxId" Type="varchar" MaxLength="50" />
+    <Property Name="remark" Type="varchar" MaxLength="500" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="tokentype" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="wx_gid">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="unitname" Type="varchar" MaxLength="80" />
+    <Property Name="WxId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="WxNo" Type="varchar" MaxLength="50" />
+    <Property Name="WxName" Type="varchar" MaxLength="50" />
+    <Property Name="AppId" Type="varchar" MaxLength="80" />
+    <Property Name="AppSecret" Type="varchar" MaxLength="80" />
+    <Property Name="WxUrl" Type="varchar" MaxLength="100" />
+    <Property Name="Token" Type="varchar" MaxLength="50" />
+    <Property Name="in_date" Type="datetime" />
+    <Property Name="remark" Type="varchar" MaxLength="500" />
+    <Property Name="mchid" Type="varchar" MaxLength="50" />
+    <Property Name="mkey" Type="varchar" MaxLength="50" />
+    <Property Name="msslpath" Type="varchar" MaxLength="200" />
+    <Property Name="msslpasswd" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="wx_mnu">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="unitname" Type="varchar" MaxLength="80" />
+    <Property Name="mnuitem" Type="varchar" MaxLength="20" />
+    <Property Name="mnuname" Type="varchar" MaxLength="50" />
+    <Property Name="keyname" Type="varchar" MaxLength="80" />
+    <Property Name="shouyn" Type="char" MaxLength="2" />
+    <Property Name="mnuurl" Type="varchar" MaxLength="150" />
+    <Property Name="mnuidex" Type="char" MaxLength="10" />
+    <Property Name="pmnuname" Type="varchar" MaxLength="50" />
+    <Property Name="remark" Type="varchar" MaxLength="50" />
+    <Property Name="wxtype" Type="varchar" MaxLength="50" />
+    <Property Name="wxnote" Type="varchar" MaxLength="500" />
+    <Property Name="appid_boot" Type="int" />
+  </EntityType>
+  <EntityType Name="xt_images">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="img_name" Type="varchar" MaxLength="50" />
+    <Property Name="imgtype" Type="varchar" MaxLength="50" />
+    <Property Name="tempimage" Type="varchar" MaxLength="100" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="remark" Type="varchar" MaxLength="50" />
+    <Property Name="sindex" Type="varchar" MaxLength="20" />
+    <Property Name="reurl" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="xt_loca">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="op_no" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="op_name" Type="varchar" MaxLength="50" />
+    <Property Name="remark" Type="varchar" MaxLength="300" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="job" Type="varchar" MaxLength="100" />
+    <Property Name="jkzk" Type="varchar" MaxLength="300" />
+    <Property Name="peixun" Type="varchar" MaxLength="300" />
+    <Property Name="lzqk" Type="varchar" MaxLength="300" />
+    <Property Name="qkjs" Type="text" />
+  </EntityType>
+  <EntityType Name="xt_oper">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="op_no" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="op_name" Type="varchar" MaxLength="50" />
+    <Property Name="remark" Type="varchar" MaxLength="300" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="job" Type="varchar" MaxLength="100" />
+    <Property Name="jkzk" Type="varchar" MaxLength="300" />
+    <Property Name="peixun" Type="varchar" MaxLength="300" />
+    <Property Name="lzqk" Type="varchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="xt_process">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pc_no" Type="varchar" MaxLength="10" />
+    <Property Name="pc_name" Type="varchar" MaxLength="50" />
+    <Property Name="remark" Type="varchar" MaxLength="300" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="xt_shebei">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="op_no" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="op_name" Type="varchar" MaxLength="50" />
+    <Property Name="remark" Type="varchar" MaxLength="300" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="job" Type="varchar" MaxLength="100" />
+    <Property Name="jkzk" Type="varchar" MaxLength="300" />
+    <Property Name="peixun" Type="varchar" MaxLength="300" />
+    <Property Name="lzqk" Type="varchar" MaxLength="300" />
+    <Property Name="qkjs" Type="text" />
+    <Property Name="xdlist" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="xt_unit">
+    <Key>
+      <PropertyRef Name="unitcode" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="unitname" Type="varchar" MaxLength="80" />
+    <Property Name="cutype" Type="varchar" MaxLength="20" />
+    <Property Name="addr" Type="varchar" MaxLength="80" />
+    <Property Name="phone" Type="varchar" MaxLength="50" />
+    <Property Name="post" Type="varchar" MaxLength="50" />
+    <Property Name="fax" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="link_man" Type="varchar" MaxLength="50" />
+    <Property Name="remark" Type="varchar" MaxLength="100" />
+    <Property Name="province" Type="varchar" MaxLength="50" />
+    <Property Name="city" Type="varchar" MaxLength="50" />
+    <Property Name="acting" Type="char" MaxLength="2" />
+    <Property Name="passwd" Type="varchar" MaxLength="50" />
+    <Property Name="sninyn" Type="int" />
+    <Property Name="packtype" Type="int" />
+    <Property Name="logo" Type="varchar" MaxLength="200" />
+    <Property Name="fwunitcode" Type="varchar" MaxLength="50" />
+    <Property Name="fwyn" Type="char" MaxLength="2" />
+    <Property Name="jfyn" Type="char" MaxLength="2" />
+    <Property Name="fcyn" Type="char" MaxLength="2" />
+    <Property Name="fgiyn" Type="char" MaxLength="2" />
+    <Property Name="prdyn" Type="char" MaxLength="2" />
+    <Property Name="recl" Type="char" MaxLength="2" />
+    <Property Name="qcyn" Type="char" MaxLength="2" />
+    <Property Name="styn" Type="char" MaxLength="2" />
+    <Property Name="ckyn" Type="char" MaxLength="2" />
+    <Property Name="fcnote" Type="varchar" MaxLength="500" />
+    <Property Name="thcl" Type="char" MaxLength="2" />
+    <Property Name="hyzl" Type="char" MaxLength="2" />
+    <Property Name="hbyn" Type="char" MaxLength="2" />
+    <Property Name="wishing" Type="varchar" MaxLength="50" />
+    <Property Name="act_name" Type="varchar" MaxLength="50" />
+    <Property Name="act_note" Type="varchar" MaxLength="50" />
+    <Property Name="unit_note" Type="text" />
+    <Property Name="nyyn" Type="char" MaxLength="2" />
+    <Property Name="weburl" Type="varchar" MaxLength="100" />
+    <Property Name="qc01" Type="varchar" MaxLength="50" />
+    <Property Name="qc02" Type="varchar" MaxLength="50" />
+    <Property Name="qc03" Type="varchar" MaxLength="50" />
+    <Property Name="futyn" Type="char" MaxLength="2" />
+    <Property Name="zbyn" Type="char" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="xt_uplist">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="in_date" Type="smalldatetime" />
+    <Property Name="filename" Type="varchar" MaxLength="200" />
+    <Property Name="mqty" Type="int" />
+    <Property Name="remark" Type="varchar" MaxLength="50" />
+    <Property Name="up_date" Type="smalldatetime" />
+    <Property Name="status" Type="int" />
+  </EntityType>
+  <EntityType Name="xt_user_menu">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rms_name" Type="varchar" MaxLength="20" />
+    <Property Name="munid" Type="int" />
+    <Property Name="gnmc" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="xt_user_rms">
+    <Key>
+      <PropertyRef Name="rms_name" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rms_name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="remark" Type="varchar" MaxLength="50" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="xt_webnote">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sys_no" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="sys_note" Type="text" />
+    <Property Name="remark" Type="varchar" MaxLength="50" />
+    <Property Name="unitcode" Type="varchar" MaxLength="20" />
+    <Property Name="sys_nme" Type="varchar" MaxLength="50" />
+    <Property Name="tcode" Type="int" />
+    <Property Name="sys_title" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="xt_xtmenu">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="gnbm" Type="varchar" MaxLength="20" />
+    <Property Name="gnsy" Type="varchar" MaxLength="50" />
+    <Property Name="gnmc" Type="varchar" MaxLength="50" />
+    <Property Name="sjgnbm" Type="varchar" MaxLength="20" />
+    <Property Name="mjbz" Type="int" />
+    <Property Name="MenuList" Type="int" />
+    <Property Name="RightFlag" Type="int" />
+    <Property Name="acturl" Type="varchar" MaxLength="50" />
+    <Property Name="icostyle" Type="varchar" MaxLength="50" />
+    <Property Name="rightlist" Type="varchar" MaxLength="50" />
+    <Property Name="remark" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Function Name="dt_addtosourcecontrol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vchSourceSafeINI" Type="varchar" Mode="In" />
+    <Parameter Name="vchProjectName" Type="varchar" Mode="In" />
+    <Parameter Name="vchComment" Type="varchar" Mode="In" />
+    <Parameter Name="vchLoginName" Type="varchar" Mode="In" />
+    <Parameter Name="vchPassword" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="dt_addtosourcecontrol_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vchSourceSafeINI" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchProjectName" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchComment" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchLoginName" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchPassword" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="dt_adduserobject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="dt_adduserobject_vcs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vchProperty" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="dt_checkinobject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="chObjectType" Type="char" Mode="In" />
+    <Parameter Name="vchObjectName" Type="varchar" Mode="In" />
+    <Parameter Name="vchComment" Type="varchar" Mode="In" />
+    <Parameter Name="vchLoginName" Type="varchar" Mode="In" />
+    <Parameter Name="vchPassword" Type="varchar" Mode="In" />
+    <Parameter Name="iVCSFlags" Type="int" Mode="In" />
+    <Parameter Name="iActionFlag" Type="int" Mode="In" />
+    <Parameter Name="txStream1" Type="text" Mode="In" />
+    <Parameter Name="txStream2" Type="text" Mode="In" />
+    <Parameter Name="txStream3" Type="text" Mode="In" />
+  </Function>
+  <Function Name="dt_checkinobject_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="chObjectType" Type="char" Mode="In" />
+    <Parameter Name="vchObjectName" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchComment" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchLoginName" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchPassword" Type="nvarchar" Mode="In" />
+    <Parameter Name="iVCSFlags" Type="int" Mode="In" />
+    <Parameter Name="iActionFlag" Type="int" Mode="In" />
+    <Parameter Name="txStream1" Type="text" Mode="In" />
+    <Parameter Name="txStream2" Type="text" Mode="In" />
+    <Parameter Name="txStream3" Type="text" Mode="In" />
+  </Function>
+  <Function Name="dt_checkoutobject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="chObjectType" Type="char" Mode="In" />
+    <Parameter Name="vchObjectName" Type="varchar" Mode="In" />
+    <Parameter Name="vchComment" Type="varchar" Mode="In" />
+    <Parameter Name="vchLoginName" Type="varchar" Mode="In" />
+    <Parameter Name="vchPassword" Type="varchar" Mode="In" />
+    <Parameter Name="iVCSFlags" Type="int" Mode="In" />
+    <Parameter Name="iActionFlag" Type="int" Mode="In" />
+  </Function>
+  <Function Name="dt_checkoutobject_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="chObjectType" Type="char" Mode="In" />
+    <Parameter Name="vchObjectName" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchComment" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchLoginName" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchPassword" Type="nvarchar" Mode="In" />
+    <Parameter Name="iVCSFlags" Type="int" Mode="In" />
+    <Parameter Name="iActionFlag" Type="int" Mode="In" />
+  </Function>
+  <Function Name="dt_displayoaerror" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iObject" Type="int" Mode="In" />
+    <Parameter Name="iresult" Type="int" Mode="In" />
+  </Function>
+  <Function Name="dt_displayoaerror_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iObject" Type="int" Mode="In" />
+    <Parameter Name="iresult" Type="int" Mode="In" />
+  </Function>
+  <Function Name="dt_droppropertiesbyid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="property" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="dt_dropuserobjectbyid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="dt_generateansiname" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="name" Type="varchar" Mode="InOut" />
+  </Function>
+  <Function Name="dt_getobjwithprop" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="property" Type="varchar" Mode="In" />
+    <Parameter Name="value" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="dt_getobjwithprop_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="property" Type="varchar" Mode="In" />
+    <Parameter Name="uvalue" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="dt_getpropertiesbyid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="property" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="dt_getpropertiesbyid_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="property" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="dt_getpropertiesbyid_vcs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="property" Type="varchar" Mode="In" />
+    <Parameter Name="value" Type="varchar" Mode="InOut" />
+  </Function>
+  <Function Name="dt_getpropertiesbyid_vcs_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="property" Type="varchar" Mode="In" />
+    <Parameter Name="value" Type="nvarchar" Mode="InOut" />
+  </Function>
+  <Function Name="dt_isundersourcecontrol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vchLoginName" Type="varchar" Mode="In" />
+    <Parameter Name="vchPassword" Type="varchar" Mode="In" />
+    <Parameter Name="iWhoToo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="dt_isundersourcecontrol_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vchLoginName" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchPassword" Type="nvarchar" Mode="In" />
+    <Parameter Name="iWhoToo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="dt_removefromsourcecontrol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="dt_setpropertybyid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="property" Type="varchar" Mode="In" />
+    <Parameter Name="value" Type="varchar" Mode="In" />
+    <Parameter Name="lvalue" Type="image" Mode="In" />
+  </Function>
+  <Function Name="dt_setpropertybyid_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="property" Type="varchar" Mode="In" />
+    <Parameter Name="uvalue" Type="nvarchar" Mode="In" />
+    <Parameter Name="lvalue" Type="image" Mode="In" />
+  </Function>
+  <Function Name="dt_validateloginparams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vchLoginName" Type="varchar" Mode="In" />
+    <Parameter Name="vchPassword" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="dt_validateloginparams_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vchLoginName" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchPassword" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="dt_vcsenabled" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="dt_verstamp006" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="dt_verstamp007" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="dt_whocheckedout" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="chObjectType" Type="char" Mode="In" />
+    <Parameter Name="vchObjectName" Type="varchar" Mode="In" />
+    <Parameter Name="vchLoginName" Type="varchar" Mode="In" />
+    <Parameter Name="vchPassword" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="dt_whocheckedout_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="chObjectType" Type="char" Mode="In" />
+    <Parameter Name="vchObjectName" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchLoginName" Type="nvarchar" Mode="In" />
+    <Parameter Name="vchPassword" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="P_SpiltPage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pageIndex" Type="int" Mode="In" />
+    <Parameter Name="pageSize" Type="int" Mode="In" />
+    <Parameter Name="tableName" Type="nvarchar" Mode="In" />
+    <Parameter Name="fieldName" Type="nvarchar" Mode="In" />
+    <Parameter Name="whereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="orderCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="recordTotal" Type="int" Mode="InOut" />
+    <Parameter Name="pageCount" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="P_viewPage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TableName" Type="varchar" Mode="In" />
+    <Parameter Name="FieldList" Type="varchar" Mode="In" />
+    <Parameter Name="PrimaryKey" Type="varchar" Mode="In" />
+    <Parameter Name="Where" Type="varchar" Mode="In" />
+    <Parameter Name="Order" Type="varchar" Mode="In" />
+    <Parameter Name="SortType" Type="int" Mode="In" />
+    <Parameter Name="RecorderCount" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="PageIndex" Type="int" Mode="In" />
+    <Parameter Name="TotalCount" Type="int" Mode="InOut" />
+    <Parameter Name="TotalPageCount" Type="int" Mode="InOut" />
+  </Function>
+  <EntityContainer Name="yMfwfcjfModelStoreContainer">
+    <EntitySet Name="bas_dict" EntityType="Self.bas_dict" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dhm_code" EntityType="Self.dhm_code" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dhm_cust" EntityType="Self.dhm_cust" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dhm_fwout" EntityType="Self.dhm_fwout" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dhm_snmm" EntityType="Self.dhm_snmm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dtproperties" EntityType="Self.dtproperties" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="fw_code" EntityType="Self.fw_code" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="fw_cust" EntityType="Self.fw_cust" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="fw_more" EntityType="Self.fw_more" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="fw_snmm" EntityType="Self.fw_snmm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gy_Czygl" EntityType="Self.Gy_Czygl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hob_bfwjf" EntityType="Self.hob_bfwjf" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hob_code" EntityType="Self.hob_code" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hob_dzp" EntityType="Self.hob_dzp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hob_dzpsetup" EntityType="Self.hob_dzpsetup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hob_item" EntityType="Self.hob_item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hob_jianpin" EntityType="Self.hob_jianpin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hob_juan" EntityType="Self.hob_juan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hob_listdjjl" EntityType="Self.hob_listdjjl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hob_listdzp" EntityType="Self.hob_listdzp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hob_listjuan" EntityType="Self.hob_listjuan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hob_pbyship" EntityType="Self.hob_pbyship" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hob_setup" EntityType="Self.hob_setup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hob_share" EntityType="Self.hob_share" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hob_ship" EntityType="Self.hob_ship" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hob_yuerin" EntityType="Self.hob_yuerin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hob_yuerintemp" EntityType="Self.hob_yuerintemp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hob_yuerout" EntityType="Self.hob_yuerout" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hy_dian" EntityType="Self.hy_dian" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="infoupdate" EntityType="Self.infoupdate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InStore" EntityType="Self.InStore" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InStoreDetail" EntityType="Self.InStoreDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inv_Custqty" EntityType="Self.Inv_Custqty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inv_Lot" EntityType="Self.Inv_Lot" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="inv_mlot" EntityType="Self.inv_mlot" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inv_Mpart" EntityType="Self.Inv_Mpart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inv_Part" EntityType="Self.Inv_Part" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inv_Store" EntityType="Self.Inv_Store" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inv_Stqty" EntityType="Self.Inv_Stqty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QueryLog" EntityType="Self.QueryLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sal_cufgi" EntityType="Self.sal_cufgi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sal_cure" EntityType="Self.sal_cure" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sal_cuship" EntityType="Self.sal_cuship" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sal_fgi" EntityType="Self.sal_fgi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sal_packa" EntityType="Self.sal_packa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sal_packb" EntityType="Self.sal_packb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sal_re" EntityType="Self.sal_re" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sal_ship" EntityType="Self.sal_ship" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sal_tiaoji" EntityType="Self.sal_tiaoji" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sal_tst" EntityType="Self.sal_tst" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vender" EntityType="Self.vender" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="wx_accessToken" EntityType="Self.wx_accessToken" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="wx_gid" EntityType="Self.wx_gid" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="wx_mnu" EntityType="Self.wx_mnu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="xt_images" EntityType="Self.xt_images" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="xt_loca" EntityType="Self.xt_loca" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="xt_oper" EntityType="Self.xt_oper" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="xt_process" EntityType="Self.xt_process" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="xt_shebei" EntityType="Self.xt_shebei" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="xt_unit" EntityType="Self.xt_unit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="xt_uplist" EntityType="Self.xt_uplist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="xt_user_menu" EntityType="Self.xt_user_menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="xt_user_rms" EntityType="Self.xt_user_rms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="xt_webnote" EntityType="Self.xt_webnote" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="xt_xtmenu" EntityType="Self.xt_xtmenu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pdauser" EntityType="Self.pdauser" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [pdauser].[fid] AS [fid], 
+    [pdauser].[pdano] AS [pdano], 
+    [pdauser].[pdaname] AS [pdaname], 
+    [pdauser].[pdapwd] AS [pdapwd], 
+    [pdauser].[cu_no] AS [cu_no], 
+    [pdauser].[add_date] AS [add_date], 
+    [pdauser].[phone] AS [phone], 
+    [pdauser].[realname] AS [realname]
+    FROM [dbo].[pdauser] AS [pdauser]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

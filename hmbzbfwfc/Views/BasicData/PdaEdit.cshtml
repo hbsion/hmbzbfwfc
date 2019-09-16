@@ -1,0 +1,121 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="zh" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="zh" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    @Html.Partial("_Title")
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/font-awesome4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/plugins/jbox-v2.3/jBox/Skins/Gray/jbox.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Theme/plugins/Flexigrid/css/flexigrid.css" rel="stylesheet" />
+
+</head>
+<body class="fixed-top">
+
+    <div id="body">
+
+        <div class="row">
+            <div class="span12">
+                <div class="widget box light-grey">
+                    <div class="widget-title">
+                        <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>@(ViewBag.type == "add" ? "新增用户" : "修改用户")</h4>
+
+                    </div>
+
+                    <div class="tab-pane active" id="widget_tab1">
+                        <form action="PdaAddOrUpd" method="post" id="commentForm" backurl="PdaList?logincno=@ViewBag.logincno">
+                            <table class="formtab_user table table-bordered table-hover">
+                                <tbody>
+                                    <tr>
+                                        <td style=" text-align:center;" class="notnull">操作员编号</td>
+                                        <td>
+                                            <input id="pdano" @(ViewBag.type == "add" ? "" : "readonly")  style="width:182px;" name="pdano" placeholder="操作员编码" value="@(ViewBag.type == "add" ? "" : ViewBag.model.pdano)" class="form-control" type="text" required>
+                                            <span class="error" id="isok"></span>
+                                             <input type="hidden" value="@(ViewBag.type=="add" ? "" : ViewBag.model.fid)" name="fid">
+                                            <input type="hidden" value="@ViewBag.logincno" name="logincno">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style=" text-align:center;" class="notnull">操作员名称</td>
+                                        <td>
+                                            <input id="txtPassword" name="pdaname" style="width:182px;" placeholder="操作员名称" value="@(ViewBag.type == "add" ? "" : ViewBag.model.pdaname)" class="form-control" type="text" required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style=" text-align:center;" class="notnull">操作员密码</td>
+                                        <td>
+                                            <input id="pwd" name="pdapwd" style="width:182px;" placeholder="操作员密码" value="@(ViewBag.type == "add" ? "" : ViewBag.model.pdapwd)" class="form-control" type="password" required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style=" text-align:center;">真实姓名</td>
+                                        <td>
+                                            <input id="name" name="realname" style="width:182px;" placeholder="姓名" value="@(ViewBag.type == "add" ? "" : ViewBag.model.realname)" class="form-control" type="text" >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style=" text-align:center;">联系电话</td>
+                                        <td>
+                                            <input id="phone" name="phone" style="width:182px;" placeholder="联系电话" value="@(ViewBag.type == "add" ? "" : ViewBag.model.phone)" class="form-control" type="text" >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="padding-left:30%;padding-bottom:10px;">
+                                            <button type="button" onclick="Public.Add()" class="btn btn-info" style="margin:0px 50px 0px -50px;"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 提交保存</button>
+                                            <button type="button" class="btn btn-danger" onclick="javascript:history.back(-1)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>取消返回</button>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_Foot")
+    <script src="~/Content/Theme/Validate/jquery.validate.min.js"></script>
+    <script src="~/Content/Theme/Validate/messages_zh.js" charset="gbk"></script>
+    <script>
+
+    function cnochange() {
+        $("#isok").hide();
+        $("#isok").show();
+        $("#isok").empty();
+        $.ajax({
+            type: "post",
+            url: "/BasicData/CheckNo",
+            data: { pdano: $("#pdano").val(),logincno:'@ViewBag.logincno' },
+            dataType: "json",
+            success: function (data) {
+                $("#isok").append(data["data"]);
+            }, error: function (data, status, e) {
+
+            },
+        });
+    }
+
+    $.validator.setDefaults({
+        submitHandler: function () {
+            document.getElementById("commentForm").submit();
+        }
+    });
+    $().ready(function () {
+        $("#commentForm").validate();
+    });
+    </script>
+</body>
+</html>

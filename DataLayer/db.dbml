@@ -1,0 +1,1513 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="yfwfc_asyjt" Class="dbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=yfwfc_asyjt;Persist Security Info=True;User ID=sa;MultipleActiveResultSets=True;Application Name=EntityFramework" SettingsObjectName="marr.DataLayer.Properties.Settings" SettingsPropertyName="yfwfc_asyjtConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Gy_BillNumber" Member="Gy_BillNumber">
+    <Type Name="Gy_BillNumber">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BillType" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="BillCode" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BillName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="mseq" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Datetype" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CodeLen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Profix1" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="seq1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Profix2" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="seq2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Profix3" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="seq3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.xt_images" Member="xt_images">
+    <Type Name="xt_images">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="img_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="imgtype" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="tempimage" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sindex" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="reurl" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.wx_gid" Member="wx_gid">
+    <Type Name="wx_gid">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="unitname" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="WxId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="WxNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="WxName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AppId" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="AppSecret" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="WxUrl" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Token" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="in_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="mchid" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="mkey" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="msslpath" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="msslpasswd" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.wx_accessToken" Member="wx_accessToken">
+    <Type Name="wx_accessToken">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="access_token" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="expires_in" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="in_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WxId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="tokentype" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.wx_mnu" Member="wx_mnu">
+    <Type Name="wx_mnu">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="unitname" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="mnuitem" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="mnuname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="keyname" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="shouyn" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="mnuurl" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="mnuidex" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="pmnuname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="wxtype" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="wxnote" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="appid_boot" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.fw_cust" Member="fw_cust">
+    <Type Name="fw_cust">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UnitCode" Type="System.String" DbType="Char(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UnitName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Addr" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Master" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Post" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Fax" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Property" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="codeLen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Mlength" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaxValue" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="RegDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Operator" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="OverK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VoiceWelcome" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="smsnote" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="cfnote" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="dcnote" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="bcode" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="upyn" Type="System.String" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="voicere" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="renote" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="vlen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="zjyn" Type="System.String" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="aajf" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="p_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="unitinfo" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="prodinfo" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="zp" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ccodeyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="ctype" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="sntype" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="snLen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Msnlength" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dckyn" Type="System.String" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="snpr" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="fwyn" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="fcyn" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="jfyn" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="fgiyn" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="prdyn" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="recl" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="qcyn" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="styn" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="ckyn" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="fcnote" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="qkyn" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="fwpr" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="fwtop" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="fwfoot" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="myhome" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="fwcyn" Type="System.String" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="f2cyn" Type="System.String" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="wlcyn" Type="System.String" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="w2cyn" Type="System.String" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="fwctype" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="fcctype" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="fcust" Type="System.String" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="shop_wx" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="shop_jd" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="shop_tb" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="shop_al" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="shop_tm" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="hbyn" Type="System.String" DbType="Char(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BasFwjf" Member="BasFwjf">
+    <Type Name="BasFwjf">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="snnof" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="snnot" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="snnolen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="snqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="p_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="pname" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="jf" Type="System.Decimal" DbType="Decimal(18,1)" CanBeNull="true" />
+      <Column Name="in_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="xtcu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="fwname" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="dsnnof" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="dsnnot" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="dsnnolen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dsnqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="renote" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="cu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="lot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="venbill" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="pr_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ex_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="exdays" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="makeare" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="imgurl" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="mqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="retxt" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="revoc" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="unitname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="nunitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="nunitname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hbitems" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.hob_code" Member="hob_code">
+    <Type Name="hob_code">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fwcode" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="snno" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="useyn" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ship_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.hob_juan" Member="hob_juan">
+    <Type Name="hob_juan">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="jpname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="jpjf" Type="System.Decimal" DbType="Decimal(10,1)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="imgurl" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="jptype" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="in_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="mqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dian_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ex_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.hob_jianpin" Member="hob_jianpin">
+    <Type Name="hob_jianpin">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="jpname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="jpjf" Type="System.Decimal" DbType="Decimal(10,1)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="imgurl" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="jptype" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="in_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="mqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dian_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.hob_bfwjf" Member="hob_bfwjf">
+    <Type Name="hob_bfwjf">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="snnof" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="snnot" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="snqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="p_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="pname" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="jf" Type="System.Decimal" DbType="Decimal(18,1)" CanBeNull="true" />
+      <Column Name="in_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="cu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="lot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="imgurl" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="mqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="revoc" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="tcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="hbitems" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="xtcu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="xtcu_name" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="dian_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.hob_share" Member="hob_share">
+    <Type Name="hob_share">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sharename" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="sharenotes" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="shareurl" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="imgurl" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="in_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dian_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.hob_yuerin" Member="hob_yuerin">
+    <Type Name="hob_yuerin">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="bill_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="in_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="mqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dian_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="czybm" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="intype" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="inzh" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="inname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="inremark" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.hob_yuerout" Member="hob_yuerout">
+    <Type Name="hob_yuerout">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="bill_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="in_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="mqty" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="czybm" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="wx_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="wx_name" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="outremark" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="wxsex" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="fwcode" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="wlcode" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="province" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="city" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loca" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="itme_no" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="jp_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="keycode" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="yertype" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="tcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dian_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="dian_name" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.hob_listjuan" Member="hob_listjuan">
+    <Type Name="hob_listjuan">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="juan_no" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="wx_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="wx_name" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="in_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Jp_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Jp_name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="jf" Type="System.Decimal" DbType="Decimal(18,1)" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="linkname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="linktell" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="linkaddr" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="tcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dian_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="dian_name" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="djtype" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="djoper" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Kin_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="djremark" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="fwcode" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.hob_listdjjl" Member="hob_listdjjl">
+    <Type Name="hob_listdjjl">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="wx_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="wx_name" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="in_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Jp_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Jp_name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="jf" Type="System.Decimal" DbType="Decimal(18,1)" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="linkname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="linktell" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="linkaddr" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="KName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="KNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Kin_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="tcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dian_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="dian_name" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="djtype" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="djoper" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="fwcode" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dhm_code" Member="dhm_code">
+    <Type Name="dhm_code">
+      <Column Name="Address" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Vcode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CodeA" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CodeB" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CodeC" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CodeD" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="codelen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dhm_cust" Member="dhm_cust">
+    <Type Name="dhm_cust">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UnitCode" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="codeLen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RegDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="renote" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="vyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="vlen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="wlyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="wlLen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="wlpr" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="snyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="snpr" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dhm_fwout" Member="dhm_fwout">
+    <Type Name="dhm_fwout">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UnitCode" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="SellCount" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="myBegin" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="SellDateTime" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="snbegin" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="snend" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="mqty" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="packtype" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="pdqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pzqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pxqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bxqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sxqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="dxtyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="dzfyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="xnvyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="fwpr" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="wlpr" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="snpr" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="lfwyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="lwlyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="lsnyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="codeLen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dhm_snmm" Member="dhm_snmm">
+    <Type Name="dhm_snmm">
+      <Column Name="Address" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Vcode" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="CodeA" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CodeB" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CodeC" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CodeD" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="codelen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.bas_oneto" Member="bas_oneto">
+    <Type Name="bas_oneto">
+      <Column Name="fu_no" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="fu_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="fucode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="futype" Type="System.String" DbType="NVarChar(140)" CanBeNull="true" />
+      <Column Name="matype" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="formates" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="runsqls" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="retype" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="errmess" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="nullmess" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="sendmess" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.st_dian" Member="st_dian">
+    <Type Name="st_dian">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="dian_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="dian_name" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="cutype" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="addr" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="post" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="fax" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="link_man" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="province" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="city" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="passwd" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="imgurl" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="checkyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="in_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="cstatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cu_name" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="time_limit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Inv_Mpart" Member="Inv_Mpart">
+    <Type Name="Inv_Mpart">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="p_no" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="pname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="unit" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="loca" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="in_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="parttype" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="qcdays" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="saftqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bm_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="pqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="usetype" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="usefor" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="imgurl" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.inv_daqu" Member="inv_daqu">
+    <Type Name="inv_daqu">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="dqlot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ship_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="eship_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="dmlot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="dmqty" Type="System.Decimal" DbType="Decimal(10,1)" CanBeNull="true" />
+      <Column Name="wdlot_no" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="wdqty" Type="System.Decimal" DbType="Decimal(10,1)" CanBeNull="true" />
+      <Column Name="pc_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="pc_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="op_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="op_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="imgurl" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="mpart" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="makeinfo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="reuser" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="lop_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="lop_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sop_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="sop_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.inv_hunhea" Member="inv_hunhea">
+    <Type Name="inv_hunhea">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="hhlot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="tbm_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ship_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="mqty" Type="System.Decimal" DbType="Decimal(18,1)" CanBeNull="true" />
+      <Column Name="loca" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="jibie" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="gclass" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="pc_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="pc_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="op_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="op_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="imgurl" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="mpart" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="makeinfo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="reuser" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="lop_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="lop_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sop_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="sop_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.inv_hunheb" Member="inv_hunheb">
+    <Type Name="inv_hunheb">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="hhlot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="yjlot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.inv_lotb" Member="inv_lotb">
+    <Type Name="inv_lotb">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="lot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="hhlot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Inv_Lot" Member="Inv_Lot">
+    <Type Name="Inv_Lot">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="in_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="lot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="p_no" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="pname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="pr_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ex_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="exdays" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="makeare" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="mqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="imgurl" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="retxt" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.inv_mark" Member="inv_mark">
+    <Type Name="inv_mark">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="lot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ship_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ship_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="mqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="p_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="pname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="mlot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="xtUserno" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="pc_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="pc_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="op_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="op_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="msnno" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="eship_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="imgurl" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="mpart" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="makeinfo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="reuser" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.inv_qclot" Member="inv_qclot">
+    <Type Name="inv_qclot">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ship_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ship_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="cu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loca" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="mqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="p_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="pname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="lot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="qcrenote" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="qcreport" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="mtype" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="qctype" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.inv_mlot" Member="inv_mlot">
+    <Type Name="inv_mlot">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="lot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ship_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ship_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="mqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="p_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="pname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="mlot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="xtUserno" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="pc_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="pc_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="op_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="op_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="msnno" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="eship_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="imgurl" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="mpart" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="makeinfo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="reuser" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="lop_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="lop_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sop_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="sop_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.inv_fgilot" Member="inv_fgilot">
+    <Type Name="inv_fgilot">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ship_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ship_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="cu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loca" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="mqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="p_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="pname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="lot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="qcrenote" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="qcreport" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="mtype" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="mlot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="lop_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="lop_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sop_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="sop_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="pc_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="pc_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="op_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="op_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.inv_yuanjiu" Member="inv_yuanjiu">
+    <Type Name="inv_yuanjiu">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="yjlot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="tbm_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ship_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="eship_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="mqty" Type="System.Decimal" DbType="Decimal(18,1)" CanBeNull="true" />
+      <Column Name="loca" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="jibie" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="gclass" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="pc_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="pc_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="op_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="op_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="imgurl" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="mpart" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="makeinfo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="reuser" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="lop_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="lop_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sop_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="sop_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="dqlot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="dqqty" Type="System.Decimal" DbType="Decimal(10,1)" CanBeNull="true" />
+      <Column Name="gllot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="glqty" Type="System.Decimal" DbType="Decimal(10,1)" CanBeNull="true" />
+      <Column Name="gklot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="gkqty" Type="System.Decimal" DbType="Decimal(10,1)" CanBeNull="true" />
+      <Column Name="dklot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="dkqty" Type="System.Decimal" DbType="Decimal(10,1)" CanBeNull="true" />
+      <Column Name="hhlot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="hhyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="zhabie" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.xt_shebei" Member="xt_shebei">
+    <Type Name="xt_shebei">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="op_no" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="op_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="job" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="jkzk" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="peixun" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="lzqk" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="qkjs" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="xdlist" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.xt_process" Member="xt_process">
+    <Type Name="xt_process">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pc_no" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="pc_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.xt_oper" Member="xt_oper">
+    <Type Name="xt_oper">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="op_no" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="op_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="job" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="jkzk" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="peixun" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="lzqk" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.xt_loca" Member="xt_loca">
+    <Type Name="xt_loca">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="op_no" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="op_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="job" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="jkzk" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="peixun" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="lzqk" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="qkjs" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.inv_loca" Member="inv_loca">
+    <Type Name="inv_loca">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ven_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="lc_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="locaname" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="locamaster" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="mjs" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="linkman" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="in_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="en_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="imgurl" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="longitude" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="latitude" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="addr" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="province" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="city" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vender" Member="vender">
+    <Type Name="vender">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cu_name" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="cutype" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="lc_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="loca" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="addr" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="post" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="fax" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="link_man" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="province" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="city" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="acting" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="acting_cu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="xtcu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="passwd" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="zizhi" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.inv_rmi" Member="inv_rmi">
+    <Type Name="inv_rmi">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ship_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ship_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="cu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loca" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="mqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="p_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="pname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="upyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="lot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="st_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="xtUserno" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="venbill" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="qcrenote" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="qcreport" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="mtype" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tellist" Member="tellist">
+    <Type Name="tellist">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="FWCode" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Querystatu" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="QueryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="callerid" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="calltime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ChID" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="upyn" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="qutype" Type="System.String" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="remess" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="k" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="jfqty" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="cu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loca" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="man_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="snno" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="sloca" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="fcresult" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="qloca" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="sqDist" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="longitude" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="latitude" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.xt_webnote" Member="xt_webnote">
+    <Type Name="xt_webnote">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sys_no" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="sys_note" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="sys_nme" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="tcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sys_title" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.hy_dian" Member="hy_dian">
+    <Type Name="hy_dian">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="hy_no" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="hy_cn" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="mobile" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="jf" Type="System.Decimal" DbType="Decimal(18,1)" CanBeNull="true" />
+      <Column Name="historyjf" Type="System.Decimal" DbType="Decimal(18,1)" CanBeNull="true" />
+      <Column Name="realname" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cu_name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="BankAccount" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="khh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="in_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="loca" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="statu" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="remarks" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="birthday" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="postcode" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="sex" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="sfz_no" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="imgurl" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Grade_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="diagnosis_result" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="post_adress" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="xttype" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ship_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="wx_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="province" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="city" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.hy_diandjjl" Member="hy_diandjjl">
+    <Type Name="hy_diandjjl">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="hy_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="hy_cn" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="in_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="jp_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="jp_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="jf" Type="System.Decimal" DbType="Decimal(18,1)" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="linkname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="linktell" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="linkaddr" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="BankAccount" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="khh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="num" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="jpSum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="KName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="KNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Kin_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.hy_dianjflist" Member="hy_dianjflist">
+    <Type Name="hy_dianjflist">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="hy_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="hy_cn" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="in_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="fwcode" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="p_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="pname" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="jf" Type="System.Decimal" DbType="Decimal(18,1)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="checkyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Gy_Czygl" Member="Gy_Czygl">
+    <Type Name="Gy_Czygl">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="czybm" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="czymc" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="czmm" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="deptname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="in_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="sysrole" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="sysgroupid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="checkyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="st_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="last_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="last_ip" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="rms_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sal_ship" Member="sal_ship">
+    <Type Name="sal_ship">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ship_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="bsnno" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ship_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="cu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loca" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="mqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="p_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="pname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="upyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="xtcu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="jf" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="lot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="st_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="xtcu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cureyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="curedate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="bloca" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="cloca" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="mtype" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="po_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="recu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="recu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="renotes" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="pda_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="reship_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="adddatetime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sal_packa" Member="sal_packa">
+    <Type Name="sal_packa">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pack_no" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="pack_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="pfilename" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="uplog" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="line_no" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="wo_no" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="log_no" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="p_no" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="absolutepath" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="relativepath" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="add_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="okqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="errqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="okpcs" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sal_corder" Member="sal_corder">
+    <Type Name="sal_corder">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="po_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="po_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="cu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="p_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="pname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="mqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="jh_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="ovqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="xtcu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="xtcu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="checkyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="ovyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="order_id" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Uqty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Zqty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="unit" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="imgurl" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="recu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="recu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sal_cusale" Member="sal_cusale">
+    <Type Name="sal_cusale">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ship_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="bsnno" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ship_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="cu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loca" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="mqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="p_no" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="pname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="upyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="xtcu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="jf" Type="System.Decimal" DbType="Decimal(18,1)" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="lot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="st_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="xtcu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="pda_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="chetype" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cheimg" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="chetel" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sal_cuship" Member="sal_cuship">
+    <Type Name="sal_cuship">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ship_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="bsnno" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ship_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="cu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loca" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="mqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="p_no" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="pname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="upyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="xtcu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="jf" Type="System.Decimal" DbType="Decimal(18,1)" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="lot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="st_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="xtcu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="pda_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="po_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sal_cure" Member="sal_cure">
+    <Type Name="sal_cure">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ship_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="bsnno" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ship_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="cu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loca" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="mqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="p_no" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="pname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="upyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="xtcu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="jf" Type="System.Decimal" DbType="Decimal(18,1)" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="lot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="st_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="xtcu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="pda_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sal_re" Member="sal_re">
+    <Type Name="sal_re">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ship_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="bsnno" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ship_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="cu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loca" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="mqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="p_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="pname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="upyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="xtcu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="jf" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="lot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="st_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="xtcu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="pda_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="adddatetime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.customer" Member="customer">
+    <Type Name="customer">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cu_name" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="cutype" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="lc_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="loca" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="addr" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="post" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="fax" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="link_man" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="province" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="city" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="acting" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="acting_cu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="xtcu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="passwd" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="imgurl" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="gclass" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="xtName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="xtWxId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="myHead" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="mySfz" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="myPhoto" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="WxId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="QQ" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="WanWan" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="checkyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="in_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="item" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="itlevel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ht_no" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="xtcheckyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="cstatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fmoney" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="taoid" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="shitidian" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="salloca" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="zfb" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="khh" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="yhzh" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="maxstorenum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.hob_setup" Member="hob_setup">
+    <Type Name="hob_setup">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="dian_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="dian_name" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="wishing" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="act_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="act_note" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="unit_note" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="hbnotes" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="hbtop" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="hbboot" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="hbappID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="yuer" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="yertype" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hbgettype" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="csloca" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="cszilao" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="csguanzhu" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="csship" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="mutihb" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="mutitime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="csshare" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="shareurl" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="shareimg" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="sharetitle" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="noactive" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="nozj" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.hob_pbyship" Member="hob_pbyship">
+    <Type Name="hob_pbyship">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pjname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="p_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="pname" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="in_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="cu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ship_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="po_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="mqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="hbitems" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="salitems" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="tcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="hblist" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="sallist" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sal_fgi" Member="sal_fgi">
+    <Type Name="sal_fgi">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ship_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="bsnno" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ship_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="cu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="loca" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="mqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="p_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="pname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="upyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="xtcu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="jf" Type="System.Decimal" DbType="Decimal(18,1)" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="lot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="st_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="xtcu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="fc_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="fc_name" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="pda_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sal_tst" Member="sal_tst">
+    <Type Name="sal_tst">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ship_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="bsnno" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ship_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="mqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="p_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="pname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ost_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="nst_no" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.hy_hy" Member="hy_hy">
+    <Type Name="hy_hy">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="hy_no" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="hy_cn" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="mobile" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="jf" Type="System.Decimal" DbType="Decimal(18,1)" CanBeNull="true" />
+      <Column Name="historyjf" Type="System.Decimal" DbType="Decimal(18,1)" CanBeNull="true" />
+      <Column Name="realname" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cu_name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="BankAccount" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="khh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="in_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="loca" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="statu" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="remarks" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="birthday" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="postcode" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="sex" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="sfz_no" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="imgurl" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Grade_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Constellation" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="qq" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="height" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="weight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="blood_type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="province" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="city" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="interests" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="speialty" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="work_unit" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="post" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="life_Character" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="feed_wh" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="private_wh" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="fa_color" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="fa_books" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="fa_music" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="fa_sport" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="fa_sporting" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="leisuretime" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="enter" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="enter_mode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="vacation_mode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="life_other" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="dringk_wh" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="dringktype" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="dringk_volume" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="smok_wh" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="smoktype" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="smok_volume" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="taste" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cuisine" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="food" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="vegetables" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="beverages" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="snacks" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="diet_other" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="health_status" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="bodytype" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="major_wh" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sub" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="disease" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="skintype" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="symptom" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="kitchen_rea" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="spot_rea" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="sensitive_rea" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="diagnosis_result" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="post_adress" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="xttype" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ship_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="wx_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Inv_Part" Member="Inv_Part">
+    <Type Name="Inv_Part">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="p_no" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="pname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="unit" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="loca" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="remark2" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="in_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="m_user" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="sfqty" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="cur_no" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="mtype" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="back" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="stqty" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="st_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="inqty" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="outqty" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="parttype" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="curprice" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="curchang" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="prodtype" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="qcdays" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="saftqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bm_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="pqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="mprice" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="mpack" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="mall" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="fwcode" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="usetype" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="usefor" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="xtcu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="jf" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ajf" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="bjf" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="cjf" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="upyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="zqty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="imgurl" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="imgurl2" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="imgurl3" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="imgurl4" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="pnamejs" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="fwnote" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="renote" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="p_star" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="oid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="hbitems" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="salitems" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.hob_item" Member="hob_item">
+    <Type Name="hob_item">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="itme_no" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="itme_name" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="in_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="en_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="itemtype" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="mqtyf" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="mqtyt" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="hmlv" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="actyn" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="avqty" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="cu_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cu_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="jp_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="jpnotes" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="p_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="pname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="dian_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="bjlist" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.xt_uplogs" Member="xt_uplogs">
+    <Type Name="xt_uplogs">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="in_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="uplogs" Type="System.String" DbType="VarChar(1500)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="filename" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cu_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sal_packb" Member="sal_packb">
+    <Type Name="sal_packb">
+      <Column Name="fid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pack_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="snno" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="usnno" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="unitcode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="p_no" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="in_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="lot_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="line_no" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

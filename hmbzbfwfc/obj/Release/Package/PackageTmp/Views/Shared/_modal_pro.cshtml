@@ -1,0 +1,74 @@
+﻿@{
+    Layout = null;
+}
+<div class="modal fade modal_cp" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document" style="background-color:#fff;margin-top: 100px;border-radius: 10px;">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="gridSystemModalLabel">选择产品</h4>
+        </div>
+        <div class="modal-content" style="min-height:400px; max-height:400px; overflow:auto;">
+            <div class="tab-pane active" id="widget_tab1">
+                <table class="formtab_user table table-bordered table-hover mytable" style="width:95%">
+                    <thead>
+                        <tr>
+                            <td colspan="5">
+                                <input type="text" id="prodparme" name="prodparme" class="form-control" placeholder="输入产品名称/编号查询" style="width:180px;float:left;" />
+                                <button type="button" class="btn btn-primary" onclick="getprod('@ViewBag.cu_no');" style="float:left;"><i class="fa fa-search"></i>查询</button>
+                            </td>
+                        </tr>
+                        <tr class="widget-title">
+                            <th class="hidden-480">--</th>
+                            <th class="hidden-480">产品编号</th>
+                            <th class="hidden-480">产品名称</th>
+                            <th class="hidden-480">产品规格</th>
+                            <th class="hidden-480">单位</th>
+                        </tr>
+                    </thead>
+                    <tbody id="showprod"></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="setpro();" data-dismiss="modal">确定</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function getprod() {
+        var prodname = $("#prodparme").val();
+        $.ajax({
+            type: "post",
+            url: "/Index/GetProd",
+            data: { pname_no: prodname },
+            dataType: "json",
+            success: function (data) {
+                var prod = ""
+                for (var i in data) {
+                    prod += '<tr><td><label><input type="radio" name="xtcunor" id="xtcunor" value="' + data[i].p_no + '|' + data[i].pname + '|' + data[i].type + '|' + data[i].bm_no + '|' + data[i].unit + '" />选择</label></td>';
+                    prod += '<td>' + data[i].p_no + '</td>';
+                    prod += '<td>' + data[i].pname + '</td>';
+                    prod += '<td>' + data[i].type + '</td>';
+                    prod += '<td>' + data[i].unit + '</td></tr>';
+                }
+                
+                if (data.length <= 0) {
+                    prod += "<tr><td colspan='5' style='text-align:center'>暂无产品</td></tr>";
+                }
+                $("#showprod").empty();
+                $("#showprod").append(prod);
+            }, error: function (data, status, e) {
+
+            },
+        });
+    }
+
+    function setpro() {
+        var xtpno = $("input[name='xtcunor']:checked").val();
+        var a = xtpno.split('|');
+        $("#pno").val(a[0]);
+        $("#pname").val(a[1]);
+    }
+</script>

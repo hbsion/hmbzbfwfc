@@ -1,0 +1,193 @@
+﻿.page
+{
+    /*background-image:url(../img/regbg.png);*/
+    background-color:#ffffff;
+    background-position:top;
+    background-repeat:no-repeat;
+    background-size:cover;
+	width: 100%;
+	overflow: auto;
+}
+.logoTop
+{
+    background-color:#EDD89F;
+	width: 100%;
+	position: relative;
+	text-align:center;
+    height :60px;
+}
+.logoTop img
+{
+	width: 100%;
+	position:absolute;
+    left:0px;
+	bottom:5px;
+}
+.mainContent
+{
+	width: 100%;
+	position: relative;
+	margin-top: 1em;
+	text-align: center;
+}
+.inputBox
+{
+	width: 100%;
+	text-align: center;
+	position: relative; /*float:right;*/
+}
+.bg_input
+{
+	-webkit-border-radius:8px;
+	border-radius: 8px;
+	border: 1px solid #777;
+	background-color: #E5E5E5;
+	font-size: 1.0em;
+	padding: 6px 0px 6px 12px;
+	box-shadow:0px 2px 2px #120E0F inset;
+
+}
+.inputBox input
+{
+	width: 80%;
+	line-height: 25px;
+	height: 25px;
+}
+.content
+{
+	width: 100%;
+	position: relative;
+	text-align: left;
+	margin-top: 1em; /* display:-webkit-box;      	display:box;      	-webkit-box-align: center;      	box-align: center;     -webkit-box-pack: center;     box-pack: center;*/
+}
+.ub
+{
+	width: 80%;
+	margin: 0 auto;
+	position: relative;
+	height: 44px;
+}
+.desc
+{
+	position: relative;
+	float: left;
+	top: 0px;
+	left: -7px;
+	line-height: 30px;
+	height: 30px;
+	background-color: #ff0000;
+	-webkit-border-radius: 20px 0 0 20px;
+	border-radius: 20px 0 0 20px;
+	width: 30%;
+	color: #fff;
+	padding: 7px 0px 7px 0px;
+	text-align: center;
+}
+.ub-f1
+{
+	float: left;
+	width: 70%;
+	height: 44px;
+	left: 5px;
+}
+.ub-f1 input
+{
+	width: 100%;
+	position: absolute;
+	right: 0px;
+	border-left: 0px;
+	padding-left: 15px;
+}
+/*****省市联动*******/
+.regionBox
+{
+ margin-top:1em;
+}
+.areaBox
+{
+     width:80%;
+     margin:0 auto;
+     background-color:#E5E5E5;
+     padding: 6px 0px 6px 12px;
+
+ }
+    .areaBox select
+    {
+        height:25px;
+        line-height:25px;
+        background-color:#E5E5E5;
+        width:150px;
+     }
+    .area-lb
+    {
+        font-size:1.1em;
+        color:#000;
+    }
+
+/*********** 按钮 *******************/
+.base_ann
+{
+	width: 100%;
+	height: 55px;
+	margin-top: 60px;
+}
+.base_ann ol
+{
+	width: 100%;
+	height: 55px;
+		margin-bottom:10px;
+}
+.base_ann ol li
+{
+	width: 70%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	/*渐变效果
+	background: #0497F7;*/
+  background: -webkit-linear-gradient(left top, #075AF2,#01D7FE); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(bottom right, #075AF2,#01D7FE); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(bottom right, #075AF2,#01D7FE); /* Firefox 3.6 - 15 */
+	background:linear-gradient(to bottom right,#075AF2,#01D7FE);
+	border-radius: 30px;
+	font-size:1.0em;
+	margin:0 auto;
+}
+
+.base_ann ol li a
+{
+	width: 100%;
+	height: 55px;
+	display: block;
+	color: #fff;
+	font-size: 1.0em;
+}
+.css-checkbox+.css-label
+{
+     font-size:16px;
+     color:#000;
+ }
+ .css-checkbox
+ {
+     width:20px;
+     height:20px;
+  } 
+.mya
+{
+	color: #0D81F2;
+	height:25px;
+}
+mya:link
+{
+	color: #0D81F2;
+}
+a:visited
+{
+	color: #0D81F2;
+	text-decoration: none;
+}
+a:link
+{
+	color: #0D81F2;
+	text-decoration: none;
+}

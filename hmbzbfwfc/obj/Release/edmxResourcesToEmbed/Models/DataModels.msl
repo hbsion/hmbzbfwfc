@@ -1,0 +1,1513 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="yMfwfcjfModelStoreContainer" CdmEntityContainer="ConnectionStringEntities">
+    <EntitySetMapping Name="customer">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="maxstorenum" ColumnName="maxstorenum" />
+          <ScalarProperty Name="yhzh" ColumnName="yhzh" />
+          <ScalarProperty Name="khh" ColumnName="khh" />
+          <ScalarProperty Name="zfb" ColumnName="zfb" />
+          <ScalarProperty Name="salloca" ColumnName="salloca" />
+          <ScalarProperty Name="shitidian" ColumnName="shitidian" />
+          <ScalarProperty Name="taoid" ColumnName="taoid" />
+          <ScalarProperty Name="fmoney" ColumnName="fmoney" />
+          <ScalarProperty Name="cstatus" ColumnName="cstatus" />
+          <ScalarProperty Name="xtcheckyn" ColumnName="xtcheckyn" />
+          <ScalarProperty Name="ht_no" ColumnName="ht_no" />
+          <ScalarProperty Name="itlevel" ColumnName="itlevel" />
+          <ScalarProperty Name="item" ColumnName="item" />
+          <ScalarProperty Name="checkyn" ColumnName="checkyn" />
+          <ScalarProperty Name="WanWan" ColumnName="WanWan" />
+          <ScalarProperty Name="QQ" ColumnName="QQ" />
+          <ScalarProperty Name="WxId" ColumnName="WxId" />
+          <ScalarProperty Name="myPhoto" ColumnName="myPhoto" />
+          <ScalarProperty Name="mySfz" ColumnName="mySfz" />
+          <ScalarProperty Name="myHead" ColumnName="myHead" />
+          <ScalarProperty Name="xtWxId" ColumnName="xtWxId" />
+          <ScalarProperty Name="xtName" ColumnName="xtName" />
+          <ScalarProperty Name="gclass" ColumnName="gclass" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="imgurl" ColumnName="imgurl" />
+          <ScalarProperty Name="acting_cu_no" ColumnName="acting_cu_no" />
+          <ScalarProperty Name="acting" ColumnName="acting" />
+          <ScalarProperty Name="loca" ColumnName="loca" />
+          <ScalarProperty Name="lc_no" ColumnName="lc_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+          <ScalarProperty Name="cu_no" ColumnName="cu_no" />
+          <ScalarProperty Name="cu_name" ColumnName="cu_name" />
+          <ScalarProperty Name="cutype" ColumnName="cutype" />
+          <ScalarProperty Name="province" ColumnName="province" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="addr" ColumnName="addr" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="post" ColumnName="post" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="link_man" ColumnName="link_man" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="xtcu_no" ColumnName="xtcu_no" />
+          <ScalarProperty Name="passwd" ColumnName="passwd" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="in_date" ColumnName="in_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inv_Store">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.Inv_Store">
+        <MappingFragment StoreEntitySet="Inv_Store">
+          <ScalarProperty Name="fid" ColumnName="fid" />
+          <ScalarProperty Name="st_no" ColumnName="st_no" />
+          <ScalarProperty Name="st_name" ColumnName="st_name" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="in_date" ColumnName="in_date" />
+          <ScalarProperty Name="m_user" ColumnName="m_user" />
+          <ScalarProperty Name="sttype" ColumnName="sttype" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="xtcu_no" ColumnName="xtcu_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="dt_addtosourcecontrol" FunctionName="yMfwfcjfModel.Store.dt_addtosourcecontrol" />
+    <FunctionImportMapping FunctionImportName="dt_addtosourcecontrol_u" FunctionName="yMfwfcjfModel.Store.dt_addtosourcecontrol_u" />
+    <FunctionImportMapping FunctionImportName="dt_adduserobject" FunctionName="yMfwfcjfModel.Store.dt_adduserobject" />
+    <FunctionImportMapping FunctionImportName="dt_adduserobject_vcs" FunctionName="yMfwfcjfModel.Store.dt_adduserobject_vcs" />
+    <FunctionImportMapping FunctionImportName="dt_checkinobject" FunctionName="yMfwfcjfModel.Store.dt_checkinobject" />
+    <FunctionImportMapping FunctionImportName="dt_checkinobject_u" FunctionName="yMfwfcjfModel.Store.dt_checkinobject_u" />
+    <FunctionImportMapping FunctionImportName="dt_checkoutobject" FunctionName="yMfwfcjfModel.Store.dt_checkoutobject" />
+    <FunctionImportMapping FunctionImportName="dt_checkoutobject_u" FunctionName="yMfwfcjfModel.Store.dt_checkoutobject_u" />
+    <FunctionImportMapping FunctionImportName="dt_displayoaerror" FunctionName="yMfwfcjfModel.Store.dt_displayoaerror" />
+    <FunctionImportMapping FunctionImportName="dt_displayoaerror_u" FunctionName="yMfwfcjfModel.Store.dt_displayoaerror_u" />
+    <FunctionImportMapping FunctionImportName="dt_droppropertiesbyid" FunctionName="yMfwfcjfModel.Store.dt_droppropertiesbyid" />
+    <FunctionImportMapping FunctionImportName="dt_dropuserobjectbyid" FunctionName="yMfwfcjfModel.Store.dt_dropuserobjectbyid" />
+    <FunctionImportMapping FunctionImportName="dt_generateansiname" FunctionName="yMfwfcjfModel.Store.dt_generateansiname" />
+    <FunctionImportMapping FunctionImportName="dt_getobjwithprop" FunctionName="yMfwfcjfModel.Store.dt_getobjwithprop" />
+    <FunctionImportMapping FunctionImportName="dt_getobjwithprop_u" FunctionName="yMfwfcjfModel.Store.dt_getobjwithprop_u" />
+    <FunctionImportMapping FunctionImportName="dt_getpropertiesbyid" FunctionName="yMfwfcjfModel.Store.dt_getpropertiesbyid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="yMfwfcjfModel.dt_getpropertiesbyid_Result">
+          <ScalarProperty Name="property" ColumnName="property" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="lvalue" ColumnName="lvalue" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="dt_getpropertiesbyid_u" FunctionName="yMfwfcjfModel.Store.dt_getpropertiesbyid_u">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="yMfwfcjfModel.dt_getpropertiesbyid_u_Result">
+          <ScalarProperty Name="property" ColumnName="property" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="uvalue" ColumnName="uvalue" />
+          <ScalarProperty Name="lvalue" ColumnName="lvalue" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="dt_getpropertiesbyid_vcs" FunctionName="yMfwfcjfModel.Store.dt_getpropertiesbyid_vcs" />
+    <FunctionImportMapping FunctionImportName="dt_getpropertiesbyid_vcs_u" FunctionName="yMfwfcjfModel.Store.dt_getpropertiesbyid_vcs_u" />
+    <FunctionImportMapping FunctionImportName="dt_isundersourcecontrol" FunctionName="yMfwfcjfModel.Store.dt_isundersourcecontrol" />
+    <FunctionImportMapping FunctionImportName="dt_isundersourcecontrol_u" FunctionName="yMfwfcjfModel.Store.dt_isundersourcecontrol_u" />
+    <FunctionImportMapping FunctionImportName="dt_removefromsourcecontrol" FunctionName="yMfwfcjfModel.Store.dt_removefromsourcecontrol" />
+    <FunctionImportMapping FunctionImportName="dt_setpropertybyid" FunctionName="yMfwfcjfModel.Store.dt_setpropertybyid" />
+    <FunctionImportMapping FunctionImportName="dt_setpropertybyid_u" FunctionName="yMfwfcjfModel.Store.dt_setpropertybyid_u" />
+    <FunctionImportMapping FunctionImportName="dt_validateloginparams" FunctionName="yMfwfcjfModel.Store.dt_validateloginparams" />
+    <FunctionImportMapping FunctionImportName="dt_validateloginparams_u" FunctionName="yMfwfcjfModel.Store.dt_validateloginparams_u" />
+    <FunctionImportMapping FunctionImportName="dt_vcsenabled" FunctionName="yMfwfcjfModel.Store.dt_vcsenabled" />
+    <FunctionImportMapping FunctionImportName="dt_verstamp006" FunctionName="yMfwfcjfModel.Store.dt_verstamp006" />
+    <FunctionImportMapping FunctionImportName="dt_verstamp007" FunctionName="yMfwfcjfModel.Store.dt_verstamp007" />
+    <FunctionImportMapping FunctionImportName="dt_whocheckedout" FunctionName="yMfwfcjfModel.Store.dt_whocheckedout" />
+    <FunctionImportMapping FunctionImportName="dt_whocheckedout_u" FunctionName="yMfwfcjfModel.Store.dt_whocheckedout_u" />
+    <FunctionImportMapping FunctionImportName="P_SpiltPage" FunctionName="yMfwfcjfModel.Store.P_SpiltPage" />
+    <FunctionImportMapping FunctionImportName="P_viewPage" FunctionName="yMfwfcjfModel.Store.P_viewPage" />
+    <EntitySetMapping Name="Inv_Custqty">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.Inv_Custqty">
+        <MappingFragment StoreEntitySet="Inv_Custqty">
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="m_date" ColumnName="m_date" />
+          <ScalarProperty Name="outqty" ColumnName="outqty" />
+          <ScalarProperty Name="inqty" ColumnName="inqty" />
+          <ScalarProperty Name="bakqty" ColumnName="bakqty" />
+          <ScalarProperty Name="stqty" ColumnName="stqty" />
+          <ScalarProperty Name="cu_no" ColumnName="cu_no" />
+          <ScalarProperty Name="p_no" ColumnName="p_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inv_Stqty">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.Inv_Stqty">
+        <MappingFragment StoreEntitySet="Inv_Stqty">
+          <ScalarProperty Name="fgiqty" ColumnName="fgiqty" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="m_date" ColumnName="m_date" />
+          <ScalarProperty Name="outqty" ColumnName="outqty" />
+          <ScalarProperty Name="inqty" ColumnName="inqty" />
+          <ScalarProperty Name="bakqty" ColumnName="bakqty" />
+          <ScalarProperty Name="stqty" ColumnName="stqty" />
+          <ScalarProperty Name="st_no" ColumnName="st_no" />
+          <ScalarProperty Name="p_no" ColumnName="p_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sal_cufgi">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.sal_cufgi">
+        <MappingFragment StoreEntitySet="sal_cufgi">
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="pda_no" ColumnName="pda_no" />
+          <ScalarProperty Name="po_no" ColumnName="po_no" />
+          <ScalarProperty Name="xtcu_name" ColumnName="xtcu_name" />
+          <ScalarProperty Name="st_no" ColumnName="st_no" />
+          <ScalarProperty Name="lot_no" ColumnName="lot_no" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="jf" ColumnName="jf" />
+          <ScalarProperty Name="xtcu_no" ColumnName="xtcu_no" />
+          <ScalarProperty Name="upyn" ColumnName="upyn" />
+          <ScalarProperty Name="pname" ColumnName="pname" />
+          <ScalarProperty Name="p_no" ColumnName="p_no" />
+          <ScalarProperty Name="mqty" ColumnName="mqty" />
+          <ScalarProperty Name="loca" ColumnName="loca" />
+          <ScalarProperty Name="cu_name" ColumnName="cu_name" />
+          <ScalarProperty Name="cu_no" ColumnName="cu_no" />
+          <ScalarProperty Name="ship_date" ColumnName="ship_date" />
+          <ScalarProperty Name="bsnno" ColumnName="bsnno" />
+          <ScalarProperty Name="ship_no" ColumnName="ship_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InStore">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.InStore">
+        <MappingFragment StoreEntitySet="InStore">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="EquipmentCode" ColumnName="EquipmentCode" />
+          <ScalarProperty Name="EquipmentNum" ColumnName="EquipmentNum" />
+          <ScalarProperty Name="OperateType" ColumnName="OperateType" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="StoreKeeper" ColumnName="StoreKeeper" />
+          <ScalarProperty Name="PrintTime" ColumnName="PrintTime" />
+          <ScalarProperty Name="PrintUser" ColumnName="PrintUser" />
+          <ScalarProperty Name="AuditeTime" ColumnName="AuditeTime" />
+          <ScalarProperty Name="AuditUser" ColumnName="AuditUser" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="OrderTime" ColumnName="OrderTime" />
+          <ScalarProperty Name="GrossWeight" ColumnName="GrossWeight" />
+          <ScalarProperty Name="NetWeight" ColumnName="NetWeight" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Num" ColumnName="Num" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ContractType" ColumnName="ContractType" />
+          <ScalarProperty Name="ContractOrder" ColumnName="ContractOrder" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="SupName" ColumnName="SupName" />
+          <ScalarProperty Name="SupNum" ColumnName="SupNum" />
+          <ScalarProperty Name="StorageNum" ColumnName="StorageNum" />
+          <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+          <ScalarProperty Name="InType" ColumnName="InType" />
+          <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InStoreDetail">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.InStoreDetail">
+        <MappingFragment StoreEntitySet="InStoreDetail">
+          <ScalarProperty Name="storenum" ColumnName="storenum" />
+          <ScalarProperty Name="sumprice" ColumnName="sumprice" />
+          <ScalarProperty Name="inprice" ColumnName="inprice" />
+          <ScalarProperty Name="num" ColumnName="num" />
+          <ScalarProperty Name="batchnum" ColumnName="batchnum" />
+          <ScalarProperty Name="ptype" ColumnName="ptype" />
+          <ScalarProperty Name="barcode" ColumnName="barcode" />
+          <ScalarProperty Name="pname" ColumnName="pname" />
+          <ScalarProperty Name="p_no" ColumnName="p_no" />
+          <ScalarProperty Name="indate" ColumnName="indate" />
+          <ScalarProperty Name="billno" ColumnName="billno" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sal_cuship">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.sal_cuship">
+        <MappingFragment StoreEntitySet="sal_cuship">
+          <ScalarProperty Name="po_no" ColumnName="po_no" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="pda_no" ColumnName="pda_no" />
+          <ScalarProperty Name="xtcu_name" ColumnName="xtcu_name" />
+          <ScalarProperty Name="st_no" ColumnName="st_no" />
+          <ScalarProperty Name="lot_no" ColumnName="lot_no" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="jf" ColumnName="jf" />
+          <ScalarProperty Name="xtcu_no" ColumnName="xtcu_no" />
+          <ScalarProperty Name="upyn" ColumnName="upyn" />
+          <ScalarProperty Name="pname" ColumnName="pname" />
+          <ScalarProperty Name="p_no" ColumnName="p_no" />
+          <ScalarProperty Name="mqty" ColumnName="mqty" />
+          <ScalarProperty Name="loca" ColumnName="loca" />
+          <ScalarProperty Name="cu_name" ColumnName="cu_name" />
+          <ScalarProperty Name="cu_no" ColumnName="cu_no" />
+          <ScalarProperty Name="ship_date" ColumnName="ship_date" />
+          <ScalarProperty Name="bsnno" ColumnName="bsnno" />
+          <ScalarProperty Name="ship_no" ColumnName="ship_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sal_cure">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.sal_cure">
+        <MappingFragment StoreEntitySet="sal_cure">
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="pda_no" ColumnName="pda_no" />
+          <ScalarProperty Name="xtcu_name" ColumnName="xtcu_name" />
+          <ScalarProperty Name="st_no" ColumnName="st_no" />
+          <ScalarProperty Name="lot_no" ColumnName="lot_no" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="jf" ColumnName="jf" />
+          <ScalarProperty Name="xtcu_no" ColumnName="xtcu_no" />
+          <ScalarProperty Name="upyn" ColumnName="upyn" />
+          <ScalarProperty Name="pname" ColumnName="pname" />
+          <ScalarProperty Name="p_no" ColumnName="p_no" />
+          <ScalarProperty Name="mqty" ColumnName="mqty" />
+          <ScalarProperty Name="loca" ColumnName="loca" />
+          <ScalarProperty Name="cu_name" ColumnName="cu_name" />
+          <ScalarProperty Name="cu_no" ColumnName="cu_no" />
+          <ScalarProperty Name="ship_date" ColumnName="ship_date" />
+          <ScalarProperty Name="bsnno" ColumnName="bsnno" />
+          <ScalarProperty Name="ship_no" ColumnName="ship_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fw_code">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.fw_code">
+        <MappingFragment StoreEntitySet="fw_code">
+          <ScalarProperty Name="fid" ColumnName="fid" />
+          <ScalarProperty Name="CodeC" ColumnName="CodeC" />
+          <ScalarProperty Name="CodeB" ColumnName="CodeB" />
+          <ScalarProperty Name="CodeA" ColumnName="CodeA" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="UnitCode" ColumnName="UnitCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fw_cust">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.fw_cust">
+        <MappingFragment StoreEntitySet="fw_cust">
+          <ScalarProperty Name="chrtype" ColumnName="chrtype" />
+          <ScalarProperty Name="snpr" ColumnName="snpr" />
+          <ScalarProperty Name="dckyn" ColumnName="dckyn" />
+          <ScalarProperty Name="Msnlength" ColumnName="Msnlength" />
+          <ScalarProperty Name="snLen" ColumnName="snLen" />
+          <ScalarProperty Name="sntype" ColumnName="sntype" />
+          <ScalarProperty Name="ctype" ColumnName="ctype" />
+          <ScalarProperty Name="ccodeyn" ColumnName="ccodeyn" />
+          <ScalarProperty Name="zp" ColumnName="zp" />
+          <ScalarProperty Name="prodinfo" ColumnName="prodinfo" />
+          <ScalarProperty Name="unitinfo" ColumnName="unitinfo" />
+          <ScalarProperty Name="p_no" ColumnName="p_no" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="aajf" ColumnName="aajf" />
+          <ScalarProperty Name="zjyn" ColumnName="zjyn" />
+          <ScalarProperty Name="jfyn" ColumnName="jfyn" />
+          <ScalarProperty Name="vlen" ColumnName="vlen" />
+          <ScalarProperty Name="renote" ColumnName="renote" />
+          <ScalarProperty Name="voicere" ColumnName="voicere" />
+          <ScalarProperty Name="upyn" ColumnName="upyn" />
+          <ScalarProperty Name="bcode" ColumnName="bcode" />
+          <ScalarProperty Name="smsnote" ColumnName="smsnote" />
+          <ScalarProperty Name="VoiceWelcome" ColumnName="VoiceWelcome" />
+          <ScalarProperty Name="OverK" ColumnName="OverK" />
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="MaxValue" ColumnName="MaxValue" />
+          <ScalarProperty Name="Mlength" ColumnName="Mlength" />
+          <ScalarProperty Name="codeLen" ColumnName="codeLen" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="Property" ColumnName="Property" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Post" ColumnName="Post" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Master" ColumnName="Master" />
+          <ScalarProperty Name="Addr" ColumnName="Addr" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="UnitCode" ColumnName="UnitCode" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fw_snmm">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.fw_snmm">
+        <MappingFragment StoreEntitySet="fw_snmm">
+          <ScalarProperty Name="fid" ColumnName="fid" />
+          <ScalarProperty Name="CodeC" ColumnName="CodeC" />
+          <ScalarProperty Name="CodeB" ColumnName="CodeB" />
+          <ScalarProperty Name="CodeA" ColumnName="CodeA" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="UnitCode" ColumnName="UnitCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="xt_xtmenu">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.xt_xtmenu">
+        <MappingFragment StoreEntitySet="xt_xtmenu">
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="rightlist" ColumnName="rightlist" />
+          <ScalarProperty Name="icostyle" ColumnName="icostyle" />
+          <ScalarProperty Name="acturl" ColumnName="acturl" />
+          <ScalarProperty Name="RightFlag" ColumnName="RightFlag" />
+          <ScalarProperty Name="MenuList" ColumnName="MenuList" />
+          <ScalarProperty Name="mjbz" ColumnName="mjbz" />
+          <ScalarProperty Name="sjgnbm" ColumnName="sjgnbm" />
+          <ScalarProperty Name="gnmc" ColumnName="gnmc" />
+          <ScalarProperty Name="gnsy" ColumnName="gnsy" />
+          <ScalarProperty Name="gnbm" ColumnName="gnbm" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bas_dict">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.bas_dict">
+        <MappingFragment StoreEntitySet="bas_dict">
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="tcode" ColumnName="tcode" />
+          <ScalarProperty Name="bmtype" ColumnName="bmtype" />
+          <ScalarProperty Name="bm_name" ColumnName="bm_name" />
+          <ScalarProperty Name="bm_no" ColumnName="bm_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="xt_uplist">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.xt_uplist">
+        <MappingFragment StoreEntitySet="xt_uplist">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="up_date" ColumnName="up_date" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="mqty" ColumnName="mqty" />
+          <ScalarProperty Name="filename" ColumnName="filename" />
+          <ScalarProperty Name="in_date" ColumnName="in_date" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gy_Czygl">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.Gy_Czygl">
+        <MappingFragment StoreEntitySet="Gy_Czygl">
+          <ScalarProperty Name="rms_name" ColumnName="rms_name" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="last_ip" ColumnName="last_ip" />
+          <ScalarProperty Name="last_time" ColumnName="last_time" />
+          <ScalarProperty Name="st_no" ColumnName="st_no" />
+          <ScalarProperty Name="checkyn" ColumnName="checkyn" />
+          <ScalarProperty Name="cu_name" ColumnName="cu_name" />
+          <ScalarProperty Name="cu_no" ColumnName="cu_no" />
+          <ScalarProperty Name="sysgroupid" ColumnName="sysgroupid" />
+          <ScalarProperty Name="sysrole" ColumnName="sysrole" />
+          <ScalarProperty Name="in_date" ColumnName="in_date" />
+          <ScalarProperty Name="deptname" ColumnName="deptname" />
+          <ScalarProperty Name="czmm" ColumnName="czmm" />
+          <ScalarProperty Name="czymc" ColumnName="czymc" />
+          <ScalarProperty Name="czybm" ColumnName="czybm" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dhm_code">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.dhm_code">
+        <MappingFragment StoreEntitySet="dhm_code">
+          <ScalarProperty Name="fid" ColumnName="fid" />
+          <ScalarProperty Name="codelen" ColumnName="codelen" />
+          <ScalarProperty Name="CodeD" ColumnName="CodeD" />
+          <ScalarProperty Name="CodeC" ColumnName="CodeC" />
+          <ScalarProperty Name="CodeB" ColumnName="CodeB" />
+          <ScalarProperty Name="CodeA" ColumnName="CodeA" />
+          <ScalarProperty Name="Vcode" ColumnName="Vcode" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dhm_cust">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.dhm_cust">
+        <MappingFragment StoreEntitySet="dhm_cust">
+          <ScalarProperty Name="snpr" ColumnName="snpr" />
+          <ScalarProperty Name="snyn" ColumnName="snyn" />
+          <ScalarProperty Name="wlpr" ColumnName="wlpr" />
+          <ScalarProperty Name="wlLen" ColumnName="wlLen" />
+          <ScalarProperty Name="wlyn" ColumnName="wlyn" />
+          <ScalarProperty Name="vlen" ColumnName="vlen" />
+          <ScalarProperty Name="vyn" ColumnName="vyn" />
+          <ScalarProperty Name="renote" ColumnName="renote" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="codeLen" ColumnName="codeLen" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="UnitCode" ColumnName="UnitCode" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dhm_fwout">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.dhm_fwout">
+        <MappingFragment StoreEntitySet="dhm_fwout">
+          <ScalarProperty Name="codeLen" ColumnName="codeLen" />
+          <ScalarProperty Name="lsnyn" ColumnName="lsnyn" />
+          <ScalarProperty Name="lwlyn" ColumnName="lwlyn" />
+          <ScalarProperty Name="lfwyn" ColumnName="lfwyn" />
+          <ScalarProperty Name="snpr" ColumnName="snpr" />
+          <ScalarProperty Name="wlpr" ColumnName="wlpr" />
+          <ScalarProperty Name="fwpr" ColumnName="fwpr" />
+          <ScalarProperty Name="xnvyn" ColumnName="xnvyn" />
+          <ScalarProperty Name="dzfyn" ColumnName="dzfyn" />
+          <ScalarProperty Name="dxtyn" ColumnName="dxtyn" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="sxqty" ColumnName="sxqty" />
+          <ScalarProperty Name="bxqty" ColumnName="bxqty" />
+          <ScalarProperty Name="pxqty" ColumnName="pxqty" />
+          <ScalarProperty Name="pzqty" ColumnName="pzqty" />
+          <ScalarProperty Name="pdqty" ColumnName="pdqty" />
+          <ScalarProperty Name="packtype" ColumnName="packtype" />
+          <ScalarProperty Name="mqty" ColumnName="mqty" />
+          <ScalarProperty Name="snend" ColumnName="snend" />
+          <ScalarProperty Name="snbegin" ColumnName="snbegin" />
+          <ScalarProperty Name="SellDateTime" ColumnName="SellDateTime" />
+          <ScalarProperty Name="myBegin" ColumnName="myBegin" />
+          <ScalarProperty Name="SellCount" ColumnName="SellCount" />
+          <ScalarProperty Name="UnitCode" ColumnName="UnitCode" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dhm_snmm">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.dhm_snmm">
+        <MappingFragment StoreEntitySet="dhm_snmm">
+          <ScalarProperty Name="fid" ColumnName="fid" />
+          <ScalarProperty Name="codelen" ColumnName="codelen" />
+          <ScalarProperty Name="CodeD" ColumnName="CodeD" />
+          <ScalarProperty Name="CodeC" ColumnName="CodeC" />
+          <ScalarProperty Name="CodeB" ColumnName="CodeB" />
+          <ScalarProperty Name="CodeA" ColumnName="CodeA" />
+          <ScalarProperty Name="Vcode" ColumnName="Vcode" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="xt_user_menu">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.xt_user_menu">
+        <MappingFragment StoreEntitySet="xt_user_menu">
+          <ScalarProperty Name="gnmc" ColumnName="gnmc" />
+          <ScalarProperty Name="munid" ColumnName="munid" />
+          <ScalarProperty Name="rms_name" ColumnName="rms_name" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sal_re">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.sal_re">
+        <MappingFragment StoreEntitySet="sal_re">
+          <ScalarProperty Name="adddatetime" ColumnName="adddatetime" />
+          <ScalarProperty Name="pda_no" ColumnName="pda_no" />
+          <ScalarProperty Name="xtcu_name" ColumnName="xtcu_name" />
+          <ScalarProperty Name="st_no" ColumnName="st_no" />
+          <ScalarProperty Name="lot_no" ColumnName="lot_no" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="jf" ColumnName="jf" />
+          <ScalarProperty Name="xtcu_no" ColumnName="xtcu_no" />
+          <ScalarProperty Name="upyn" ColumnName="upyn" />
+          <ScalarProperty Name="pname" ColumnName="pname" />
+          <ScalarProperty Name="p_no" ColumnName="p_no" />
+          <ScalarProperty Name="mqty" ColumnName="mqty" />
+          <ScalarProperty Name="loca" ColumnName="loca" />
+          <ScalarProperty Name="cu_name" ColumnName="cu_name" />
+          <ScalarProperty Name="cu_no" ColumnName="cu_no" />
+          <ScalarProperty Name="ship_date" ColumnName="ship_date" />
+          <ScalarProperty Name="bsnno" ColumnName="bsnno" />
+          <ScalarProperty Name="ship_no" ColumnName="ship_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sal_ship">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.sal_ship">
+        <MappingFragment StoreEntitySet="sal_ship">
+          <ScalarProperty Name="adddatetime" ColumnName="adddatetime" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="reship_no" ColumnName="reship_no" />
+          <ScalarProperty Name="pda_no" ColumnName="pda_no" />
+          <ScalarProperty Name="renotes" ColumnName="renotes" />
+          <ScalarProperty Name="recu_name" ColumnName="recu_name" />
+          <ScalarProperty Name="recu_no" ColumnName="recu_no" />
+          <ScalarProperty Name="po_no" ColumnName="po_no" />
+          <ScalarProperty Name="mtype" ColumnName="mtype" />
+          <ScalarProperty Name="cloca" ColumnName="cloca" />
+          <ScalarProperty Name="bloca" ColumnName="bloca" />
+          <ScalarProperty Name="curedate" ColumnName="curedate" />
+          <ScalarProperty Name="cureyn" ColumnName="cureyn" />
+          <ScalarProperty Name="xtcu_name" ColumnName="xtcu_name" />
+          <ScalarProperty Name="st_no" ColumnName="st_no" />
+          <ScalarProperty Name="lot_no" ColumnName="lot_no" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="jf" ColumnName="jf" />
+          <ScalarProperty Name="xtcu_no" ColumnName="xtcu_no" />
+          <ScalarProperty Name="upyn" ColumnName="upyn" />
+          <ScalarProperty Name="pname" ColumnName="pname" />
+          <ScalarProperty Name="p_no" ColumnName="p_no" />
+          <ScalarProperty Name="mqty" ColumnName="mqty" />
+          <ScalarProperty Name="loca" ColumnName="loca" />
+          <ScalarProperty Name="cu_name" ColumnName="cu_name" />
+          <ScalarProperty Name="cu_no" ColumnName="cu_no" />
+          <ScalarProperty Name="ship_date" ColumnName="ship_date" />
+          <ScalarProperty Name="bsnno" ColumnName="bsnno" />
+          <ScalarProperty Name="ship_no" ColumnName="ship_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sal_packa">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.sal_packa">
+        <MappingFragment StoreEntitySet="sal_packa">
+          <ScalarProperty Name="cu_no" ColumnName="cu_no" />
+          <ScalarProperty Name="okpcs" ColumnName="okpcs" />
+          <ScalarProperty Name="errqty" ColumnName="errqty" />
+          <ScalarProperty Name="okqty" ColumnName="okqty" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="add_date" ColumnName="add_date" />
+          <ScalarProperty Name="relativepath" ColumnName="relativepath" />
+          <ScalarProperty Name="absolutepath" ColumnName="absolutepath" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="p_no" ColumnName="p_no" />
+          <ScalarProperty Name="log_no" ColumnName="log_no" />
+          <ScalarProperty Name="wo_no" ColumnName="wo_no" />
+          <ScalarProperty Name="line_no" ColumnName="line_no" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="uplog" ColumnName="uplog" />
+          <ScalarProperty Name="pfilename" ColumnName="pfilename" />
+          <ScalarProperty Name="pack_date" ColumnName="pack_date" />
+          <ScalarProperty Name="pack_no" ColumnName="pack_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pdauser">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.pdauser">
+        <MappingFragment StoreEntitySet="pdauser">
+          <ScalarProperty Name="realname" ColumnName="realname" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="add_date" ColumnName="add_date" />
+          <ScalarProperty Name="cu_no" ColumnName="cu_no" />
+          <ScalarProperty Name="pdapwd" ColumnName="pdapwd" />
+          <ScalarProperty Name="pdaname" ColumnName="pdaname" />
+          <ScalarProperty Name="pdano" ColumnName="pdano" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="xt_unit">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.xt_unit">
+        <MappingFragment StoreEntitySet="xt_unit">
+          <ScalarProperty Name="zbyn" ColumnName="zbyn" />
+          <ScalarProperty Name="futyn" ColumnName="futyn" />
+          <ScalarProperty Name="qc03" ColumnName="qc03" />
+          <ScalarProperty Name="qc02" ColumnName="qc02" />
+          <ScalarProperty Name="qc01" ColumnName="qc01" />
+          <ScalarProperty Name="weburl" ColumnName="weburl" />
+          <ScalarProperty Name="nyyn" ColumnName="nyyn" />
+          <ScalarProperty Name="unit_note" ColumnName="unit_note" />
+          <ScalarProperty Name="act_note" ColumnName="act_note" />
+          <ScalarProperty Name="act_name" ColumnName="act_name" />
+          <ScalarProperty Name="wishing" ColumnName="wishing" />
+          <ScalarProperty Name="hbyn" ColumnName="hbyn" />
+          <ScalarProperty Name="hyzl" ColumnName="hyzl" />
+          <ScalarProperty Name="thcl" ColumnName="thcl" />
+          <ScalarProperty Name="fcnote" ColumnName="fcnote" />
+          <ScalarProperty Name="ckyn" ColumnName="ckyn" />
+          <ScalarProperty Name="styn" ColumnName="styn" />
+          <ScalarProperty Name="qcyn" ColumnName="qcyn" />
+          <ScalarProperty Name="recl" ColumnName="recl" />
+          <ScalarProperty Name="prdyn" ColumnName="prdyn" />
+          <ScalarProperty Name="fgiyn" ColumnName="fgiyn" />
+          <ScalarProperty Name="fcyn" ColumnName="fcyn" />
+          <ScalarProperty Name="jfyn" ColumnName="jfyn" />
+          <ScalarProperty Name="fwyn" ColumnName="fwyn" />
+          <ScalarProperty Name="fwunitcode" ColumnName="fwunitcode" />
+          <ScalarProperty Name="logo" ColumnName="logo" />
+          <ScalarProperty Name="packtype" ColumnName="packtype" />
+          <ScalarProperty Name="sninyn" ColumnName="sninyn" />
+          <ScalarProperty Name="passwd" ColumnName="passwd" />
+          <ScalarProperty Name="acting" ColumnName="acting" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="province" ColumnName="province" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="link_man" ColumnName="link_man" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+          <ScalarProperty Name="post" ColumnName="post" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="addr" ColumnName="addr" />
+          <ScalarProperty Name="cutype" ColumnName="cutype" />
+          <ScalarProperty Name="unitname" ColumnName="unitname" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="xt_user_rms">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.xt_user_rms">
+        <MappingFragment StoreEntitySet="xt_user_rms">
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="rms_name" ColumnName="rms_name" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inv_Lot">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.Inv_Lot">
+        <MappingFragment StoreEntitySet="Inv_Lot">
+          <ScalarProperty Name="retxt" ColumnName="retxt" />
+          <ScalarProperty Name="imgurl" ColumnName="imgurl" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="mqty" ColumnName="mqty" />
+          <ScalarProperty Name="makeare" ColumnName="makeare" />
+          <ScalarProperty Name="exdays" ColumnName="exdays" />
+          <ScalarProperty Name="ex_date" ColumnName="ex_date" />
+          <ScalarProperty Name="pr_date" ColumnName="pr_date" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="pname" ColumnName="pname" />
+          <ScalarProperty Name="p_no" ColumnName="p_no" />
+          <ScalarProperty Name="lot_no" ColumnName="lot_no" />
+          <ScalarProperty Name="in_date" ColumnName="in_date" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hob_code">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.hob_code">
+        <MappingFragment StoreEntitySet="hob_code">
+          <ScalarProperty Name="tcode" ColumnName="tcode" />
+          <ScalarProperty Name="hbitems" ColumnName="hbitems" />
+          <ScalarProperty Name="dian_no" ColumnName="dian_no" />
+          <ScalarProperty Name="cu_no" ColumnName="cu_no" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="ship_date" ColumnName="ship_date" />
+          <ScalarProperty Name="useyn" ColumnName="useyn" />
+          <ScalarProperty Name="snno" ColumnName="snno" />
+          <ScalarProperty Name="fwcode" ColumnName="fwcode" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hob_jianpin">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.hob_jianpin">
+        <MappingFragment StoreEntitySet="hob_jianpin">
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="dian_no" ColumnName="dian_no" />
+          <ScalarProperty Name="mqty" ColumnName="mqty" />
+          <ScalarProperty Name="in_date" ColumnName="in_date" />
+          <ScalarProperty Name="jptype" ColumnName="jptype" />
+          <ScalarProperty Name="imgurl" ColumnName="imgurl" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="jpjf" ColumnName="jpjf" />
+          <ScalarProperty Name="jpname" ColumnName="jpname" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hob_juan">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.hob_juan">
+        <MappingFragment StoreEntitySet="hob_juan">
+          <ScalarProperty Name="ex_date" ColumnName="ex_date" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="dian_no" ColumnName="dian_no" />
+          <ScalarProperty Name="mqty" ColumnName="mqty" />
+          <ScalarProperty Name="in_date" ColumnName="in_date" />
+          <ScalarProperty Name="jptype" ColumnName="jptype" />
+          <ScalarProperty Name="imgurl" ColumnName="imgurl" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="jpjf" ColumnName="jpjf" />
+          <ScalarProperty Name="jpname" ColumnName="jpname" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hob_listdjjl">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.hob_listdjjl">
+        <MappingFragment StoreEntitySet="hob_listdjjl">
+          <ScalarProperty Name="fwcode" ColumnName="fwcode" />
+          <ScalarProperty Name="djoper" ColumnName="djoper" />
+          <ScalarProperty Name="djtype" ColumnName="djtype" />
+          <ScalarProperty Name="dian_name" ColumnName="dian_name" />
+          <ScalarProperty Name="dian_no" ColumnName="dian_no" />
+          <ScalarProperty Name="tcode" ColumnName="tcode" />
+          <ScalarProperty Name="Kin_date" ColumnName="Kin_date" />
+          <ScalarProperty Name="KNo" ColumnName="KNo" />
+          <ScalarProperty Name="KName" ColumnName="KName" />
+          <ScalarProperty Name="linkaddr" ColumnName="linkaddr" />
+          <ScalarProperty Name="linktell" ColumnName="linktell" />
+          <ScalarProperty Name="linkname" ColumnName="linkname" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="jf" ColumnName="jf" />
+          <ScalarProperty Name="Jp_name" ColumnName="Jp_name" />
+          <ScalarProperty Name="Jp_id" ColumnName="Jp_id" />
+          <ScalarProperty Name="in_date" ColumnName="in_date" />
+          <ScalarProperty Name="wx_name" ColumnName="wx_name" />
+          <ScalarProperty Name="wx_id" ColumnName="wx_id" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hob_listjuan">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.hob_listjuan">
+        <MappingFragment StoreEntitySet="hob_listjuan">
+          <ScalarProperty Name="fwcode" ColumnName="fwcode" />
+          <ScalarProperty Name="djremark" ColumnName="djremark" />
+          <ScalarProperty Name="Kin_date" ColumnName="Kin_date" />
+          <ScalarProperty Name="djoper" ColumnName="djoper" />
+          <ScalarProperty Name="djtype" ColumnName="djtype" />
+          <ScalarProperty Name="dian_name" ColumnName="dian_name" />
+          <ScalarProperty Name="dian_no" ColumnName="dian_no" />
+          <ScalarProperty Name="tcode" ColumnName="tcode" />
+          <ScalarProperty Name="linkaddr" ColumnName="linkaddr" />
+          <ScalarProperty Name="linktell" ColumnName="linktell" />
+          <ScalarProperty Name="linkname" ColumnName="linkname" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="jf" ColumnName="jf" />
+          <ScalarProperty Name="Jp_name" ColumnName="Jp_name" />
+          <ScalarProperty Name="Jp_id" ColumnName="Jp_id" />
+          <ScalarProperty Name="in_date" ColumnName="in_date" />
+          <ScalarProperty Name="wx_name" ColumnName="wx_name" />
+          <ScalarProperty Name="wx_id" ColumnName="wx_id" />
+          <ScalarProperty Name="juan_no" ColumnName="juan_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hob_share">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.hob_share">
+        <MappingFragment StoreEntitySet="hob_share">
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="dian_no" ColumnName="dian_no" />
+          <ScalarProperty Name="in_date" ColumnName="in_date" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="imgurl" ColumnName="imgurl" />
+          <ScalarProperty Name="shareurl" ColumnName="shareurl" />
+          <ScalarProperty Name="sharenotes" ColumnName="sharenotes" />
+          <ScalarProperty Name="sharename" ColumnName="sharename" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hob_ship">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.hob_ship">
+        <MappingFragment StoreEntitySet="hob_ship">
+          <ScalarProperty Name="hmlv" ColumnName="hmlv" />
+          <ScalarProperty Name="mqty" ColumnName="mqty" />
+          <ScalarProperty Name="item_no" ColumnName="item_no" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="ship_date" ColumnName="ship_date" />
+          <ScalarProperty Name="bsnno" ColumnName="bsnno" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hob_yuerin">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.hob_yuerin">
+        <MappingFragment StoreEntitySet="hob_yuerin">
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="inremark" ColumnName="inremark" />
+          <ScalarProperty Name="inname" ColumnName="inname" />
+          <ScalarProperty Name="inzh" ColumnName="inzh" />
+          <ScalarProperty Name="intype" ColumnName="intype" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="czybm" ColumnName="czybm" />
+          <ScalarProperty Name="dian_no" ColumnName="dian_no" />
+          <ScalarProperty Name="mqty" ColumnName="mqty" />
+          <ScalarProperty Name="in_date" ColumnName="in_date" />
+          <ScalarProperty Name="bill_no" ColumnName="bill_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hob_yuerintemp">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.hob_yuerintemp">
+        <MappingFragment StoreEntitySet="hob_yuerintemp">
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="inremark" ColumnName="inremark" />
+          <ScalarProperty Name="inname" ColumnName="inname" />
+          <ScalarProperty Name="inzh" ColumnName="inzh" />
+          <ScalarProperty Name="intype" ColumnName="intype" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="czybm" ColumnName="czybm" />
+          <ScalarProperty Name="dian_no" ColumnName="dian_no" />
+          <ScalarProperty Name="mqty" ColumnName="mqty" />
+          <ScalarProperty Name="in_date" ColumnName="in_date" />
+          <ScalarProperty Name="bill_no" ColumnName="bill_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hob_yuerout">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.hob_yuerout">
+        <MappingFragment StoreEntitySet="hob_yuerout">
+          <ScalarProperty Name="dian_name" ColumnName="dian_name" />
+          <ScalarProperty Name="dian_no" ColumnName="dian_no" />
+          <ScalarProperty Name="tcode" ColumnName="tcode" />
+          <ScalarProperty Name="yertype" ColumnName="yertype" />
+          <ScalarProperty Name="keycode" ColumnName="keycode" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="jp_name" ColumnName="jp_name" />
+          <ScalarProperty Name="itme_no" ColumnName="itme_no" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="loca" ColumnName="loca" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="province" ColumnName="province" />
+          <ScalarProperty Name="wlcode" ColumnName="wlcode" />
+          <ScalarProperty Name="fwcode" ColumnName="fwcode" />
+          <ScalarProperty Name="wxsex" ColumnName="wxsex" />
+          <ScalarProperty Name="outremark" ColumnName="outremark" />
+          <ScalarProperty Name="wx_name" ColumnName="wx_name" />
+          <ScalarProperty Name="wx_id" ColumnName="wx_id" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="czybm" ColumnName="czybm" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="mqty" ColumnName="mqty" />
+          <ScalarProperty Name="in_date" ColumnName="in_date" />
+          <ScalarProperty Name="bill_no" ColumnName="bill_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wx_accessToken">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.wx_accessToken">
+        <MappingFragment StoreEntitySet="wx_accessToken">
+          <ScalarProperty Name="tokentype" ColumnName="tokentype" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="WxId" ColumnName="WxId" />
+          <ScalarProperty Name="in_date" ColumnName="in_date" />
+          <ScalarProperty Name="expires_in" ColumnName="expires_in" />
+          <ScalarProperty Name="access_token" ColumnName="access_token" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wx_gid">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.wx_gid">
+        <MappingFragment StoreEntitySet="wx_gid">
+          <ScalarProperty Name="msslpasswd" ColumnName="msslpasswd" />
+          <ScalarProperty Name="msslpath" ColumnName="msslpath" />
+          <ScalarProperty Name="mkey" ColumnName="mkey" />
+          <ScalarProperty Name="mchid" ColumnName="mchid" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="in_date" ColumnName="in_date" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="WxUrl" ColumnName="WxUrl" />
+          <ScalarProperty Name="AppSecret" ColumnName="AppSecret" />
+          <ScalarProperty Name="AppId" ColumnName="AppId" />
+          <ScalarProperty Name="WxName" ColumnName="WxName" />
+          <ScalarProperty Name="WxNo" ColumnName="WxNo" />
+          <ScalarProperty Name="WxId" ColumnName="WxId" />
+          <ScalarProperty Name="unitname" ColumnName="unitname" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wx_mnu">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.wx_mnu">
+        <MappingFragment StoreEntitySet="wx_mnu">
+          <ScalarProperty Name="appid_boot" ColumnName="appid_boot" />
+          <ScalarProperty Name="wxnote" ColumnName="wxnote" />
+          <ScalarProperty Name="wxtype" ColumnName="wxtype" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="pmnuname" ColumnName="pmnuname" />
+          <ScalarProperty Name="mnuidex" ColumnName="mnuidex" />
+          <ScalarProperty Name="mnuurl" ColumnName="mnuurl" />
+          <ScalarProperty Name="shouyn" ColumnName="shouyn" />
+          <ScalarProperty Name="keyname" ColumnName="keyname" />
+          <ScalarProperty Name="mnuname" ColumnName="mnuname" />
+          <ScalarProperty Name="mnuitem" ColumnName="mnuitem" />
+          <ScalarProperty Name="unitname" ColumnName="unitname" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hob_listdzp">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.hob_listdzp">
+        <MappingFragment StoreEntitySet="hob_listdzp">
+          <ScalarProperty Name="fwcode" ColumnName="fwcode" />
+          <ScalarProperty Name="djoper" ColumnName="djoper" />
+          <ScalarProperty Name="djtype" ColumnName="djtype" />
+          <ScalarProperty Name="dian_name" ColumnName="dian_name" />
+          <ScalarProperty Name="dian_no" ColumnName="dian_no" />
+          <ScalarProperty Name="tcode" ColumnName="tcode" />
+          <ScalarProperty Name="Kin_date" ColumnName="Kin_date" />
+          <ScalarProperty Name="KNo" ColumnName="KNo" />
+          <ScalarProperty Name="KName" ColumnName="KName" />
+          <ScalarProperty Name="linkaddr" ColumnName="linkaddr" />
+          <ScalarProperty Name="linktell" ColumnName="linktell" />
+          <ScalarProperty Name="linkname" ColumnName="linkname" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="jf" ColumnName="jf" />
+          <ScalarProperty Name="jptype" ColumnName="jptype" />
+          <ScalarProperty Name="Jp_name" ColumnName="Jp_name" />
+          <ScalarProperty Name="Jp_id" ColumnName="Jp_id" />
+          <ScalarProperty Name="in_date" ColumnName="in_date" />
+          <ScalarProperty Name="wx_name" ColumnName="wx_name" />
+          <ScalarProperty Name="wx_id" ColumnName="wx_id" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hob_dzp">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.hob_dzp">
+        <MappingFragment StoreEntitySet="hob_dzp">
+          <ScalarProperty Name="elimit" ColumnName="elimit" />
+          <ScalarProperty Name="slimit" ColumnName="slimit" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="dian_no" ColumnName="dian_no" />
+          <ScalarProperty Name="hmlv" ColumnName="hmlv" />
+          <ScalarProperty Name="mqty" ColumnName="mqty" />
+          <ScalarProperty Name="in_date" ColumnName="in_date" />
+          <ScalarProperty Name="jptype" ColumnName="jptype" />
+          <ScalarProperty Name="imgurl" ColumnName="imgurl" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="jpjf" ColumnName="jpjf" />
+          <ScalarProperty Name="jpname" ColumnName="jpname" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hob_dzpsetup">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.hob_dzpsetup">
+        <MappingFragment StoreEntitySet="hob_dzpsetup">
+          <ScalarProperty Name="shareurlimg" ColumnName="shareurlimg" />
+          <ScalarProperty Name="sharetitle" ColumnName="sharetitle" />
+          <ScalarProperty Name="shareurl" ColumnName="shareurl" />
+          <ScalarProperty Name="mutitime" ColumnName="mutitime" />
+          <ScalarProperty Name="mutihb" ColumnName="mutihb" />
+          <ScalarProperty Name="hbang" ColumnName="hbang" />
+          <ScalarProperty Name="hbimg" ColumnName="hbimg" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="act_note" ColumnName="act_note" />
+          <ScalarProperty Name="dian_no" ColumnName="dian_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hob_bfwjf">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.hob_bfwjf">
+        <MappingFragment StoreEntitySet="hob_bfwjf">
+          <ScalarProperty Name="salitems" ColumnName="salitems" />
+          <ScalarProperty Name="dian_no" ColumnName="dian_no" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="xtcu_name" ColumnName="xtcu_name" />
+          <ScalarProperty Name="xtcu_no" ColumnName="xtcu_no" />
+          <ScalarProperty Name="hbitems" ColumnName="hbitems" />
+          <ScalarProperty Name="tcode" ColumnName="tcode" />
+          <ScalarProperty Name="revoc" ColumnName="revoc" />
+          <ScalarProperty Name="mqty" ColumnName="mqty" />
+          <ScalarProperty Name="imgurl" ColumnName="imgurl" />
+          <ScalarProperty Name="lot_no" ColumnName="lot_no" />
+          <ScalarProperty Name="cu_name" ColumnName="cu_name" />
+          <ScalarProperty Name="cu_no" ColumnName="cu_no" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="in_date" ColumnName="in_date" />
+          <ScalarProperty Name="jf" ColumnName="jf" />
+          <ScalarProperty Name="pname" ColumnName="pname" />
+          <ScalarProperty Name="p_no" ColumnName="p_no" />
+          <ScalarProperty Name="snqty" ColumnName="snqty" />
+          <ScalarProperty Name="snnot" ColumnName="snnot" />
+          <ScalarProperty Name="snnof" ColumnName="snnof" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inv_Mpart">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.Inv_Mpart">
+        <MappingFragment StoreEntitySet="Inv_Mpart">
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="imgurl" ColumnName="imgurl" />
+          <ScalarProperty Name="usefor" ColumnName="usefor" />
+          <ScalarProperty Name="usetype" ColumnName="usetype" />
+          <ScalarProperty Name="pqty" ColumnName="pqty" />
+          <ScalarProperty Name="bm_no" ColumnName="bm_no" />
+          <ScalarProperty Name="saftqty" ColumnName="saftqty" />
+          <ScalarProperty Name="qcdays" ColumnName="qcdays" />
+          <ScalarProperty Name="parttype" ColumnName="parttype" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="in_date" ColumnName="in_date" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="loca" ColumnName="loca" />
+          <ScalarProperty Name="unit" ColumnName="unit" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="pname" ColumnName="pname" />
+          <ScalarProperty Name="p_no" ColumnName="p_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="xt_process">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.xt_process">
+        <MappingFragment StoreEntitySet="xt_process">
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="pc_name" ColumnName="pc_name" />
+          <ScalarProperty Name="pc_no" ColumnName="pc_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fw_more">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.fw_more">
+        <MappingFragment StoreEntitySet="fw_more">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="resnotes" ColumnName="resnotes" />
+          <ScalarProperty Name="restitle" ColumnName="restitle" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="infoupdate">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.infoupdate">
+        <MappingFragment StoreEntitySet="infoupdate">
+          <ScalarProperty Name="p_no" ColumnName="p_no" />
+          <ScalarProperty Name="upddate" ColumnName="upddate" />
+          <ScalarProperty Name="issel" ColumnName="issel" />
+          <ScalarProperty Name="after" ColumnName="after" />
+          <ScalarProperty Name="before" ColumnName="before" />
+          <ScalarProperty Name="cu_no" ColumnName="cu_no" />
+          <ScalarProperty Name="updfid" ColumnName="updfid" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="xt_images">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.xt_images">
+        <MappingFragment StoreEntitySet="xt_images">
+          <ScalarProperty Name="reurl" ColumnName="reurl" />
+          <ScalarProperty Name="sindex" ColumnName="sindex" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="tempimage" ColumnName="tempimage" />
+          <ScalarProperty Name="imgtype" ColumnName="imgtype" />
+          <ScalarProperty Name="img_name" ColumnName="img_name" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="xt_webnote">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.xt_webnote">
+        <MappingFragment StoreEntitySet="xt_webnote">
+          <ScalarProperty Name="sys_title" ColumnName="sys_title" />
+          <ScalarProperty Name="tcode" ColumnName="tcode" />
+          <ScalarProperty Name="sys_nme" ColumnName="sys_nme" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="sys_note" ColumnName="sys_note" />
+          <ScalarProperty Name="sys_no" ColumnName="sys_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="xt_oper">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.xt_oper">
+        <MappingFragment StoreEntitySet="xt_oper">
+          <ScalarProperty Name="lzqk" ColumnName="lzqk" />
+          <ScalarProperty Name="peixun" ColumnName="peixun" />
+          <ScalarProperty Name="jkzk" ColumnName="jkzk" />
+          <ScalarProperty Name="job" ColumnName="job" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="op_name" ColumnName="op_name" />
+          <ScalarProperty Name="op_no" ColumnName="op_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="xt_loca">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.xt_loca">
+        <MappingFragment StoreEntitySet="xt_loca">
+          <ScalarProperty Name="qkjs" ColumnName="qkjs" />
+          <ScalarProperty Name="lzqk" ColumnName="lzqk" />
+          <ScalarProperty Name="peixun" ColumnName="peixun" />
+          <ScalarProperty Name="jkzk" ColumnName="jkzk" />
+          <ScalarProperty Name="job" ColumnName="job" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="op_name" ColumnName="op_name" />
+          <ScalarProperty Name="op_no" ColumnName="op_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="xt_shebei">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.xt_shebei">
+        <MappingFragment StoreEntitySet="xt_shebei">
+          <ScalarProperty Name="xdlist" ColumnName="xdlist" />
+          <ScalarProperty Name="qkjs" ColumnName="qkjs" />
+          <ScalarProperty Name="lzqk" ColumnName="lzqk" />
+          <ScalarProperty Name="peixun" ColumnName="peixun" />
+          <ScalarProperty Name="jkzk" ColumnName="jkzk" />
+          <ScalarProperty Name="job" ColumnName="job" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="op_name" ColumnName="op_name" />
+          <ScalarProperty Name="op_no" ColumnName="op_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QueryLog">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.QueryLog">
+        <MappingFragment StoreEntitySet="QueryLog">
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="selresult" ColumnName="selresult" />
+          <ScalarProperty Name="selnum" ColumnName="selnum" />
+          <ScalarProperty Name="seldate" ColumnName="seldate" />
+          <ScalarProperty Name="seluser" ColumnName="seluser" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hob_setup">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.hob_setup">
+        <MappingFragment StoreEntitySet="hob_setup">
+          <ScalarProperty Name="nozj" ColumnName="nozj" />
+          <ScalarProperty Name="noactive" ColumnName="noactive" />
+          <ScalarProperty Name="sharetitle" ColumnName="sharetitle" />
+          <ScalarProperty Name="shareimg" ColumnName="shareimg" />
+          <ScalarProperty Name="shareurl" ColumnName="shareurl" />
+          <ScalarProperty Name="csshare" ColumnName="csshare" />
+          <ScalarProperty Name="mutitime" ColumnName="mutitime" />
+          <ScalarProperty Name="mutihb" ColumnName="mutihb" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="csship" ColumnName="csship" />
+          <ScalarProperty Name="csguanzhu" ColumnName="csguanzhu" />
+          <ScalarProperty Name="cszilao" ColumnName="cszilao" />
+          <ScalarProperty Name="csloca" ColumnName="csloca" />
+          <ScalarProperty Name="hbgettype" ColumnName="hbgettype" />
+          <ScalarProperty Name="yertype" ColumnName="yertype" />
+          <ScalarProperty Name="yuer" ColumnName="yuer" />
+          <ScalarProperty Name="hbappID" ColumnName="hbappID" />
+          <ScalarProperty Name="hbboot" ColumnName="hbboot" />
+          <ScalarProperty Name="hbtop" ColumnName="hbtop" />
+          <ScalarProperty Name="hbnotes" ColumnName="hbnotes" />
+          <ScalarProperty Name="unit_note" ColumnName="unit_note" />
+          <ScalarProperty Name="act_note" ColumnName="act_note" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="act_name" ColumnName="act_name" />
+          <ScalarProperty Name="wishing" ColumnName="wishing" />
+          <ScalarProperty Name="dian_name" ColumnName="dian_name" />
+          <ScalarProperty Name="dian_no" ColumnName="dian_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hob_pbyship">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.hob_pbyship">
+        <MappingFragment StoreEntitySet="hob_pbyship">
+          <ScalarProperty Name="ovqty" ColumnName="ovqty" />
+          <ScalarProperty Name="sallist" ColumnName="sallist" />
+          <ScalarProperty Name="hblist" ColumnName="hblist" />
+          <ScalarProperty Name="tcode" ColumnName="tcode" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="salitems" ColumnName="salitems" />
+          <ScalarProperty Name="hbitems" ColumnName="hbitems" />
+          <ScalarProperty Name="mqty" ColumnName="mqty" />
+          <ScalarProperty Name="po_no" ColumnName="po_no" />
+          <ScalarProperty Name="ship_no" ColumnName="ship_no" />
+          <ScalarProperty Name="cu_name" ColumnName="cu_name" />
+          <ScalarProperty Name="cu_no" ColumnName="cu_no" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="in_date" ColumnName="in_date" />
+          <ScalarProperty Name="pname" ColumnName="pname" />
+          <ScalarProperty Name="p_no" ColumnName="p_no" />
+          <ScalarProperty Name="pjname" ColumnName="pjname" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inv_mlot">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.inv_mlot">
+        <MappingFragment StoreEntitySet="inv_mlot">
+          <ScalarProperty Name="qc_no" ColumnName="qc_no" />
+          <ScalarProperty Name="sop_name" ColumnName="sop_name" />
+          <ScalarProperty Name="sop_no" ColumnName="sop_no" />
+          <ScalarProperty Name="lop_name" ColumnName="lop_name" />
+          <ScalarProperty Name="lop_no" ColumnName="lop_no" />
+          <ScalarProperty Name="reuser" ColumnName="reuser" />
+          <ScalarProperty Name="makeinfo" ColumnName="makeinfo" />
+          <ScalarProperty Name="mpart" ColumnName="mpart" />
+          <ScalarProperty Name="imgurl" ColumnName="imgurl" />
+          <ScalarProperty Name="eship_date" ColumnName="eship_date" />
+          <ScalarProperty Name="msnno" ColumnName="msnno" />
+          <ScalarProperty Name="op_name" ColumnName="op_name" />
+          <ScalarProperty Name="op_no" ColumnName="op_no" />
+          <ScalarProperty Name="pc_name" ColumnName="pc_name" />
+          <ScalarProperty Name="pc_no" ColumnName="pc_no" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="xtUserno" ColumnName="xtUserno" />
+          <ScalarProperty Name="mlot_no" ColumnName="mlot_no" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="pname" ColumnName="pname" />
+          <ScalarProperty Name="p_no" ColumnName="p_no" />
+          <ScalarProperty Name="mqty" ColumnName="mqty" />
+          <ScalarProperty Name="ship_date" ColumnName="ship_date" />
+          <ScalarProperty Name="ship_no" ColumnName="ship_no" />
+          <ScalarProperty Name="lot_no" ColumnName="lot_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hob_item">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.hob_item">
+        <MappingFragment StoreEntitySet="hob_item">
+          <ScalarProperty Name="bjlist" ColumnName="bjlist" />
+          <ScalarProperty Name="dian_no" ColumnName="dian_no" />
+          <ScalarProperty Name="pname" ColumnName="pname" />
+          <ScalarProperty Name="p_no" ColumnName="p_no" />
+          <ScalarProperty Name="jpnotes" ColumnName="jpnotes" />
+          <ScalarProperty Name="jp_name" ColumnName="jp_name" />
+          <ScalarProperty Name="cu_name" ColumnName="cu_name" />
+          <ScalarProperty Name="cu_no" ColumnName="cu_no" />
+          <ScalarProperty Name="avqty" ColumnName="avqty" />
+          <ScalarProperty Name="actyn" ColumnName="actyn" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="hmlv" ColumnName="hmlv" />
+          <ScalarProperty Name="mqtyt" ColumnName="mqtyt" />
+          <ScalarProperty Name="mqtyf" ColumnName="mqtyf" />
+          <ScalarProperty Name="itemtype" ColumnName="itemtype" />
+          <ScalarProperty Name="en_date" ColumnName="en_date" />
+          <ScalarProperty Name="in_date" ColumnName="in_date" />
+          <ScalarProperty Name="itme_name" ColumnName="itme_name" />
+          <ScalarProperty Name="itme_no" ColumnName="itme_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sal_fgi">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.sal_fgi">
+        <MappingFragment StoreEntitySet="sal_fgi">
+          <ScalarProperty Name="pda_no" ColumnName="pda_no" />
+          <ScalarProperty Name="fc_name" ColumnName="fc_name" />
+          <ScalarProperty Name="fc_no" ColumnName="fc_no" />
+          <ScalarProperty Name="xtcu_name" ColumnName="xtcu_name" />
+          <ScalarProperty Name="st_no" ColumnName="st_no" />
+          <ScalarProperty Name="lot_no" ColumnName="lot_no" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="jf" ColumnName="jf" />
+          <ScalarProperty Name="xtcu_no" ColumnName="xtcu_no" />
+          <ScalarProperty Name="upyn" ColumnName="upyn" />
+          <ScalarProperty Name="pname" ColumnName="pname" />
+          <ScalarProperty Name="p_no" ColumnName="p_no" />
+          <ScalarProperty Name="mqty" ColumnName="mqty" />
+          <ScalarProperty Name="loca" ColumnName="loca" />
+          <ScalarProperty Name="cu_name" ColumnName="cu_name" />
+          <ScalarProperty Name="cu_no" ColumnName="cu_no" />
+          <ScalarProperty Name="ship_date" ColumnName="ship_date" />
+          <ScalarProperty Name="bsnno" ColumnName="bsnno" />
+          <ScalarProperty Name="ship_no" ColumnName="ship_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sal_tst">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.sal_tst">
+        <MappingFragment StoreEntitySet="sal_tst">
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="nst_no" ColumnName="nst_no" />
+          <ScalarProperty Name="ost_no" ColumnName="ost_no" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="pname" ColumnName="pname" />
+          <ScalarProperty Name="p_no" ColumnName="p_no" />
+          <ScalarProperty Name="mqty" ColumnName="mqty" />
+          <ScalarProperty Name="ship_date" ColumnName="ship_date" />
+          <ScalarProperty Name="bsnno" ColumnName="bsnno" />
+          <ScalarProperty Name="ship_no" ColumnName="ship_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hy_dian">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.hy_dian">
+        <MappingFragment StoreEntitySet="hy_dian">
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="province" ColumnName="province" />
+          <ScalarProperty Name="wx_id" ColumnName="wx_id" />
+          <ScalarProperty Name="ship_date" ColumnName="ship_date" />
+          <ScalarProperty Name="xttype" ColumnName="xttype" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="post_adress" ColumnName="post_adress" />
+          <ScalarProperty Name="diagnosis_result" ColumnName="diagnosis_result" />
+          <ScalarProperty Name="Grade_no" ColumnName="Grade_no" />
+          <ScalarProperty Name="imgurl" ColumnName="imgurl" />
+          <ScalarProperty Name="sfz_no" ColumnName="sfz_no" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="postcode" ColumnName="postcode" />
+          <ScalarProperty Name="birthday" ColumnName="birthday" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="statu" ColumnName="statu" />
+          <ScalarProperty Name="loca" ColumnName="loca" />
+          <ScalarProperty Name="in_date" ColumnName="in_date" />
+          <ScalarProperty Name="khh" ColumnName="khh" />
+          <ScalarProperty Name="BankAccount" ColumnName="BankAccount" />
+          <ScalarProperty Name="cu_name" ColumnName="cu_name" />
+          <ScalarProperty Name="cu_no" ColumnName="cu_no" />
+          <ScalarProperty Name="realname" ColumnName="realname" />
+          <ScalarProperty Name="historyjf" ColumnName="historyjf" />
+          <ScalarProperty Name="jf" ColumnName="jf" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="hy_cn" ColumnName="hy_cn" />
+          <ScalarProperty Name="hy_no" ColumnName="hy_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inv_Part">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.Inv_Part">
+        <MappingFragment StoreEntitySet="Inv_Part">
+          <ScalarProperty Name="salitems" ColumnName="salitems" />
+          <ScalarProperty Name="hbitems" ColumnName="hbitems" />
+          <ScalarProperty Name="oid" ColumnName="oid" />
+          <ScalarProperty Name="cu_name" ColumnName="cu_name" />
+          <ScalarProperty Name="cu_no" ColumnName="cu_no" />
+          <ScalarProperty Name="p_star" ColumnName="p_star" />
+          <ScalarProperty Name="renote" ColumnName="renote" />
+          <ScalarProperty Name="fwnote" ColumnName="fwnote" />
+          <ScalarProperty Name="pnamejs" ColumnName="pnamejs" />
+          <ScalarProperty Name="imgurl4" ColumnName="imgurl4" />
+          <ScalarProperty Name="imgurl3" ColumnName="imgurl3" />
+          <ScalarProperty Name="imgurl2" ColumnName="imgurl2" />
+          <ScalarProperty Name="imgurl" ColumnName="imgurl" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="zqty" ColumnName="zqty" />
+          <ScalarProperty Name="upyn" ColumnName="upyn" />
+          <ScalarProperty Name="cjf" ColumnName="cjf" />
+          <ScalarProperty Name="bjf" ColumnName="bjf" />
+          <ScalarProperty Name="ajf" ColumnName="ajf" />
+          <ScalarProperty Name="jf" ColumnName="jf" />
+          <ScalarProperty Name="xtcu_no" ColumnName="xtcu_no" />
+          <ScalarProperty Name="usefor" ColumnName="usefor" />
+          <ScalarProperty Name="usetype" ColumnName="usetype" />
+          <ScalarProperty Name="fwcode" ColumnName="fwcode" />
+          <ScalarProperty Name="mall" ColumnName="mall" />
+          <ScalarProperty Name="mpack" ColumnName="mpack" />
+          <ScalarProperty Name="mprice" ColumnName="mprice" />
+          <ScalarProperty Name="pqty" ColumnName="pqty" />
+          <ScalarProperty Name="bm_no" ColumnName="bm_no" />
+          <ScalarProperty Name="saftqty" ColumnName="saftqty" />
+          <ScalarProperty Name="qcdays" ColumnName="qcdays" />
+          <ScalarProperty Name="prodtype" ColumnName="prodtype" />
+          <ScalarProperty Name="curchang" ColumnName="curchang" />
+          <ScalarProperty Name="curprice" ColumnName="curprice" />
+          <ScalarProperty Name="parttype" ColumnName="parttype" />
+          <ScalarProperty Name="outqty" ColumnName="outqty" />
+          <ScalarProperty Name="inqty" ColumnName="inqty" />
+          <ScalarProperty Name="st_date" ColumnName="st_date" />
+          <ScalarProperty Name="stqty" ColumnName="stqty" />
+          <ScalarProperty Name="back" ColumnName="back" />
+          <ScalarProperty Name="mtype" ColumnName="mtype" />
+          <ScalarProperty Name="cur_no" ColumnName="cur_no" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="sfqty" ColumnName="sfqty" />
+          <ScalarProperty Name="m_user" ColumnName="m_user" />
+          <ScalarProperty Name="in_date" ColumnName="in_date" />
+          <ScalarProperty Name="remark2" ColumnName="remark2" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="loca" ColumnName="loca" />
+          <ScalarProperty Name="unit" ColumnName="unit" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="pname" ColumnName="pname" />
+          <ScalarProperty Name="p_no" ColumnName="p_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sal_packb">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.sal_packb">
+        <MappingFragment StoreEntitySet="sal_packb">
+          <ScalarProperty Name="line_no" ColumnName="line_no" />
+          <ScalarProperty Name="lot_no" ColumnName="lot_no" />
+          <ScalarProperty Name="in_date" ColumnName="in_date" />
+          <ScalarProperty Name="p_no" ColumnName="p_no" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="usnno" ColumnName="usnno" />
+          <ScalarProperty Name="snno" ColumnName="snno" />
+          <ScalarProperty Name="pack_no" ColumnName="pack_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vender">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.vender">
+        <MappingFragment StoreEntitySet="vender">
+          <ScalarProperty Name="zizhi" ColumnName="zizhi" />
+          <ScalarProperty Name="unitcode" ColumnName="unitcode" />
+          <ScalarProperty Name="passwd" ColumnName="passwd" />
+          <ScalarProperty Name="xtcu_no" ColumnName="xtcu_no" />
+          <ScalarProperty Name="acting_cu_no" ColumnName="acting_cu_no" />
+          <ScalarProperty Name="acting" ColumnName="acting" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="province" ColumnName="province" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="link_man" ColumnName="link_man" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+          <ScalarProperty Name="post" ColumnName="post" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="addr" ColumnName="addr" />
+          <ScalarProperty Name="loca" ColumnName="loca" />
+          <ScalarProperty Name="lc_no" ColumnName="lc_no" />
+          <ScalarProperty Name="cutype" ColumnName="cutype" />
+          <ScalarProperty Name="cu_name" ColumnName="cu_name" />
+          <ScalarProperty Name="cu_no" ColumnName="cu_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sal_tiaoji">
+      <EntityTypeMapping TypeName="yMfwfcjfModel.sal_tiaoji">
+        <MappingFragment StoreEntitySet="sal_tiaoji">
+          <ScalarProperty Name="nclass" ColumnName="nclass" />
+          <ScalarProperty Name="oclass" ColumnName="oclass" />
+          <ScalarProperty Name="checkyn" ColumnName="checkyn" />
+          <ScalarProperty Name="cu_name" ColumnName="cu_name" />
+          <ScalarProperty Name="cu_no" ColumnName="cu_no" />
+          <ScalarProperty Name="ship_date" ColumnName="ship_date" />
+          <ScalarProperty Name="bsnno" ColumnName="bsnno" />
+          <ScalarProperty Name="ship_no" ColumnName="ship_no" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

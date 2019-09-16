@@ -1,0 +1,255 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="zh" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="zh" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <title>企业防窜管理系统</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="企业防窜货管理系统 " name="description" />
+    <meta content="企业防窜货管理系统 " name="author" />
+
+
+    <script src="/Content/js/jquery.min.js" type="text/javascript"></script>
+
+
+    <link href="/css/loginstyle.css" rel="stylesheet" type="text/css" />
+
+    <script src="/Content/js/cloud.js" type="text/javascript"></script>
+
+
+    <script type="text/javascript" src="/Scripts/jQuery.Overlay.js"></script>
+
+
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="/Content/font-awesome4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+
+    <link href="/Content/plugins/jbox-v2.3/jBox/Skins/Purple/jbox.css" rel="stylesheet" />
+    <script src="/Content/plugins/jbox-v2.3/jBox/jquery.jBox-2.3-1.min.js"></script>
+
+
+
+
+
+    <style type="text/css">
+        .form {
+            width: 500px;
+            margin-left: 120px;
+        }
+        /*阴影*/
+        .fa {
+            display: inline-block;
+            top: 27px;
+            left: 6px;
+            position: relative;
+            color: #ccc;
+        }
+
+        input[type="text"], input[type="password"] {
+            padding-left: 26px;
+        }
+    </style>
+
+
+
+    <script language="javascript">
+        $(function () {
+            $('.loginbox').css({ 'position': 'absolute', 'left': ($(window).width() - 692) / 2 });
+            $(window).resize(function () {
+                $('.loginbox').css({ 'position': 'absolute', 'left': ($(window).width() - 692) / 2 });
+            })
+        });
+
+
+
+        function getsize() {
+            var windowHeight = 0;
+            var widowWidth = 0;
+            if (typeof (window.innerHeight) == 'number') {
+                windowHeight = window.innerHeight;
+                widowWidth = window.innerWidth;
+            }
+            else {
+                if (document.documentElement && document.documentElement.clientHeight) {
+                    windowHeight = document.documentElement.clientHeight;
+                    widowWidth = document.documentElement.clientWidth;
+                }
+                else {
+                    if (document.body && document.body.clientHeight) {
+                        windowHeight = document.body.clientHeight;
+                        widowWidth = document.body.clientWidth;
+                    }
+                }
+            }
+
+            return { width: widowWidth, height: windowHeight };
+        }
+
+
+
+
+
+    </script>
+
+
+
+
+
+</head>
+
+<body style="background-color:#1c77ac; background-image:url(/images/light.png); background-repeat:no-repeat; background-position:center top; overflow:hidden;">
+
+
+
+    <div id="mainBody">
+        <div id="cloud1" class="cloud"></div>
+        <div id="cloud2" class="cloud"></div>
+    </div>
+
+
+    <div class="logintop">
+        
+        <span style="margin:0px 30px;">欢迎使用企业防伪防窜管理平台</span>
+       
+           
+
+    </div>
+
+    <div class="loginbody">
+
+        <span class="systemlogo"></span>
+
+        <div class="loginbox">
+
+            <div class="container">
+                <div class="form row">
+                    <div style="margin-left:100px;">
+                        @if (ViewBag.logintype == "user")
+                        {
+                            <h3 class="form-title" style="color:#B7883E;margin-left:30px; ">总部登录</h3>
+                        }
+                        else if (ViewBag.logintype == "customer")
+                        {
+                            <h3 class="form-title" style="color:#B7883E;margin-left:30px; ">门店登录</h3>
+                        }
+                        
+
+                        <hr />
+                    </div>
+
+                    <div class="form-horizontal col-md-offset-3 col-xs-offset-3 " id="login_form" style="margin-top:-20px">
+
+                        <div class="col-md-9  col-xs-9">
+                            <div class="form-group">
+                                <i class="fa fa-user fa-lg"></i>
+                                <input class="form-control required" type="text" placeholder="登录名" id="input-username" name="uname" autofocus="autofocus" maxlength="20" value="" />
+                                <input type="hidden" value="@ViewBag.logintype" name="logintype" />
+                            </div>
+                            <div class="form-group" style="margin-top:-15px;">
+                                <i class="fa fa-lock fa-lg"></i>
+                                <input class="form-control required" type="password" placeholder="密码" id="input-password" name="password" maxlength="16" value="" />
+                            </div>
+                            <div class="form-group" style="margin-top:-15px;">
+
+                                <i class="fa fa-check-circle fa-lg"></i>
+                                <input class="form-control required" type="text" placeholder="验证码" id="yzm" name="yzm" maxlength="8" style=" width:200px;padding-left:26px;" />
+
+                                <img id="valiCode" style="cursor: pointer;height:100%; width:70px;float: right;margin-top: -32px;" class="" src="~/Login/GetValidateCode" alt="验证码" />
+
+                            </div>
+                            <div class="form-group col-md-offset-8 col-xs--offset-8" style="margin-top:20px;">
+                                <input type="submit" id="login-btn" class="btn btn-success pull-right" style="width:100%" value="登录" name="submit" />
+                            </div>
+                            <div class="form-group col-md-offset-9 col-xs--offset-9">
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <input type="hidden" id="hdUrl" value="@ViewBag.ReferrerUrl" />
+
+
+        </div>
+
+    </div>
+
+
+
+    <div class="loginbm">Copyright ? 2018~2020 All Rights Reserved</div>
+
+
+
+    <script type="text/javascript">
+
+        $(function () {
+
+            if (self.frameElement && self.frameElement.tagName == "IFRAME") {
+                  alert("登录超时");
+
+                window.top.location.href = "/Login/Index";
+            }
+
+
+            $("#valiCode").bind("click", function () {
+                this.src = "/Login/GetValidateCode?time=" + (new Date()).getTime();
+            });
+
+
+            $('#login-btn').click(function () {
+
+                var uname = $("#input-username").val();
+                var pwd = $("#input-password").val();
+                var yzm = $("#yzm").val();
+               // var pp = $("#pp option:selected").val();
+                
+                $.ajax({
+                    type: "post",
+                    url: "/Login/Login",
+                    data: { uname: uname, pwd: pwd, yzm: yzm, logintype: '@ViewBag.logintype',unitcode:'' },
+                    dataType: "json",
+                    success: function (data) {
+
+                        if (data["status"] == "error") {
+
+                            $.jBox.tip(data["data"], "error");
+
+                            document.getElementById("input-password").value = "";
+
+                            document.getElementById("yzm").value = "";
+                            document.getElementById("valiCode").src = "/Login/GetValidateCode?time=" + (new Date()).getTime();
+                        } else {
+                            document.getElementById("login-btn").value = "正在登录...";
+                            location.href = "/Index/MainMenu";
+
+                        }
+                    }, error: function (data, status, e) {
+
+                    },
+                });
+            });
+
+            document.onkeydown = function mykeyDown(e) {
+                e = e || event;
+                if (e.keyCode == 13) {
+                    $('#login-btn').click();
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+﻿.shipContent label
+{
+    display: inline-block;
+}
+
+.ub
+{
+    display: -webkit-box;
+    position: relative;
+}
+
+.ub1
+{
+    display: -webkit-box;
+    position: relative;
+}
+
+.ub1 .ui-checkbox
+{
+    width: 8em;
+}
+
+.ub div
+{
+    display: -webkit-box;
+    -webkit-box-flex: 1;
+}
+
+.ub label
+{
+    line-height: 1.3em;
+    height: 1.3em;
+    vertical-align: middle;
+    padding-top: 1em;
+}
+
+.ui-btn{ margin-left:5px;}
+
+
+/*------------------------*/
+.ordership{ display:none;}
+

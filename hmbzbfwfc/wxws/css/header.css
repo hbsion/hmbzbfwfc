@@ -1,0 +1,10 @@
+﻿body,form,h1,span{ margin:0; border:0; padding:0;  z-index:10;position:relative;}
+.myheader{ height:60px; display:block; width:100%; border-bottom:1px solid #EAEAEA;}
+.myheader>h1{ font-weight:bold; text-align:center; line-height:60px; font-size:20px;}
+.myheader>.left{ position:absolute; left:5px;top:15px; height:30px; width:80px; z-index:1000}
+.myheader>.left a,.myheader>.left a span{ line-height:30px; height:30px; display:block;  }
+.myheader>.left a{ width:80px;}
+.myheader>.left a span{width:50px;float:right; color:#000;}
+.myheader>.left a img{ height:30px; width:30px;}
+.c{ clear:both;}
+

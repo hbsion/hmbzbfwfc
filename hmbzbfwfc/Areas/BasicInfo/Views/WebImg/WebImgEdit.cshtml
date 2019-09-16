@@ -1,0 +1,130 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="zh" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="zh" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/font-awesome4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css"  rel="stylesheet" type="text/css" />
+    <link href="/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/plugins/jbox-v2.3/jBox/Skins/Gray/jbox.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Theme/plugins/Flexigrid/css/flexigrid.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/Content/Theme/selector/css/upload.css" />
+
+    <style>
+        
+    </style>
+</head>
+<body class="fixed-top">
+
+    <div id="body">
+
+        <div class="row">
+            <div class="span12">
+                <div class="widget box light-grey">
+                    <div class="widget-title">
+                        <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>@(ViewBag.type == "add" ? "新增内容" : "修改内容")</h4>
+
+                    </div>
+
+                    <div class="tab-pane active" id="widget_tab1" style="margin-left:30px;">
+                        <form action="WebImgAddOrUpd" method="post" id="commentForm" backurl="WebImgList?cu_no=@ViewBag.cu_no">
+                            <table class="formtab_user table table-bordered table-hover mytable">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:30%; text-align:right;">图片名称</td>
+                                        <td style="width:70%">
+                                            <input id="p_no" name="img_name" style="width: 182px" @(ViewBag.type == "add" ? "" : "readonly") placeholder="图片名称" value="@(ViewBag.type=="add" ? "" : ViewBag.model.img_name)" class="form-control" type="text">
+                                            <input type="hidden" value="@(ViewBag.type=="add" ? "" : ViewBag.model.fid)" name="fid">
+                                            <input type="hidden" value="@(ViewBag.cu_no)" name="unitcode">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style=" text-align:right;">链接网站</td>
+                                        <td>
+                                            <input id="txtUserName" name="reurl" placeholder="链接网站" value="@(ViewBag.type == "add" ? "" : ViewBag.model.reurl)" class="form-control" type="text">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style=" text-align:right;" class="notnull">产品图片</td>
+                                        <td class="container">
+                                            <div class="uploader white" style="height:32px;">
+                                                <input type="text" class="filename" id="filename" readonly=readonly style="height:32px;" />
+                                                <input type="button" name="file" class="button" value="选择" />
+                                                <input type="file" size="30" id="filePicture" name="filePicture" accept="*" onchange="filePictureChange()" />
+                                                <input type="hidden" value="@(ViewBag.type == "add" ? "" : ViewBag.model.tempimage)" name="tempimage" id="filepath" />
+                                            </div>
+                                            <span style="@(ViewBag.type == "add" ? "display:none" : "")" id="attrimgurl" url="@(ViewBag.type == "add" ? "" : ViewBag.model.tempimage)"><img src="@(ViewBag.type == "add" ? "" : ViewBag.model.tempimage)" id="imgurl" width="100" height="100" /></span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style=" text-align:right;">排序</td>
+                                        <td><input id="px" name="sindex" placeholder="排序" value="@(ViewBag.type == "add" ? "1" : ViewBag.model.sindex)" class="form-control" type="text"></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td id="error" style="color:red;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="padding-left:30%;padding-bottom:10px;">
+                                            <button type="button" class="btn btn-info" onclick="Public.Add();" style="margin:0px 50px 0px -50px;"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 提交保存</button>
+                                            <button type="button" class="btn btn-danger" onclick="javascript:history.back(-1)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>取消返回</button>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_Foot")
+    <script type="text/javascript" src="/Content/Theme/selector/js/ajaxFileUpload.js"></script>
+    
+    <script>
+        //文件上传
+        $(function () {
+            $("input[type=file]").each(function () {
+                if ($(this).val() == "") { $(this).parents(".uploader").find(".filename").val("未选择文件..."); }
+            });
+        });
+        function filePictureChange() {
+            $.ajaxFileUpload({
+                url: "/UploadFile/MD5Upload", //用于文件上传的服务器端请求地址
+                type: "post",
+                secureuri: false, //一般设置为false
+                fileElementId: "filePicture", //文件上传空间的id属性
+                dataType: "json", //返回值类型 一般设置为json
+                success: function (data, status) {  //服务器成功响应处理函数
+                    //var json = JSON.stringify(data);
+                    document.getElementById("filename").value = data["FileName"];
+                    document.getElementById("filepath").value = data["FilePath"];
+                    document.getElementById("imgurl").src = data["FilePath"];
+                    $("#attrimgurl").attr("url", data["FilePath"]);
+                    $("#attrimgurl").css("display", "block");
+                },
+                error: function (data, status, e) {  //服务器响应失败处理函数
+                    alert("上传错误：" + e);
+                }
+            });
+        };     
+
+
+    </script>
+</body>
+</html>

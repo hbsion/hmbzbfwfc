@@ -1,0 +1,116 @@
+﻿body {
+    font-family:verdana,"微软雅黑","Arial"; font-size:1em; line-height:1.5em; color:#666;  background:#f6f6f6;
+}
+body, div, img, ul, li, a {
+margin:0px; padding:0px; border:0px;
+}
+ #wrapper {  
+   min-height:400px;  
+}
+.head_c {
+ clear:both; height:61px; width:100%;
+}
+#resText {
+min-height:400px;
+}
+#scroller1 li {  
+    height:40px;  
+   line-height:40px;  
+}
+
+
+/*选择按钮*/
+input[type=checkbox].css-checkbox {
+	  position: absolute; 
+    overflow: hidden; 
+    clip: rect(0 0 0 0); 
+    height:1px; 
+    width:1px; 
+    margin:-1px; 
+    padding:0;
+    border:0;
+}
+input[type=checkbox].css-checkbox.med + label.css-label.med {
+	padding-left:22px;
+    height:17px; 
+	display:inline-block;
+	line-height:17px;
+	background-repeat:no-repeat;
+	background-position: 0 0;
+	font-size:0.8em;
+	vertical-align:middle;
+    cursor:pointer;
+    width:80px;
+}
+input[type=checkbox].css-checkbox.med:checked + label.css-label.med {
+
+    background-position: 0 -17px;
+    width:80px;
+}
+.onAll label {
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+.elegant{background-image:url(../images/elegant.png);}
+/*选择按钮end*/
+
+/*显示列表*/
+#resText li {
+    width:100%;  background:#fff; padding:0.5em 1em; line-height:1.5em; border-color:#f5f1f1; margin-top:1em; border-style:solid; border-width:1px;
+    list-style-type:none; 
+}
+
+ .theicon:before {
+ content:url(../images/icons/inp_sear-min.png);
+}
+.theicon::after {
+    content:url(../images/icons/left-min.png)
+}
+
+.thebotten {
+    text-align:right;  line-height:2.5em;
+}
+ .thebotten a {
+    text-decoration:none; color:#666;
+ }
+  .thebotten a:hover {
+    text-decoration:none; color:#666;
+ }
+  .thebotten a:link {
+    text-decoration:none; color:#666;
+ }
+  .thebotten a:visited {
+    text-decoration:none; color:#666;
+ }
+    .thebotten a:active {
+    text-decoration:none; color:#fff; background:#293955;
+ }
+.inputHei {
+  background:#fff; border:1px solid #666; border-radius:5px; padding:5px 15px; margin:0px 5px; font-size:1em;
+ 
+}
+.inputRed {
+  background:#fff; border:1px solid red; border-radius:5px; padding:5px 15px; margin:0px 5px; color:red;font-size:1em;
+}
+.c {
+clear:both;
+}
+/*显示列表end*/
+
+/*按钮*/
+.btn01 {
+ width:90%; height:45px; font-size:1.2em; line-height:45px; color:#fff;  margin:15px auto; border-radius:15px;
+  background:#15C23C; border:1px solid #8AE09D;
+}
+/*按钮end*/
+
+/*透明效果*/
+.myhm{filter:alpha(opacity=60);-moz-opacity:0.6;-khtml-opacity: 0.6;opacity: 0.6; background-color:#666; z-index:100;}
+.PageMain{  border-radius:5px; position:fixed; left:1em; bottom:1em;}
+.Pagelable{ position:relative; z-index:1000; color:#fff; margin:0.5em; font-size:0.8em; line-height:1em;}
+
+.z{ z-index:150; background:#F9F9F9;}

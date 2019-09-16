@@ -1,0 +1,214 @@
+﻿@{
+    Layout = null;
+    int i = 0;
+    int b = 0;
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="zh" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="zh" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    @Html.Partial("_Title")
+
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/font-awesome4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/plugins/jbox-v2.3/jBox/Skins/Gray/jbox.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Theme/plugins/Flexigrid/css/flexigrid.css" rel="stylesheet" />
+  
+    <link rel="stylesheet" href="/App/images/css.css" />
+    <style>
+        .addcolor {
+            background-color: #f7f7f7;
+        }
+    </style>
+
+</head>
+<body class="fixed-top">
+
+
+
+    <div class="widget box light-grey">
+        <div class="widget-title">
+            <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>物流查询</h4>
+            <div class="actions">
+                <a href="LogisticsQueryLog?type=new" class="btn  btn-info hide" >查询记录</a>
+
+            </div>
+        </div>
+
+        <div class="widget-body" style="padding-left:30px;">
+            <div class="">
+                <form class="form-horizontal" action="javascript:void(0)">
+                    <div class="form-group">
+                        <div class="form-inline">
+                            <input id="txtSearch" value="@ViewBag.parme" type="text" style="width:300px" class="form-control" placeholder="请输入包装号查询" />
+                            <a id="gritter-remove-all" class="btn btn-info" href="javascript:void(0)" onclick="onSearch()"><i class="icon-search"></i>查询</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            @ViewBag.message
+
+
+            <table class="table table-hover table-bordered table-striped" style="width:70%;" id="tabInfo">
+
+
+                <tbody>
+                    @if (ViewBag.promodel != null) { 
+                    <tr>
+                        <th colspan="2" style="text-align:center">入库信息</th>
+                    </tr>
+                    <tr>
+                        <td style="width:50%;text-align:right">产品名称</td>
+                        <td>@ViewBag.promodel.pname</td>
+                    </tr>                  
+                    <tr>
+                        <td style="width:50%;text-align:right">条码</td>
+                        <td>@ViewBag.parme</td>
+                    </tr>
+                    if (ViewBag.xbmodel != null) { 
+                    
+                    <tr>
+                        <td style="width:50%;text-align:right">入库日期</td>
+                        <td>@ViewBag.xbmodel.ship_date</td>
+                    </tr>
+
+                    <tr>
+                        <td style="width:50%;text-align:right">入库单号</td>
+                        <td>@ViewBag.xbmodel.ship_no</td>
+                    </tr>
+                    }   
+                    }
+                   
+                    @if (ViewBag.showtype == "db")
+                    {
+                        
+                        <tr>
+                            <th colspan="2" style="text-align:center">出库情况</th>
+                        </tr>
+                    }
+                    @if (ViewBag.shipstatus == "0")
+                    {
+                        <tr><td colspan="2" style="text-align:center">产品暂未出库</td></tr>
+                    }
+                    else if (ViewBag.shipstatus == "2")
+                    {
+                        <tr><td colspan="2" style="text-align:center">产品已退货</td></tr>
+                        <tr>
+                            <td style="width:50%;text-align:right">退货单号</td>
+                            <td>@ViewBag.re_no</td>
+                        </tr>
+                        <tr>
+                            <td style="width:50%;text-align:right">退货状态</td>
+                            <td>@ViewBag.restatus</td>
+                        </tr>
+                        <tr>
+                            <td style="width:50%;text-align:right">退货日期</td>
+                            <td>@ViewBag.redate</td>
+                        </tr>
+                    }
+                    else if (ViewBag.shipstatus == "1")
+                    {
+                        <tr>
+                            <td style="width:50%;text-align:right">产品名：</td>
+                            <td>@ViewBag.ship.pname</td>
+                        </tr>
+                        <tr>
+                            <td style="width:50%;text-align:right">门店：</td>
+                            <td>@ViewBag.ship.cu_name</td>
+                        </tr>
+                        <tr>
+                            <td style="width:50%;text-align:right">出库单号：</td>
+                            <td>@ViewBag.ship.ship_no</td>
+                        </tr>
+                        <tr>
+                            <td style="width:50%;text-align:right">出库日期：</td>
+                            <td>@ViewBag.ship.ship_date</td>
+                        </tr>
+                        <tr>
+                            <td style="width:50%;text-align:right">出库数量：</td>
+                            <td>@ViewBag.ship.mqty</td>
+                        </tr>
+                        if (ViewBag.cushipstatus == 1)
+                        {
+                            <tr>
+                                <th colspan="2" style="text-align:center">门店售出情况</th>
+                            </tr>
+                            <tr>
+                                <td> <span style="float:right;">门店 </span></td>                                
+                                <td>@ViewBag.cuship.xtcu_name</td>
+                            </tr>
+                           
+                             <tr>
+                                 <td> <span style="float:right;">售出时间</span></td>
+                                 
+                                 <td> <span style="float:left;">@ViewBag.cuship.ship_date</span></td>
+                             </tr>                            
+                        }
+
+                    }
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div id="codelListArea" style="margin-left: 50px;">
+
+        </div>
+
+
+
+
+
+    </div>
+    @Html.Partial("_Foot")
+
+
+    <script>
+
+        function onSearch() {
+
+            var username = localStorage["hmcu_no"];
+
+
+            var code = $("#txtSearch").val();
+
+            var url = "../App/wl.aspx";
+            $.ajax({
+                type: "post",
+                url: url,
+                data: { "cu_no": username, "c": code },
+                timeout: 30000,
+                datatype: "html",
+                success: function (msg) {
+
+
+                    $("#codelListArea").html(msg);
+
+
+                }
+
+
+            });
+        }
+
+        function selectbylike() {
+            var parme = $("#txtSearch").val();
+
+            location.href = "/BasicData/LogisticsInfo?parme=" + parme;
+
+
+        }
+    </script>
+
+</body>
+</html>

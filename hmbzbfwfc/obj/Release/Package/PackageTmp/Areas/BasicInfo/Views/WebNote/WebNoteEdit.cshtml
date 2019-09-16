@@ -1,0 +1,149 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="zh" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="zh" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/font-awesome4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/plugins/jbox-v2.3/jBox/Skins/Gray/jbox.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Theme/plugins/Flexigrid/css/flexigrid.css" rel="stylesheet" />
+    <!--kindeditor富文本编辑器-->
+    <link rel="stylesheet" href="../editor/Content/kindeditor/themes/default/default.css" />
+    <link rel="stylesheet" href="../editor/Content/kindeditor/plugins/code/prettify.css" />
+
+    <style>
+    </style>
+
+
+    <script>
+        function show_sub() {
+
+            $("#sys_title").val($("#ddlsys_no").find("option:selected").text());
+
+        }
+    </script>
+
+
+
+</head>
+<body class="fixed-top">
+
+    <div id="body">
+
+        <div class="row">
+            <div class="span12">
+                <div class="widget box light-grey">
+                    <div class="widget-title">
+                        <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>@(ViewBag.type == "add" ? "新增内容" : "修改内容")</h4>
+
+                    </div>
+
+                    <div class="tab-pane active" id="widget_tab1" style="margin-left:30px;">
+
+
+                        <form action="WebNoteAddOrUpd" method="post" id="commentForm" backurl="WebNoteList">
+
+                            <input type="hidden" value="@(ViewBag.type=="add" ? "" : ViewBag.model.fid)" name="fid">
+
+                            <table class="formtab_user table table-bordered table-hover mytable">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:30%; text-align:right;" class="notnull">内容选项</td>
+                                        <td style="width:70%">
+
+
+
+                                            <select id="ddlsys_no" @(ViewBag.type == "add" ? "" : "disabled")  name="sys_no" class="form-control" onchange="show_sub()" style="width:164px;" required>
+                                                <option value="@(ViewBag.type == "add" ? "" : ViewBag.model.sys_no)">@(ViewBag.type == "add" ? "请选择" : ViewBag.model.sys_title)</option>
+                                                <option value="A001">公司简介</option>
+                                                <option value="A002">公司架构</option>
+                                                <option value="A003">发展历程</option>
+                                                <option value="A004">理念宗旨</option>
+                                                <option value="A005">企业荣誉</option>
+                                                <option value="A006">社会责任</option>
+                                                <option value="A007">宣传片</option>
+                                                <option value="A008">联系我们</option>
+                                                <option value="A009">品酒文化</option>
+                                                <option value="A010">防伪介绍</option>
+                                                <option value="A011">红包活动说明</option>
+                                                <option value="A012">热卖产品</option>
+                                                <option value="A013">最新活动</option>
+                                            </select>
+
+                                            <input type="hidden" value="@(ViewBag.type == "add" ? "" : ViewBag.model.sys_title)" name="sys_title" id="sys_title">
+
+                                            <span class="error" id="isok"></span>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style=" text-align:right;">内容</td>
+                                        <td>
+                                            <textarea id="WebEditor1" cols="100" name="sys_note" rows="8" style="width: 100%; height: 500px;">@(ViewBag.type == "add" ? "" : ViewBag.model.sys_note) </textarea>                                           
+                                        </td>
+                                    </tr>                                    
+
+                                    <tr>
+                                        <td style=" text-align:right;">备注</td>
+                                        <td><textarea id="" style="width:100%" name="remark" placeholder="备注" class="form-control">@(ViewBag.type == "add" ? "" : ViewBag.model.remark) </textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td style=" color:red;" id="error"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="padding-left:22%;padding-bottom:10px;">
+
+                                            <button type="button" class="btn btn-info" onclick="Public.Add()" style="margin:0px 50px 0px 20px;"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 提交保存</button>
+                                            <button type="button" class="btn btn-danger" onclick="javascript:history.back(-1)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>取消返回</button>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_Foot")
+    <script charset="utf-8" src="~/Content/Theme/editor/Content/kindeditor/kindeditor.js"></script>
+    <script charset="utf-8" src="~/Content/Theme/editor/Content/kindeditor/lang/zh_CN.js"></script>
+    <script charset="utf-8" src="~/Content/Theme/editor/Content/kindeditor/plugins/code/prettify.js"></script>
+    <script>
+        //kindeditor 富文本编辑器
+        KindEditor.ready(function (K) {
+            var editor1 = K.create('#WebEditor1', {
+                cssPath: '/Content/Theme/editor/Content/kindeditor/plugins/code/prettify.css',
+                uploadJson: '/Content/Theme/editor/Content/uptools/upload_json.ashx',
+                fileManagerJson: '/Content/Theme/editor/Content/uptools/file_manager_json.ashx',
+                allowFileManager: true,
+                afterCreate: function () {
+                    this.sync();
+                },
+                afterBlur: function () {
+                    this.sync();
+                }
+            });
+            prettyPrint();
+        });
+
+    </script>
+</body>
+</html>

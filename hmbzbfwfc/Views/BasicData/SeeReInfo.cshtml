@@ -1,0 +1,140 @@
+﻿@{
+    Layout = null;
+    int i = 0;
+}
+<!DOCTYPE html>
+
+<html lang="zh">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    @Html.Partial("_Title")
+
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/font-awesome4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/css/default.css" rel="stylesheet" type="text/css" />
+
+    <link href="/Content/plugins/jbox-v2.3/jBox/Skins/Gray/jbox.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Theme/plugins/Flexigrid/css/flexigrid.css" rel="stylesheet" />
+
+
+    <style>
+        .addcolor {
+            background-color: #f7f7f7;
+        }
+    </style>
+
+</head>
+<body class="fixed-top">
+
+    <div id="test" style="width: 98%;">
+
+        <div class="row">
+            <div class="span12">
+                <div class="widget box light-grey">
+                    <div class="widget-title">
+                        <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>单号详细数据</h4>
+                        <div class="actions">
+                            <a class="btn btn-primary" href="SeeReInfo?dc=ok&@Html.Raw(ViewBag.parme)"><i class="icon-pencil"></i>&nbsp;导出</a>                            
+                        </div>
+                    </div>
+                    <div class="widget-body">
+
+                        <table class="table table-hover table-bordered table-striped" id="tabInfo">
+                            <thead>
+                                <tr class="widget-title">
+                                    
+                                    <th class="hidden-480">单号</th>
+                                    <th class="hidden-480">条码</th>
+                                    <th class="hidden-480">退货日期</th>
+                                    <th class="hidden-480">产品编号|名称</th>
+                                    <th class="hidden-480">门店编号|名称</th>                                    
+                                    <th class="hidden-480">批号</th>
+                                    <th>数量</th>
+                                   
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                @foreach (var item in ViewBag.fgi)
+                                {
+                                    <tr class="@(i % 2 == 0 ? "" : "addcolor")">
+                                        
+                                        <td>@item.ship_no</td>
+                                        <td>@item.bsnno</td>
+                                        <td>@item.ship_date</td>
+                                        <td>@item.p_no | @item.pname</td>
+                                        <td>@item.cu_no | @item.cu_name</td>
+                                        <td class="hide">@item.type</td>
+                                        <td>@item.lot_no</td>
+                                        <td>@item.mqty</td>
+                                        
+                                    </tr>
+
+                                    i++;
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
+<script>
+      function plth(requesturl,backurl) {
+        var chklist = $("#tabInfo tbody tr").find("input:checked");
+        var ids = "";
+        $.each(chklist, function (index, item) {
+            ids += $(item).attr("data") + ",";
+        });
+        if (ids.length > 0) {
+            var submit = function (v, h, f) {
+                if (v == 'ok') {
+                    var param = {};
+                    param["idlist"] = ids;
+                    $.gitAjax({
+                        url: requesturl , type: "post", data: param, success: function (result) {
+                            $.jBox.tip(result, "success");
+                            setTimeout(function () { window.location.href = backurl; }, 1000);
+                        }, error: function (result) {
+                            $.jBox.tip("error:退回失败", "error");
+                        }
+                    });
+                }
+            };
+            $.jBox.confirm("确定要退回供应商吗？", "提示", submit);
+        }
+        else {
+            $.jBox.tip("请至少选择一条数据!", 'info');
+        }
+      }
+
+    function th(ProductCode,requesturl,backurl) {
+        var submit = function (v, h, f) {
+            if (v == 'ok') {
+                var param = {};
+                param["fid"] = ProductCode;
+                $.gitAjax({
+                    url:  requesturl, type: "post", data: param, success: function (result) {
+                        $.jBox.tip(result, "success");
+                        setTimeout(function () { window.location.href = backurl; }, 1000);
+                    }, error: function (result) {
+                        $.jBox.tip("error:退回失败", "error");
+                    }
+                });
+            }
+        };
+        $.jBox.confirm("确定要退回供应商吗？", "提示", submit);
+    }
+</script>

@@ -1,0 +1,175 @@
+﻿@{
+    Layout = null;
+    int i = 0;
+    int b = 0;
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="zh" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="zh" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    @Html.Partial("_Title")
+
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/font-awesome4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/plugins/jbox-v2.3/jBox/Skins/Gray/jbox.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Theme/plugins/Flexigrid/css/flexigrid.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/Theme/selector/css/ion.calendar.css" />
+
+    <style>
+        .addcolor {
+            background-color: #f7f7f7;
+        }
+    </style>
+
+</head>
+<body class="fixed-top">
+
+
+    <div id="test">
+
+                    <div class="widget-body" style="">                        
+                        <table class="dialogtab inorder_tab">
+                            <tbody class="table table-hover table-bordered table-striped">
+                                <tr>
+                                    <td class="inorder_tdTitle inorder_topline"><strong>入库单号</strong></td>
+                                    <td class="inorder_tdContent inorder_topline">
+                                        @ViewBag.ins.OrderNum
+                                    </td>
+                                    <td class="inorder_tdTitle inorder_topline"><strong>类型</strong></td>
+                                    <td class="inorder_tdContent inorder_topline">
+                                        @ViewBag.ins.InType
+                                    </td>
+                                    <td class="inorder_tdTitle inorder_topline"><strong>状态</strong></td>
+                                    <td class="inorder_tdContent inorder_topline">
+                                        @(Enum.GetName(typeof(hmbzbfwfc.Commons.DataEnum.InStoreBillStatus), ViewBag.ins.Status))
+                                    </td>
+                                </tr>
+                                <tr class="inorder_tr">
+                                    <td class="inorder_tdTitle"><strong>供应商编号</strong></td>
+                                    <td class="inorder_tdContent">
+                                        @ViewBag.ins.SupNum
+                                    </td>
+                                    <td class="inorder_tdTitle"><strong>供应商名称</strong></td>
+                                    <td class="inorder_tdContent">
+                                        @ViewBag.ins.SupName
+                                    </td>
+                                    <td class="inorder_tdTitle"><strong>联系人</strong></td>
+                                    <td class="inorder_tdContent">
+                                        @ViewBag.ins.ContactName
+                                    </td>
+                                </tr>
+                                <tr class="inorder_tr">
+                                    <td class="inorder_tdTitle"><strong>关联订单号</strong></td>
+                                    <td class="inorder_tdContent">@ViewBag.ins.ContractOrder</td>
+                                    <td class="inorder_tdTitle"><strong>创建人</strong></td>
+                                    <td class="inorder_tdContent">
+                                        @ViewBag.ins.CreateUser
+                                    </td>
+                                    <td class="inorder_tdTitle"><strong>创建时间</strong></td>
+                                    <td class="inorder_tdContent">
+                                        @ViewBag.ins.CreateTime
+                                    </td>
+                                </tr>
+                                <tr class="inorder_tr">
+                                    <td class="inorder_tdTitle"><strong>电话</strong></td>
+                                    <td class="inorder_tdContent">
+                                        @ViewBag.ins.Phone
+                                    </td>
+                                    <td class="inorder_tdTitle"><strong>备注</strong></td>
+                                    <td colspan="3" class="inorder_tdContent">@ViewBag.ins.Remark</td>
+                                </tr>
+                                <tr class="inorder_tr">
+                                    <td class="inorder_tdTitle"><strong>审核备注</strong></td>
+                                    <td class="inorder_tdContent" colspan="5">
+                                        @if (ViewBag.type == "sh" && ViewBag.ins.Status == (int)hmbzbfwfc.Commons.DataEnum.InStoreBillStatus.待审核)
+                                        {
+                                           <textarea id="reason" style="width: 100%"></textarea>
+                                        } else{
+                                        @ViewBag.ins.Reason
+                                        }
+                                       
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-hover table-bordered table-striped" id="tabInfo">
+                            <thead>
+                                <tr class="widget-title">
+                                    <th class="hidden-480">产品名称</th>
+                                    <th class="hidden-480">产品条码</th>
+                                    <th class="hidden-480">规格</th>
+                                    <th class="hidden-480">批次</th>
+                                    <th class="hidden-480">单价</th>
+                                    <th class="hidden-480">入库数</th>
+                                    <th class="hidden-480">总价</th>
+                                    <th class="hidden-480">库位</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                @foreach (var item in ViewBag.insd)
+                                {
+                                    <tr class="@(i % 2 == 0 ? "" : "addcolor")">                                        
+                                        <td>@item.pname</td>
+                                        <td>@item.barcode</td>
+                                        <td>@item.ptype</td>
+                                        <td>@item.batchnum</td>
+                                        <td>@item.inprice</td>
+                                        <td>@item.num</td>
+                                        <td>@item.sumprice</td>
+                                        <td>@item.storenum</td>                                                                              
+                                    </tr>
+                                    i++;
+                                }
+                            </tbody>
+                        </table>                                                 
+
+                    </div>
+                </div>  
+    @if (ViewBag.type == "sh" && ViewBag.ins.Status == (int)hmbzbfwfc.Commons.DataEnum.InStoreBillStatus.待审核)
+    {
+        <button style="margin:10px;" type="submit" class="btn btn-primary" onclick="audit(@((int)hmbzbfwfc.Commons.DataEnum.InStoreBillStatus.审核通过))"><i class="fa fa-check"></i>审核通过</button>
+        <button type="reset" class="btn btn-danger" onclick="audit(@((int)hmbzbfwfc.Commons.DataEnum.InStoreBillStatus.审核失败))"><i class="fa fa-close"></i>审核不通过</button>
+    }          
+    <script>
+
+        function audit(status) {
+            var submit = function (v) {
+                var reason=$("#reason").val();
+                if (v == 'ok') {
+                    $.ajax({
+                        type: "post",
+                        url: "/ERP/InStoreBillAudit",
+                        data: { fid: @ViewBag.ins.fid , status :status, reason:reason,audituser:"@ViewBag.username"},
+                        dataType: "json",
+                        success: function (data) {
+                            if (data["status"] == "success") {
+                                $.jBox.tip("操作成功", "success");
+                                setTimeout(function () { window.location.href = "/ERP/InStoreBillList"; }, 1000);
+                            } else {
+                                $.jBox.tip("操作失败", "error");
+                                setTimeout(function () { window.location.href = "/ERP/InStoreBillList"; }, 1000);
+                            }
+                        }, error: function (data, status, e) {
+                            $.jBox.tip("error:操作失败", "error");
+                            setTimeout(function () { window.location.href = "/ERP/InStoreBillList"; }, 1000);
+                        },
+                    });
+                }
+            };
+            $.jBox.confirm("确定审核？", "提示", submit);
+        }
+
+    </script>
+</body>
+</html>

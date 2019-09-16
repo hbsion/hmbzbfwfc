@@ -1,0 +1,34 @@
+.notnull {color:red;}
+
+.fixed-top{width: calc(100% - 20px);}
+
+body { color: #222; }
+
+
+.form-horizontal .controls-cus { margin-left :2px; }
+
+/*****************************************高级搜索样式**************************/
+.row .hisearch { margin-left:1px; }
+
+/*****************************************分页控件样式**************************/
+.paget {float: left;width: 260px;}
+.pagen {float: right;width: 60%;}
+
+/*****************************************自定义样式**************************/
+ .error {color:red; float:left; margin-right:20px;}
+.mytable td{padding-bottom:0px}
+
+.formtab_user { margin-top: 10px; width: 500px; margin-left: 10px; margin-top: 10px; width: 60%; margin-left: 10px; min-width: 500px;}
+.formtab_customer { margin-top: 10px; width: 600px; margin-left: 10px; }
+.customer_des { width: 381px; }
+.customer_cusType { width: 163px; }
+.inorder_tab { width: 100%; border-width: 1px; margin-left: 0px; border-collapse: collapse; }
+.inorder_tab td { padding-left: 5px; }
+.inorder_tr { height: 27px; }
+.inorder_tdTitle { width: 11%; border-right: 1px solid #dddddd; border-bottom: 1px solid #dddddd; empty-cells: show; }
+.inorder_tdContent { width: 20%; border-right: 1px solid #dddddd; border-bottom: 1px solid #dddddd; text-align: left; vertical-align: middle; empty-cells: show; }
+.inorder_topline { border-top: 1px solid #dddddd; }
+.inorder_detail { border-radius: 0px; }
+.inorder_detail .inorder_search { padding: 0px; vertical-align: middle; height: 15px; padding-left: 8px; }
+.inorder_detail .inorder_search .span1 { margin-top: 5px; }
+.table input.inde { width: 70px; border-radius: 2px; margin-bottom: 0px; padding: 0px; height: 25px; padding-left: 3px; }

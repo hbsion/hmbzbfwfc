@@ -1,0 +1,233 @@
+﻿@{
+    Layout = null;
+    int i = 0;
+    int b = 0;
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="zh" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="zh" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    @Html.Partial("_Title")
+
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/font-awesome4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/plugins/jbox-v2.3/jBox/Skins/Gray/jbox.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Theme/plugins/Flexigrid/css/flexigrid.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/Content/Theme/selector/css/ion.calendar.css" />
+
+    <link rel="stylesheet" href="/Content/Theme/webuploader/webuploader.css" />
+    <style>
+        .addcolor {
+            background-color: #f7f7f7;
+        }
+    </style>
+
+</head>
+<body class="fixed-top">
+
+
+
+    <div class="widget box light-grey">
+        <div class="widget-title">
+            <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>产品出库统计表</h4>
+        </div>
+
+    </div>
+    <div class="form-inline">
+        <input type="text" class="date startdate form-control" placeholder="起始出库日期" style="width:120px;margin-left:20px" />~
+        <input type="text" class="date enddate form-control" placeholder="结束出库日期" style="width:120px" />
+        产品<select name="product" id="product" class="form-control" style="">
+            <option value=""></option>
+            @foreach (var item in ViewBag.prodlist)
+            {
+                <option value="@item.p_no">@item.pname</option>
+            }
+        </select>
+        客户<select name="customer" id="customer" class="form-control">
+            <option value=""></option>
+            @foreach (var item in ViewBag.cuslist)
+            {
+                <option value="@item.cu_no">@item.cu_name</option>
+            }
+        </select>
+        <a id="gritter-remove-all" class="btn btn-info" href="javascript:void(0)" onclick="selectbylike();"><i class="icon-search"></i>&nbsp;搜索</a>
+        <a id="pic" style=" display: none;width: 60px;float: right; margin-right:80px" class="btn btn-info" href="javascript:void(0)" onclick="showpic()">饼图</a>
+        <a id="bar" style="display: none;width: 60px;float:  right; margin-right:80px" class="btn btn-info" href="javascript:void(0)" onclick="showbar()">柱状图</a>
+    </div>
+    <div id="mainpic" style="width: 100%;min-height:600px; display:none;"></div>
+    <div id="mainbar" style="width: 100%;min-height:600px;"></div>
+
+    @Html.Partial("_Foot")
+    <script src="~/Content/js/echarts.js"></script>
+     <script src="~/Content/Theme/selector/js/moment.min.js"></script>         <!--日期-->
+        <script src="~/Content/Theme/selector/js/moment.zh-cn.js"></script>       <!--日期-->
+        <script src="~/Content/Theme/selector/js/ion.calendar.min.js"></script>   <!--日期-->
+
+        <script>
+    //日期
+    $(function () {
+        $('.date').each(function () {
+            $(this).ionDatePicker({
+                lang: 'zh-cn',
+                format: 'YYYY-MM-DD'
+            });
+        });
+        showpic();
+        showbar();
+    });
+
+    function selectbylike() {
+        var shipname = $("#txtSearch").val();
+        var startdate = $(".startdate").val();
+        var enddate = $(".enddate").val();
+        var pfid = $("#product option:selected").val();
+        var pname = $("#product option:selected").text();
+        var cfid = $("#customer option:selected").val();
+        var cname = $("#customer option:selected").text();
+
+        if (enddate < startdate) {
+            alert("结束日期不能小于起始日期");
+        } else {
+            location.href = "ShipDataRecode?startdate=" + startdate + "&enddate=" + enddate+"&pfid="+pfid+"&pname="+pname+"&cfid="+cfid+"&cname="+cname;
+        }
+
+    }
+
+    function showbar() {
+       // $("#pic").css("display", "block");
+       //$("#bar").css("display", "none");
+        $("#mainpic").css("display", "none");
+        $("#mainbar").css("display", "block");
+
+        var myChart1 = echarts.init(document.getElementById('mainbar'));
+
+        option1 = {
+            title: {
+                text: '@ViewBag.title'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            legend: {
+                data: [ '@ViewBag.cusname','@ViewBag.proname','总出库量']
+            },
+
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: [@Html.Raw(ViewBag.datelist)]
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value'
+                }
+            ],
+            series: [
+                {
+                    name: '@ViewBag.proname',
+                    type: 'bar',
+                    stack: 'product',
+                    data: [@ViewBag.pcountlist]
+                },
+                {
+                    name: '@ViewBag.cusname',
+                    type: 'bar',
+                    stack: 'customer',
+                    data: [@ViewBag.ccountlist]
+                },
+                {
+                    name: '总出库量',
+                    type: 'bar',
+                    stack: 'count',
+                    data: [@ViewBag.acountlist]
+                },
+
+
+            ]
+        };
+
+        myChart1.setOption(option1);
+
+    }
+    function showpic() {
+       // $("#pic").css("display", "none");
+       // $("#bar").css("display", "block");
+        $("#mainpic").css("display", "block");
+        $("#mainbar").css("display", "none");
+        var myChart = echarts.init(document.getElementById('mainpic'));
+
+        option = {
+            title: {
+                text: '@ViewBag.title',
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b}: {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                x: 'left',
+                data: [@Html.Raw(ViewBag.datelist)]
+            },
+            series: [
+                {
+                    name: '总出库量',
+                    type: 'pie',
+                    selectedMode: 'single',
+                    radius: [0, '30%'],
+                    
+                    data: [
+                        @Html.Raw(ViewBag.picadata)
+                    ]
+                },
+                {
+                    name: '@ViewBag.proname',
+                    type: 'pie',
+                    radius: ['35%', '50%'],
+
+                    data: [
+                        @Html.Raw(ViewBag.picpdata)
+                    ]
+                }, {
+                    name: '@ViewBag.cusname',
+                    type: 'pie',
+                    radius: ['60%', '75%'],
+
+                    data: [
+                       @Html.Raw(ViewBag.piccdata)
+                    ]
+                }
+            ]
+        };
+
+        myChart.setOption(option);
+
+    }
+
+
+
+</script>
+
+</body>
+</html>

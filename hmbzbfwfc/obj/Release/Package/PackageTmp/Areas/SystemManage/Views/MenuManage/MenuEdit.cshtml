@@ -1,0 +1,121 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="zh" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="zh" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/font-awesome4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/plugins/jbox-v2.3/jBox/Skins/Gray/jbox.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Theme/plugins/Flexigrid/css/flexigrid.css" rel="stylesheet" />
+
+
+    <style>
+
+    </style>
+</head>
+<body class="fixed-top">
+
+    <div id="body">
+
+        <div class="row">
+            <div class="span12">
+                <div class="widget box light-grey">
+                    <div class="widget-title">
+                        <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>@(ViewBag.type == "add" ? "新增库别" : "修改库别")</h4>
+
+                    </div>
+
+                    <div class="tab-pane active" id="widget_tab1">
+                        <form action="/SystemManage/MenuManage/MenuAddOrUpd" method="post" id="commentForm">
+                            <table class="formtab_user table table-bordered table-hover mytable">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:30%; text-align:right;" class="notnull">菜单编号</td>
+                                        <td style="width:70%">
+                                            <input id="s_no" style="width:182px" name="gnbm" @(ViewBag.type == "add" ? "" : "readonly") placeholder="菜单编号" value="@(ViewBag.type=="add" ? "" : ViewBag.model.gnbm)" class="form-control" type="text">
+                                            <span class="error" id="isok"></span>
+                                            <input type="hidden" value="@(ViewBag.type=="add" ? "" : ViewBag.model.fid)" name="fid">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style=" text-align:right;" class="notnull">菜单名称</td>
+                                        <td>
+                                            <input id="txtUserName" name="gnmc" placeholder="菜单名称" value="@(ViewBag.type == "add" ? "" : ViewBag.model.gnmc)" class="form-control" type="text">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style=" text-align:right;">URL地址</td>
+                                        <td>
+                                            <input id="txtUserName" name="acturl" placeholder="url地址" value="@(ViewBag.type == "add" ? "" : ViewBag.model.acturl)" class="form-control" type="text">
+                                        </td>
+
+                                    </tr>
+                                    @if (!string.IsNullOrEmpty(ViewBag.type == "add" ? "1" : ViewBag.model.sjgnbm)) { 
+                                    <tr>
+                                        <td style=" text-align:right;">上级菜单</td>
+                                        <td>
+                                            <select name="sjgnbm" class="form-control">
+                                               @if(ViewBag.type=="add"){ 
+                                                   <option value="">一级菜单</option>
+                                               }
+                                               else
+                                               {
+                                                    <option value="@ViewBag.sjbm">@ViewBag.sjmc</option>
+                                               }
+                                                @foreach (var item in ViewBag.onemenu)
+                                                {
+                                                    <option value="@item.gnbm">@item.gnmc</option>
+                                                }
+                                            </select>
+                                            
+                                        </td>
+
+                                    </tr>
+                                    }
+                                    <tr>
+                                        <td style=" text-align:right;">备注</td>
+                                        <td><textarea id="" style="width:100%" name="remark" placeholder="备注" class="form-control">@(ViewBag.type == "add" ? "" : ViewBag.model.remark) </textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td style=" color:red;" id="error"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="padding-left:22%;padding-bottom:10px;">
+                                            <button type="button" class="btn btn-info" onclick="Menu.Add()" style="margin:0px 50px 0px -50px;"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 提交保存</button>
+                                            <button type="button" class="btn btn-danger" onclick="javascript:history.back(-1)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>取消返回</button>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_Foot")
+
+    <script type="text/javascript" src="/Content/Theme/Validate/jquery.validate.min.js"></script>
+    <script type="text/javascript" charset="GBK" src="/Content/Theme/Validate/messages_zh.js"></script>
+    <script>
+
+    </script>
+
+
+
+</body>
+</html>

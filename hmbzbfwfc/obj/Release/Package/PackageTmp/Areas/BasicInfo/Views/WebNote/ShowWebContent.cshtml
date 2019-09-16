@@ -1,0 +1,66 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html lang="zh">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>欢迎页</title>
+
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/font-awesome4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/plugins/jbox-v2.3/jBox/Skins/Gray/jbox.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Theme/plugins/Flexigrid/css/flexigrid.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/Content/Theme/selector/css/upload.css" />
+
+</head>
+<body class="fixed-top">
+    <div class="row">
+        <div class="span12">
+            <div class="widget box light-grey">
+                <div class="widget-title">
+                    <div class="widget-title">
+                        <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>网站内容查看</h4>
+                        <div class="actions">
+                            <a class="btn btn-primary" href="javascript:void(0)" onclick="location.href='WebNoteList'"><i class="icon-pencil"></i>&nbsp;返回</a>
+                            
+                        </div>
+                    </div>
+                    <div class="widget-body" style="margin-left:30px;">
+                        
+
+                        @Html.Raw(ViewBag.model.sys_note)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script type="text/javascript" src="/Content/js/jquery.min.js"></script>
+
+
+    <script type="text/javascript" src="/Content/js/bootstrap.min.js"></script>
+
+
+    <script>
+    $(function () {
+
+        if (self == top) {
+            location.href = "/Index/MainMenu";
+        }
+
+    })
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="zh" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="zh" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    @Html.Partial("_Title")
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/font-awesome4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/plugins/jbox-v2.3/jBox/Skins/Gray/jbox.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Theme/plugins/Flexigrid/css/flexigrid.css" rel="stylesheet" />
+    <style>
+        #widget_tab1 label {
+          margin:2px 10px;
+        }
+    </style>
+</head>
+<body class="fixed-top">
+
+    <div id="body">
+
+        <div class="row">
+            <div class="span12">
+                <div class="widget box light-grey">
+                    <div class="widget-title">
+                        <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>@(ViewBag.type == "add" ? "新增用户" : "修改用户")</h4>
+
+                    </div>
+
+                    <div class="tab-pane active" id="widget_tab1">
+                        <form action="AddOrUpd" method="post" id="commentForm" backurl="UserList?pageno=1">
+                            <table class="formtab_user table table-bordered table-hover">
+                                <tbody>
+                                    <tr>
+                                        <td style=" text-align:center;" class="notnull">操作员编码</td>
+                                        <td>
+                                            <input id="txtUserName" @(ViewBag.type == "add" ? "" : "readonly") name="Czybm" placeholder="操作员编码" value="@(ViewBag.type == "add" ? "" : ViewBag.model.czybm)" class="form-control" type="text" required>
+                                            <input type="hidden" value="@(ViewBag.type=="add" ? "" : ViewBag.model.fid)" name="fid">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style=" text-align:center;" class="notnull">操作员名称</td>
+                                        <td>
+                                            <input id="txtPassword" name="Czymc" placeholder="操作员名称" value="@(ViewBag.type == "add" ? "" : ViewBag.model.czymc)" class="form-control" type="text" required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style=" text-align:center;" class="notnull">操作员密码</td>
+                                        <td>
+                                            <input id="txtPassword" name="Czmm" placeholder="操作员密码" value="@(ViewBag.type == "add" ? "" : ViewBag.model.czmm)" class="form-control" type="password" required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style=" text-align:center;">PC端数码数据删除</td>
+                                        <td>
+                                            <label><input type="radio" name="checkyn" @(ViewBag.type == "add" ? "checked" : ViewBag.model.checkyn=="N" ? "checked" :"") value="N" />否</label>
+                                            <label><input type="radio" name="checkyn" @(ViewBag.type == "add" ? "" : ViewBag.model.checkyn == "Y" ? "checked" : "") value="Y" />是</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style=" text-align:center;">角色</td>
+                                        <td>
+                                            @if (ViewBag.model ==null) { 
+                                            <select id="ddlRole" name="sysrole" class="form-control" onchange="seljs();" style="width:164px;" required>
+                                                <option value="@(ViewBag.type == "add" ? "" : ViewBag.model.sysrole)">@(ViewBag.type == "add" ? "请选择角色" : ViewBag.model.sysrole)</option>
+                                                <option value="系统管理员">系统管理员</option>
+                                                <option value="操作员">操作员</option>
+                                                <option value="PDA用户">PDA用户</option>
+                                            </select>
+                                            }
+                                            else
+                                            {
+                                                <select id="ddlRole" name="sysrole" class="form-control" onchange="seljs();" style="width:164px;" required>
+                                                    <option @(ViewBag.model.sysrole == "系统管理员" ? "selected" : "") value="系统管理员">系统管理员</option>
+                                                    <option @(ViewBag.model.sysrole == "操作员" ? "selected" : "") value="操作员">操作员</option>
+                                                    <option @(ViewBag.model.sysrole == "PDA用户" ? "selected" : "") value="PDA用户">PDA用户</option>
+                                                </select>
+                                            }
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style=" text-align:center;">选择权限组</td>
+                                        <td>@Html.Raw(ViewBag.poweritem)</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td colspan="2" style="padding-left:30%;padding-bottom:10px;">
+                                            <button type="button" onclick="Public.Add()" class="btn btn-info" style="margin:0px 50px 0px -50px;"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 提交保存</button>
+                                            <button type="button" class="btn btn-danger" onclick="javascript:history.back(-1)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>取消返回</button>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_Foot")
+    <script src="~/Content/Theme/Validate/jquery.validate.min.js"></script>
+    <script src="~/Content/Theme/Validate/messages_zh.js" charset="gbk"></script>
+    @if (ViewBag.model != null)
+    {
+        if (ViewBag.model.sysrole == "PDA用户")
+        { 
+        <script>
+            $(function () {
+                $("#sm").css("display", "")
+            })
+        </script>
+        }
+    }
+    <script>
+        $.validator.setDefaults({
+            submitHandler: function () {
+                document.getElementById("commentForm").submit();
+            }
+        });
+        $().ready(function () {
+            $("#commentForm").validate();
+        });
+
+
+        function seljs()
+        {
+            var js = $("#ddlRole option:selected").val();
+            if (js == "PDA用户") {
+                $("#sm").css("display", "")
+            } else {
+                $("#sm").css("display", "none")
+            }
+
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+﻿@{
+    Layout = null;
+    int i = 0;
+    int b = 0;
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="zh" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="zh" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    @Html.Partial("_Title")
+
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/font-awesome4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/plugins/jbox-v2.3/jBox/Skins/Gray/jbox.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Theme/plugins/Flexigrid/css/flexigrid.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/Content/Theme/selector/css/upload.css" />
+    <style>
+        .addcolor {
+            background-color: #f7f7f7;
+        }
+    </style>
+
+</head>
+<body class="fixed-top">
+
+
+    <div class="row">
+        <div class="span12">
+            <div class="widget box light-grey">
+                <div class="widget-title">
+                    <div class="widget-title">
+                        <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>权限组管理</h4>
+                        <div class="actions">
+                            <a class="btn btn-primary" href="javascript:void(0)" onclick="location.href='PowerEdit'"><i class="icon-pencil"></i>&nbsp;新增</a>
+
+                        </div>
+                    </div>
+                    <div class="widget-body" style="margin-left:30px;">
+
+
+                        <table class="table table-hover table-bordered table-striped" id="tabInfo">
+                            <thead>
+                                <tr class="widget-title">
+
+                                   
+                                    <th class="hidden-480">权限组名称</th>
+                                    <th class="hidden-480">备注</th>
+                                    
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                @foreach (var item in ViewBag.menu)
+                                {
+
+                                    <tr class="@(i % 2 == 0 ? "" : "addcolor") ">
+                                        <td class="hide"><input name="user_item" class="checkboxes" data="@item.fid" value="@item.fid" type="checkbox"></td>
+                                        <td>@item.rms_name</td>
+                                        <td>@item.remark</td>
+                                        
+                                        <td>
+                                            <a class="icon-remove" href="javascript:void(0)" onclick="Public.Delete('@item.fid','PowerDel','PowerList')" title="删除"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                            &nbsp;&nbsp;<a href="PowerSetting?rname=@item.rms_name&fid=@item.fid" title="权限组菜单管理"><i class="fa fa-cogs" aria-hidden="true"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    i++;
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_Foot")
+
+    <script>
+
+    </script>
+
+</body>
+</html>

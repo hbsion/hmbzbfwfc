@@ -1,0 +1,8 @@
+2018-08-09 05:52:34.043 DEBUG fgiScan: {"st_no":"01        ","intQty":6,"lot_no":"34314151","intMax":0,"Message":"","pname":"4314","success":true,"snno":"82081109478937","p_no":"344","pqty":6}
+2018-08-09 05:52:48.979 DEBUG fgiScan: {"st_no":"01        ","intQty":6,"lot_no":"34314151","intMax":0,"Message":"","pname":"4314","success":true,"snno":"82081109478937","p_no":"344","pqty":6}
+2018-08-09 05:54:20.316 DEBUG fgiScan: {"st_no":"01        ","intQty":6,"lot_no":"43214","intMax":0,"Message":"","pname":"4314","success":true,"snno":"82081109478937","p_no":"344","pqty":6}
+2018-08-09 05:57:02.071 DEBUG fgiScan: {"st_no":"01        ","intQty":6,"lot_no":"353425","intMax":0,"Message":"","pname":"4314","success":true,"snno":"82081109478937","p_no":"344","pqty":6}
+2018-08-09 06:05:26.251 DEBUG fgiScan: {"st_no":"02        ","intQty":6,"lot_no":"3213431","intMax":0,"Message":"","pname":"a","success":true,"snno":"22716930656044","p_no":"3241","pqty":6}
+2018-08-09 06:07:58.288 DEBUG fgiScan: {"st_no":"01        ","intQty":6,"lot_no":"322345153","intMax":0,"Message":"","pname":"4314","success":true,"snno":"22716930656044","p_no":"344","pqty":6}
+2018-08-09 06:23:44.213 DEBUG fgiScan: {"st_no":"01        ","intQty":6,"lot_no":"341251515","intMax":0,"Message":"","pname":"a","success":true,"snno":"22716930656044","p_no":"3241","pqty":6}
+2018-08-09 06:29:38.494 DEBUG ShipScan: {"intQty":6,"po_no":null,"intMax":0,"Message":"","pname":"a","success":true,"snno":"82081109478937","p_no":"3241","pqty":6,"order_id":null}

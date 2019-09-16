@@ -1,0 +1,43 @@
+﻿.title select{ width:7em; border:0; }
+.right{ height:50px;}
+.right img{height:50px;}
+
+/*订单列表样式*/
+.ordtab{ width:100%;}
+.ordtitle{}
+.ordType{ float:right; display:inline-table; text-align:right; color:Red;}
+.ordPImg{width:80px; }
+.ordPsrc{ width:100%; height:80px; overflow:hidden; border:1px solid #ccc; border-radius:5px;}
+.ordPsrc img{ width:100%;}
+.ordPname{  margin-left:10px;}
+.ordmqty{margin-left:10px;}
+.ordbortop{ border-top:1px solid #EAEAEA; margin:10px 0; padding:10px 0;}
+.ordfooter span{ color:Red;}
+
+.ordOpid{ width:100%; position:absolute;  bottom:0; left:0; height:35px;border-top:1px solid #EAEAEA;}
+.ordOpid li{ float:left; width:25%; height:35px; position:relative; line-height:35px; text-align:center;}
+.ordOpid01{ border-bottom:1px solid #FF5000; color:#FF5000;}
+.C{ clear:both;}
+.myhead{
+    top:0;
+    height: 80px !important;
+    line-height: 60px !important;
+}
+
+
+/*订单详情*/
+.bodyEdit{ background-color:#EEEEEE; color:#666666;font-family:verdana,"微软雅黑","Arial";}
+.odrWap{ margin:15px 0; background-color:#fff; border:1px solid #fff;}
+.odrMain{ margin:10px;}
+
+.kdtd{ width:50px; height:50px; padding-top:5px;}
+.kdtd img{ height:30px; }
+#kdtel{ text-align:right;}
+
+#ulB li{ line-height:23px;}
+.red{ color:Red;}
+.ramark{}
+.odrbtn{ padding:5px 15px; border:1px solid #ccc; background:none;border-radius:5px; margin-left:10px; margin-bottom:15px;}
+.bor{ border-top:1px solid #EAEAEA; margin:10px 0;}
+
+

@@ -1,0 +1,79 @@
+﻿
+@{
+    Layout = null;
+    int b = 0;
+}
+
+<div class="pager" id="pager">
+    @if (ViewBag.count > 10)
+    {
+        <div style="float:right; margin-right:80px">
+
+            <span class="form-inline">
+                <select class="form-control" style="width: 120px;" id="pagesize" onchange="changepagesize()" number>
+                    <option value="10">每页条数</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+
+                </select>
+            </span>
+
+            @if (ViewBag.pageno != 1)
+            {
+
+                <a class="btn btn-default" href="@ViewBag.url?pageno=1&pagesize=@ViewBag.pagesize&@ViewBag.parme">首页</a>
+                <a class="btn btn-default" href="@ViewBag.url?pageno=@(ViewBag.pageno-1)&pagesize=@ViewBag.pagesize&@ViewBag.parme">上一页</a>
+            }
+            @for (int a = ViewBag.pageno; a <= ViewBag.pagecount; a++)
+            {
+                b++;
+                <a class="btn btn-default @(ViewBag.pageno==a? "active" : "") " href="@ViewBag.url?pageno=@a&pagesize=@ViewBag.pagesize&@ViewBag.parme">@a</a>
+                if (b > 9)
+                {
+                    break;
+                }
+
+            }
+
+            @if (ViewBag.pageno != ViewBag.pagecount)
+            {
+                <a class="btn btn-default" href="@ViewBag.url?pageno=@(ViewBag.pageno+1)&pagesize=@ViewBag.pagesize&@ViewBag.parme">下一页</a>
+                <a class="btn btn-default" href="@ViewBag.url?pageno=@ViewBag.pagecount&pagesize=@ViewBag.pagesize&@ViewBag.parme">尾页</a>
+            }
+
+            <span class="form-inline">
+                <input class="pageIndex form-control number" id="pageno" onchange="changepagenum();" value="@ViewBag.pageno" style="width:100px;text-align:center" type="number" max="@ViewBag.pagecount" min="1" />
+            </span>
+
+        </div>
+    }
+    <div style="float:left;">
+        <span>
+            当前第<span style="font-size:16px; font-weight:bold;margin:10px;">@ViewBag.pageno</span>页
+            <span style="font-size:22px; font-weight:bold;margin:10px;">/</span>共
+            <span style="font-size:16px; font-weight:bold;margin:10px;">@ViewBag.pagecount</span>页
+            <span style="font-size:16px; font-weight:bold;margin:10px;">@ViewBag.count</span>条数据
+        </span>
+    </div>
+
+</div>
+
+<script>
+    function changepagesize() {
+        var pagesize = $("#pagesize").val();
+        location.href = "@ViewBag.url?pageno=@ViewBag.pageno&@Html.Raw(ViewBag.parme)&pagesize=" + pagesize;
+    }
+
+    function changepagenum() {
+        var pageno = $("#pageno").val();
+        location.href = "@ViewBag.url?pageno=" + pageno + "&@Html.Raw(ViewBag.parme)&pagesize=@ViewBag.pagesize";
+    }
+
+    function selectbylike() {
+        var selparme = $("#txtSearch").val();
+        location.href = "@ViewBag.url?selparme=" + selparme + "";
+    }
+
+</script>

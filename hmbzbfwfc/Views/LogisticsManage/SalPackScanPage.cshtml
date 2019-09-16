@@ -1,0 +1,204 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="zh" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="zh" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/font-awesome4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/plugins/jbox-v2.3/jBox/Skins/Gray/jbox.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Theme/plugins/Flexigrid/css/flexigrid.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/Content/Theme/selector/css/ion.calendar.css" />
+    <style>
+        .error {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="fixed-top">
+
+    <div id="body">
+
+        <div class="row">
+            <div class="span12">
+                <div class="widget box light-grey">
+                    <div class="widget-title">
+                        <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>产品入库扫描</h4>
+
+                    </div>
+
+                    <div class="tab-pane active" id="widget_tab1">
+                        <form id="PackForm">
+                            <table class="formtab_user table table-bordered table-hover mytable">
+                                <tbody>
+                                    <tr>
+                                        <td colspan="4" style="text-align:center;">
+                                            <a href="SalPackScanPage" class="btn btn-info"><i class="fa fa-refresh"></i>重新扫描</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+
+                                        <td style=" text-align:right; width:20%;">单号</td>
+                                        <td style="width:30%;">
+                                            <input type="text" id="dh" class="form-control " readonly value="@ViewBag.packno" name="pack_no" />
+                                            <input type="hidden" name="mycu_no" value="@ViewBag.userno" />
+                                        </td>
+                                        <td style=" text-align:right; width:20%;">日期</td>
+                                        <td style="width:30%;">
+                                            <input type="text" id="dh" class="form-control " value="@DateTime.Now" name="in_date" />                                            
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="text-align:right">批号</td>
+                                        <td>
+                                            <input type="text" id="lot_no" class="form-control" name="lot_no" />
+                                        </td>
+                                        <td style="text-align:right">线号</td>
+                                        <td>
+                                            <input type="text" id="line_no" class="form-control" name="line_no" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:right">产品</td>
+                                        <td>
+                                            <input type="text" onclick="getprod();" readonly style="background-color: #fff;" id="pname" name="p_name" class="form-control" data-toggle="modal" data-target=".modal_cp"  />
+                                            <input type="hidden" id="pno" name="p_no" />
+                                        </td>
+                                       
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:right">包装数量</td>
+                                        <td>
+                                            <input type="text" id="pqty" class="form-control" name="pqty" required />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:right">关联大标</td>
+                                        <td>
+                                            <input type="text" id="usnno" class="form-control" name="usnno" required />
+                                        </td>                                        
+                                    </tr>
+                                    <tr>
+                                        <td style=" text-align:right;">成功数量</td>
+                                        <td><input type="text" class="form-control " readonly value="0" name="cpsl" id="cpsl" /></td>
+                                        <td colspan="2" id="result" style="height:180px; text-align: center;color: red;overflow: auto;position: absolute;width: 30%;"></td>
+                                    </tr>
+
+                                    <tr style="height: 130px;">
+                                        <td style=" text-align:right;">关联小标</td>
+                                        <td>
+                                            <input type="text" class="form-control " value="" name="snno" id="tmbh" required />
+                                            <button type="submit" class="btn btn-info" style="margin: 10px 25%;"><i class="fa fa-hdd-o" aria-hidden="true"></i>保存</button>
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+
+                    @Html.Partial("_modal_pro");
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_Foot")
+    <script src="/Content/Theme/selector/js/moment.min.js"></script>         <!--日期-->
+    <script src="/Content/Theme/selector/js/moment.zh-cn.js"></script>       <!--日期-->
+    <script src="/Content/Theme/selector/js/ion.calendar.min.js"></script>   <!--日期-->
+    <script type="text/javascript" src="/Content/Theme/Validate/jquery.validate.min.js"></script>      <!--验证-->
+    <script type="text/javascript" charset="GBK" src="/Content/Theme/Validate/messages_zh.js"></script><!--验证-->
+    <script>
+
+        //日期
+        $(function () {
+            $('.adate').each(function () {
+                $(this).ionDatePicker({
+                    lang: 'zh-cn',
+                    format: 'YYYY-MM-DD hh:mm:ss'
+                });
+            });
+        });
+
+
+
+
+
+        function submitfgidata() {
+           
+            var data = $("#PackForm").serialize();
+            $.ajax({
+                type: "post",
+                url: "/App/AppPackedit.ashx",
+                data: data,
+               // dataType: "json",
+                success: function (data) {
+
+                    var data = data.split('|');
+                    $("#result").prepend(data[1]+"<br/>");
+                    if (data[0] == "1") {
+                        $("#pqty").attr("readonly", true);
+                        $("#usnno").attr("readonly", true);
+
+                        $("#result").prepend($("#usnno").val() + "|" + $("#tmbh").val() + "包装关联成功<br/>");
+
+                        var num = $("#cpsl").val();
+                        $("#cpsl").val(parseInt(num) + 1);
+                        var cpsl=$("#cpsl").val();
+                        var pqty=$("#pqty").val();                        
+                    }
+                    $("#tmbh").val("");
+                    document.getElementById('tmbh').focus();
+                    if (parseInt(cpsl) % parseInt(pqty) == 0) {
+                        $("#usnno").val("");
+                        $("#usnno").attr("readonly", false);
+                        document.getElementById('usnno').focus();
+                    }
+                }, error: function (data, status, e) {
+
+                },
+            });
+        }
+
+        document.onkeydown = function mykeyDown(e) {
+            e = e || event;
+            if (e.keyCode == 13) {
+                $.validator.setDefaults({
+                    submitHandler: function () {
+                        submitfgidata();
+                    }
+                });
+            }
+        }
+
+        $.validator.setDefaults({
+            submitHandler: function () {
+                submitfgidata();
+            }
+        });
+        $().ready(function () {
+            $("#PackForm").validate();
+        });
+
+
+
+    </script>
+
+
+
+</body>
+</html>

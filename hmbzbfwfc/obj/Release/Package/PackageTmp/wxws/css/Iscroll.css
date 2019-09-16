@@ -1,0 +1,173 @@
+﻿body {
+    font-family:verdana,"微软雅黑","Arial"; font-size:1em; line-height:1.5em; color:#666;  background:#f6f6f6;
+}
+body, div, img, ul, li, a {
+margin:0px; padding:0px; border:0px;
+}
+ #wrapper {  
+   min-height:400px;  
+}
+.head_c {
+ clear:both; height:61px; width:100%;
+}
+#thelist {
+min-height:400px;
+}
+#scroller1 li {  
+    height:40px;  
+   line-height:40px;  
+}
+/*头部*/
+.myTop {
+background:#e5007f; border-bottom:1px solid #ccc; height:50px; color:#fff; font-size:1.4em; text-align:center; line-height:50px;
+position:fixed;top:0px; left:0px; width:100%; z-index:1000;
+}
+.myNav {
+    position:fixed;top:8px; left:10px; width:34px; height:34px; z-index:1001;
+}
+ .myNav img {
+     width:34px; height:34px;
+}
+ /*头部ENd*/
+ .myhm{filter:alpha(opacity=90);-moz-opacity:0.9;-khtml-opacity: 0.9;opacity: 0.9; background-color:#666; z-index:100;}
+/*底部*/
+.myFoot {
+ border-top:1px solid #666; height:50px; color:#fff; line-height:50px;
+position:fixed;bottom:0px; left:0px; width:100%; z-index:1000;
+}
+.onAll {
+ height:50px; width:15%; line-height:50px; float:left; padding-left:10px; overflow:hidden;
+}
+.myFootdd {
+     height:50px; width:45%; line-height:50px; float:left;overflow:hidden;
+}
+.myFootSare {
+    height:50px; width:30%; line-height:50px; float:right;overflow:hidden; background:#ff0000; font-size:1.2em; text-align:center;
+}
+
+/*底部end*/
+/*选择按钮*/
+input[type=checkbox].css-checkbox {
+	  position: absolute; 
+    overflow: hidden; 
+    clip: rect(0 0 0 0); 
+    height:1px; 
+    width:1px; 
+    margin:-1px; 
+    padding:0;
+    border:0;
+}
+input[type=checkbox].css-checkbox.med + label.css-label.med {
+	padding-left:22px;
+    height:17px; 
+	display:inline-block;
+	line-height:17px;
+	background-repeat:no-repeat;
+	background-position: 0 0;
+	font-size:0.8em;
+	vertical-align:middle;
+    cursor:pointer;
+    width:80px;
+}
+input[type=checkbox].css-checkbox.med:checked + label.css-label.med {
+
+    background-position: 0 -17px;
+    width:80px;
+}
+.onAll label {
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+.elegant{background-image:url(../images/elegant.png);}
+/*选择按钮end*/
+
+/*显示列表*/
+#thelist li {
+    width:100%;  background:#fff; padding:0.5em 0em; line-height:2em; border-color:#f5f1f1; margin-top:1em; border-style:solid; border-width:1px;
+    list-style-type:none; 
+}
+.themain {
+     margin:0px 10px;
+}
+.thebor_bot {
+ border-bottom:1px solid #f5f1f1;
+}
+.thepo_no {
+
+}
+.theicon {
+    font-size:16px;
+}
+ .theicon:before {
+ content:url(../images/icons/inp_sear-min.png);
+}
+.theicon::after {
+    content:url(../images/icons/left-min.png)
+}
+.theicon img {
+    height:1em;
+ }
+.theP_no {
+
+}
+.thetb {
+    width:100%; height:80px
+}
+.thetdimg {
+    width:101px; padding-left:21px; vertical-align:central;
+}
+.thetdimg img {
+   max-width:80px; max-height:80px;
+}
+.thetd1 {
+    height:40px; overflow:hidden; line-height:20px;
+}
+.thetd2 {
+    height:40px; overflow:hidden; line-height:20px;
+}
+.theMqty {
+    text-align:right; padding-right:21px; font-size:80%;
+}
+.theMqty span{
+ color:red;margin:1px 2px;
+}
+.thebotten {
+    text-align:right;  line-height:2.5em;
+}
+ .thebotten a {
+    text-decoration:none; color:#666;
+ }
+  .thebotten a:hover {
+    text-decoration:none; color:#666;
+ }
+  .thebotten a:link {
+    text-decoration:none; color:#666;
+ }
+  .thebotten a:visited {
+    text-decoration:none; color:#666;
+ }
+    .thebotten a:active {
+    text-decoration:none; color:#fff; background:#293955;
+ }
+.inputHei {
+  background:#fff; border:1px solid #666; border-radius:5px; padding:5px 15px; margin:0px 5px; font-size:1em;
+ 
+}
+.inputRed {
+  background:#fff; border:1px solid red; border-radius:5px; padding:5px 15px; margin:0px 5px; color:red;font-size:1em;
+}
+.c {
+clear:both;
+}
+/*显示列表end*/
+
+/*按钮*/
+.btn01 {
+ width:90%; height:45px; font-size:1.2em; line-height:45px; color:#fff;  margin:15px auto; border-radius:15px;
+  background:#15C23C; border:1px solid #8AE09D;
+}
+/*按钮end*/

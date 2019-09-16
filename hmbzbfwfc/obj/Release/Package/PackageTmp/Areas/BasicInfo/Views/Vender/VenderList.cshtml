@@ -1,0 +1,108 @@
+﻿@{
+    Layout = null;
+    int i = 0;
+    int b = 0;
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="zh" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="zh" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    @Html.Partial("_Title")
+
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/font-awesome4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/plugins/jbox-v2.3/jBox/Skins/Gray/jbox.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Theme/plugins/Flexigrid/css/flexigrid.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/Content/Theme/selector/css/upload.css" />
+    <style>
+        .addcolor {
+            background-color: #f7f7f7;
+        }
+    </style>
+
+</head>
+<body class="fixed-top">
+
+
+    <div class="row">
+        <div class="span12">
+            <div class="widget box light-grey">
+                <div class="widget-title">
+                    <div class="widget-title">
+                        <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>供应商管理</h4>
+                        <div class="actions">
+                                <a class="btn btn-info" href="javascript:void(0)" onclick="location.href = '/BasicData/SystemDataImportPage?filetype=Ven'"><i class="icon-pencil"></i>&nbsp;导入</a>
+                                <a class="btn btn-primary" href="javascript:void(0)" onclick="location.href = 'VenderEdit'"><i class="icon-pencil"></i>&nbsp;新增</a>
+                                <a class="btn btn-danger" href="javascript:void(0)" onclick="Public.BatchDel('VenderDel', 'VenderList')"><i class="icon-trash"></i>&nbsp;删除</a>
+                                <a class="btn btn-info" href="javascript:void(0)" onclick="location.href = 'VenderToExcel'"><i class="icon-pencil"></i>&nbsp;导出</a>
+                        </div>
+                    </div>
+                    <div class="widget-body" style="margin-left:30px;">
+                        <div class="">
+                            <form class="form-horizontal" action="javascript:void(0)">
+                                <div class="form-group">
+                                    <div class="form-inline">
+                                        <input id="txtSearch" type="text" class="form-control" placeholder="输入名称查询" />
+                                        <a id="gritter-remove-all" class="btn btn-info" href="javascript:void(0)" onclick="selectbylike();"><i class="icon-search"></i>&nbsp;搜索</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <table class="table table-hover table-bordered table-striped" id="tabInfo">
+                            <thead>
+                                <tr class="widget-title">
+                                    <th style="width: 8px;"><input type="checkbox" name="selall" class="group-checkable" onclick="Public.SelectAll(this)" /></th>
+                                    <th class="hidden-480">编号</th>
+                                    <th class="hidden-480">名称</th>
+                                    <th class="hidden-480">供应商分类</th>
+                                    <th class="hidden-480">省份/地区</th>
+                                    <th class="hidden-480">城市</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                @foreach (var item in ViewBag.list)
+                                {
+
+                                    <tr class="@(i % 2 == 0 ? "" : "addcolor")">
+                                        <td><input name="user_item" class="checkboxes" data="@item.fid" value="@item.fid" type="checkbox"></td>
+                                        <td>@item.cu_no</td>
+                                        <td>@item.cu_name</td>
+                                        <td>@item.cutype</td>
+                                        <td>@item.province</td>
+                                        <td>@item.city</td>
+                                        <td><a class="icon-edit" href="javascript:void(0)" onclick="location.href = 'VenderEdit?fid=@item.fid&logintype=@ViewBag.logintype'" title="编辑"><i class="fa fa-pencil" aria-hidden="true"></i> </a>&nbsp;&nbsp;<a class="icon-remove" href="javascript:void(0)" onclick="Public.Delete('@item.fid','VenderDel','VenderList')" title="删除"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+                                    </tr>
+
+                                    i++;
+                                }
+                            </tbody>
+                        </table>
+
+                       
+                        <div class="row" id="mypager">
+                            @Html.Partial("_Pages")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_Foot")
+    
+</body>
+</html>

@@ -1,0 +1,161 @@
+﻿@{
+    Layout = null;
+    int i = 0;
+    int b = 0;
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="zh" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="zh" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    @Html.Partial("_Title")
+
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/font-awesome4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/plugins/jbox-v2.3/jBox/Skins/Gray/jbox.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Theme/plugins/Flexigrid/css/flexigrid.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/Content/Theme/selector/css/ion.calendar.css" />
+
+    <style>
+        .addcolor {
+            background-color: #f7f7f7;
+        }
+    </style>
+
+</head>
+<body class="fixed-top">
+
+
+    <div class="row">
+        <div class="span12">
+            <div class="widget box light-grey">
+                <div class="widget-title">
+                    <div class="widget-title">
+                        <h4><i class="fa fa-file-text" aria-hidden="true" style="margin-left:20px;"></i>库存查询</h4>
+                        <div class="actions">
+                            <a class="btn btn-info " href="SalStockList?dc=ok&(@ViewBag.parme)"><i class="icon-download"></i>&nbsp;导出</a>
+                        </div>
+                    </div>
+                    <div class="widget-body" style="margin-left:30px;">
+                        <div class="">
+                            <form class="form-horizontal" action="javascript:void(0)">
+                                <div class="form-group">
+                                    <div class="form-inline">                                       
+                                        <input type="text" onclick="getprod();" readonly placeholder="选择产品" id="pname" name="pname" class="form-control" data-toggle="modal" data-target=".modal_cp" />
+                                        <input type="hidden" id="pno" name="p_no" />                                       
+                                        <a id="gritter-remove-all" class="btn btn-info" href="javascript:void(0)" onclick="selectbylike();"><i class="icon-search"></i>&nbsp;搜索</a>
+                                        
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <table class="table table-hover table-bordered table-striped" id="tabInfo">
+                            <thead>
+                                <tr class="widget-title">
+
+                                    <th class="hidden-480" >产品编号|名称</th>
+                                    <th class="hidden-480">规格</th>                                 
+                                    <th class="hidden-480">适用车型</th>
+                                    <th class="hidden-480">包装入库量</th>
+                                    <th class="hidden-480">直接入库量</th>
+
+                                    <th class="hidden-480">出库量</th>
+                                    <th class="hidden-480">退货量</th>
+                                    <th class="hidden-480">库存</th>
+
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                @foreach (var item in ViewBag.list)
+                                {
+                                    <tr class="@(i % 2 == 0 ? "" : "addcolor")">
+                                        <td>@item.p_no | @hmbzbfwfc.Commons.DataEnum.GetPName(item.p_no)</td>
+                                        <td>@hmbzbfwfc.Commons.DataEnum.GetPType(item.p_no)</td>
+                                        <td>@hmbzbfwfc.Commons.DataEnum.GetPcx(item.p_no)</td>
+                                        <td>@item.inqty</td>  
+                                        <td>@item.fgiqty</td>                                      
+                                        <td>@(item.outqty)</td>
+                                        <td>@item.bakqty</td>
+                                        <td>@item.stqty</td>                                       
+                                    </tr>
+
+                                    i++;
+                                }
+                            </tbody>
+                        </table>
+
+                        
+
+                        <div class="row" id="mypager">
+                            <div class="pager" id="pager">
+                               @Html.Partial("_Pages")                              
+                            </div>
+                        </div>
+                    </div>
+
+                    @Html.Partial("_modal_pro");
+
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_Foot")
+    <script src="~/Content/Theme/selector/js/moment.min.js"></script>         <!--日期-->
+    <script src="~/Content/Theme/selector/js/moment.zh-cn.js"></script>       <!--日期-->
+    <script src="~/Content/Theme/selector/js/ion.calendar.min.js"></script>   <!--日期-->
+
+    <script>
+
+    
+
+    //日期
+    $(function () {
+        $('.date').each(function () {
+            $(this).ionDatePicker({
+                lang: 'zh-cn',
+                format: 'YYYY-MM-DD'
+            });
+        });
+    });
+
+    function changepagesize() {
+        var pagesize = $("#pagesize").val();
+        location.href = "SalStockList?pageno=@ViewBag.pageno&@Html.Raw(ViewBag.parme)&pagesize=" + pagesize;
+    }
+
+    function changepagenum() {
+        var pageno = $("#pageno").val();
+
+        location.href = "SalStockList?pagesize=@ViewBag.pagesize&@Html.Raw(ViewBag.parme)&pageno=" + pageno;
+    }
+
+        function selectbylike() {
+            //var Detailname = $("#txtSearch").val();
+           
+            
+            var pno = $("#pno").val();
+           
+            location.href = "SalStockList?pno=" + pno ;
+            
+
+        }
+
+
+    </script>
+
+</body>
+</html>
